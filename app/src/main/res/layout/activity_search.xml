@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".SearchActivity">
+
+        <TextView
+            android:id="@+id/textViewIndicaciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_centerHorizontal="true"
+            android:text="Por favor seleccione solo una opción"
+            android:textSize="20dp" />
+
+        <CheckBox
+            android:id="@+id/checkBoxInspeccion"
+            android:layout_width="160dp"
+            android:layout_height="23dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="30dp"
+            android:layout_below="@+id/textViewIndicaciones"
+            android:text="INSPECCION" />
+
+        <CheckBox
+            android:id="@+id/checkBoxMantenimiento"
+            android:layout_width="160dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/checkBoxInspeccion"
+            android:layout_marginStart="30dp"
+            android:text="MANTENIMIENTO" />
+
+        <CheckBox
+            android:id="@+id/checkBoxArtimo"
+            android:layout_width="160dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="30dp"
+            android:layout_below="@+id/checkBoxMantenimiento"
+            android:text="ARTIMO" />
+
+        <CheckBox
+            android:id="@+id/checkBoxServicio"
+            android:layout_width="160dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="30dp"
+            android:layout_below="@+id/checkBoxArtimo"
+            android:text="SERVICIO" />
+
+        <CheckBox
+            android:id="@+id/checkBoxMontaje"
+            android:layout_width="160dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="30dp"
+            android:layout_below="@+id/checkBoxServicio"
+            android:text="MONTAJE" />
+
+        <CheckBox
+            android:id="@+id/checkBoxEntrega"
+            android:layout_width="160dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/checkBoxMontaje"
+            android:layout_marginStart="30dp"
+            android:text="ENTREGA" />
+
+        <CheckBox
+            android:id="@+id/checkBoxEmergencia"
+            android:layout_width="160dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/checkBoxEntrega"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="-1dp"
+            android:text="EMERGENCIA" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/checkBoxEntrega"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:backgroundTint="@color/white"
+            android:text="Validar"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/textViewIdEquipo"
+            android:layout_width="160dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/button"
+            android:layout_marginStart="20dp"
+            android:inputType="textCapCharacters"
+            android:layout_marginTop="30dp"
+            android:visibility="gone"
+            android:text="ID Equipo:" />
+
+        <EditText
+            android:id="@+id/EditTextIdEquipo"
+            android:layout_width="160dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/button"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:visibility="gone"
+            android:textSize="12dp"
+            android:inputType="textCapCharacters"
+            android:gravity="center"
+            android:layout_toEndOf="@+id/textViewIdEquipo"
+            android:background="@drawable/style_etbg" />
+
+        <TextView
+            android:id="@+id/textViewOrdenTrabajo"
+            android:layout_width="160dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/textViewIdEquipo"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:visibility="gone"
+            android:text="Orden Trabajo:" />
+
+        <TextView
+            android:id="@+id/textViewCheckSeleccion"
+            android:layout_width="160dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/buttonSend"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:text="Orden Trabajo:"
+            android:visibility="invisible" />
+
+        <EditText
+            android:id="@+id/editTextOrdenTrabajo"
+            android:layout_width="160dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/EditTextIdEquipo"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:textSize="12dp"
+            android:visibility="gone"
+            android:inputType="textCapCharacters"
+            android:gravity="center"
+            android:layout_toEndOf="@+id/textViewIdEquipo"
+            android:background="@drawable/style_etbg" />
+
+        <Button
+            android:id="@+id/buttonSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editTextOrdenTrabajo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="60dp"
+            android:backgroundTint="@color/white"
+            android:text="Enviar"
+            android:textColor="@color/black" />
+
+
+
+    </RelativeLayout>
+</layout>

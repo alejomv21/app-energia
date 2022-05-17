@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".login.LoginActivity">
+
+        <TextView
+            android:id="@+id/textUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="120sp"
+            android:backgroundTint="@color/black"
+            android:fontFamily="cursive"
+            android:gravity="center"
+            android:text="USUARIO"
+            android:textColor="#000000"
+            android:textSize="34sp" />
+
+        <EditText
+            android:id="@+id/EditUsuario"
+            android:layout_width="300sp"
+            android:layout_height="40sp"
+            android:layout_below="@+id/textUser"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30sp"
+            android:background="@drawable/style_etbg"
+            android:gravity="center"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/textPasswor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/EditUsuario"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40sp"
+            android:backgroundTint="@color/black"
+            android:fontFamily="cursive"
+            android:gravity="center"
+            android:text="PASSWORD"
+            android:textColor="#000000"
+            android:textSize="34sp" />
+
+        <EditText
+            android:id="@+id/EditPassword"
+            android:layout_width="300sp"
+            android:layout_height="40sp"
+            android:layout_below="@+id/textPasswor"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30sp"
+            android:background="@drawable/style_etbg"
+            android:gravity="center"
+            android:inputType="textPassword"
+            android:textSize="20sp" />
+
+        <Button
+            android:id="@+id/buttonEnviar1"
+            android:layout_width="150sp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/EditPassword"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40sp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="sans-serif-black"
+            android:text="VALIDAR"
+            android:textColor="@color/black" />
+
+    </RelativeLayout>
+</layout>

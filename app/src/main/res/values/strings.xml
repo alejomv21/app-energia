@@ -1,0 +1,55 @@
+<resources>
+    <string name="app_name">pruebaEquitel</string>
+    <string name="cabina">CABINA</string>
+    <string name="cuarta">CUARTA</string>
+    <string name="abierto">ABIERTO</string>
+    <string name="otro">OTRO</string>
+    <string name="acpm">ACPM</string>
+    <string name="gasol">GASOL</string>
+    <string name="bat">BAT</string>
+    <string name="visita_tecnica_n_sen_07_n_version_08_n_soperte_t_cnico_n_n">Visita tecnica\n SEN-07 \n VERSION 08\n SOPERTE TÉCNICO\n n°</string>
+    <string name="cliente">CLIENTE:</string>
+    <string name="dir">DIr:</string>
+    <string name="servicio_solicitado_por">SERVICIO SOLICITADO POR:</string>
+    <string name="cargo">CARGO:</string>
+    <string name="email">EMAIL:</string>
+    <string name="tel_cell">TEL/CELL:</string>
+    <string name="marca_motor">MARCA MOTOR:</string>
+    <string name="marca_gen">MARCA GEN:</string>
+    <string name="marca_planta">MARCA PLANTA:</string>
+    <string name="mod_motor">MOD. MOTOR:</string>
+    <string name="mod_gen">MOD. GEN:</string>
+    <string name="mod_planta">MOD. PLANTA:</string>
+    <string name="clp">CLP:</string>
+    <string name="tipo_bateria">TIPO BATERIA:</string>
+
+    <string-array name="tipoServicio">
+        <item>EMERGENCIA</item>
+        <item>SERVICIO</item>
+        <item>MANTENIMIENTO</item>
+        <item>INSPECCION</item>
+        <item>MONTAJE</item>
+        <item>ENTREGA</item>
+
+    </string-array>
+
+    <string-array name="sede">
+        <item>CALI</item>
+        <item>PEREIRA</item>
+        <item>PASTO</item>
+        <item>MEDELLÍN</item>
+        <item>BOGOTÁ</item>
+        <item>BARRANQUILLA</item>
+        <item>IBAGUÉ</item>
+        <item>VILLAVICENCIO</item>
+        <item>SAN ANDRÉS</item>
+
+    </string-array>
+
+    <string-array name="OpcionesHoja2">
+        <item> </item>
+        <item>B</item>
+        <item>R</item>
+        <item>M</item>
+    </string-array>
+</resources>

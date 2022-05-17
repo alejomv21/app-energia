@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textEstadoequipo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:text="II. ESTADO INICIAL" />
+
+            <ImageView
+                android:id="@+id/imageViewSeparatorEstado"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textEstadoequipo"
+                android:layout_marginTop="10dp"
+                android:background="@color/black"
+                android:contentDescription="TODO"
+                android:src="@android:drawable/divider_horizontal_bright" />
+
+            <TextView
+                android:id="@+id/TextMedida"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewSeparatorEstado"
+                android:layout_alignParentEnd="true"
+                android:text="MEDIDA" />
+
+            <ImageView
+                android:id="@+id/imageViewSeparatorMedida"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TextMedida"
+                android:background="@color/black"
+                android:contentDescription="TODO"
+                android:src="@android:drawable/divider_horizontal_bright" />
+
+            <TextView
+                android:id="@+id/textA"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/imageViewSeparatorMedida"
+                android:text="A. Nivel Aceite: " />
+
+            <Spinner
+                android:id="@+id/spinnnerA"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/imageViewSeparatorMedida"
+                android:layout_toEndOf="@+id/textA" />
+
+            <EditText
+                android:layout_width="60dp"
+                android:layout_height="23dp"
+                android:layout_below="@+id/imageViewSeparatorMedida"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/style_etbg" />
+
+            <TextView
+                android:id="@+id/textB"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/textA"
+                android:text="B. Estado Radiador" />
+
+            <Spinner
+                android:id="@+id/spinnnerB"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textA"
+                android:layout_toEndOf="@+id/textB" />
+
+            <TextView
+                android:id="@+id/textC"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/textB"
+                android:text="C. Nivel Agua Radiador" />
+
+            <Spinner
+                android:id="@+id/spinnnerC"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textB"
+                android:layout_toEndOf="@+id/textC" />
+
+            <TextView
+                android:id="@+id/textD"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/textC"
+                android:text="D. Aspas Ventilador" />
+
+            <Spinner
+                android:id="@+id/spinnnerD"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textC"
+                android:layout_toEndOf="@+id/textD" />
+
+            <TextView
+                android:id="@+id/textE"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/textD"
+                android:text="E. Bomes Baterías" />
+
+            <Spinner
+                android:id="@+id/spinnnerE"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textD"
+                android:layout_toEndOf="@+id/textE" />
+
+            <TextView
+                android:id="@+id/textF"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/textE"
+                android:text="F. Nivel Agua Baterías" />
+
+            <Spinner
+                android:id="@+id/spinnnerF"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textE"
+                android:layout_toEndOf="@+id/textF" />
+
+            <TextView
+                android:id="@+id/textG"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/textF"
+                android:text="G. Densidad Electrolito 1220 a 1260" />
+
+            <Spinner
+                android:id="@+id/spinnnerG"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textF"
+                android:layout_toEndOf="@+id/textG" />
+
+            <TextView
+                android:id="@+id/textH"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/textG"
+                android:text="H. Voltaje Baterías > 12 ó 24" />
+
+            <EditText
+                android:layout_width="60dp"
+                android:layout_height="23dp"
+                android:layout_below="@+id/textG"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/style_etbg" />
+
+            <Spinner
+                android:id="@+id/spinnnerH"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textG"
+                android:layout_toEndOf="@+id/textH" />
+
+            <TextView
+                android:id="@+id/textI"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/textH"
+                android:text="I. Cargador Funciona > 12 ó 24 >14.4 ó 28.8 Vdc" />
+
+            <Spinner
+                android:id="@+id/spinnnerI"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textH"
+                android:layout_toEndOf="@+id/textI" />
+
+            <EditText
+                android:layout_width="60dp"
+                android:layout_height="23dp"
+                android:layout_below="@+id/textH"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/style_etbg" />
+
+            <TextView
+                android:id="@+id/textJ"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/textI"
+                android:text="J. Correas Tensionadas" />
+
+            <Spinner
+                android:id="@+id/spinnnerJ"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textI"
+                android:layout_toEndOf="@+id/textJ" />
+
+            <TextView
+                android:id="@+id/textK"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/textJ"
+                android:text="K. Estado del Filtro del Aire" />
+
+            <Spinner
+                android:id="@+id/spinnnerK"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textJ"
+                android:layout_toEndOf="@+id/textK" />
+
+            <TextView
+                android:id="@+id/textL"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/textK"
+                android:text="L. Estado de Mangueras" />
+
+            <Spinner
+                android:id="@+id/spinnnerL"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textK"
+                android:layout_toEndOf="@+id/textL" />
+
+            <TextView
+                android:id="@+id/textM"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/textL"
+                android:text="M. Estado Precalentador" />
+
+            <Spinner
+                android:id="@+id/spinnnerM"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textL"
+                android:layout_toEndOf="@+id/textM" />
+
+            <TextView
+                android:id="@+id/textN"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/textM"
+                android:text="N. Estado de Racores" />
+
+            <Spinner
+                android:id="@+id/spinnnerN"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textM"
+                android:layout_toEndOf="@+id/textN" />
+
+            <TextView
+                android:id="@+id/textO"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/textN"
+                android:text="O. Fugas" />
+
+            <Spinner
+                android:id="@+id/spinnnerO"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textN"
+                android:layout_toEndOf="@+id/textO" />
+
+            <TextView
+                android:id="@+id/textP"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/textO"
+                android:text="P. Estado Combustibles/nuvel" />
+
+            <Spinner
+                android:id="@+id/spinnnerP"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textO"
+                android:layout_toEndOf="@+id/textP" />
+
+            <TextView
+                android:id="@+id/textQ"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/textP"
+                android:text="Q. Estado/Capacidad tanque" />
+
+            <Spinner
+                android:id="@+id/spinnnerQ"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textP"
+                android:layout_toEndOf="@+id/textQ" />
+
+            <TextView
+                android:id="@+id/textR"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/textQ"
+                android:text="R. Forma Tanque" />
+
+            <Spinner
+                android:id="@+id/spinnnerR"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textQ"
+                android:layout_toEndOf="@+id/textQ" />
+
+            <ImageView
+                android:id="@+id/imageViewSeparator"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textR"
+                android:layout_marginTop="20dp"
+                android:background="@color/black"
+                android:contentDescription="TODO"
+                android:src="@android:drawable/divider_horizontal_bright" />
+
+            <TextView
+                android:id="@+id/Generador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewSeparator"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30sp"
+                android:text="2. GENERADOR" />
+
+            <TextView
+                android:id="@+id/text2A"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/Generador"
+                android:text="A. Estado Generador" />
+
+            <Spinner
+                android:id="@+id/spinnner2A"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/Generador"
+                android:layout_toEndOf="@+id/text2A" />
+
+            <TextView
+                android:id="@+id/text2B"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/text2A"
+                android:text="B. Aspas Ventilador" />
+
+            <Spinner
+                android:id="@+id/spinnner2B"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/text2A"
+                android:layout_toEndOf="@+id/text2B" />
+
+            <TextView
+                android:id="@+id/text2C"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/text2B"
+                android:text="C. Conexión de Potencia" />
+
+            <Spinner
+                android:id="@+id/spinnner2C"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/text2B"
+                android:layout_toEndOf="@+id/text2C" />
+
+            <TextView
+                android:id="@+id/text2D"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/text2C"
+                android:text="D. Conexión Cableado Control" />
+
+            <Spinner
+                android:id="@+id/spinnner2D"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/text2C"
+                android:layout_toEndOf="@+id/text2D" />
+
+            <TextView
+                android:id="@+id/text2E"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/text2D"
+                android:text="E. Objetos Extraños en el Interior" />
+
+            <Spinner
+                android:id="@+id/spinnner2E"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/text2D"
+                android:layout_toEndOf="@+id/text2E" />
+
+            <TextView
+                android:id="@+id/text2F"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/text2E"
+                android:text="F. Puente Rectificador Giratoio" />
+
+            <Spinner
+                android:id="@+id/spinnner2F"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/text2E"
+                android:layout_toEndOf="@+id/text2F" />
+
+            <TextView
+                android:id="@+id/text2G"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/text2F"
+                android:text="G. Estado de Control" />
+
+            <Spinner
+                android:id="@+id/spinnner2G"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/text2F"
+                android:layout_toEndOf="@+id/text2G" />
+
+            <TextView
+                android:id="@+id/text2H"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/text2G"
+                android:text="H. Estado Cuarto/Cabina" />
+
+            <Spinner
+                android:id="@+id/spinnner2H"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/text2G"
+                android:layout_toEndOf="@+id/text2H" />
+
+            <ImageView
+                android:id="@+id/imageViewSeparatorTrabajoRealizado"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/text2H"
+                android:layout_marginTop="20dp"
+                android:background="@color/black"
+                android:src="@android:drawable/divider_horizontal_bright" />
+
+            <TextView
+                android:id="@+id/TrabajoRealizado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewSeparatorTrabajoRealizado"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30sp"
+                android:text="III. Trabajo Realizado" />
+
+            <EditText
+                android:id="@+id/EditTrabajoRealizado"
+                style="@style/StartGenerador"
+                android:layout_below="@+id/TrabajoRealizado"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:padding="10dp"/>
+
+            <Button
+                android:id="@+id/buttonEnviar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/EditTrabajoRealizado"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30sp"
+                android:layout_marginBottom="20sp"
+                android:text="ENVIAR" />
+
+
+        </RelativeLayout>
+
+
+    </ScrollView>
+</layout>
