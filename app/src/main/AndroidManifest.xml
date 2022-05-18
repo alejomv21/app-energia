@@ -13,6 +13,9 @@
         android:theme="@style/Theme.PruebaEquitel"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".Sheet6.Sheet6Activity"
+            android:exported="false" />
+        <activity
             android:name=".reciclerSheet.ActivitySheet5"
             android:exported="false" />
         <activity

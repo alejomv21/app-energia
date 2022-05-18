@@ -26,8 +26,6 @@ t
 Dapp/src/main/java/com/equitel/pruebaequitel/api/equitelApiService.kt,e\8\e84242bab443dfb599c7b75946f95b217b235880
 q
 Aapp/src/main/java/com/equitel/pruebaequitel/main/MainViewModel.kt,8\b\8ba4e53f84888b6f9e33e0c14e35ddbfdf6df4d3
-t
-Dapp/src/main/java/com/equitel/pruebaequitel/Sheet2/Sheet2Activity.kt,0\a\0a34f303a9be81b05a97042f44dc474ddb4788d1
 s
 Capp/src/main/java/com/equitel/pruebaequitel/login/LoginViewModel.kt,c\9\c9f0153c1466ab60384a9d44b3e135994131cf3f
 x
@@ -42,8 +40,6 @@ n
 >app/src/test/java/com/equitel/pruebaequitel/ExampleUnitTest.kt,d\3\d39037cbc8d644b5f936cab1f2de95dec74eec70
 F
 app/proguard-rules.pro,9\e\9e08934d811afe28fbc77aaa3c0d747b94348db9
-P
- app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
 |
 Lapp/src/main/java/com/equitel/pruebaequitel/Sheet2/Sheet2ViewModelFactory.kt,9\d\9db77a12c2a98cf065357e4da30be83ff3258e76
 v
