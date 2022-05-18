@@ -30,7 +30,7 @@ class EqAdapter : ListAdapter<Almacenamiento, EqAdapter.EqViewHolder>(DiffCallba
     override fun onBindViewHolder(holder: EqAdapter.EqViewHolder, position: Int) {
         val earthquake = getItem(position)
         holder.ordenTrabajo.text = earthquake.ordenTrabajo.toString()
-        holder.ciudad.text = earthquake.ciudad.toString()
+        holder.ciudad.text = earthquake.id.toString()
     }
 
     inner class EqViewHolder(val view: View): RecyclerView.ViewHolder(view){

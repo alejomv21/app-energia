@@ -17,22 +17,22 @@ class ActivitySheet5 : AppCompatActivity() {
         binding = ActivitySheet5Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        //viewModel = ViewModelProvider(this, Sheet5ViewModelFactory(application)).get(Sheet5ViewModel::class.java)
+        viewModel = ViewModelProvider(this, Sheet5ViewModelFactory(application)).get(Sheet5ViewModel::class.java)
 
-        //binding.eqRecicler.layoutManager = LinearLayoutManager(this)
+        binding.eqRecicler.layoutManager = LinearLayoutManager(this)
 
         //val eqList = mutableListOf<Almacenamiento>()
 
-        //ListarAlmacenaientos()
+        ListarAlmacenaientos()
     }
 
     private fun ListarAlmacenaientos(){
-        /*viewModel.almacenamiento.observe(this, Observer {
+        viewModel.almacenamiento.observe(this, Observer {
             almacenamiento->
                 val adapter = EqAdapter()
                 binding.eqRecicler.adapter = adapter
                 adapter.submitList(almacenamiento)
-        })*/
+        })
     }
 }
 

@@ -20,12 +20,12 @@ class Sheet5ViewModel(aplication : Application): AndroidViewModel(aplication) {
         get() = _almacenamiento
 
     init {
-        /*viewModelScope.launch {
+        viewModelScope.launch {
             try{
                 _almacenamiento.value = repository.ListarAlmacenamiento()
             }catch (e: UnknownError){
                 Log.d(TAG, "No conexión")
             }
-        }*/
+        }
     }
 }

@@ -24,8 +24,8 @@ interface EqDao {
     @Query("SELECT * FROM AlmacenamientoFinal ORDER  BY idEquipo DESC LIMIT 1")
     fun getAlmacenamientoHoja2(): Almacenamiento
 
-    //@Query("SELECT * FROM AlmacenamientoFinal")
-    //fun getAlmacenamientoListas(): MutableList<Almacenamiento>
+    @Query("SELECT * FROM AlmacenamientoFinal")
+    fun getAlmacenamientoListas(): MutableList<Almacenamiento>
 
     @Update
     suspend fun update(almacenamiento: Almacenamiento)

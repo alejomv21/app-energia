@@ -9,24 +9,25 @@
         android:id="@+id/sqlLiteOrdenTrabajo_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
         android:textColor="@color/black"
+        android:textSize="20sp"
         android:textStyle="bold"
-        tools:text="646343"/>
+        tools:text="646343" />
     <ImageView
         android:id="@+id/eqImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:src="@drawable/ic_chevron_right_black"/>
+
     <TextView
         android:id="@+id/sqlLiteCiudad_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@+id/sqlLiteOrdenTrabajo_text"
-        android:textSize="20sp"
-        android:textColor="@color/black"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        tools:text="Popayán"/>
+        android:layout_toEndOf="@+id/sqlLiteOrdenTrabajo_text"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        tools:text="Popayán" />
 </RelativeLayout>

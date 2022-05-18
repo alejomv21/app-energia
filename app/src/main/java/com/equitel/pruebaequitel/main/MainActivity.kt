@@ -16,6 +16,7 @@ import com.equitel.pruebaequitel.SerialPlanta
 import com.equitel.pruebaequitel.Sheet2.Sheet2Activity
 import com.equitel.pruebaequitel.api.ApiResponseStatus
 import com.equitel.pruebaequitel.databinding.ActivityMainBinding
+import com.equitel.pruebaequitel.reciclerSheet.ActivitySheet5
 import java.util.*
 
 
@@ -287,7 +288,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun cambioSheet2(){
-        val intent = Intent(this, Sheet2Activity::class.java)
+        val intent = Intent(this, ActivitySheet5::class.java)
         startActivity(intent)
     }
 

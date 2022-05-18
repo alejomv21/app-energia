@@ -4,7 +4,7 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "AlmacenamientoFinal")
-data class Almacenamiento (@PrimaryKey var idEquipo : String = "1", var ordenTrabajo: String? = null, var sede: String? = null, var tipoUbicacion : String? = null,
+data class Almacenamiento (@PrimaryKey (autoGenerate = true) var id : Int? = null, var idEquipo : String = "1", var ordenTrabajo: String? = null, var sede: String? = null, var tipoUbicacion : String? = null,
                            var tipoEquipo : String? = null, var tipoServicio : String? = null, var ciudad: String? = null, var fecha: String? = null, var cliente: String? = null,
                            var direccion : String? = null, var servicioSolicitadoPor: String? = null, var cargo : String? = null, var email: String? = null, var tel: String? = null,
                            var marcaMotor : String? = null, var marcaGenerador: String? = null, var modMotor : String? = null, var modGenerador: String? = null, var serialMotor : String? = null,
