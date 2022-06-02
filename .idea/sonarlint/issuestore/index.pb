@@ -10,16 +10,8 @@ A
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 o
 ?app/src/main/java/com/equitel/pruebaequitel/SearchRepository.kt,0\2\0222d38f16e7343f3256f24f04da97f787fcb2a7
-|
-Lapp/src/main/java/com/equitel/pruebaequitel/Sheet3/Sheet3ViewModelFactory.kt,0\5\05af071c316eeff32b98c73849e3da70a0a46295
-v
-Fapp/src/main/java/com/equitel/pruebaequitel/Sheet3/Sheet3Repository.kt,c\9\c91626da984c6c8df5cf445021f863c0fcd2056e
-u
-Eapp/src/main/java/com/equitel/pruebaequitel/Sheet3/Sheet3ViewModel.kt,0\b\0b4f549696579bd5b5b2ed8ebfcf1c59c2bed52f
 r
 Bapp/src/main/java/com/equitel/pruebaequitel/login/LoginActivity.kt,4\c\4cc1f0a864c78323dd3183a15a890c3238768cac
-t
-Dapp/src/main/java/com/equitel/pruebaequitel/Sheet3/Sheet3Activity.kt,6\2\62500fddd62aaa06fbf00e9df00259e145b64a0e
 k
 ;app/src/main/java/com/equitel/pruebaequitel/SerialPlanta.kt,7\3\739006ddc4e438c1deb96cf3e28654660e8b06ec
 t
@@ -64,5 +56,23 @@ m
 Sapp/src/main/java/com/equitel/pruebaequitel/reciclerSheet/Sheet5ViewModelFactory.kt,5\f\5fc6518e05f670073ff22fa4db62bfb14137cc0d
 r
 Bapp/src/main/java/com/equitel/pruebaequitel/main/MainRepository.kt,d\d\dded9e72967e3965b0c1bb3f855883475a871697
+@
+app/build.gradle,f\4\f4a01d6a4fcb971362ec00a83903fd3902f52164
+p
+@app/src/main/java/com/equitel/pruebaequitel/main/MainActivity.kt,f\4\f4a1b91dd475e1ecb76e5f05a746ca201bea99b5
+m
+=app/src/main/java/com/equitel/pruebaequitel/database/EqDao.kt,1\c\1c54d15b7454f687c7d26ea900c04fee0253581e
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+|
+Lapp/src/main/java/com/equitel/pruebaequitel/reciclerSheet/Sheet5ViewModel.kt,4\8\4886b6297402ac57c9eab7787b915d4d6d93bd2c
+}
+Mapp/src/main/java/com/equitel/pruebaequitel/reciclerSheet/Sheet5Repository.kt,e\b\eb7c5690ff0cfab27d72b7612e95a977edb5c675
 t
-Dapp/src/main/java/com/equitel/pruebaequitel/Sheet4/Sheet4Activity.kt,d\7\d72bb41edf046d155f36f444724438501d3ba6b1
+Dapp/src/main/java/com/equitel/pruebaequitel/Sheet2/Sheet2Activity.kt,0\a\0a34f303a9be81b05a97042f44dc474ddb4788d1
+|
+Lapp/src/main/java/com/equitel/pruebaequitel/Sheet3/Sheet3ViewModelFactory.kt,0\5\05af071c316eeff32b98c73849e3da70a0a46295
+v
+Fapp/src/main/java/com/equitel/pruebaequitel/Sheet3/Sheet3Repository.kt,c\9\c91626da984c6c8df5cf445021f863c0fcd2056e
+u
+Eapp/src/main/java/com/equitel/pruebaequitel/Sheet3/Sheet3ViewModel.kt,0\b\0b4f549696579bd5b5b2ed8ebfcf1c59c2bed52f

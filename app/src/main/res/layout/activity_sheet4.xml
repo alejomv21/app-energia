@@ -84,27 +84,31 @@
                 style="@style/StartGenerador"
                 android:layout_below="@+id/salidaTA1"
                 android:layout_marginStart="20dp"
-                android:layout_toEndOf="@+id/EditHoraSalidaT"/>
+                android:layout_toEndOf="@+id/EditHoraSalidaT" />
+
             <EditText
                 android:id="@+id/EditsalidaTA2"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/salidaTA1"
-                android:layout_toEndOf="@+id/EditsalidaTA1"/>
+                android:layout_toEndOf="@+id/EditsalidaTA1" />
+
             <EditText
                 android:id="@+id/EditsalidaTA3"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/salidaTA1"
-                android:layout_toEndOf="@+id/EditsalidaTA2"/>
+                android:layout_toEndOf="@+id/EditsalidaTA2" />
+
             <EditText
                 android:id="@+id/EditsalidaTA4"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/salidaTA1"
-                android:layout_toEndOf="@+id/EditsalidaTA3"/>
+                android:layout_toEndOf="@+id/EditsalidaTA3" />
+
             <EditText
                 android:id="@+id/EditsalidaTA5"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/salidaTA1"
-                android:layout_toEndOf="@+id/EditsalidaTA4"/>
+                android:layout_toEndOf="@+id/EditsalidaTA4" />
 
             <TextView
                 android:id="@+id/TextHoraSalidaC"
@@ -168,26 +172,30 @@
                 android:layout_below="@+id/salidaCA1"
                 android:layout_marginStart="20dp"
                 android:layout_toEndOf="@+id/EditHoraSalidaT" />
+
             <EditText
                 android:id="@+id/EditsalidaCA2"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/salidaCA1"
-                android:layout_toEndOf="@+id/EditsalidaCA1"/>
+                android:layout_toEndOf="@+id/EditsalidaCA1" />
+
             <EditText
                 android:id="@+id/EditsalidaCA3"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/salidaCA1"
-                android:layout_toEndOf="@+id/EditsalidaCA2"/>
+                android:layout_toEndOf="@+id/EditsalidaCA2" />
+
             <EditText
                 android:id="@+id/EditsalidaCA4"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/salidaCA1"
-                android:layout_toEndOf="@+id/EditsalidaCA3"/>
+                android:layout_toEndOf="@+id/EditsalidaCA3" />
+
             <EditText
                 android:id="@+id/EditsalidaCA5"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/salidaCA1"
-                android:layout_toEndOf="@+id/EditsalidaCA4"/>
+                android:layout_toEndOf="@+id/EditsalidaCA4" />
 
             <TextView
                 android:id="@+id/TextHorallegadaC"
@@ -257,16 +265,18 @@
                 style="@style/StartGenerador"
                 android:layout_below="@+id/llegadaCA1"
                 android:layout_toEndOf="@+id/EditllegadaCA1" />
+
             <EditText
                 android:id="@+id/EditllegadaCA3"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/llegadaCA1"
-                android:layout_toEndOf="@+id/EditllegadaCA2"/>
+                android:layout_toEndOf="@+id/EditllegadaCA2" />
+
             <EditText
                 android:id="@+id/EditllegadaCA4"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/llegadaCA1"
-                android:layout_toEndOf="@+id/EditllegadaCA3"/>
+                android:layout_toEndOf="@+id/EditllegadaCA3" />
             <EditText
                 android:id="@+id/EditllegadaCA5"
                 style="@style/StartGenerador"
@@ -358,13 +368,122 @@
                 android:id="@+id/EditatencionCA5"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/atencionCA1"
-                android:layout_toEndOf="@+id/EditatencionCA4"/>
+                android:layout_toEndOf="@+id/EditatencionCA4" />
+
+            <TextView
+                android:id="@+id/TextCalificacionCliente"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@+id/EditatencionCA5"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:text="CALIFICACION CLIENTE" />
+
+            <TextView
+                android:id="@+id/TextServicioCumplimiento"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:layout_below="@+id/TextCalificacionCliente"
+                android:text="SERVICIO/CUMPLIMIENTO"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/TextServCumplimiento1"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/TextCalificacionCliente"
+                android:layout_marginStart="30dp"
+                android:layout_toEndOf="@+id/TextServicioCumplimiento"
+                android:text="1-10"
+                android:textSize="10sp"
+                android:gravity="center"
+                style="@style/StartGenerador"/>
+
+            <EditText
+                android:id="@+id/EditServCumplimiento1"
+                style="@style/StartGenerador"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/TextCalificacionCliente"
+                android:layout_toEndOf="@+id/TextServCumplimiento1"
+                android:gravity="center"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/TextOrdenAseo"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/EditServCumplimiento1"
+                android:text="SERVICIO/CUMPLIMIENTO"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/TextOrdenAseo1"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/EditServCumplimiento1"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_toEndOf="@+id/TextOrdenAseo"
+                android:text="1-10"
+                android:textSize="10sp"
+                android:gravity="center"
+                style="@style/StartGenerador"/>
+
+            <EditText
+                android:id="@+id/EditOrdenAseo1"
+                style="@style/StartGenerador"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/EditServCumplimiento1"
+                android:layout_toEndOf="@+id/TextOrdenAseo1"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/TextUsoElementosProteccion"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:layout_below="@+id/EditOrdenAseo1"
+                android:text="SERVICIO/CUMPLIMIENTO"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/TextUsoElementosProteccion1"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/EditOrdenAseo1"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_toEndOf="@+id/TextUsoElementosProteccion"
+                android:text="1-10"
+                android:textSize="10sp"
+                android:gravity="center"
+                style="@style/StartGenerador"/>
+
+            <EditText
+                android:id="@+id/EditUsoElementosProteccion"
+                style="@style/StartGenerador"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/EditOrdenAseo1"
+                android:layout_toEndOf="@+id/TextUsoElementosProteccion1"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:textSize="10sp" />
             <Button
                 android:id="@+id/ButtonEnviar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="ENVIAR"
-                android:layout_below="@+id/EditHoraAtencionC"
+                android:layout_below="@+id/EditUsoElementosProteccion"
                 android:layout_marginTop="20dp"
                 android:layout_centerHorizontal="true"/>
 

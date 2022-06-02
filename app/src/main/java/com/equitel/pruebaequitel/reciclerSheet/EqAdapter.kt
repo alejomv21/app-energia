@@ -3,6 +3,7 @@ package com.equitel.pruebaequitel.reciclerSheet
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -21,6 +22,7 @@ class EqAdapter : ListAdapter<Almacenamiento, EqAdapter.EqViewHolder>(DiffCallba
             return oldItem == newItem
         }
     }
+    lateinit var onItemClickListener: (Almacenamiento) -> Unit
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EqAdapter.EqViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.eq_list_item, parent, false)

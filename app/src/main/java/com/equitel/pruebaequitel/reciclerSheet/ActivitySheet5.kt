@@ -26,6 +26,8 @@ class ActivitySheet5 : AppCompatActivity() {
         ListarAlmacenaientos()
     }
 
+
+
     private fun ListarAlmacenaientos(){
         viewModel.almacenamiento.observe(this, Observer {
             almacenamiento->

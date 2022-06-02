@@ -543,13 +543,13 @@
             <EditText
                 android:id="@+id/EditRecomendaciones"
                 style="@style/StartGenerador"
-                android:layout_below="@+id/Recomendaciones"
-                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/Recomendaciones"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
-                android:padding="10dp"/>
+                android:padding="10dp" />
 
             <Button
                 android:id="@+id/buttonEnviar"
