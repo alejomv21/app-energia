@@ -3,6 +3,8 @@ package com.equitel.pruebaequitel
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -64,16 +66,33 @@ class SearchActivity : AppCompatActivity() {
             binding.editTextOrdenTrabajo.visibility = View.VISIBLE
             binding.textViewIdEquipo.visibility = View.VISIBLE
             binding.EditTextIdEquipo.visibility = View.VISIBLE
-        }else if(binding.checkBoxEntrega.isChecked || binding.checkBoxEmergencia.isChecked){
+            binding.EditTextMotivoReprogramar.visibility = View.GONE
+        }else if(binding.checkBoxEntrega.isChecked ){
             binding.textViewOrdenTrabajo.visibility = View.GONE
             binding.editTextOrdenTrabajo.visibility = View.GONE
             binding.textViewIdEquipo.visibility = View.VISIBLE
             binding.EditTextIdEquipo.visibility = View.VISIBLE
+            binding.EditTextMotivoReprogramar.visibility = View.GONE
         }else if(binding.checkBoxInspeccion.isChecked){
             binding.textViewOrdenTrabajo.visibility = View.GONE
             binding.editTextOrdenTrabajo.visibility = View.GONE
             binding.textViewIdEquipo.visibility = View.GONE
             binding.EditTextIdEquipo.visibility = View.GONE
+            binding.textViewTipoEmergencia.visibility = View.GONE
+            binding.EditTextTipoEmergencia.visibility = View.GONE
+            binding.textViewCausaFalla.visibility = View.GONE
+            binding.EditTextCausaFalla.visibility = View.GONE
+            binding.EditTextMotivoReprogramar.visibility = View.GONE
+        }else if(binding.checkBoxEmergencia.isChecked){
+            binding.textViewOrdenTrabajo.visibility = View.GONE
+            binding.editTextOrdenTrabajo.visibility = View.GONE
+            binding.textViewIdEquipo.visibility = View.GONE
+            binding.EditTextIdEquipo.visibility = View.GONE
+            binding.textViewTipoEmergencia.visibility = View.VISIBLE
+            binding.EditTextTipoEmergencia.visibility = View.VISIBLE
+            binding.textViewCausaFalla.visibility = View.VISIBLE
+            binding.EditTextCausaFalla.visibility = View.VISIBLE
+            binding.EditTextMotivoReprogramar.visibility = View.GONE
         }
         else{
             Toast.makeText(this, "debe seleccionar una opcion", Toast.LENGTH_LONG).show()
@@ -108,6 +127,27 @@ class SearchActivity : AppCompatActivity() {
             almacanamiento.idEquipo = binding.EditTextIdEquipo.toString()
         }
         return almacanamiento
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.search_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val itemId = item.itemId
+        if(itemId == R.id.search_menu_reprogramar) {
+            binding.textViewOrdenTrabajo.visibility = View.GONE
+            binding.editTextOrdenTrabajo.visibility = View.GONE
+            binding.textViewIdEquipo.visibility = View.GONE
+            binding.EditTextIdEquipo.visibility = View.GONE
+            binding.textViewTipoEmergencia.visibility = View.GONE
+            binding.EditTextTipoEmergencia.visibility = View.GONE
+            binding.textViewCausaFalla.visibility = View.GONE
+            binding.EditTextCausaFalla.visibility = View.GONE
+            binding.textViewMotivoReprogramar.visibility = View.VISIBLE
+            binding.EditTextMotivoReprogramar.visibility = View.VISIBLE
+        }
+        return super.onOptionsItemSelected(item)
     }
 
 

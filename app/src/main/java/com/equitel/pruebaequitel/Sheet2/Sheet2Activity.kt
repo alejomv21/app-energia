@@ -6,6 +6,8 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.lifecycle.Observer
@@ -42,10 +44,49 @@ class Sheet2Activity : AppCompatActivity() {
             }
         }
 
+        val siNo : Array<String> = resources.getStringArray(R.array.SiNo)
+        val adapter1 = ArrayAdapter(this, android.R.layout.simple_list_item_1, siNo)
+
+        val vHs : Array<String> = resources.getStringArray(R.array.vHs)
+        val adaptervhs = ArrayAdapter(this, android.R.layout.simple_list_item_1, vHs)
+
+        val aDisyuntores : Array<String> = resources.getStringArray(R.array.vHs)
+        val adapterDisyuntores = ArrayAdapter(this, android.R.layout.simple_list_item_1, aDisyuntores)
+
+        val aPrecalentador : Array<String> = resources.getStringArray(R.array.precalentador)
+        val adapterPrecalentador= ArrayAdapter(this, android.R.layout.simple_list_item_1, aPrecalentador)
+
+        val aVoltaje : Array<String> = resources.getStringArray(R.array.voltaje)
+        val adapterVoltaje= ArrayAdapter(this, android.R.layout.simple_list_item_1, aVoltaje)
+
         val tipoServicio : Array<String> = resources.getStringArray(R.array.OpcionesHoja2)
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, tipoServicio)
-        spinnerAdapter(adapter)
+        spinnerAdapter(adapter, adapter1,adaptervhs, adapterDisyuntores, adapterPrecalentador, adapterVoltaje)
+
+        binding.spinnner3E.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+            override fun onItemSelected(
+                parent: AdapterView<*>?,
+                view: View?,
+                position: Int,
+                id: Long
+            ) {
+                if(position == 1){
+                    binding.text3G.visibility = View.VISIBLE
+                    binding.text3H.visibility = View.VISIBLE
+                    binding.text3I.visibility = View.VISIBLE
+                    binding.text3J.visibility = View.VISIBLE
+                    binding.spinnner3G.visibility = View.VISIBLE
+                    binding.spinnner3H.visibility = View.VISIBLE
+                    binding.spinnner3I.visibility = View.VISIBLE
+                    binding.spinnner3J.visibility = View.VISIBLE
+                }
+            }
+        }
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
@@ -59,7 +100,8 @@ class Sheet2Activity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun spinnerAdapter(adapter : ArrayAdapter<String>){
+    private fun spinnerAdapter(adapter : ArrayAdapter<String>, adapter1: ArrayAdapter<String>, adaptervhs: ArrayAdapter<String>, adapterDisyuntores : ArrayAdapter<String>, adapterPrecalentador: ArrayAdapter<String>,
+                               adapterVoltaje: ArrayAdapter<String>){
         binding.spinnnerA.setAdapter(adapter)
         binding.spinnnerB.setAdapter(adapter)
         binding.spinnnerC.setAdapter(adapter)
@@ -73,10 +115,11 @@ class Sheet2Activity : AppCompatActivity() {
         binding.spinnnerK.setAdapter(adapter)
         binding.spinnnerL.setAdapter(adapter)
         binding.spinnnerM.setAdapter(adapter)
+        binding.spinnnerNDuplicado.setAdapter(adapter)
         binding.spinnnerN.setAdapter(adapter)
-        binding.spinnnerO.setAdapter(adapter)
+        binding.spinnnerO.setAdapter(adapter1)
         binding.spinnnerP.setAdapter(adapter)
-        binding.spinnnerQ.setAdapter(adapter)
+        binding.spinnnerQ.setAdapter(adaptervhs)
         binding.spinnnerR.setAdapter(adapter)
         binding.spinnner2A.setAdapter(adapter)
         binding.spinnner2B.setAdapter(adapter)
@@ -86,6 +129,13 @@ class Sheet2Activity : AppCompatActivity() {
         binding.spinnner2F.setAdapter(adapter)
         binding.spinnner2G.setAdapter(adapter)
         binding.spinnner2H.setAdapter(adapter)
+        binding.spinnner3C.setAdapter(adapterDisyuntores)
+        binding.spinnner3D.setAdapter(adapter)
+        binding.spinnner3E.setAdapter(adapter1)
+        binding.spinnner3G.setAdapter(adapterPrecalentador)
+        binding.spinnner3H.setAdapter(adapterVoltaje)
+        binding.spinnner3I.setAdapter(adapter)
+        binding.spinnner3J.setAdapter(adapter)
     }
 
 

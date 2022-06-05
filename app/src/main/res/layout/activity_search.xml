@@ -126,15 +126,7 @@
             android:visibility="gone"
             android:text="Orden Trabajo:" />
 
-        <TextView
-            android:id="@+id/textViewCheckSeleccion"
-            android:layout_width="160dp"
-            android:layout_height="23dp"
-            android:layout_below="@+id/buttonSend"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:text="Orden Trabajo:"
-            android:visibility="invisible" />
+
 
         <EditText
             android:id="@+id/editTextOrdenTrabajo"
@@ -150,13 +142,98 @@
             android:layout_toEndOf="@+id/textViewIdEquipo"
             android:background="@drawable/style_etbg" />
 
+        <TextView
+            android:id="@+id/textViewTipoEmergencia"
+            android:layout_width="160dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/button"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:visibility="gone"
+            android:inputType="textCapCharacters"
+            android:text="Tipo de Emergencia:" />
+
+        <EditText
+            android:id="@+id/EditTextTipoEmergencia"
+            android:layout_width="160dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/button"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_toEndOf="@+id/textViewTipoEmergencia"
+            android:background="@drawable/style_etbg"
+            android:gravity="center"
+            android:visibility="gone"
+            android:inputType="textCapCharacters"
+            android:textSize="12dp" />
+        <TextView
+            android:id="@+id/textViewCausaFalla"
+            android:layout_width="160dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/textViewTipoEmergencia"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:visibility="gone"
+            android:inputType="textCapCharacters"
+            android:text="Causas de la Falla:" />
+
+        <EditText
+            android:id="@+id/EditTextCausaFalla"
+            android:layout_width="160dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/textViewTipoEmergencia"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_toEndOf="@+id/textViewCausaFalla"
+            android:background="@drawable/style_etbg"
+            android:gravity="center"
+            android:visibility="gone"
+            android:inputType="textCapCharacters"
+            android:textSize="12dp" />
+
+        <TextView
+            android:id="@+id/textViewMotivoReprogramar"
+            android:layout_width="180dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/button"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:visibility="gone"
+            android:inputType="textCapCharacters"
+            android:text="Motivo de Reprogramacion:" />
+
+        <EditText
+            android:id="@+id/EditTextMotivoReprogramar"
+            android:layout_width="160dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/button"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_toEndOf="@+id/textViewMotivoReprogramar"
+            android:background="@drawable/style_etbg"
+            android:gravity="center"
+            android:visibility="gone"
+            android:inputType="textCapCharacters"
+            android:textSize="12dp" />
+
+
+        <TextView
+            android:id="@+id/textViewCheckSeleccion"
+            android:layout_width="160dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/buttonSend"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            android:text="Orden Trabajo:"
+            android:visibility="invisible" />
+
         <Button
             android:id="@+id/buttonSend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/editTextOrdenTrabajo"
+            android:layout_below="@+id/button"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="150dp"
             android:backgroundTint="@color/white"
             android:text="Enviar"
             android:textColor="@color/black" />

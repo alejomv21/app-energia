@@ -52,4 +52,31 @@
         <item>R</item>
         <item>M</item>
     </string-array>
+
+    <string-array name="SiNo">
+        <item> </item>
+        <item>Sí</item>
+        <item>No</item>
+    </string-array>
+
+    <string-array name="vHs">
+        <item> </item>
+        <item>V</item>
+        <item>H</item>
+        <item>S</item>
+    </string-array>
+    <string-array name="disyuntores">
+        <item> </item>
+        <item>INT.DE.CJA MODELADA</item>
+    </string-array>
+
+    <string-array name="precalentador">
+        <item> </item>
+        <item>Resistencia Interna</item>
+    </string-array>
+    <string-array name="voltaje">
+        <item> </item>
+        <item>110V</item>
+        <item>220V</item>
+    </string-array>
 </resources>

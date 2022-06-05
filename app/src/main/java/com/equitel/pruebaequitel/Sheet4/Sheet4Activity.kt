@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.equitel.pruebaequitel.R
+import com.equitel.pruebaequitel.Signatures.SignatureActivity
 import com.equitel.pruebaequitel.databinding.ActivitySheet4Binding
 import com.equitel.pruebaequitel.reciclerSheet.ActivitySheet5
 
@@ -21,7 +22,7 @@ class Sheet4Activity : AppCompatActivity() {
 
         binding.ButtonEnviar.setOnClickListener {
             guardarAlmacenamiento()
-            val intent = Intent(this, ActivitySheet5::class.java)
+            val intent = Intent(this, SignatureActivity::class.java)
             startActivity(intent)
         }
     }

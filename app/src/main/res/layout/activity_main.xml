@@ -175,8 +175,8 @@
                 android:layout_below="@+id/checkBoxBat"
                 android:layout_marginTop="20dp"
                 android:background="@color/black"
-                android:src="@android:drawable/divider_horizontal_bright"
-                android:contentDescription="TODO" />
+                android:contentDescription="TODO"
+                android:src="@android:drawable/divider_horizontal_bright" />
 
             <TextView
                 android:id="@+id/TextCliente"
@@ -190,7 +190,7 @@
                 style="@style/StartEditText"
                 android:layout_below="@+id/imageViewSeparator"
                 android:layout_marginTop="30dp"
-                android:layout_toEndOf="@+id/TextCliente"/>
+                android:layout_toEndOf="@+id/TextCliente" />
 
             <TextView
                 android:id="@+id/TextDir"
@@ -351,7 +351,7 @@
                 style="@style/StartEditText"
                 android:layout_below="@id/EditModPlanta"
                 android:layout_toEndOf="@+id/TextSerialMotor"
-                android:focusable="true"/>
+                android:focusable="true" />
 
             <TextView
                 android:id="@+id/TextSerialGenerador"
@@ -364,7 +364,7 @@
                 style="@style/StartEditText"
                 android:layout_below="@id/EditSerialMotor"
                 android:layout_toEndOf="@+id/TextSerialGenerador"
-                android:focusable="true"/>
+                android:focusable="true" />
 
             <TextView
                 android:id="@+id/TextSerialPlanta"
@@ -538,7 +538,6 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="20dp"
                 android:text="enviar" />
-
 
 
         </RelativeLayout>
