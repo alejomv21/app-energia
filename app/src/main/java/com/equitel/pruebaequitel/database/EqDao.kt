@@ -18,14 +18,14 @@ interface EqDao {
     //@Query("SELECT * FROM EquitelPruebas2")
     //fun getEquitel(): LiveData<SerialPlanta>
 
-    @Query("SELECT * FROM AlmacenamientoFinal ORDER  BY idEquipo DESC LIMIT 1")
+    @Query("SELECT * FROM AlmacenamientoFinal ORDER  BY id DESC LIMIT 1")
     fun getAlmacenamientoHoja1(): Almacenamiento
 
-    @Query("SELECT * FROM AlmacenamientoFinal ORDER  BY idEquipo DESC LIMIT 1")
+    @Query("SELECT * FROM AlmacenamientoFinal ORDER  BY id DESC LIMIT 1")
     fun getAlmacenamientoHoja2(): Almacenamiento
 
     @Query("SELECT * FROM AlmacenamientoFinal")
-    fun getAlmacenamientoListas(): MutableList<Almacenamiento>
+    fun getAlmacenamientoListas(): LiveData<MutableList<Almacenamiento>>
 
     @Update
     suspend fun update(almacenamiento: Almacenamiento)

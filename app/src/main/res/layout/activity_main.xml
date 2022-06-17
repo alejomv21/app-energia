@@ -174,6 +174,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/checkBoxBat"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:padding="1dp"
                 android:background="@color/black"
                 android:contentDescription="TODO"
                 android:src="@android:drawable/divider_horizontal_bright" />
@@ -265,7 +268,8 @@
                 android:id="@+id/EditCell"
                 style="@style/StartEditText"
                 android:layout_below="@id/EditEmail"
-                android:layout_toEndOf="@+id/TextCell" />
+                android:layout_toEndOf="@+id/TextCell"
+                android:inputType="number" />
 
             <TextView
                 android:id="@+id/TextMarcaMotor"
@@ -412,6 +416,7 @@
                 android:id="@+id/EditCantidad"
                 style="@style/StartEditText"
                 android:layout_below="@id/EditTipoBateria"
+                android:inputType="number"
                 android:layout_toEndOf="@+id/TextCantidad" />
 
             <TextView
@@ -449,6 +454,7 @@
                 style="@style/StartEditText"
                 android:layout_below="@id/EditSpec"
                 android:layout_toEndOf="@+id/TextNArranques"
+                android:inputType="number"
                 android:background="@drawable/style_etbg" />
 
             <TextView
@@ -485,6 +491,7 @@
                 android:id="@+id/EditHorasControl"
                 style="@style/StartEditText"
                 android:layout_below="@id/EditTipoControl"
+                android:inputType="number"
                 android:layout_toEndOf="@+id/TextHorasControl" />
 
             <TextView
@@ -529,15 +536,48 @@
                 android:layout_below="@id/EditPromotionID"
                 android:layout_toEndOf="@+id/TextMotivoVisita" />
 
+            <ImageView
+                android:id="@+id/Camera1"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/TextMotivoVisita"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                tools:src="@android:drawable/ic_menu_camera" />
+
+            <ImageButton
+                android:id="@+id/ButtonCamera1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TextMotivoVisita"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="20dp"
+                android:layout_toEndOf="@+id/Camera1"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_baseline_camera"
+                android:text="Camara" />
+
             <Button
                 android:id="@+id/ButtonGuadado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/EditMotivoVisita"
+                android:layout_below="@+id/Camera1"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:text="enviar" />
+
+            <EditText
+                android:id="@+id/TextTipoUbicacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"/>
+            <EditText
+                android:id="@+id/TextTipoEquipo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"/>
 
 
         </RelativeLayout>

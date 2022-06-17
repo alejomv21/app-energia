@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "356196826452",
+    "project_id": "bot-front",
+    "storage_bucket": "bot-front.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356196826452:android:318717f27c587932ef9cc1",
+        "android_client_info": {
+          "package_name": "com.equitel.pruebaequitel"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "356196826452-lq3u43b49sgnmatpq6l87j7n5mvus7d8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCEMU0EDu8QMZSY6g3g-hdIplFcLnN2ABw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "356196826452-lq3u43b49sgnmatpq6l87j7n5mvus7d8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

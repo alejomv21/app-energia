@@ -1,13 +1,21 @@
 package com.equitel.pruebaequitel.main
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.ArrayAdapter
+import android.widget.ImageView
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.FileProvider
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.equitel.pruebaequitel.Almacenamiento
@@ -18,23 +26,36 @@ import com.equitel.pruebaequitel.Signatures.SignatureActivity
 import com.equitel.pruebaequitel.api.ApiResponseStatus
 import com.equitel.pruebaequitel.databinding.ActivityMainBinding
 import com.equitel.pruebaequitel.reciclerSheet.ActivitySheet5
+import java.io.File
 import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var viewModel: MainViewModel
     lateinit var binding : ActivityMainBinding
+    private lateinit var heroImage : ImageView
+    private var heroBitmap : Bitmap? = null
+    private var picturePath = ""
+    private val getContent = registerForActivityResult(ActivityResultContracts.TakePicture()){
+            success ->
+        if(success && picturePath.isNotEmpty()){
+            heroBitmap = BitmapFactory.decodeFile(picturePath)
+            heroImage.setImageBitmap(heroBitmap)
+        }
+        //heroImage.setImageBitmap(heroBitmap!!)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         val bundle = intent.extras!!
         val idEquipo = bundle.getString("id_equipo") ?: ""
         val ordenTrabajo = bundle.getString("orden_trabajo") ?: ""
         val checkVariable = bundle.getString("check_variable") ?: ""
 
-
+        checkTipoUbicacion()
         viewModel = ViewModelProvider(this,
             MainViewModelFactory(application, ordenTrabajo)).get(MainViewModel::class.java)
 
@@ -142,6 +163,11 @@ class MainActivity : AppCompatActivity() {
         pruebas(ordenTrabajo)
 
         validarTipoServicio(checkVariable)
+
+        heroImage = binding.Camera1
+        binding.ButtonCamera1.setOnClickListener{
+            openCamera()
+        }
     }
 
     private fun cambioValoresFactura(serialPlanta: SerialPlanta) {
@@ -171,11 +197,15 @@ class MainActivity : AppCompatActivity() {
 
     private fun agragarAlmacenamiento(idEquipo : String, ordenTrabajo : String, checkVariable : String){
         viewModel.extraerAlmacenamiento()
+        //checkTipoUbicacion()
 
         viewModel.almacenamiento.observe(this, Observer {
             almacenamiento->
             almacenamiento.idEquipo = idEquipo
             almacenamiento.ordenTrabajo = ordenTrabajo
+            almacenamiento.tipoServicio = checkVariable
+            almacenamiento.tipoUbicacion = binding.TextTipoUbicacion.text.toString()
+            almacenamiento.tipoEquipo = binding.TextTipoEquipo.text.toString()
             almacenamiento.cliente = binding.EditOCliente.text.toString()
             almacenamiento.direccion = binding.EditDir.text.toString()
             almacenamiento.servicioSolicitadoPor =  binding.EditServicioSolicitado.text.toString()
@@ -205,7 +235,7 @@ class MainActivity : AppCompatActivity() {
             almacenamiento.tecnicos = binding.EditTecnicosCargo1.text.toString()
             almacenamiento.promotionID = binding.EditPromotionID.text.toString()
             almacenamiento.fecha = binding.EditFecha.text.toString()
-            almacenamiento.motivoVisita = binding.EditMotivoVisita.text.isEmpty().toString()
+            almacenamiento.motivoVisita = binding.EditMotivoVisita.text.toString()
 
             viewModel.GuardarAlmacenamiento(almacenamiento)
         })
@@ -292,6 +322,52 @@ class MainActivity : AppCompatActivity() {
         //val intent = Intent(this, ActivitySheet5::class.java)
         val intent = Intent(this, Sheet2Activity::class.java)
         startActivity(intent)
+    }
+    private fun openCamera() {
+        //val camera = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        //startActivityForResult(camera, 1000)
+        val file = createImageFile()
+        val uri = if(Build.VERSION.SDK_INT  >= Build.VERSION_CODES.N){
+            FileProvider.getUriForFile(this,
+                "$packageName.provider",
+                file)
+        }else{
+            Uri.fromFile(file)
+        }
+        getContent.launch(uri)
+    }
+    private fun createImageFile(): File {
+        val filename = "superhero_image"
+        val fileDIrectory = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        val file = File.createTempFile(filename, ".jpg", fileDIrectory)
+        picturePath = file.absolutePath
+        return file
+    }
+    private fun checkTipoUbicacion(){
+        binding.checkBoxCabina.setOnClickListener {
+            binding.TextTipoUbicacion.setText("CABINA")
+        }
+        binding.checkBoxCuarta.setOnClickListener {
+            binding.TextTipoUbicacion.setText("CUARTO")
+        }
+        binding.checkBoxAbierto.setOnClickListener {
+            binding.TextTipoUbicacion.setText("ABIERTO")
+        }
+        binding.checkBoxOtro.setOnClickListener {
+            binding.TextTipoUbicacion.setText("OTRO")
+        }
+        binding.checkBoxACPM.setOnClickListener {
+            binding.TextTipoEquipo.setText("ACPM")
+        }
+        binding.checkBoxGasol.setOnClickListener {
+            binding.TextTipoEquipo.setText("GASOL")
+        }
+        binding.checkBoxGas.setOnClickListener {
+            binding.TextTipoEquipo.setText("GAS")
+        }
+        binding.checkBoxBat.setOnClickListener {
+            binding.TextTipoEquipo.setText("BAT")
+        }
     }
 
 

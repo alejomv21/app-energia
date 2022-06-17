@@ -20,6 +20,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:layout_marginTop="20dp"
                 android:text="II. ESTADO INICIAL" />
 
@@ -29,6 +31,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textEstadoequipo"
                 android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:padding="1dp"
                 android:background="@color/black"
                 android:contentDescription="TODO"
                 android:src="@android:drawable/divider_horizontal_bright" />
@@ -63,13 +68,16 @@
                 android:layout_toEndOf="@+id/textA" />
 
             <EditText
+                android:id="@+id/EditNivelAceiteMedida"
                 android:layout_width="60dp"
                 android:layout_height="23dp"
                 android:layout_below="@+id/imageViewSeparatorMedida"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/style_etbg" />
+                android:textSize="8sp"
+                android:background="@drawable/style_etbg"
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/textB"
@@ -150,13 +158,16 @@
                 android:text="H. Voltaje Baterías > 12 ó 24" />
 
             <EditText
+                android:id="@+id/EditVoltajeBateria"
                 android:layout_width="60dp"
                 android:layout_height="23dp"
                 android:layout_below="@+id/textG"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="20dp"
+                android:textSize="8sp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/style_etbg" />
+                android:background="@drawable/style_etbg"
+                android:gravity="center" />
 
             <Spinner
                 android:id="@+id/spinnnerH"
@@ -177,13 +188,16 @@
                 android:layout_toEndOf="@+id/textI" />
 
             <EditText
+                android:id="@+id/EditCargadorFuncional"
                 android:layout_width="60dp"
                 android:layout_height="23dp"
                 android:layout_below="@+id/textH"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="20dp"
+                android:textSize="8sp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/style_etbg" />
+                android:background="@drawable/style_etbg"
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/textJ"
@@ -232,21 +246,25 @@
                 style="@style/ComienzaSpinner"
                 android:layout_below="@+id/textL"
                 android:layout_toEndOf="@+id/textM" />
+
             <TextView
                 android:id="@+id/TextNDuplicado"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textM"
                 android:text="N. Estado Tapa Radiador" />
+
             <Spinner
                 android:id="@+id/spinnnerNDuplicado"
                 style="@style/ComienzaSpinner"
                 android:layout_below="@+id/textM"
                 android:layout_toEndOf="@+id/TextNDuplicado" />
+
             <TextView
                 android:id="@+id/TextODuplicado"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/TextNDuplicado"
                 android:text="O. Presion Tapa de Radiador" />
+
             <Spinner
                 android:id="@+id/spinnnerODuplicado"
                 style="@style/ComienzaSpinner"
@@ -261,7 +279,7 @@
 
             <EditText
                 android:id="@+id/EditPDuplicado"
-                android:layout_width="60dp"
+                android:layout_width="120dp"
                 android:layout_height="23dp"
                 android:layout_below="@+id/TextODuplicado"
                 android:layout_marginStart="20dp"
@@ -306,14 +324,18 @@
                 style="@style/ComienzaSpinner"
                 android:layout_below="@+id/textO"
                 android:layout_toEndOf="@+id/textP" />
+
             <EditText
+                android:id="@+id/EditEstadoCombustible"
                 android:layout_width="60dp"
                 android:layout_height="23dp"
                 android:layout_below="@+id/textO"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="20dp"
+                android:textSize="8sp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/style_etbg" />
+                android:background="@drawable/style_etbg"
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/textQ"
@@ -326,14 +348,18 @@
                 style="@style/ComienzaSpinner"
                 android:layout_below="@+id/textP"
                 android:layout_toEndOf="@+id/textQ" />
+
             <EditText
+                android:id="@+id/EditEstadoTanque"
                 android:layout_width="60dp"
                 android:layout_height="23dp"
                 android:layout_below="@+id/textP"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="20dp"
+                android:gravity="center"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/style_etbg" />
+                android:background="@drawable/style_etbg"
+                android:textSize="8sp" />
 
             <TextView
                 android:id="@+id/textR"
@@ -353,6 +379,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textR"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:padding="1dp"
                 android:background="@color/black"
                 android:contentDescription="TODO"
                 android:src="@android:drawable/divider_horizontal_bright" />
@@ -363,6 +392,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/imageViewSeparator"
                 android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:layout_marginTop="30sp"
                 android:text="2. GENERADOR" />
 
@@ -461,12 +492,16 @@
                 style="@style/ComienzaSpinner"
                 android:layout_below="@+id/text2G"
                 android:layout_toEndOf="@+id/text2H" />
+
             <ImageView
                 android:id="@+id/imageViewSeparatorPerifericos"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/text2H"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:padding="1dp"
                 android:background="@color/black"
                 android:src="@android:drawable/divider_horizontal_bright" />
 
@@ -476,6 +511,8 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/imageViewSeparatorPerifericos"
                 android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:layout_marginTop="30sp"
                 android:text="3. PERIFERICOS" />
 
@@ -487,15 +524,16 @@
 
             <EditText
                 android:id="@+id/Edit3A"
-                android:layout_width="60dp"
+                android:layout_width="120dp"
                 android:layout_height="23dp"
                 android:layout_below="@+id/Perifericos"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:gravity="center"
                 android:layout_toEndOf="@+id/text3A"
-                android:background="@drawable/style_etbg" />
+                android:background="@drawable/style_etbg"
+                android:gravity="center" />
+
             <TextView
                 android:id="@+id/text3B"
                 style="@style/ComienzaTexto"
@@ -504,102 +542,108 @@
 
             <EditText
                 android:id="@+id/Edit3B"
-                android:layout_width="60dp"
+                android:layout_width="120dp"
                 android:layout_height="23dp"
                 android:layout_below="@+id/text3A"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:gravity="center"
                 android:layout_toEndOf="@+id/text3B"
-                android:background="@drawable/style_etbg" />
+                android:background="@drawable/style_etbg"
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/text3C"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text3B"
-                android:text="C. Tipo de Disyuntores"/>
+                android:text="C. Tipo de Disyuntores" />
 
             <Spinner
                 android:id="@+id/spinnner3C"
                 style="@style/ComienzaSpinner"
                 android:layout_below="@+id/text3B"
-                android:layout_toEndOf="@+id/text3C"/>
+                android:layout_toEndOf="@+id/text3C" />
+
             <TextView
                 android:id="@+id/text3D"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text3C"
-                android:text="D. Funcionamiento de ATS"/>
+                android:text="D. Funcionamiento de ATS" />
 
             <Spinner
                 android:id="@+id/spinnner3D"
                 style="@style/ComienzaSpinner"
                 android:layout_below="@+id/text3C"
-                android:layout_toEndOf="@+id/text3D"/>
+                android:layout_toEndOf="@+id/text3D" />
+
             <TextView
                 android:id="@+id/text3E"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text3D"
-                android:text="E. Posee Precalentador"/>
+                android:layout_marginTop="21dp"
+                android:text="E. Posee Precalentador" />
 
             <Spinner
                 android:id="@+id/spinnner3E"
                 style="@style/ComienzaSpinner"
                 android:layout_below="@+id/text3D"
-                android:layout_toEndOf="@+id/text3E"/>
+                android:layout_toEndOf="@+id/text3E" />
 
             <TextView
                 android:id="@+id/text3G"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text3E"
                 android:text="G. Modelo de Precalentador"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <Spinner
                 android:id="@+id/spinnner3G"
                 style="@style/ComienzaSpinner"
                 android:layout_below="@+id/text3E"
                 android:layout_toEndOf="@+id/text3G"
-                android:visibility="gone"/>
+                android:visibility="gone" />
+
             <TextView
                 android:id="@+id/text3H"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text3G"
                 android:text="H. Voltaje de Operacion"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <Spinner
                 android:id="@+id/spinnner3H"
                 style="@style/ComienzaSpinner"
                 android:layout_below="@+id/text3G"
                 android:layout_toEndOf="@+id/text3H"
-                android:visibility="gone"/>
+                android:visibility="gone" />
+
             <TextView
                 android:id="@+id/text3I"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text3H"
                 android:text="I. Estado de Precalentador"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
             <Spinner
                 android:id="@+id/spinnner3I"
                 style="@style/ComienzaSpinner"
                 android:layout_below="@+id/text3H"
                 android:layout_toEndOf="@+id/text3I"
-                android:visibility="gone"/>
+                android:visibility="gone" />
+
             <TextView
                 android:id="@+id/text3J"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text3I"
-                android:text="G. Modelo de Precalentador"
-                android:visibility="gone"/>
+                android:text="G. Estado de Manguera"
+                android:visibility="gone" />
 
             <Spinner
                 android:id="@+id/spinnner3J"
                 style="@style/ComienzaSpinner"
                 android:layout_below="@+id/text3I"
                 android:layout_toEndOf="@+id/text3J"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
 
             <ImageView
@@ -608,6 +652,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/text3J"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:padding="1dp"
                 android:background="@color/black"
                 android:src="@android:drawable/divider_horizontal_bright" />
 
@@ -617,25 +664,49 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/imageViewSeparatorTrabajoRealizado"
                 android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:textColor="@color/black"
                 android:layout_marginTop="30sp"
                 android:text="III. Trabajo Realizado" />
 
             <EditText
                 android:id="@+id/EditTrabajoRealizado"
                 style="@style/StartGenerador"
-                android:layout_below="@+id/TrabajoRealizado"
-                android:layout_marginTop="20dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/TrabajoRealizado"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop="20dp"
                 android:layout_marginEnd="10dp"
-                android:padding="10dp"/>
+                android:padding="10dp" />
+
+            <ImageView
+                android:id="@+id/Camera2"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/EditTrabajoRealizado"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                tools:src="@android:drawable/ic_menu_camera" />
+
+            <ImageButton
+                android:id="@+id/ButtonCamera2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/EditTrabajoRealizado"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="20dp"
+                android:layout_toEndOf="@+id/Camera2"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_baseline_camera"
+                android:text="Camara" />
 
             <Button
                 android:id="@+id/buttonEnviar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/EditTrabajoRealizado"
+                android:layout_below="@+id/Camera2"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30sp"
                 android:layout_marginBottom="20sp"

@@ -5,4 +5,9 @@
         android:id="@+id/search_menu_reprogramar"
         android:title="Reprogramar"
         app:showAsAction=""/>
+    <item
+        android:id="@+id/search_menu_hoja7"
+        android:title="Adicionales"
+        app:showAsAction=""/>
+
 </menu>

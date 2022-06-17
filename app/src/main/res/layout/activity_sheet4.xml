@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".Sheet4.Sheet4Activity">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -19,8 +20,11 @@
                 android:id="@+id/imageNota"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
                 android:background="@color/black"
+                android:padding="1dp"
                 android:src="@android:drawable/divider_horizontal_bright" />
 
             <TextView
@@ -64,6 +68,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_toEndOf="@+id/salidaTA2"
                 android:text="DD" />
+
             <TextView
                 android:id="@+id/salidaTA4"
                 style="@style/StartGenerador"
@@ -71,6 +76,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_toEndOf="@+id/salidaTA3"
                 android:text="MM" />
+
             <TextView
                 android:id="@+id/salidaTA5"
                 style="@style/StartGenerador"
@@ -151,6 +157,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_toEndOf="@+id/salidaCA2"
                 android:text="DD" />
+
             <TextView
                 android:id="@+id/salidaCA4"
                 style="@style/StartGenerador"
@@ -158,6 +165,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_toEndOf="@+id/salidaCA3"
                 android:text="MM" />
+
             <TextView
                 android:id="@+id/salidaCA5"
                 style="@style/StartGenerador"
@@ -238,6 +246,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_toEndOf="@+id/llegadaCA2"
                 android:text="DD" />
+
             <TextView
                 android:id="@+id/llegadaCA4"
                 style="@style/StartGenerador"
@@ -245,6 +254,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_toEndOf="@+id/llegadaCA3"
                 android:text="MM" />
+
             <TextView
                 android:id="@+id/llegadaCA5"
                 style="@style/StartGenerador"
@@ -277,11 +287,12 @@
                 style="@style/StartGenerador"
                 android:layout_below="@+id/llegadaCA1"
                 android:layout_toEndOf="@+id/EditllegadaCA3" />
+
             <EditText
                 android:id="@+id/EditllegadaCA5"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/llegadaCA1"
-                android:layout_toEndOf="@+id/EditllegadaCA4"/>
+                android:layout_toEndOf="@+id/EditllegadaCA4" />
 
             <TextView
                 android:id="@+id/TextHoraAtencionC"
@@ -324,6 +335,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_toEndOf="@+id/atencionCA2"
                 android:text="DD" />
+
             <TextView
                 android:id="@+id/atencionCA4"
                 style="@style/StartGenerador"
@@ -331,6 +343,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_toEndOf="@+id/atencionCA3"
                 android:text="MM" />
+
             <TextView
                 android:id="@+id/atencionCA5"
                 style="@style/StartGenerador"
@@ -378,28 +391,31 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
-                android:text="CALIFICACION CLIENTE" />
+                android:text="CALIFICACION CLIENTE"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/TextServicioCumplimiento"
-                android:layout_width="wrap_content"
+                android:layout_width="160dp"
                 android:layout_height="20dp"
-                android:gravity="center"
                 android:layout_below="@+id/TextCalificacionCliente"
+                android:layout_marginStart="20dp"
+                android:gravity="center"
                 android:text="SERVICIO/CUMPLIMIENTO"
                 android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/TextServCumplimiento1"
+                style="@style/StartGenerador"
                 android:layout_width="40dp"
                 android:layout_height="20dp"
                 android:layout_below="@+id/TextCalificacionCliente"
                 android:layout_marginStart="30dp"
                 android:layout_toEndOf="@+id/TextServicioCumplimiento"
-                android:text="1-10"
-                android:textSize="10sp"
                 android:gravity="center"
-                style="@style/StartGenerador"/>
+                android:text="1-10"
+                android:textSize="10sp" />
 
             <EditText
                 android:id="@+id/EditServCumplimiento1"
@@ -413,26 +429,27 @@
 
             <TextView
                 android:id="@+id/TextOrdenAseo"
-                android:layout_width="wrap_content"
+                android:layout_width="160dp"
                 android:layout_height="20dp"
-                android:gravity="center"
-                android:layout_marginTop="30dp"
                 android:layout_below="@+id/EditServCumplimiento1"
-                android:text="SERVICIO/CUMPLIMIENTO"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="ORDEN Y ASEO SITIO"
                 android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/TextOrdenAseo1"
+                style="@style/StartGenerador"
                 android:layout_width="40dp"
                 android:layout_height="20dp"
                 android:layout_below="@+id/EditServCumplimiento1"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
                 android:layout_toEndOf="@+id/TextOrdenAseo"
-                android:text="1-10"
-                android:textSize="10sp"
                 android:gravity="center"
-                style="@style/StartGenerador"/>
+                android:text="1-10"
+                android:textSize="10sp" />
 
             <EditText
                 android:id="@+id/EditOrdenAseo1"
@@ -440,33 +457,34 @@
                 android:layout_width="40dp"
                 android:layout_height="20dp"
                 android:layout_below="@+id/EditServCumplimiento1"
-                android:layout_toEndOf="@+id/TextOrdenAseo1"
                 android:layout_marginTop="30dp"
+                android:layout_toEndOf="@+id/TextOrdenAseo1"
                 android:gravity="center"
                 android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/TextUsoElementosProteccion"
-                android:layout_width="wrap_content"
+                android:layout_width="160dp"
                 android:layout_height="20dp"
-                android:gravity="center"
-                android:layout_marginTop="30dp"
                 android:layout_below="@+id/EditOrdenAseo1"
-                android:text="SERVICIO/CUMPLIMIENTO"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="USO ELEMENTOS PROTECCION"
                 android:textSize="10sp" />
 
             <TextView
                 android:id="@+id/TextUsoElementosProteccion1"
+                style="@style/StartGenerador"
                 android:layout_width="40dp"
                 android:layout_height="20dp"
                 android:layout_below="@+id/EditOrdenAseo1"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="30dp"
                 android:layout_toEndOf="@+id/TextUsoElementosProteccion"
-                android:text="1-10"
-                android:textSize="10sp"
                 android:gravity="center"
-                style="@style/StartGenerador"/>
+                android:text="1-10"
+                android:textSize="10sp" />
 
             <EditText
                 android:id="@+id/EditUsoElementosProteccion"
@@ -474,18 +492,41 @@
                 android:layout_width="40dp"
                 android:layout_height="20dp"
                 android:layout_below="@+id/EditOrdenAseo1"
-                android:layout_toEndOf="@+id/TextUsoElementosProteccion1"
                 android:layout_marginTop="30dp"
+                android:layout_toEndOf="@+id/TextUsoElementosProteccion1"
                 android:gravity="center"
                 android:textSize="10sp" />
+
+            <ImageView
+                android:id="@+id/Camera4"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_below="@+id/EditUsoElementosProteccion"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                tools:src="@android:drawable/ic_menu_camera" />
+
+            <ImageButton
+                android:id="@+id/ButtonCamera4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/EditUsoElementosProteccion"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="20dp"
+                android:layout_toEndOf="@+id/Camera4"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_baseline_camera"
+                android:text="Camara" />
+
             <Button
                 android:id="@+id/ButtonEnviar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ENVIAR"
-                android:layout_below="@+id/EditUsoElementosProteccion"
+                android:layout_below="@+id/Camera4"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
-                android:layout_centerHorizontal="true"/>
+                android:text="ENVIAR" />
 
 
         </RelativeLayout>

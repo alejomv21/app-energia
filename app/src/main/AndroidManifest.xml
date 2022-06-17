@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.equitel.pruebaequitel">
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,6 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PruebaEquitel"
         android:usesCleartextTraffic="true">
+        <activity
+            android:name=".Sheet8.Sheet8Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Sheet7.Sheet7Activity"
+            android:exported="false" />
         <activity
             android:name=".Signatures.SignatureActivity"
             android:exported="false" />
@@ -32,7 +38,7 @@
             android:name=".Sheet2.Sheet2Activity"
             android:exported="false" />
         <activity
-            android:name=".login.LoginActivity"
+            android:name=".SearchActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -41,11 +47,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SearchActivity"
+            android:name=".login.LoginActivity"
             android:exported="true" />
         <activity
             android:name=".main.MainActivity"
             android:exported="true" />
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+        </provider>
     </application>
 
 </manifest>

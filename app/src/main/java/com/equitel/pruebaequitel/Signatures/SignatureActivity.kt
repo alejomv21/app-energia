@@ -19,21 +19,29 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import androidx.core.app.ActivityCompat
+import androidx.lifecycle.ViewModelProvider
 import com.equitel.pruebaequitel.R
-import com.equitel.pruebaequitel.Sheet3.Sheet3Activity
+import com.equitel.pruebaequitel.databinding.ActivitySignatureBinding
 import com.equitel.pruebaequitel.reciclerSheet.ActivitySheet5
 import kotlinx.android.synthetic.main.activity_signature.*
 import java.io.*
 import java.util.*
 
 class SignatureActivity : Activity() {
+    lateinit var binding : ActivitySignatureBinding
+    lateinit var viewModel: SignaturesViewModel
     private var mSignaturePad: SignaturePad? = null
     private var mClearButton: Button? = null
     private var mSaveButton: Button? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         verifyStoragePermissions(this)
-        setContentView(R.layout.activity_signature)
+        binding = ActivitySignatureBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        //viewModel = ViewModelProvider(this, SignatureViewModelFactory(application)).get(SignaturesViewModel::class.java)
+
         mSignaturePad = findViewById<View>(R.id.signature_pad) as SignaturePad
         mSignaturePad!!.setOnSignedListener(object : SignaturePad.OnSignedListener {
             override fun onStartSigning() {
@@ -79,9 +87,10 @@ class SignatureActivity : Activity() {
                     Toast.LENGTH_SHORT
                 ).show()
             }
-            val intent = Intent(this, ActivitySheet5::class.java)
-            startActivity(intent)
+            //val intent = Intent(this, ActivitySheet5::class.java)
+            //startActivity(intent)
         }
+        recargar()
     }
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -139,21 +148,6 @@ class SignatureActivity : Activity() {
         }
         return result
     }
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
-        return true
-    }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val itemId = item.itemId
-        if(itemId == R.id.main_menu_latest){
-            Toast.makeText(
-                this@SignatureActivity,
-                "Cannot write images to external storage",
-                Toast.LENGTH_SHORT
-            ).show()
-        }
-        return super.onOptionsItemSelected(item)
-    }
     private fun scanMediaFile(photo: File) {
         val mediaScanIntent = Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE)
         val contentUri = Uri.fromFile(photo)
@@ -197,6 +191,13 @@ class SignatureActivity : Activity() {
                     REQUEST_EXTERNAL_STORAGE
                 )
             }
+        }
+    }
+    private fun recargar(){
+        val boton =  findViewById<View>(R.id.ButtonFirma)
+        boton.setOnClickListener {
+            val intent = Intent(this, ActivitySheet5::class.java)
+            startActivity(intent)
         }
     }
 }

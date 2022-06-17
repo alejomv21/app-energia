@@ -1,19 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"                           xmlns:tools="http://schemas.android.com/tools"                           android:layout_width="match_parent"                           android:layout_height="match_parent"                                                    tools:context=".Signatures.SignatureActivity">
-    <RelativeLayout                               android:layout_width="fill_parent"                               android:layout_height="fill_parent"                               android:layout_above="@+id/buttons_container"                               android:id="@+id/signature_pad_container">
-        <FrameLayout                                   android:layout_width="fill_parent"                                   android:layout_height="1dp"                                   android:background="@android:color/darker_gray"                                   android:layout_marginBottom="8dp"                                   android:layout_above="@+id/signature_pad_description" />
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-        <TextView                                   android:id="@+id/signature_pad_description"                                   android:layout_width="wrap_content"                                   android:layout_centerHorizontal="true"                                   android:layout_height="wrap_content"                                   android:textColor="@android:color/darker_gray"                                   android:layout_marginBottom="16dp"                                   android:layout_alignParentBottom="true"                                   android:text="agreement" />
+    <data>
 
-        <com.github.gcacace.signaturepad.views.SignaturePad
-            android:id="@+id/signature_pad"
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Signatures.SignatureActivity">
+
+        <RelativeLayout
+            android:id="@+id/signature_pad_container"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent" />
-    </RelativeLayout>
+            android:layout_height="fill_parent"
+            android:layout_above="@+id/buttons_container">
 
-    <LinearLayout                               android:id="@+id/buttons_container"                               android:paddingTop="16dp"                               android:layout_width="fill_parent"                               android:layout_height="wrap_content"                               android:orientation="horizontal"                               android:layout_alignParentBottom="true">
-        <Button                                   android:id="@+id/clear_button"                                   android:layout_width="0dp"                                   android:layout_weight="1"                                   android:layout_height="wrap_content"                                   android:text="BORRAR"                                   android:enabled="false" />
-        <Button                                   android:id="@+id/save_button"                                   android:layout_width="0dp"                                   android:layout_weight="1"                                   android:layout_height="wrap_content"                                   android:text="GUARDAR"                                   android:enabled="false" />
-        <Button                                   android:id="@+id/btn_upload"                                   android:layout_width="0dp"                                   android:layout_weight="1"                                   android:visibility="gone"                                   android:layout_height="wrap_content"                                   android:text="upload image"                                   android:enabled="false" />
-    </LinearLayout>
-</RelativeLayout>
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="1dp"
+                android:layout_above="@+id/signature_pad_description"
+                android:layout_marginBottom="8dp"
+                android:background="@android:color/darker_gray" />
+
+            <TextView
+                android:id="@+id/signature_pad_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="16dp"
+                android:text="agreement"
+                android:textColor="@android:color/darker_gray" />
+
+            <com.github.gcacace.signaturepad.views.SignaturePad
+                android:id="@+id/signature_pad"
+                android:layout_width="fill_parent"
+                android:layout_height="200dp" />
+
+            <ImageView
+                android:id="@+id/imageViewSeparatorFirmaTecnico"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/signature_pad"
+                android:layout_marginTop="10dp"
+                android:background="@color/black"
+                android:contentDescription="TODO"
+                android:src="@android:drawable/divider_horizontal_bright" />
+
+            <TextView
+                android:id="@+id/TextFirmaTecnico"
+                android:layout_width="160dp"
+                android:layout_height="23dp"
+                android:layout_below="@+id/imageViewSeparatorFirmaTecnico"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="FIRMA TECNICO" />
+
+            <com.github.gcacace.signaturepad.views.SignaturePad
+                android:id="@+id/Signature_cliente"
+                android:layout_width="fill_parent"
+                android:layout_height="200dp"
+                android:layout_below="@+id/TextFirmaTecnico" />
+
+            <ImageView
+                android:id="@+id/imageViewSeparatorFirmaCliente"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Signature_cliente"
+                android:layout_marginTop="10dp"
+                android:background="@color/black"
+                android:contentDescription="TODO"
+                android:src="@android:drawable/divider_horizontal_bright" />
+
+            <TextView
+                android:id="@+id/TextFirmaCliente"
+                android:layout_width="160dp"
+                android:layout_height="23dp"
+                android:layout_below="@+id/imageViewSeparatorFirmaCliente"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="FIRMA CLIENTE" />
+
+            <ImageButton
+                android:id="@+id/ButtonFirma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TextFirmaCliente"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:shadowColor="@color/black"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_baseline_settings_backup_restore"
+                android:text="Camara" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/buttons_container"
+            android:paddingTop="16dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/clear_button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="BORRAR"
+                android:enabled="false" />
+
+            <Button
+                android:id="@+id/save_button"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="GUARDAR"
+                android:enabled="false" />
+
+            <Button
+                android:id="@+id/btn_upload"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:text="upload image"
+                android:enabled="false" />
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

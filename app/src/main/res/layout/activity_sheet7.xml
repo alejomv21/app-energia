@@ -1,0 +1,539 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/textEstadoequipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:text="ARTIMO" />
+
+    <ImageView
+        android:id="@+id/imageViewSeparatorEstado"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textEstadoequipo"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="20dp"
+        android:padding="1dp"
+        android:background="@color/black"
+        android:contentDescription="TODO"
+        android:src="@android:drawable/divider_horizontal_bright" />
+
+    <TextView
+        android:id="@+id/TextMedida"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageViewSeparatorEstado"
+        android:layout_alignParentEnd="true"
+        android:text="MEDIDA" />
+
+    <ImageView
+        android:id="@+id/imageViewSeparatorMedida"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/TextMedida"
+        android:background="@color/black"
+        android:contentDescription="TODO"
+        android:src="@android:drawable/divider_horizontal_bright" />
+
+        <TextView
+            android:id="@+id/textA"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/imageViewSeparatorMedida"
+            android:text="ESTADO DE CONEXION " />
+
+    <Spinner
+        android:id="@+id/spinnnerA"
+        style="@style/ComienzaSpinner"
+        android:layout_below="@+id/imageViewSeparatorMedida"
+        android:layout_toEndOf="@+id/textA" />
+
+        <TextView
+            android:id="@+id/textB"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textA"
+            android:text="SENSORES" />
+
+            <Spinner
+                android:id="@+id/spinnnerB"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textA"
+                android:layout_toEndOf="@+id/textB" />
+
+        <TextView
+            android:id="@+id/textC"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textB"
+            android:text="ALARMAS" />
+
+        <EditText
+            android:id="@+id/EditAlarma"
+            android:layout_width="60dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/textB"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:textSize="8sp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@+id/TextPDuplicado"
+            android:background="@drawable/style_etbg"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/textD"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textC"
+            android:text="OBSERVACIONES" />
+
+        <EditText
+            android:id="@+id/EditObservaciones"
+            android:layout_width="60dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/textC"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:textSize="8sp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@+id/TextPDuplicado"
+            android:background="@drawable/style_etbg"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/imageViewSeparatorCalidadLiquido"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textD"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:padding="1dp"
+            android:background="@color/black"
+            android:contentDescription="TODO"
+            android:src="@android:drawable/divider_horizontal_bright" />
+
+        <TextView
+            android:id="@+id/textCalidadLiquido"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageViewSeparatorCalidadLiquido"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="CALIDAD DE LIQUIDO"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/textE"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textCalidadLiquido"
+            android:text="Toma de Muestra Aceite" />
+
+            <Spinner
+                android:id="@+id/spinnnerE"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textCalidadLiquido"
+                android:layout_toEndOf="@+id/textE" />
+
+        <TextView
+            android:id="@+id/textF"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textE"
+            android:text="Toma de Muestra Conbustible" />
+
+            <Spinner
+                android:id="@+id/spinnnerF"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textE"
+                android:layout_toEndOf="@+id/textF" />
+
+        <TextView
+            android:id="@+id/textG"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textF"
+            android:text="Toma Muestra Refrigerante" />
+
+            <Spinner
+                android:id="@+id/spinnnerG"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textF"
+                android:layout_toEndOf="@+id/textG" />
+
+        <TextView
+            android:id="@+id/textH"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textG"
+            android:text="Ultimo Lavado de Tanque de Combustible" />
+
+
+        <EditText
+            android:id="@+id/EditUltimoLavado"
+            android:layout_width="60dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/textG"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="8sp"
+            android:layout_toEndOf="@+id/TextPDuplicado"
+            android:background="@drawable/style_etbg"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/textI"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textH"
+            android:text="Ultimo Tanqueo" />
+
+        <EditText
+            android:id="@+id/EditUltimoTanqueo"
+            android:layout_width="60dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/textH"
+            android:layout_marginStart="20dp"
+            android:textSize="8sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@+id/TextPDuplicado"
+            android:background="@drawable/style_etbg"
+            android:gravity="center" />
+
+
+        <TextView
+            android:id="@+id/textJ"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textI"
+            android:text="Capacidad Tanqueo" />
+
+        <EditText
+            android:id="@+id/EditCapacidadTanque"
+            android:layout_width="60dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/textI"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="8sp"
+            android:layout_toEndOf="@+id/TextPDuplicado"
+            android:background="@drawable/style_etbg"
+            android:gravity="center" />
+
+        <ImageView
+            android:id="@+id/imageViewSeparatorEpp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textJ"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:padding="1dp"
+            android:background="@color/black"
+            android:contentDescription="TODO"
+            android:src="@android:drawable/divider_horizontal_bright" />
+
+        <TextView
+            android:id="@+id/textEpp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageViewSeparatorEpp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="EPP´S"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/textK"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textEpp"
+            android:text="CASCO" />
+
+            <Spinner
+                android:id="@+id/spinnnerK"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textEpp"
+                android:layout_toEndOf="@+id/textK" />
+
+        <TextView
+            android:id="@+id/textL"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textK"
+            android:text="GUANTES" />
+
+            <Spinner
+                android:id="@+id/spinnnerL"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textK"
+                android:layout_toEndOf="@+id/textL" />
+
+        <TextView
+            android:id="@+id/textM"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textL"
+            android:text="OVEROL" />
+
+            <Spinner
+                android:id="@+id/spinnnerM"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textL"
+                android:layout_toEndOf="@+id/textM" />
+
+        <TextView
+            android:id="@+id/TextNDuplicado"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textM"
+            android:text="GAFAS" />
+            <Spinner
+                android:id="@+id/spinnnerNDuplicado"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textM"
+                android:layout_toEndOf="@+id/TextNDuplicado" />
+
+        <TextView
+            android:id="@+id/TextODuplicado"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/TextNDuplicado"
+            android:text="OTROS" />
+
+        <EditText
+            android:id="@+id/EditOtros"
+            android:layout_width="60dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/TextNDuplicado"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@+id/TextPDuplicado"
+            android:background="@drawable/style_etbg"
+            android:gravity="center"
+            android:textSize="8sp" />
+        <ImageView
+            android:id="@+id/imageViewSeparatorLogistica"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TextODuplicado"
+            android:layout_marginTop="10dp"
+            android:background="@color/black"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:padding="1dp"
+            android:contentDescription="TODO"
+            android:src="@android:drawable/divider_horizontal_bright" />
+
+        <TextView
+            android:id="@+id/textLogistica"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageViewSeparatorLogistica"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:text="LOGISTICA" />
+
+        <TextView
+            android:id="@+id/TextPDuplicado"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textLogistica"
+            android:text="Transporte a Tiempo" />
+
+        <Spinner
+            android:id="@+id/spinnnerODuplicado"
+            style="@style/ComienzaSpinner"
+            android:layout_below="@+id/textLogistica"
+            android:layout_toEndOf="@+id/TextNDuplicado" />
+
+        <TextView
+            android:id="@+id/textN"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/TextPDuplicado"
+            android:text="Insumos Completos" />
+
+            <Spinner
+                android:id="@+id/spinnnerN"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/TextPDuplicado"
+                android:layout_toEndOf="@+id/textN" />
+
+        <TextView
+            android:id="@+id/textO"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textN"
+            android:text="Pendiente Regoger Insumos" />
+
+            <Spinner
+                android:id="@+id/spinnnerO"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textN"
+                android:layout_toEndOf="@+id/textO" />
+
+        <TextView
+            android:id="@+id/textP"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textO"
+            android:text="Tiempo de Espera al Ingreso" />
+
+            <Spinner
+                android:id="@+id/spinnnerP"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textO"
+                android:layout_toEndOf="@+id/textP" />
+
+        <TextView
+            android:id="@+id/textQ"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textP"
+            android:text="Timepo de Espera a la Salida" />
+
+            <Spinner
+                android:id="@+id/spinnnerQ"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textP"
+                android:layout_toEndOf="@+id/textQ" />
+
+
+        <ImageView
+            android:id="@+id/imageViewSeparatorSolicitudes"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textQ"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:padding="1dp"
+            android:background="@color/black"
+            android:contentDescription="TODO"
+            android:src="@android:drawable/divider_horizontal_bright" />
+
+        <TextView
+            android:id="@+id/textSolicitudes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageViewSeparatorSolicitudes"
+            android:layout_centerHorizontal="true"
+            android:textStyle="bold"
+            android:textColor="@color/black"
+            android:layout_marginTop="20dp"
+            android:text="SOLICITUDES" />
+
+        <TextView
+            android:id="@+id/textR"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textSolicitudes"
+            android:text="Servicio a Cotizar" />
+
+            <Spinner
+                android:id="@+id/spinnnerR"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textSolicitudes"
+                android:layout_toEndOf="@+id/textQ" />
+
+            <ImageView
+                android:id="@+id/imageViewSeparator"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textR"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginStart="20dp"
+                android:padding="1dp"
+                android:background="@color/black"
+                android:contentDescription="TODO"
+                android:src="@android:drawable/divider_horizontal_bright" />
+
+            <TextView
+                android:id="@+id/Generador"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewSeparator"
+                android:layout_centerHorizontal="true"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:layout_marginTop="30sp"
+                android:text="SERVICIO" />
+
+        <TextView
+            android:id="@+id/text2A"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/Generador"
+            android:text="Tipo de Servicio Realizado" />
+
+        <EditText
+            android:id="@+id/EditTipoServicio"
+            android:layout_width="60dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/Generador"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:textSize="8sp"
+            android:layout_toEndOf="@+id/TextPDuplicado"
+            android:background="@drawable/style_etbg"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/text2B"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/text2A"
+            android:text="Otro" />
+
+            <Spinner
+                android:id="@+id/spinnner2B"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/text2A"
+                android:layout_toEndOf="@+id/text2B" />
+
+        <ImageView
+            android:id="@+id/Camera2"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_below="@+id/spinnner2B"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp"
+            tools:src="@android:drawable/ic_menu_camera" />
+
+        <ImageButton
+            android:id="@+id/ButtonCamera2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinnner2B"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="20dp"
+            android:layout_toEndOf="@+id/Camera2"
+            android:shadowColor="@color/black"
+            android:src="@drawable/ic_baseline_camera"
+            android:text="Camara" />
+
+        <Button
+            android:id="@+id/buttonEnviar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Camera2"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30sp"
+            android:layout_marginBottom="20sp"
+            android:text="ENVIAR" />
+    </RelativeLayout>
+    </ScrollView>
+</layout>

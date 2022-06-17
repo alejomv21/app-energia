@@ -15,17 +15,20 @@ class Sheet5ViewModel(aplication : Application): AndroidViewModel(aplication) {
     private val databaseSheet5 = getDataBase(aplication)
     private val repository = Sheet5Repository(databaseSheet5)
 
-    private val _almacenamiento = MutableLiveData<MutableList<Almacenamiento>>()
-    val almacenamiento : LiveData<MutableList<Almacenamiento>>
-        get() = _almacenamiento
+    //private val _almacenamiento = MutableLiveData<MutableList<Almacenamiento>>()
+    //val almacenamiento : LiveData<MutableList<Almacenamiento>>
+    //    get() = _almacenamiento
 
-    init {
+    val almacenamiento = repository.eqList
+
+
+    /*init {
         viewModelScope.launch {
             try{
-                _almacenamiento.value = repository.ListarAlmacenamiento()
+                //_almacenamiento.value = repository.ListarAlmacenamiento()
             }catch (e: UnknownError){
                 Log.d(TAG, "No conexión")
             }
         }
-    }
+    }*/
 }

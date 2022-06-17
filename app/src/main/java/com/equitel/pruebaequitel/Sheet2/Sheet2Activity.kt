@@ -1,15 +1,23 @@
 package com.equitel.pruebaequitel.Sheet2
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.FileProvider
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.equitel.pruebaequitel.login.LoginActivity
@@ -17,10 +25,22 @@ import com.equitel.pruebaequitel.R
 import com.equitel.pruebaequitel.SearchActivity
 import com.equitel.pruebaequitel.Sheet3.Sheet3Activity
 import com.equitel.pruebaequitel.databinding.ActivitySheet2Binding
+import java.io.File
 
 class Sheet2Activity : AppCompatActivity() {
     lateinit var binding : ActivitySheet2Binding
     lateinit var viewModel: Sheet2ViewModel
+    private lateinit var heroImage : ImageView
+    private var heroBitmap : Bitmap? = null
+    private var picturePath = ""
+    private val getContent = registerForActivityResult(ActivityResultContracts.TakePicture()){
+            success ->
+        if(success && picturePath.isNotEmpty()){
+            heroBitmap = BitmapFactory.decodeFile(picturePath)
+            heroImage.setImageBitmap(heroBitmap)
+        }
+        //heroImage.setImageBitmap(heroBitmap!!)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySheet2Binding.inflate(layoutInflater)
@@ -37,7 +57,8 @@ class Sheet2Activity : AppCompatActivity() {
             println(binding.spinnnerA.selectedItem.toString())
             Log.d("limas", binding.spinnnerA.selectedItem.toString())
             val validar = validarCampos()
-            if(validar == true){
+            //recordatorio cambiar para validar
+            if(validar != true){
                 extraerDatos()
                 val intent = Intent(this, Sheet3Activity::class.java)
                 startActivity(intent)
@@ -84,6 +105,11 @@ class Sheet2Activity : AppCompatActivity() {
                     binding.spinnner3J.visibility = View.VISIBLE
                 }
             }
+        }
+
+        heroImage = binding.Camera2
+        binding.ButtonCamera2.setOnClickListener{
+            openCamera()
         }
     }
 
@@ -145,12 +171,15 @@ class Sheet2Activity : AppCompatActivity() {
                 almamacenamiento->
 
             almamacenamiento.nivelAceite =  binding.spinnnerA.selectedItem.toString()
+            almamacenamiento.nivelAceiteMedida = binding.EditNivelAceiteMedida.text.toString()
             almamacenamiento.estadoRadiador =  binding.spinnnerB.selectedItem.toString()
             almamacenamiento.nivelAguaRadiador =  binding.spinnnerC.selectedItem.toString()
             almamacenamiento.aspasVentilador = binding.spinnnerD.selectedItem.toString()
             almamacenamiento.bornerBateria=  binding.spinnnerE.selectedItem.toString()
             almamacenamiento.voltajeBateria =  binding.spinnnerH.selectedItem.toString()
+            almamacenamiento.voltajeBateriaMedida =  binding.EditVoltajeBateria.text.toString()
             almamacenamiento.cargadorFuncional =  binding.spinnnerI.selectedItem.toString()
+            almamacenamiento.cargadorFuncionaMedida =  binding.EditCargadorFuncional.text.toString()
             almamacenamiento.correasTensionadas =  binding.spinnnerJ.selectedItem.toString()
             almamacenamiento.estadoFiltroAire =  binding.spinnnerK.selectedItem.toString()
             almamacenamiento.estadoMangueras =  binding.spinnnerL.selectedItem.toString()
@@ -158,7 +187,9 @@ class Sheet2Activity : AppCompatActivity() {
             almamacenamiento.estadoRacores =  binding.spinnnerN.selectedItem.toString()
             almamacenamiento.fugas =  binding.spinnnerO.selectedItem.toString()
             almamacenamiento.estadoCombustible =  binding.spinnnerP.selectedItem.toString()
+            almamacenamiento.estadoCombustibleMedida =  binding.EditEstadoCombustible.text.toString()
             almamacenamiento.estadoTanque =  binding.spinnnerQ.selectedItem.toString()
+            almamacenamiento.estadoTanqueMedida =  binding.EditEstadoTanque.text.toString()
             almamacenamiento.formaTanque =  binding.spinnnerR.selectedItem.toString()
             almamacenamiento.estadoGenerador =  binding.spinnner2A.selectedItem.toString()
             almamacenamiento.aspasVentiladorGenerador =  binding.spinnner2B.selectedItem.toString()
@@ -168,6 +199,16 @@ class Sheet2Activity : AppCompatActivity() {
             almamacenamiento.puenteRectificadorGiratorio =  binding.spinnner2F.selectedItem.toString()
             almamacenamiento.estadoControl =  binding.spinnner2G.selectedItem.toString()
             almamacenamiento.estadoCuartoCabina =  binding.spinnner2H.selectedItem.toString()
+            almamacenamiento.marcaATS = binding.Edit3A.text.toString()
+            almamacenamiento.modelosATS = binding.Edit3B.text.toString()
+            almamacenamiento.tipoDisyuntores =  binding.spinnner3C.selectedItem.toString()
+            almamacenamiento.funcionamientoATS =  binding.spinnner3D.selectedItem.toString()
+            almamacenamiento.poseePrecalentador =  binding.spinnner3E.selectedItem.toString()
+            almamacenamiento.modeloPrecalentador =  binding.spinnner3G.selectedItem.toString()
+            almamacenamiento.voltajeOperacion =  binding.spinnner3H.selectedItem.toString()
+            almamacenamiento.estadoPrecalentadorATS =  binding.spinnner3I.selectedItem.toString()
+            almamacenamiento.estadoManguerasATS =  binding.spinnner3J.selectedItem.toString()
+            almamacenamiento.trabajoRealizado = binding.EditTrabajoRealizado.text.toString()
             Log.d("MANZANAs", almamacenamiento.estadoControl.toString())
 
             viewModel.GuardarAlmacenamiento12(almamacenamiento)
@@ -300,5 +341,26 @@ class Sheet2Activity : AppCompatActivity() {
             "M"-> posicion = 3
         }
         return posicion
+    }
+
+    private fun openCamera() {
+        //val camera = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        //startActivityForResult(camera, 1000)
+        val file = createImageFile()
+        val uri = if(Build.VERSION.SDK_INT  >= Build.VERSION_CODES.N){
+            FileProvider.getUriForFile(this,
+                "$packageName.provider",
+                file)
+        }else{
+            Uri.fromFile(file)
+        }
+        getContent.launch(uri)
+    }
+    private fun createImageFile(): File {
+        val filename = "superhero_image"
+        val fileDIrectory = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        val file = File.createTempFile(filename, ".jpg", fileDIrectory)
+        picturePath = file.absolutePath
+        return file
     }
 }

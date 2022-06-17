@@ -65,6 +65,22 @@
         <item>H</item>
         <item>S</item>
     </string-array>
+    <string-array name="BuenoMalo">
+        <item> </item>
+        <item>B</item>
+        <item>M</item>
+    </string-array>
+    <string-array name="OnOf">
+        <item> </item>
+        <item>ON</item>
+        <item>OF</item>
+    </string-array>
+    <string-array name="ManOfOut">
+        <item> </item>
+        <item>MAN</item>
+        <item>OF</item>
+        <item>OUT</item>
+    </string-array>
     <string-array name="disyuntores">
         <item> </item>
         <item>INT.DE.CJA MODELADA</item>
@@ -78,5 +94,9 @@
         <item> </item>
         <item>110V</item>
         <item>220V</item>
+    </string-array>
+    <string-array name="tiempo">
+        <item> </item>
+        <item>16–30MIN</item>
     </string-array>
 </resources>

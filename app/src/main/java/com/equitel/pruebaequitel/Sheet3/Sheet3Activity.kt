@@ -1,22 +1,42 @@
 package com.equitel.pruebaequitel.Sheet3
 
 import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Environment
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.FileProvider
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.equitel.pruebaequitel.R
 import com.equitel.pruebaequitel.Sheet2.Sheet2Activity
 import com.equitel.pruebaequitel.Sheet4.Sheet4Activity
 import com.equitel.pruebaequitel.databinding.ActivitySheet3Binding
+import java.io.File
 
 class Sheet3Activity : AppCompatActivity() {
     lateinit var binding : ActivitySheet3Binding
     lateinit var viewModel: Sheet3ViewModel
+    private lateinit var heroImage : ImageView
+    private var heroBitmap : Bitmap? = null
+    private var picturePath = ""
+    private val getContent = registerForActivityResult(ActivityResultContracts.TakePicture()){
+            success ->
+        if(success && picturePath.isNotEmpty()){
+            heroBitmap = BitmapFactory.decodeFile(picturePath)
+            heroImage.setImageBitmap(heroBitmap)
+        }
+        //heroImage.setImageBitmap(heroBitmap!!)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySheet3Binding.inflate(layoutInflater)
@@ -27,12 +47,30 @@ class Sheet3Activity : AppCompatActivity() {
 
         val tipoServicio : Array<String> = resources.getStringArray(R.array.OpcionesHoja2)
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, tipoServicio)
-        spinnerAdapter(adapter)
+
+        val siNo : Array<String> = resources.getStringArray(R.array.SiNo)
+        val siNoadapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, siNo)
+
+        val buenoMalo : Array<String> = resources.getStringArray(R.array.BuenoMalo)
+        val buenoMaloadapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, buenoMalo)
+
+        val onOf : Array<String> = resources.getStringArray(R.array.OnOf)
+        val onOfMaloadapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, onOf)
+
+        val manOfOut : Array<String> = resources.getStringArray(R.array.ManOfOut)
+        val manOfOutadapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, manOfOut)
+
+        spinnerAdapter(adapter, siNoadapter, buenoMaloadapter, onOfMaloadapter, manOfOutadapter)
         
         binding.buttonEnviar.setOnClickListener {
+            Toast.makeText(this, "ELEMENTOS GUARDADOS ", Toast.LENGTH_SHORT).show()
             guardarAlmacenamiento()
             val intent = Intent(this, Sheet4Activity::class.java)
             startActivity(intent)
+        }
+        heroImage = binding.Camera3
+        binding.ButtonCamera3.setOnClickListener{
+            openCamera()
         }
     }
 
@@ -48,30 +86,27 @@ class Sheet3Activity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    private fun spinnerAdapter(adapter : ArrayAdapter<String>){
+    private fun spinnerAdapter(adapter : ArrayAdapter<String>, siNoadapter: ArrayAdapter<String>, buenoMaloadapter: ArrayAdapter<String>,onOfMaloadapter: ArrayAdapter<String>, manOfOutadapter: ArrayAdapter<String>){
         binding.spinnnerA.setAdapter(adapter)
         binding.spinnnerB.setAdapter(adapter)
         binding.spinnnerC.setAdapter(adapter)
         binding.spinnnerD.setAdapter(adapter)
-        binding.spinnnerE.setAdapter(adapter)
         binding.spinnnerF.setAdapter(adapter)
         binding.spinnnerG.setAdapter(adapter)
         binding.spinnnerH.setAdapter(adapter)
-        binding.spinnnerI.setAdapter(adapter)
-        binding.spinnner2A.setAdapter(adapter)
-        binding.spinnner2B.setAdapter(adapter)
-        binding.spinnner2C.setAdapter(adapter)
-        binding.spinnner2D.setAdapter(adapter)
-        binding.spinnner3C.setAdapter(adapter)
-        binding.spinnner3D.setAdapter(adapter)
-        binding.spinnner3E.setAdapter(adapter)
-        binding.spinnner3F.setAdapter(adapter)
+        binding.spinnnerI.setAdapter(siNoadapter)
+        binding.spinnner2A.setAdapter(buenoMaloadapter)
+        binding.spinnner2B.setAdapter(buenoMaloadapter)
+        binding.spinnner2C.setAdapter(buenoMaloadapter)
+        binding.spinnner2D.setAdapter(buenoMaloadapter)
+        binding.spinnner3D.setAdapter(onOfMaloadapter)
+        binding.spinnner3E.setAdapter(onOfMaloadapter)
+        binding.spinnner3F.setAdapter(manOfOutadapter)
         binding.spinnner3G.setAdapter(adapter)
         binding.spinnner3H.setAdapter(adapter)
         binding.spinnner3I.setAdapter(adapter)
-        binding.spinnner3J.setAdapter(adapter)
-        binding.spinnner4A.setAdapter(adapter)
-        binding.spinnner4B.setAdapter(adapter)
+        binding.spinnner4A.setAdapter(buenoMaloadapter)
+        binding.spinnner4B.setAdapter(buenoMaloadapter)
     }
 
 
@@ -80,29 +115,51 @@ class Sheet3Activity : AppCompatActivity() {
         viewModel.almacenamiento.observe(this, Observer {
             almacenamiento->
             almacenamiento.caidaVOltaje = binding.spinnnerA.selectedItem.toString()
+            almacenamiento.caidaVoltajeMedida = binding.EditCaidaVoltaje.text.toString()
             almacenamiento.presionAceite = binding.spinnnerB.selectedItem.toString()
+            almacenamiento.presionAceiteMedida = binding.EditPresionAceite.text.toString()
             almacenamiento.temperaturaAgua = binding.spinnnerC.selectedItem.toString()
+            almacenamiento.temperaturaAguaMedida = binding.EditTemperaturaAgua.text.toString()
             almacenamiento.voltajeAlternador = binding.spinnnerD.selectedItem.toString()
-            almacenamiento.instrumentoTablero = binding.spinnnerE.selectedItem.toString()
+            almacenamiento.voltajeAlternadorMedida = binding.EditVoltajeAlternador.text.toString()
             almacenamiento.temperaturaAceite = binding.spinnnerF.selectedItem.toString()
+            almacenamiento.temperaturaAceiteMedida = binding.EditTemperaturaAceite.text.toString()
             almacenamiento.temperaturaGases = binding.spinnnerG.selectedItem.toString()
+            almacenamiento.temperaturaGasesMedida = binding.EditTemperaGasesEscape.text.toString()
             almacenamiento.indicadorRestriccion = binding.spinnnerH.selectedItem.toString()
-            almacenamiento.oscilacionGobernador = binding.spinnnerI.selectedItem.toString()
+            almacenamiento.indicadoresRestriccionMedida = binding.EditIndicadoRestrccionAire.text.toString()
+            almacenamiento.oscilacionVelocidad = binding.spinnnerI.selectedItem.toString()
             almacenamiento.altaTemperaturaMotor = binding.spinnner2A.selectedItem.toString()
             almacenamiento.sobreRevoluciones = binding.spinnner2B.selectedItem.toString()
             almacenamiento.bajaPresionAceite = binding.spinnner2C.selectedItem.toString()
             almacenamiento.bajoNivelRefrigerante = binding.spinnner2D.selectedItem.toString()
-            almacenamiento.chequeoVolt = binding.spinnner3C.selectedItem.toString()
+            almacenamiento.voltaje1 = binding.EditfasesA1.text.toString()
+            almacenamiento.voltaje1Medida = binding.EditfasesA1Medida.text.toString()
+            almacenamiento.voltaje2 = binding.EditfasesA2.text.toString()
+            almacenamiento.voltaje2Medida = binding.EditfasesA2Medida.text.toString()
+            almacenamiento.voltaje3 = binding.EditfasesA3.text.toString()
+            almacenamiento.voltaje3Medida =  binding.EditfasesA3Medida.text.toString()
+            almacenamiento.corrienteAmperios1 = binding.EditfasesB1.text.toString()
+            almacenamiento.corrienteAmperios1Medida = binding.EditfasesB1Medida.text.toString()
+            almacenamiento.corrienteAmperios2 = binding.EditfasesB2.text.toString()
+            almacenamiento.corrienteAmperios2Medida = binding.EditfasesB2Medida.text.toString()
+            almacenamiento.corrienteAmperios3 = binding.EditfasesB3.text.toString()
+            almacenamiento.corrienteAmperios3Medida = binding.EditfasesB3Medida.text.toString()
+            almacenamiento.corrienteAmperios4 = binding.EditfasesB4.text.toString()
+            almacenamiento.corrienteAmperios4Medida = binding.EditfasesB4Medida.text.toString()
             almacenamiento.posicionInterruptor = binding.spinnner3D.selectedItem.toString()
             almacenamiento.switchCargador = binding.spinnner3E.selectedItem.toString()
             almacenamiento.switchControl = binding.spinnner3F.selectedItem.toString()
             almacenamiento.frecuencia = binding.spinnner3G.selectedItem.toString()
+            almacenamiento.frecuenciaMedida = binding.EditFrecuenicaMedida.text.toString()
             almacenamiento.factorPotencia = binding.spinnner3H.selectedItem.toString()
+            almacenamiento.factorPotenciaMedida = binding.EditFactorPoteciaMedida.text.toString()
             almacenamiento.kilovatios = binding.spinnner3I.selectedItem.toString()
-            almacenamiento.simularFalla = binding.spinnner3J.selectedItem.toString()
+            almacenamiento.kilovatiosMedida = binding.EditKilovatiosMedida.text.toString()
             almacenamiento.enVacio = binding.spinnner4A.selectedItem.toString()
             almacenamiento.conCargas = binding.spinnner4B.selectedItem.toString()
-
+            almacenamiento.conCargasMedida = binding.EditConCargasMedida.text.toString()
+            almacenamiento.recomendaciones = binding.EditRecomendaciones.text.toString()
             viewModel.guardaralmacenamiento(almacenamiento)
         })
     }
@@ -124,9 +181,6 @@ class Sheet3Activity : AppCompatActivity() {
             val d = almamacenamiento.voltajeAlternador.toString()
             val voltajeAlternador = spinerCondicion(d)
             binding.spinnnerD.setSelection(voltajeAlternador)
-            val e = almamacenamiento.instrumentoTablero.toString()
-            val instrumentoTablero = spinerCondicion(e)
-            binding.spinnnerE.setSelection(instrumentoTablero)
             val f = almamacenamiento.temperaturaAceite.toString()
             val temperaturaAceite = spinerCondicion(f)
             binding.spinnnerF.setSelection(temperaturaAceite)
@@ -136,7 +190,7 @@ class Sheet3Activity : AppCompatActivity() {
             val h = almamacenamiento.indicadorRestriccion.toString()
             val indicadorRestriccion = spinerCondicion(h)
             binding.spinnnerH.setSelection(indicadorRestriccion)
-            val i = almamacenamiento.oscilacionGobernador.toString()
+            val i = almamacenamiento.oscilacionVelocidad.toString()
             val oscilacionGobernador = spinerCondicion(i)
             binding.spinnnerI.setSelection(oscilacionGobernador)
             val a2 = almamacenamiento.altaTemperaturaMotor.toString()
@@ -151,9 +205,6 @@ class Sheet3Activity : AppCompatActivity() {
             val d2 = almamacenamiento.bajoNivelRefrigerante.toString()
             val bajoNivelRefrigerante = spinerCondicion(d2)
             binding.spinnner2D.setSelection(bajoNivelRefrigerante)
-            val c3 = almamacenamiento.chequeoVolt.toString()
-            val chequeoVolt = spinerCondicion(c3)
-            binding.spinnner3C.setSelection(chequeoVolt)
             val d3 = almamacenamiento.posicionInterruptor.toString()
             val posicionInterruptor = spinerCondicion(d3)
             binding.spinnner3D.setSelection(posicionInterruptor)
@@ -172,9 +223,6 @@ class Sheet3Activity : AppCompatActivity() {
             val i3 = almamacenamiento.kilovatios.toString()
             val kilovatios = spinerCondicion(i3)
             binding.spinnner3I.setSelection(kilovatios)
-            val j3 = almamacenamiento.simularFalla.toString()
-            val simularFalla = spinerCondicion(j3)
-            binding.spinnner3J.setSelection(simularFalla)
             val a4 = almamacenamiento.enVacio.toString()
             val enVacio = spinerCondicion(a4)
             binding.spinnner4A.setSelection(enVacio)
@@ -191,7 +239,6 @@ class Sheet3Activity : AppCompatActivity() {
         val b = binding.spinnnerB.selectedItem.toString()
         val c = binding.spinnnerC.selectedItem.toString()
         val d = binding.spinnnerD.selectedItem.toString()
-        val e=  binding.spinnnerE.selectedItem.toString()
         val f=  binding.spinnnerF.selectedItem.toString()
         val g=  binding.spinnnerG.selectedItem.toString()
         val h =  binding.spinnnerH.selectedItem.toString()
@@ -200,20 +247,18 @@ class Sheet3Activity : AppCompatActivity() {
         val b2=  binding.spinnner2B.selectedItem.toString()
         val c2=  binding.spinnner2C.selectedItem.toString()
         val d2 =  binding.spinnner2D.selectedItem.toString()
-        val c3 = binding.spinnner3C.selectedItem.toString()
         val d3 = binding.spinnner3D.selectedItem.toString()
         val e3=  binding.spinnner3E.selectedItem.toString()
         val f3 =  binding.spinnner3F.selectedItem.toString()
         val g3 =  binding.spinnner3G.selectedItem.toString()
         val h3 =  binding.spinnner3H.selectedItem.toString()
-        val i3 =  binding.spinnner3J.selectedItem.toString()
         val j3 =  binding.spinnner3I.selectedItem.toString()
         val a4 =  binding.spinnner4A.selectedItem.toString()
         val b4 =  binding.spinnner4B.selectedItem.toString()
 
-        if(a == "" || b == "" || c == "" || d == "" || e == "" || f == "" || g == "" || h == ""|| i == ""
-            || a2 == "" || b2 == "" || c2 == "" || d2 == "" || c3 == "" || d3 == ""|| e3 == ""|| f3 == ""|| g3 == ""
-            || h3 == ""|| i3 == ""|| j3 == ""|| a4 == ""|| b4 == ""){
+        if(a == "" || b == "" || c == "" || d == "" || f == "" || g == "" || h == ""|| i == ""
+            || a2 == "" || b2 == "" || c2 == "" || d2 == "" || d3 == ""|| e3 == ""|| f3 == ""|| g3 == ""
+            || h3 == ""|| j3 == ""|| a4 == ""|| b4 == ""){
             Toast.makeText(this, "faltan campos por llenar", Toast.LENGTH_SHORT).show()
             return false
         }else{
@@ -229,6 +274,27 @@ class Sheet3Activity : AppCompatActivity() {
             "M"-> posicion = 3
         }
         return posicion
+    }
+
+    private fun openCamera() {
+        //val camera = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        //startActivityForResult(camera, 1000)
+        val file = createImageFile()
+        val uri = if(Build.VERSION.SDK_INT  >= Build.VERSION_CODES.N){
+            FileProvider.getUriForFile(this,
+                "$packageName.provider",
+                file)
+        }else{
+            Uri.fromFile(file)
+        }
+        getContent.launch(uri)
+    }
+    private fun createImageFile(): File {
+        val filename = "superhero_image"
+        val fileDIrectory = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
+        val file = File.createTempFile(filename, ".jpg", fileDIrectory)
+        picturePath = file.absolutePath
+        return file
     }
 }
 
