@@ -78,6 +78,4 @@
         <item name="android:textColor">@color/black</item>
         <item name="android:textSize">10sp</item>
     </style>
-
-
 </resources>

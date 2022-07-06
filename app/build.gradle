@@ -13,6 +13,7 @@ android {
     defaultConfig {
         applicationId "com.equitel.pruebaequitel"
         minSdk 19
+        multiDexEnabled true
         targetSdk 31
         versionCode 1
         versionName "1.0"
@@ -56,6 +57,7 @@ dependencies {
     implementation 'androidx.room:room-runtime:2.4.2'
     implementation 'androidx.room:room-ktx:2.4.2'
     implementation 'com.google.firebase:firebase-storage:19.1.1'
+    implementation 'com.google.firebase:firebase-storage-ktx:20.0.1'
     kapt 'androidx.room:room-compiler:2.4.2'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'

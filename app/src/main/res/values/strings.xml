@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">pruebaEquitel</string>
     <string name="cabina">CABINA</string>
-    <string name="cuarta">CUARTA</string>
+    <string name="cuarto">CUARTO</string>
+    <string name="cuarta">CUARTO</string>
     <string name="abierto">ABIERTO</string>
     <string name="otro">OTRO</string>
     <string name="acpm">ACPM</string>
@@ -9,7 +10,7 @@
     <string name="bat">BAT</string>
     <string name="visita_tecnica_n_sen_07_n_version_08_n_soperte_t_cnico_n_n">Visita tecnica\n SEN-07 \n VERSION 08\n SOPERTE TÉCNICO\n n°</string>
     <string name="cliente">CLIENTE:</string>
-    <string name="dir">DIr:</string>
+    <string name="dir">DIRECCIÓN:</string>
     <string name="servicio_solicitado_por">SERVICIO SOLICITADO POR:</string>
     <string name="cargo">CARGO:</string>
     <string name="email">EMAIL:</string>
@@ -78,8 +79,8 @@
     <string-array name="ManOfOut">
         <item> </item>
         <item>MAN</item>
-        <item>OF</item>
-        <item>OUT</item>
+        <item>OFF</item>
+        <item>AUT</item>
     </string-array>
     <string-array name="disyuntores">
         <item> </item>
@@ -89,14 +90,54 @@
     <string-array name="precalentador">
         <item> </item>
         <item>Resistencia Interna</item>
+        <item>Externo tipo Botella</item>
     </string-array>
     <string-array name="voltaje">
         <item> </item>
         <item>110V</item>
         <item>220V</item>
+        <item>440V</item>
+        <item>480V</item>
+        <item>12 VDC</item>
+        <item>24 VDC</item>
     </string-array>
     <string-array name="tiempo">
         <item> </item>
-        <item>16–30MIN</item>
+        <item>0-15 MIN</item>
+        <item>16–30 MIN</item>
+        <item>31-60 MIN</item>
+        <item>más de 1 Hora</item>
+    </string-array>
+    <string-array name="Tanque">
+        <item> </item>
+        <item>CILINDRICO</item>
+        <item>CUADRADO</item>
+    </string-array>
+    <string-array name="Disyuntres">
+        <item> </item>
+        <item>INT.CAJA MOLDEADA</item>
+        <item>INT. EXTRAIBLE</item>
+    </string-array>
+
+    <string-array name="correas">
+        <item> </item>
+        <item>A</item>
+        <item>M</item>
+        <item>B</item>
+    </string-array>
+
+    <string-array name="siNoNa">
+        <item> </item>
+        <item>Sí</item>
+        <item>No</item>
+        <item>Na</item>
+    </string-array>
+
+    <string-array name="buenoMaloNA">
+        <item> </item>
+        <item>B</item>
+        <item>R</item>
+        <item>M</item>
+        <item>NA</item>
     </string-array>
 </resources>

@@ -92,7 +92,7 @@
                 android:layout_height="20dp"
                 android:layout_below="@id/checkBoxCabina"
                 android:layout_marginStart="20dp"
-                android:text="@string/cuarta"
+                android:text="@string/cuarto"
                 android:textSize="10sp"
                 tools:ignore="SmallSp" />
 
@@ -223,9 +223,9 @@
                 android:id="@+id/TextServicioSolicitado"
                 style="@style/StartTextView"
                 android:layout_width="160dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/EditSede"
-                android:text="@string/servicio_solicitado_por"
-                android:textSize="10sp" />
+                android:text="@string/servicio_solicitado_por"/>
 
             <EditText
                 android:id="@+id/EditServicioSolicitado"
@@ -243,7 +243,7 @@
             <EditText
                 android:id="@+id/EditCargo"
                 style="@style/StartEditText"
-                android:layout_below="@id/EditServicioSolicitado"
+                android:layout_below="@id/TextServicioSolicitado"
                 android:layout_toEndOf="@+id/TextCargo" />
 
             <TextView

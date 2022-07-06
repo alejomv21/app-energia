@@ -36,85 +36,58 @@
                 android:layout_marginTop="20dp"
                 android:text="HORA SALIDA" />
 
+            <ImageButton
+                android:id="@+id/fecha1Button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/imageNota"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/EditHoraSalidaT"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_calendar_today"
+                android:text="Camara" />
+
+            <EditText
+                android:id="@+id/EditFecha1"
+                style="@style/StartGenerador"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/imageNota"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/fecha1Button" />
+
             <TextView
                 android:id="@+id/EditHoraSalidaT"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_below="@+id/TextHoraSalidaT"
                 android:layout_marginStart="20dp"
                 android:text="TÉCNICOS/EQUITEL" />
 
-            <TextView
-                android:id="@+id/salidaTA1"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/imageNota"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+            <ImageButton
+                android:id="@+id/reloj1Button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/fecha1Button"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
                 android:layout_toEndOf="@+id/EditHoraSalidaT"
-                android:text="am" />
-
-            <TextView
-                android:id="@+id/salidaTA2"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/imageNota"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/salidaTA1"
-                android:text="pm" />
-
-            <TextView
-                android:id="@+id/salidaTA3"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/imageNota"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/salidaTA2"
-                android:text="DD" />
-
-            <TextView
-                android:id="@+id/salidaTA4"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/imageNota"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/salidaTA3"
-                android:text="MM" />
-
-            <TextView
-                android:id="@+id/salidaTA5"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/imageNota"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/salidaTA4"
-                android:text="AA" />
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_reloj_schedule"
+                android:text="Camara" />
 
             <EditText
-                android:id="@+id/EditsalidaTA1"
+                android:id="@+id/EditReloj1"
                 style="@style/StartGenerador"
-                android:layout_below="@+id/salidaTA1"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/EditFecha1"
                 android:layout_marginStart="20dp"
-                android:layout_toEndOf="@+id/EditHoraSalidaT" />
-
-            <EditText
-                android:id="@+id/EditsalidaTA2"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/salidaTA1"
-                android:layout_toEndOf="@+id/EditsalidaTA1" />
-
-            <EditText
-                android:id="@+id/EditsalidaTA3"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/salidaTA1"
-                android:layout_toEndOf="@+id/EditsalidaTA2" />
-
-            <EditText
-                android:id="@+id/EditsalidaTA4"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/salidaTA1"
-                android:layout_toEndOf="@+id/EditsalidaTA3" />
-
-            <EditText
-                android:id="@+id/EditsalidaTA5"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/salidaTA1"
-                android:layout_toEndOf="@+id/EditsalidaTA4" />
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/fecha1Button" />
 
             <TextView
                 android:id="@+id/TextHoraSalidaC"
@@ -125,85 +98,59 @@
                 android:layout_marginTop="20dp"
                 android:text="HORA SALIDA" />
 
+            <ImageButton
+                android:id="@+id/fecha2Button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/reloj1Button"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/EditHoraSalidaT"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_calendar_today"
+                android:text="Camara" />
+
+            <EditText
+                android:id="@+id/EditFecha2"
+                style="@style/StartGenerador"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/reloj1Button"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/fecha1Button" />
+
             <TextView
                 android:id="@+id/EditHoraSalidaC"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_below="@+id/TextHoraSalidaC"
                 android:layout_marginStart="20dp"
                 android:text="CLIENTE" />
 
-            <TextView
-                android:id="@+id/salidaCA1"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditsalidaTA1"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+            <ImageButton
+                android:id="@+id/reloj2Button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/fecha2Button"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
                 android:layout_toEndOf="@+id/EditHoraSalidaT"
-                android:text="am" />
-
-            <TextView
-                android:id="@+id/salidaCA2"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditsalidaTA1"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/salidaCA1"
-                android:text="pm" />
-
-            <TextView
-                android:id="@+id/salidaCA3"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditsalidaTA1"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/salidaCA2"
-                android:text="DD" />
-
-            <TextView
-                android:id="@+id/salidaCA4"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditsalidaTA1"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/salidaCA3"
-                android:text="MM" />
-
-            <TextView
-                android:id="@+id/salidaCA5"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditsalidaTA1"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/salidaCA4"
-                android:text="AA" />
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_reloj_schedule"
+                android:text="Camara" />
 
             <EditText
-                android:id="@+id/EditsalidaCA1"
+                android:id="@+id/EditReloj2"
                 style="@style/StartGenerador"
-                android:layout_below="@+id/salidaCA1"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/fecha2Button"
                 android:layout_marginStart="20dp"
-                android:layout_toEndOf="@+id/EditHoraSalidaT" />
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/fecha1Button" />
 
-            <EditText
-                android:id="@+id/EditsalidaCA2"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/salidaCA1"
-                android:layout_toEndOf="@+id/EditsalidaCA1" />
-
-            <EditText
-                android:id="@+id/EditsalidaCA3"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/salidaCA1"
-                android:layout_toEndOf="@+id/EditsalidaCA2" />
-
-            <EditText
-                android:id="@+id/EditsalidaCA4"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/salidaCA1"
-                android:layout_toEndOf="@+id/EditsalidaCA3" />
-
-            <EditText
-                android:id="@+id/EditsalidaCA5"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/salidaCA1"
-                android:layout_toEndOf="@+id/EditsalidaCA4" />
 
             <TextView
                 android:id="@+id/TextHorallegadaC"
@@ -214,85 +161,59 @@
                 android:layout_marginTop="20dp"
                 android:text="HORA LLEGADA" />
 
+            <ImageButton
+                android:id="@+id/fecha3Button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/reloj2Button"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/EditHoraSalidaT"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_calendar_today"
+                android:text="Camara" />
+
+            <EditText
+                android:id="@+id/EditFecha3"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/reloj2Button"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                style="@style/StartGenerador"
+                android:layout_toEndOf="@+id/fecha1Button" />
+
             <TextView
                 android:id="@+id/EditHorallegadaC"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_below="@+id/TextHorallegadaC"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
                 android:text="CLIENTE" />
 
-            <TextView
-                android:id="@+id/llegadaCA1"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditsalidaCA1"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+            <ImageButton
+                android:id="@+id/reloj3Button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/fecha3Button"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
                 android:layout_toEndOf="@+id/EditHoraSalidaT"
-                android:text="am" />
-
-            <TextView
-                android:id="@+id/llegadaCA2"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditsalidaCA1"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/llegadaCA1"
-                android:text="pm" />
-
-            <TextView
-                android:id="@+id/llegadaCA3"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditsalidaCA1"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/llegadaCA2"
-                android:text="DD" />
-
-            <TextView
-                android:id="@+id/llegadaCA4"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditsalidaCA1"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/llegadaCA3"
-                android:text="MM" />
-
-            <TextView
-                android:id="@+id/llegadaCA5"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditsalidaCA1"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/llegadaCA4"
-                android:text="AA" />
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_reloj_schedule"
+                android:text="Camara" />
 
             <EditText
-                android:id="@+id/EditllegadaCA1"
+                android:id="@+id/EditReloj3"
                 style="@style/StartGenerador"
-                android:layout_below="@+id/llegadaCA1"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/fecha3Button"
                 android:layout_marginStart="20dp"
-                android:layout_toEndOf="@+id/EditHoraSalidaT" />
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/fecha1Button" />
 
-            <EditText
-                android:id="@+id/EditllegadaCA2"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/llegadaCA1"
-                android:layout_toEndOf="@+id/EditllegadaCA1" />
-
-            <EditText
-                android:id="@+id/EditllegadaCA3"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/llegadaCA1"
-                android:layout_toEndOf="@+id/EditllegadaCA2" />
-
-            <EditText
-                android:id="@+id/EditllegadaCA4"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/llegadaCA1"
-                android:layout_toEndOf="@+id/EditllegadaCA3" />
-
-            <EditText
-                android:id="@+id/EditllegadaCA5"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/llegadaCA1"
-                android:layout_toEndOf="@+id/EditllegadaCA4" />
 
             <TextView
                 android:id="@+id/TextHoraAtencionC"
@@ -302,92 +223,66 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:text="HORA ATENCION" />
+            <ImageButton
+                android:id="@+id/fecha4Button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/reloj3Button"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/EditHoraSalidaT"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_calendar_today"
+                android:text="Camara" />
+
+            <EditText
+                android:id="@+id/EditFecha4"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/reloj3Button"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                style="@style/StartGenerador"
+                android:layout_toEndOf="@+id/fecha1Button" />
 
             <TextView
                 android:id="@+id/EditHoraAtencionC"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
+                android:layout_marginTop="5dp"
                 android:layout_below="@+id/TextHoraAtencionC"
                 android:layout_marginStart="20dp"
                 android:text="CLIENTE" />
 
-            <TextView
-                android:id="@+id/atencionCA1"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditHorallegadaC"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
+            <ImageButton
+                android:id="@+id/reloj4Button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/fecha4Button"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
                 android:layout_toEndOf="@+id/EditHoraSalidaT"
-                android:text="am" />
-
-            <TextView
-                android:id="@+id/atencionCA2"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditHorallegadaC"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/atencionCA1"
-                android:text="pm" />
-
-            <TextView
-                android:id="@+id/atencionCA3"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditHorallegadaC"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/atencionCA2"
-                android:text="DD" />
-
-            <TextView
-                android:id="@+id/atencionCA4"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditHorallegadaC"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/atencionCA3"
-                android:text="MM" />
-
-            <TextView
-                android:id="@+id/atencionCA5"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditHorallegadaC"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/atencionCA4"
-                android:text="AA" />
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_reloj_schedule"
+                android:text="Camara" />
 
             <EditText
-                android:id="@+id/EditatencionCA1"
+                android:id="@+id/EditReloj4"
                 style="@style/StartGenerador"
-                android:layout_below="@+id/atencionCA1"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/fecha4Button"
                 android:layout_marginStart="20dp"
-                android:layout_toEndOf="@+id/EditHoraSalidaT" />
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/fecha1Button" />
 
-            <EditText
-                android:id="@+id/EditatencionCA2"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/atencionCA1"
-                android:layout_toEndOf="@+id/EditatencionCA1" />
 
-            <EditText
-                android:id="@+id/EditatencionCA3"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/atencionCA1"
-                android:layout_toEndOf="@+id/EditatencionCA2" />
-
-            <EditText
-                android:id="@+id/EditatencionCA4"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/atencionCA1"
-                android:layout_toEndOf="@+id/EditatencionCA3" />
-
-            <EditText
-                android:id="@+id/EditatencionCA5"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/atencionCA1"
-                android:layout_toEndOf="@+id/EditatencionCA4" />
 
             <TextView
                 android:id="@+id/TextCalificacionCliente"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:layout_below="@+id/EditatencionCA5"
+                android:layout_below="@+id/EditHoraAtencionC"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
@@ -425,6 +320,8 @@
                 android:layout_below="@+id/TextCalificacionCliente"
                 android:layout_toEndOf="@+id/TextServCumplimiento1"
                 android:gravity="center"
+                android:digits="123456789,"
+                android:inputType="numberDecimal"
                 android:textSize="10sp" />
 
             <TextView

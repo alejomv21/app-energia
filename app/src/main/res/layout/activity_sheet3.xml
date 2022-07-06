@@ -83,7 +83,7 @@
                 android:id="@+id/textB"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textA"
-                android:text="B. Presión Aceite" />
+                android:text="B. Presión Aceite (Psi)" />
 
             <Spinner
                 android:id="@+id/spinnnerB"
@@ -101,13 +101,14 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:hint="Psi"
                 android:textSize="8sp" />
 
             <TextView
                 android:id="@+id/textC"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textB"
-                android:text="C. Temperatura Agua" />
+                android:text="C. Temperatura Agua (°C)" />
 
             <Spinner
                 android:id="@+id/spinnnerC"
@@ -125,13 +126,14 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:hint="°C"
                 android:textSize="8sp" />
 
             <TextView
                 android:id="@+id/textD"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textC"
-                android:text="D. Voltaje Alternador" />
+                android:text="D. Voltaje Alternador (VDC)" />
 
             <Spinner
                 android:id="@+id/spinnnerD"
@@ -149,6 +151,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:hint="VDC"
                 android:textSize="8sp" />
 
 
@@ -156,7 +159,7 @@
                 android:id="@+id/textF"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textD"
-                android:text="F. Temperatura Aceite 245°F" />
+                android:text="F. Temperatura Aceite (°C)" />
 
             <Spinner
                 android:id="@+id/spinnnerF"
@@ -174,13 +177,15 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:hint="°C"
+                android:inputType="number"
                 android:textSize="8sp" />
 
             <TextView
                 android:id="@+id/textG"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textF"
-                android:text="G. Temperatura Gases Escape" />
+                android:text="G. Temperatura Gases Escape (°C)" />
 
             <Spinner
                 android:id="@+id/spinnnerG"
@@ -198,6 +203,8 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:hint="°C"
+                android:inputType="number"
                 android:textSize="8sp" />
 
             <TextView
@@ -215,7 +222,6 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
-                android:gravity="center"
                 android:textSize="8sp" />
 
             <Spinner
@@ -337,7 +343,7 @@
                 android:id="@+id/text3A"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/Simular"
-                android:text="A. Voltaje" />
+                android:text="A. Voltaje (VAC RMS)" />
 
             <TextView
                 android:id="@+id/fasesA1"
@@ -364,7 +370,7 @@
                 android:layout_toEndOf="@+id/text3A"
                 android:text="1.3" />
 
-            <EditText
+            <CheckBox
                 android:id="@+id/EditfasesA1"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/Simular"
@@ -380,10 +386,12 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
+                android:digits="123456789,"
                 android:gravity="center"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
-            <EditText
+            <CheckBox
                 android:id="@+id/EditfasesA2"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/fasesA1"
@@ -397,10 +405,12 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
+                android:digits="123456789,"
                 android:gravity="center"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
-            <EditText
+            <CheckBox
                 android:id="@+id/EditfasesA3"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/fasesA2"
@@ -414,7 +424,9 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
+                android:digits="123456789,"
                 android:gravity="center"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
 
@@ -457,7 +469,7 @@
                 android:layout_toEndOf="@+id/text3B"
                 android:text="N" />
 
-            <EditText
+            <CheckBox
                 android:id="@+id/EditfasesB1"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/fasesA3"
@@ -473,10 +485,12 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
+                android:digits="123456789,"
                 android:gravity="center"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
-            <EditText
+            <CheckBox
                 android:id="@+id/EditfasesB2"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/EditfasesB1"
@@ -490,10 +504,12 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
+                android:digits="123456789,"
+                android:inputType="numberDecimal"
                 android:gravity="center"
                 android:textSize="8sp" />
 
-            <EditText
+            <CheckBox
                 android:id="@+id/EditfasesB3"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/EditfasesB2"
@@ -508,9 +524,11 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:digits="123456789,"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
-            <EditText
+            <CheckBox
                 android:id="@+id/EditfasesB4"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/EditfasesB3"
@@ -525,6 +543,8 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:digits="123456789,"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
 
@@ -533,7 +553,7 @@
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/fasesB4"
                 android:layout_marginTop="21dp"
-                android:text="D. Posicion Interruptor Planta (Breack)" />
+                android:text="D. Posicion Interruptor Planta" />
 
             <Spinner
                 android:id="@+id/spinnner3D"
@@ -545,7 +565,7 @@
                 android:id="@+id/text3E"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text3D"
-                android:text="E. Posición Switvh Cargador (Breack)" />
+                android:text="E. Posición Swith Cargador" />
 
             <Spinner
                 android:id="@+id/spinnner3E"
@@ -557,7 +577,7 @@
                 android:id="@+id/text3F"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text3E"
-                android:text="F. Posición Switch Control (Breack)" />
+                android:text="F. Posición Switch Control" />
 
             <Spinner
                 android:id="@+id/spinnner3F"
@@ -611,6 +631,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
             <TextView
@@ -619,11 +640,6 @@
                 android:layout_below="@+id/text3H"
                 android:text="I. kilovatios / Hora" />
 
-            <Spinner
-                android:id="@+id/spinnner3I"
-                style="@style/ComienzaSpinner"
-                android:layout_below="@+id/text3H"
-                android:layout_toEndOf="@+id/text3I" />
 
             <EditText
                 android:id="@+id/EditKilovatiosMedida"
@@ -695,6 +711,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:hint="kW/kVA"
                 android:textSize="8sp" />
 
             <ImageView

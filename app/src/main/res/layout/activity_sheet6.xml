@@ -222,9 +222,9 @@
                 android:id="@+id/TextServicioSolicitado"
                 style="@style/StartTextView"
                 android:layout_width="160dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/EditSede"
-                android:text="@string/servicio_solicitado_por"
-                android:textSize="10sp" />
+                android:text="@string/servicio_solicitado_por"/>
 
             <EditText
                 android:id="@+id/EditServicioSolicitado"
@@ -545,14 +545,22 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/textEstadoequipo"
+                android:layout_marginStart="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
-                android:layout_marginStart="20dp"
-                android:padding="1dp"
                 android:background="@color/black"
                 android:contentDescription="TODO"
+                android:padding="1dp"
                 android:src="@android:drawable/divider_horizontal_bright" />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/imageViewSeparatorEstado"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/textA"
+                android:text="ESTADO"
+                android:textColor="@color/black" />
             <TextView
                 android:id="@+id/TextMedida"
                 android:layout_width="100dp"
@@ -593,8 +601,9 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:gravity="center"
-                android:background="@drawable/style_etbg" />
+                android:textSize="8sp"
+                android:background="@drawable/style_etbg"
+                android:gravity="center" />
 
             <TextView
                 android:id="@+id/textB"
@@ -682,8 +691,9 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
+                android:background="@drawable/style_etbg"
                 android:gravity="center"
-                android:background="@drawable/style_etbg" />
+                android:textSize="8sp" />
 
             <Spinner
                 android:id="@+id/spinnnerH"
@@ -712,7 +722,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
-                android:gravity="center" />
+                android:gravity="center"
+                android:textSize="8sp" />
 
             <TextView
                 android:id="@+id/textJ"
@@ -750,47 +761,44 @@
                 android:layout_below="@+id/textK"
                 android:layout_toEndOf="@+id/textL" />
 
-            <TextView
-                android:id="@+id/textM"
-                style="@style/ComienzaTexto"
-                android:layout_below="@+id/textL"
-                android:text="M. Estado Precalentador" />
-
-            <Spinner
-                android:id="@+id/spinnnerM"
-                style="@style/ComienzaSpinner"
-                android:layout_below="@+id/textL"
-                android:layout_toEndOf="@+id/textM" />
 
             <TextView
                 android:id="@+id/TextNDuplicado"
                 style="@style/ComienzaTexto"
-                android:layout_below="@+id/textM"
-                android:text="N. Estado Tapa Radiador" />
+                android:layout_below="@+id/textL"
+                android:text="M. Estado Tapa Radiador" />
 
             <Spinner
                 android:id="@+id/spinnnerNDuplicado"
                 style="@style/ComienzaSpinner"
-                android:layout_below="@+id/textM"
+                android:layout_below="@+id/textL"
                 android:layout_toEndOf="@+id/TextNDuplicado" />
 
             <TextView
                 android:id="@+id/TextODuplicado"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/TextNDuplicado"
-                android:text="O. Presion Tapa de Radiador" />
+                android:text="N. Presion Tapa de Radiador (PSI)" />
 
-            <Spinner
-                android:id="@+id/spinnnerODuplicado"
-                style="@style/ComienzaSpinner"
+            <EditText
+                android:id="@+id/EditODuplicado"
+                android:layout_width="120dp"
+                android:layout_height="23dp"
                 android:layout_below="@+id/TextNDuplicado"
-                android:layout_toEndOf="@+id/TextODuplicado" />
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_toEndOf="@+id/TextPDuplicado"
+                android:background="@drawable/style_etbg"
+                android:gravity="center"
+                android:hint="PSI" />
+
 
             <TextView
                 android:id="@+id/TextPDuplicado"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/TextODuplicado"
-                android:text="P. Dimensiones" />
+                android:text="O. Dimensiones Tapa Radiador (mm)" />
 
             <EditText
                 android:id="@+id/EditPDuplicado"
@@ -802,25 +810,26 @@
                 android:layout_marginEnd="20dp"
                 android:layout_toEndOf="@+id/TextPDuplicado"
                 android:background="@drawable/style_etbg"
-                android:gravity="center" />
+                android:gravity="center"
+                android:hint="mm"/>
 
             <TextView
                 android:id="@+id/textN"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/TextPDuplicado"
-                android:text="N. Estado de Racores" />
+                android:text="P. Estado de Racores" />
 
             <Spinner
                 android:id="@+id/spinnnerN"
                 style="@style/ComienzaSpinner"
-                android:layout_below="@+id/TextNDuplicado"
+                android:layout_below="@+id/TextPDuplicado"
                 android:layout_toEndOf="@+id/textN" />
 
             <TextView
                 android:id="@+id/textO"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textN"
-                android:text="O. Fugas" />
+                android:text="Q. Fugas" />
 
             <Spinner
                 android:id="@+id/spinnnerO"
@@ -832,7 +841,7 @@
                 android:id="@+id/textP"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textO"
-                android:text="P. Estado Combustibles" />
+                android:text="R. Estado Combustibles (Galones)" />
 
             <Spinner
                 android:id="@+id/spinnnerP"
@@ -849,13 +858,15 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
-                android:gravity="center" />
+                android:gravity="center"
+                android:textSize="8sp"
+                android:hint="Galones"/>
 
             <TextView
                 android:id="@+id/textQ"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textP"
-                android:text="Q. Disposicion del Tanque" />
+                android:text="S. Disposicion del Tanque" />
 
             <Spinner
                 android:id="@+id/spinnnerQ"
@@ -871,13 +882,16 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:background="@drawable/style_etbg" />
+                android:background="@drawable/style_etbg"
+                android:gravity="center"
+                android:textSize="8sp"
+                android:hint="Galones"/>
 
             <TextView
                 android:id="@+id/textR"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textQ"
-                android:text="R. Forma Tanque" />
+                android:text="T. Forma Tanque" />
 
             <Spinner
                 android:id="@+id/spinnnerR"
@@ -1140,7 +1154,7 @@
                 android:id="@+id/text3J"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text3I"
-                android:text="G. Estado de Manguera"
+                android:text="G. Estado de Mangueras de Precalentador"
                 android:visibility="gone" />
 
             <Spinner

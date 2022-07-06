@@ -10,9 +10,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
-import android.widget.DatePicker
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
 import androidx.fragment.app.DialogFragment
@@ -66,26 +64,15 @@ class Sheet4Activity : AppCompatActivity() {
         viewModel.extraerAlmacenamiento()
         viewModel.almacenamiento.observe(this, Observer{
             almacenamiento->
-            almacenamiento.horaSalidaAM = binding.EditsalidaTA1.text.toString()
-            almacenamiento.horaSalidaPM = binding.EditsalidaTA2.text.toString()
-            almacenamiento.horaSalidaDD = binding.EditsalidaTA3.text.toString()
-            almacenamiento.horaSalidaMM = binding.EditsalidaTA4.text.toString()
-            almacenamiento.horaSalidaAA = binding.EditsalidaTA5.text.toString()
-            almacenamiento.horaLlegadaAM = binding.EditllegadaCA1.text.toString()
-            almacenamiento.horaLlegadaPM = binding.EditllegadaCA2.text.toString()
-            almacenamiento.horaLlegadaDD = binding.EditllegadaCA3.text.toString()
-            almacenamiento.horaLlegadaMM = binding.EditllegadaCA4.text.toString()
-            almacenamiento.horaLlegadaAA = binding.EditllegadaCA5.text.toString()
-            almacenamiento.horaAtencionAm = binding.EditatencionCA1.text.toString()
-            almacenamiento.horaAtencionPM = binding.EditatencionCA2.text.toString()
-            almacenamiento.horaAtencionDD = binding.EditatencionCA3.text.toString()
-            almacenamiento.horaAtencionMM = binding.EditatencionCA4.text.toString()
-            almacenamiento.horaAtencionAA = binding.EditatencionCA5.text.toString()
-            almacenamiento.horaSalidaClienteAM = binding.EditsalidaCA1.text.toString()
-            almacenamiento.horaSalidaClientePM = binding.EditsalidaCA2.text.toString()
-            almacenamiento.horaSalidaClienteDD = binding.EditsalidaCA3.text.toString()
-            almacenamiento.horaSalidaClienteMM = binding.EditsalidaCA4.text.toString()
-            almacenamiento.horaSalidaClienteAA = binding.EditsalidaCA5.text.toString()
+            almacenamiento.fechaSalidaTecnico = binding.EditFecha1.text.toString()
+            almacenamiento.horaSalidaTecnico = binding.EditReloj1.text.toString()
+            almacenamiento.fechaSalidaCliente = binding.EditFecha2.text.toString()
+            almacenamiento.horaSalidaCliente = binding.EditReloj2.text.toString()
+            almacenamiento.fechaLLegadaCliente = binding.EditFecha3.text.toString()
+            almacenamiento.horaLlegadaCliente = binding.EditReloj3.text.toString()
+            almacenamiento.fechaAtencionCliente = binding.EditFecha4.text.toString()
+            almacenamiento.horaAtencionCliente = binding.EditReloj4.text.toString()
+
             almacenamiento.calificacionClienteServicio = binding.EditServCumplimiento1.text.toString()
             almacenamiento.calificacionClienteOrden = binding.EditOrdenAseo1.text.toString()
             almacenamiento.calificacionClienteElementos = binding.EditUsoElementosProteccion.text.toString()
@@ -115,14 +102,30 @@ class Sheet4Activity : AppCompatActivity() {
     }
 
     private fun Calendario(){
-        binding.TextHoraSalidaT.setOnClickListener { 
-            val DialogFecha = DatePickerFragment{year, month, day ->  mostrarResultado(year, month, day)}
+        binding.fecha1Button.setOnClickListener {
+            val EditButon = binding.EditFecha1
+            val DialogFecha = DatePickerFragment{year, month, day ->  mostrarResultado(year, month, day, EditButon)}
+            DialogFecha.show(supportFragmentManager, "DataPicker")
+        }
+        binding.fecha2Button.setOnClickListener {
+            val EditButon = binding.EditFecha2
+            val DialogFecha = DatePickerFragment{year, month, day ->  mostrarResultado(year, month, day, EditButon)}
+            DialogFecha.show(supportFragmentManager, "DataPicker")
+        }
+        binding.fecha3Button.setOnClickListener {
+            val EditButon = binding.EditFecha3
+            val DialogFecha = DatePickerFragment{year, month, day ->  mostrarResultado(year, month, day, EditButon)}
+            DialogFecha.show(supportFragmentManager, "DataPicker")
+        }
+        binding.fecha4Button.setOnClickListener {
+            val EditButon = binding.EditFecha4
+            val DialogFecha = DatePickerFragment{year, month, day ->  mostrarResultado(year, month, day, EditButon)}
             DialogFecha.show(supportFragmentManager, "DataPicker")
         }
     }
 
-    private fun mostrarResultado(year: Int, month: Int, day: Int) {
-        binding.TextHoraSalidaT.setText("$year/$month/$day")
+    private fun mostrarResultado(year: Int, month: Int, day: Int, edit: EditText) {
+        edit.setText("$year/$month/$day")
     }
 
     class DatePickerFragment (val listener: (year:Int, month:Int, day:Int)-> Unit): DialogFragment(), DatePickerDialog.OnDateSetListener {
@@ -133,7 +136,9 @@ class Sheet4Activity : AppCompatActivity() {
             var month = c.get(Calendar.MONTH)
             var day = c.get(Calendar.DAY_OF_MONTH)
 
-            return DatePickerDialog(requireActivity(), this, year, month, day)
+            val picket = DatePickerDialog(requireActivity(), this, year, month, day)
+            picket.datePicker.minDate = c.timeInMillis
+            return picket
 
         }
 
@@ -144,13 +149,29 @@ class Sheet4Activity : AppCompatActivity() {
 
 
     private fun Reloj (){
-        binding.TextHoraSalidaC.setOnClickListener {
-            val horas = TimePicket { hora, minuto -> mostrarHora(hora, minuto) }
+        binding.reloj1Button.setOnClickListener {
+            val editReloj = binding.EditReloj1
+            val horas = TimePicket { hora, minuto -> mostrarHora(hora, minuto, editReloj) }
+            horas.show(supportFragmentManager, "TimePicker")
+        }
+        binding.reloj2Button.setOnClickListener {
+            val editReloj = binding.EditReloj2
+            val horas = TimePicket { hora, minuto -> mostrarHora(hora, minuto, editReloj) }
+            horas.show(supportFragmentManager, "TimePicker")
+        }
+        binding.reloj3Button.setOnClickListener {
+            val editReloj = binding.EditReloj3
+            val horas = TimePicket { hora, minuto -> mostrarHora(hora, minuto, editReloj) }
+            horas.show(supportFragmentManager, "TimePicker")
+        }
+        binding.reloj4Button.setOnClickListener {
+            val editReloj = binding.EditReloj4
+            val horas = TimePicket { hora, minuto -> mostrarHora(hora, minuto, editReloj) }
             horas.show(supportFragmentManager, "TimePicker")
         }
     }
 
-    private fun mostrarHora(hora: Int, minuto: Int) {
-        binding.TextHoraSalidaC.setText("$hora : $minuto")
+    private fun mostrarHora(hora: Int, minuto: Int, reloj : EditText) {
+        reloj.setText("$hora : $minuto")
     }
 }

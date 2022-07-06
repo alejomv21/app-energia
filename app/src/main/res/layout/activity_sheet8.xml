@@ -78,7 +78,7 @@
                 android:id="@+id/textBHoja3"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textAHoja3"
-                android:text="B. Presión Aceite" />
+                android:text="B. Presión Aceite (Psi)"/>
 
             <Spinner
                 android:id="@+id/spinnnerBHoja3"
@@ -96,13 +96,14 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:hint="Psi"
                 android:textSize="8sp" />
 
             <TextView
                 android:id="@+id/textCHoja3"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textBHoja3"
-                android:text="C. Temperatura Agua" />
+                android:text="C. Temperatura Agua (°C)" />
 
             <Spinner
                 android:id="@+id/spinnnerCHoja3"
@@ -120,13 +121,14 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:hint="°C"
                 android:textSize="8sp" />
 
             <TextView
                 android:id="@+id/textDHoja3"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textCHoja3"
-                android:text="D. Voltaje Alternador" />
+                android:text="D. Voltaje Alternador (VDC)" />
 
             <Spinner
                 android:id="@+id/spinnnerDHoja3"
@@ -144,6 +146,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:hint="VDC"
                 android:textSize="8sp" />
 
 
@@ -151,7 +154,7 @@
                 android:id="@+id/textFHoja3"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textDHoja3"
-                android:text="F. Temperatura Aceite 245°F" />
+                android:text="F. Temperatura Aceite (°C)" />
 
             <Spinner
                 android:id="@+id/spinnnerFHoja3"
@@ -169,13 +172,14 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:hint="°C"
                 android:textSize="8sp" />
 
             <TextView
                 android:id="@+id/textGHoja3"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textFHoja3"
-                android:text="G. Temperatura Gases Escape" />
+                android:text="G. Temperatura Gases Escape (°C)"/>
 
             <Spinner
                 android:id="@+id/spinnnerGHoja3"
@@ -193,13 +197,14 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:hint="°C"
                 android:textSize="8sp" />
 
             <TextView
                 android:id="@+id/textHHoja3"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textGHoja3"
-                android:text="H. Indicador Restricción Aire 21 H2O" />
+                android:text="H. Indicador Restricción Aire 21 H2O"  />
 
             <EditText
                 android:id="@+id/EditIndicadoRestrccionAireHoja3"
@@ -322,7 +327,7 @@
                 android:id="@+id/text3AHoja3"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/SimularHoja3"
-                android:text="A. Voltaje" />
+                android:text="A. Voltaje (VAC RMS)" />
 
             <TextView
                 android:id="@+id/fasesA1Hoja3"
@@ -349,7 +354,7 @@
                 android:layout_toEndOf="@+id/text3AHoja3"
                 android:text="1.3" />
 
-            <EditText
+            <CheckBox
                 android:id="@+id/EditfasesA1Hoja3"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/SimularHoja3"
@@ -365,10 +370,12 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
+                android:digits="123456789,"
                 android:gravity="center"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
-            <EditText
+            <CheckBox
                 android:id="@+id/EditfasesA2Hoja3"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/fasesA1Hoja3"
@@ -382,10 +389,12 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
+                android:digits="123456789,"
                 android:gravity="center"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
-            <EditText
+            <CheckBox
                 android:id="@+id/EditfasesA3Hoja3"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/fasesA2Hoja3"
@@ -399,7 +408,9 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
+                android:digits="123456789,"
                 android:gravity="center"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
 
@@ -442,7 +453,7 @@
                 android:layout_toEndOf="@+id/text3BHoja3"
                 android:text="N" />
 
-            <EditText
+            <CheckBox
                 android:id="@+id/EditfasesB1Hoja3"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/fasesA3Hoja3"
@@ -459,9 +470,11 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:digits="123456789,"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
-            <EditText
+            <CheckBox
                 android:id="@+id/EditfasesB2Hoja3"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/EditfasesB1Hoja3"
@@ -475,10 +488,12 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
+                android:digits="123456789,"
                 android:gravity="center"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
-            <EditText
+            <CheckBox
                 android:id="@+id/EditfasesB3Hoja3"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/EditfasesB2Hoja3"
@@ -492,10 +507,12 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
+                android:digits="123456789,"
                 android:gravity="center"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
-            <EditText
+            <CheckBox
                 android:id="@+id/EditfasesB4Hoja3"
                 style="@style/StartGenerador"
                 android:layout_below="@+id/EditfasesB3Hoja3"
@@ -509,7 +526,9 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
+                android:digits="123456789,"
                 android:gravity="center"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
 
@@ -518,7 +537,7 @@
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/fasesB4Hoja3"
                 android:layout_marginTop="21dp"
-                android:text="D. Posicion Interruptor Planta (Breack)" />
+                android:text="D. Posicion Interruptor Planta" />
 
             <Spinner
                 android:id="@+id/spinnner3DHoja3"
@@ -530,7 +549,7 @@
                 android:id="@+id/text3EHoja3"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text3DHoja3"
-                android:text="E. Posición Switvh Cargador (Breack)" />
+                android:text="E. Posición Switvh Cargador" />
 
             <Spinner
                 android:id="@+id/spinnner3EHoja3"
@@ -542,7 +561,7 @@
                 android:id="@+id/text3FHoja3"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text3EHoja3"
-                android:text="F. Posición Switch Control (Breack)" />
+                android:text="F. Posición Switch Control" />
 
             <Spinner
                 android:id="@+id/spinnner3FHoja3"
@@ -596,6 +615,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+
                 android:textSize="8sp" />
 
             <TextView
@@ -604,11 +624,6 @@
                 android:layout_below="@+id/text3HHoja3"
                 android:text="I. kilovatios / Hora" />
 
-            <Spinner
-                android:id="@+id/spinnner3IHoja3"
-                style="@style/ComienzaSpinner"
-                android:layout_below="@+id/text3HHoja3"
-                android:layout_toEndOf="@+id/text3IHoja3" />
 
             <EditText
                 android:id="@+id/EditKilovatiosMedidaHoja3"
@@ -715,551 +730,18 @@
                 android:background="@color/black"
                 android:src="@android:drawable/divider_horizontal_bright" />
 
-            <TextView
-                android:id="@+id/TextHoraSalidaT"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_below="@+id/imageNota"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="HORA SALIDA" />
-
-            <TextView
-                android:id="@+id/EditHoraSalidaT"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_below="@+id/TextHoraSalidaT"
-                android:layout_marginStart="20dp"
-                android:text="TÉCNICOS/EQUITEL" />
-
-            <TextView
-                android:id="@+id/salidaTA1"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/imageNota"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/EditHoraSalidaT"
-                android:text="am" />
-
-            <TextView
-                android:id="@+id/salidaTA2"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/imageNota"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/salidaTA1"
-                android:text="pm" />
-
-            <TextView
-                android:id="@+id/salidaTA3"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/imageNota"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/salidaTA2"
-                android:text="DD" />
-            <TextView
-                android:id="@+id/salidaTA4"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/imageNota"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/salidaTA3"
-                android:text="MM" />
-            <TextView
-                android:id="@+id/salidaTA5"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/imageNota"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/salidaTA4"
-                android:text="AA" />
-
-            <EditText
-                android:id="@+id/EditsalidaTA1"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/salidaTA1"
-                android:layout_marginStart="20dp"
-                android:layout_toEndOf="@+id/EditHoraSalidaT" />
-
-            <EditText
-                android:id="@+id/EditsalidaTA2"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/salidaTA1"
-                android:layout_toEndOf="@+id/EditsalidaTA1" />
-
-            <EditText
-                android:id="@+id/EditsalidaTA3"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/salidaTA1"
-                android:layout_toEndOf="@+id/EditsalidaTA2" />
-
-            <EditText
-                android:id="@+id/EditsalidaTA4"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/salidaTA1"
-                android:layout_toEndOf="@+id/EditsalidaTA3" />
-
-            <EditText
-                android:id="@+id/EditsalidaTA5"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/salidaTA1"
-                android:layout_toEndOf="@+id/EditsalidaTA4" />
-
-            <TextView
-                android:id="@+id/TextHoraSalidaC"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_below="@+id/EditHoraSalidaT"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="HORA SALIDA" />
-
-            <TextView
-                android:id="@+id/EditHoraSalidaC"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_below="@+id/TextHoraSalidaC"
-                android:layout_marginStart="20dp"
-                android:text="CLIENTE" />
-
-            <TextView
-                android:id="@+id/salidaCA1"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditsalidaTA1"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/EditHoraSalidaT"
-                android:text="am" />
-
-            <TextView
-                android:id="@+id/salidaCA2"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditsalidaTA1"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/salidaCA1"
-                android:text="pm" />
-
-            <TextView
-                android:id="@+id/salidaCA3"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditsalidaTA1"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/salidaCA2"
-                android:text="DD" />
-            <TextView
-                android:id="@+id/salidaCA4"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditsalidaTA1"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/salidaCA3"
-                android:text="MM" />
-            <TextView
-                android:id="@+id/salidaCA5"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditsalidaTA1"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/salidaCA4"
-                android:text="AA" />
-
-            <EditText
-                android:id="@+id/EditsalidaCA1"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/salidaCA1"
-                android:layout_marginStart="20dp"
-                android:layout_toEndOf="@+id/EditHoraSalidaT" />
-
-            <EditText
-                android:id="@+id/EditsalidaCA2"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/salidaCA1"
-                android:layout_toEndOf="@+id/EditsalidaCA1" />
-
-            <EditText
-                android:id="@+id/EditsalidaCA3"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/salidaCA1"
-                android:layout_toEndOf="@+id/EditsalidaCA2" />
-
-            <EditText
-                android:id="@+id/EditsalidaCA4"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/salidaCA1"
-                android:layout_toEndOf="@+id/EditsalidaCA3" />
-
-            <EditText
-                android:id="@+id/EditsalidaCA5"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/salidaCA1"
-                android:layout_toEndOf="@+id/EditsalidaCA4" />
-
-            <TextView
-                android:id="@+id/TextHorallegadaC"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_below="@+id/EditHoraSalidaC"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="HORA LLEGADA" />
-
-            <TextView
-                android:id="@+id/EditHorallegadaC"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_below="@+id/TextHorallegadaC"
-                android:layout_marginStart="20dp"
-                android:text="CLIENTE" />
-
-            <TextView
-                android:id="@+id/llegadaCA1"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditsalidaCA1"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/EditHoraSalidaT"
-                android:text="am" />
-
-            <TextView
-                android:id="@+id/llegadaCA2"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditsalidaCA1"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/llegadaCA1"
-                android:text="pm" />
-
-            <TextView
-                android:id="@+id/llegadaCA3"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditsalidaCA1"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/llegadaCA2"
-                android:text="DD" />
-            <TextView
-                android:id="@+id/llegadaCA4"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditsalidaCA1"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/llegadaCA3"
-                android:text="MM" />
-            <TextView
-                android:id="@+id/llegadaCA5"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditsalidaCA1"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/llegadaCA4"
-                android:text="AA" />
-
-            <EditText
-                android:id="@+id/EditllegadaCA1"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/llegadaCA1"
-                android:layout_marginStart="20dp"
-                android:layout_toEndOf="@+id/EditHoraSalidaT" />
-
-            <EditText
-                android:id="@+id/EditllegadaCA2"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/llegadaCA1"
-                android:layout_toEndOf="@+id/EditllegadaCA1" />
-
-            <EditText
-                android:id="@+id/EditllegadaCA3"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/llegadaCA1"
-                android:layout_toEndOf="@+id/EditllegadaCA2" />
-
-            <EditText
-                android:id="@+id/EditllegadaCA4"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/llegadaCA1"
-                android:layout_toEndOf="@+id/EditllegadaCA3" />
-            <EditText
-                android:id="@+id/EditllegadaCA5"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/llegadaCA1"
-                android:layout_toEndOf="@+id/EditllegadaCA4"/>
-
-            <TextView
-                android:id="@+id/TextHoraAtencionC"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_below="@+id/EditHorallegadaC"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:text="HORA ATENCION" />
-
-            <TextView
-                android:id="@+id/EditHoraAtencionC"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_below="@+id/TextHoraAtencionC"
-                android:layout_marginStart="20dp"
-                android:text="CLIENTE" />
-
-            <TextView
-                android:id="@+id/atencionCA1"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditHorallegadaC"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/EditHoraSalidaT"
-                android:text="am" />
-
-            <TextView
-                android:id="@+id/atencionCA2"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditHorallegadaC"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/atencionCA1"
-                android:text="pm" />
-
-            <TextView
-                android:id="@+id/atencionCA3"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditHorallegadaC"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/atencionCA2"
-                android:text="DD" />
-            <TextView
-                android:id="@+id/atencionCA4"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditHorallegadaC"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/atencionCA3"
-                android:text="MM" />
-            <TextView
-                android:id="@+id/atencionCA5"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/EditHorallegadaC"
-                android:layout_marginTop="20dp"
-                android:layout_toEndOf="@+id/atencionCA4"
-                android:text="AA" />
-
-            <EditText
-                android:id="@+id/EditatencionCA1"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/atencionCA1"
-                android:layout_marginStart="20dp"
-                android:layout_toEndOf="@+id/EditHoraSalidaT" />
-
-            <EditText
-                android:id="@+id/EditatencionCA2"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/atencionCA1"
-                android:layout_toEndOf="@+id/EditatencionCA1" />
-
-            <EditText
-                android:id="@+id/EditatencionCA3"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/atencionCA1"
-                android:layout_toEndOf="@+id/EditatencionCA2" />
-
-            <EditText
-                android:id="@+id/EditatencionCA4"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/atencionCA1"
-                android:layout_toEndOf="@+id/EditatencionCA3" />
-
-            <EditText
-                android:id="@+id/EditatencionCA5"
-                style="@style/StartGenerador"
-                android:layout_below="@+id/atencionCA1"
-                android:layout_toEndOf="@+id/EditatencionCA4" />
-
-            <TextView
-                android:id="@+id/TextCalificacionCliente"
-                android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:layout_below="@+id/EditatencionCA5"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="30dp"
-                android:text="CALIFICACION CLIENTE" />
-
-            <TextView
-                android:id="@+id/TextServicioCumplimiento"
-                android:layout_width="160dp"
-                android:layout_height="20dp"
-                android:layout_below="@+id/TextCalificacionCliente"
-                android:layout_marginStart="20dp"
-                android:gravity="center"
-                android:text="SERVICIO/CUMPLIMIENTO"
-                android:textSize="10sp" />
-
-            <TextView
-                android:id="@+id/TextServCumplimiento1"
-                android:layout_width="40dp"
-                android:layout_height="20dp"
-                android:layout_below="@+id/TextCalificacionCliente"
-                android:layout_marginStart="30dp"
-                android:layout_toEndOf="@+id/TextServicioCumplimiento"
-                android:text="1-10"
-                android:textSize="10sp"
-                android:gravity="center"
-                style="@style/StartGenerador"/>
-
-            <EditText
-                android:id="@+id/EditServCumplimiento1"
-                style="@style/StartGenerador"
-                android:layout_width="40dp"
-                android:layout_height="20dp"
-                android:layout_below="@+id/TextCalificacionCliente"
-                android:layout_toEndOf="@+id/TextServCumplimiento1"
-                android:gravity="center"
-                android:textSize="10sp" />
-
-            <TextView
-                android:id="@+id/TextOrdenAseo"
-                android:layout_width="160dp"
-                android:layout_height="20dp"
-                android:layout_below="@+id/EditServCumplimiento1"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                android:gravity="center"
-                android:text="ORDEN Y ASEO SITIO"
-                android:textSize="10sp" />
-
-            <TextView
-                android:id="@+id/TextOrdenAseo1"
-                android:layout_width="40dp"
-                android:layout_height="20dp"
-                android:layout_below="@+id/EditServCumplimiento1"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="30dp"
-                android:layout_toEndOf="@+id/TextOrdenAseo"
-                android:text="1-10"
-                android:textSize="10sp"
-                android:gravity="center"
-                style="@style/StartGenerador"/>
-
-            <EditText
-                android:id="@+id/EditOrdenAseo1"
-                style="@style/StartGenerador"
-                android:layout_width="40dp"
-                android:layout_height="20dp"
-                android:layout_below="@+id/EditServCumplimiento1"
-                android:layout_marginTop="30dp"
-                android:layout_toEndOf="@+id/TextOrdenAseo1"
-                android:gravity="center"
-                android:textSize="10sp" />
-
-            <TextView
-                android:id="@+id/TextUsoElementosProteccion"
-                android:layout_width="160dp"
-                android:layout_height="20dp"
-                android:gravity="center"
-                android:layout_marginTop="30dp"
-                android:layout_marginStart="20dp"
-                android:layout_below="@+id/EditOrdenAseo1"
-                android:text="USO ELEMENTOS PROTECCION"
-                android:textSize="10sp" />
-
-            <TextView
-                android:id="@+id/TextUsoElementosProteccion1"
-                style="@style/StartGenerador"
-                android:layout_width="40dp"
-                android:layout_height="20dp"
-                android:layout_below="@+id/EditOrdenAseo1"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="30dp"
-                android:layout_toEndOf="@+id/TextUsoElementosProteccion"
-                android:gravity="center"
-                android:text="1-10"
-                android:textSize="10sp" />
-
-            <EditText
-                android:id="@+id/EditUsoElementosProteccion"
-                style="@style/StartGenerador"
-                android:layout_width="40dp"
-                android:layout_height="20dp"
-                android:layout_below="@+id/EditOrdenAseo1"
-                android:layout_marginTop="30dp"
-                android:layout_toEndOf="@+id/TextUsoElementosProteccion1"
-                android:gravity="center"
-                android:textSize="10sp" />
 
 
-            <com.github.gcacace.signaturepad.views.SignaturePad
-                android:layout_below="@+id/TextUsoElementosProteccion1"
-                android:id="@+id/signature_pad"
-                android:layout_marginTop="30dp"
-                android:layout_width="fill_parent"
-                android:background="@drawable/style_etbg"
-                android:layout_height="200dp" />
 
-            <TextView
-                android:id="@+id/TextFirmaCliente"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@+id/signature_pad"
-                android:textColor="@color/black"
-                android:gravity="center"
-                android:text="FIRMA CLIENTE"
-                android:textSize="16sp"
-                android:textStyle="italic"/>
 
-            <Button
-                android:id="@+id/clear_button"
-                android:layout_width="180dp"
-                android:layout_height="60dp"
-                android:layout_below="@id/TextFirmaCliente"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="20dp"
-                android:text="BORRAR"
-                android:textColor="@color/black" />
 
-            <Button
-                android:id="@+id/save_button"
-                android:layout_width="180dp"
-                android:layout_height="60dp"
-                android:layout_below="@id/TextFirmaCliente"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="20dp"
-                android:text="GUARDAR"
-                android:textColor="@color/black" />
-
-            <com.github.gcacace.signaturepad.views.SignaturePad
-                android:id="@+id/signature_pad_tecnico"
-                android:layout_width="fill_parent"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/style_etbg"
-                android:layout_height="200dp"
-                android:layout_below="@+id/save_button" />
-
-            <TextView
-                android:id="@+id/TextFirmaTecnico"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_below="@+id/signature_pad_tecnico"
-                android:layout_marginBottom="20dp"
-                android:gravity="center"
-                android:text="FIRMA TECNICO"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="italic" />
-
-            <Button
-                android:id="@+id/clear_button_tecnico"
-                android:layout_width="180dp"
-                android:layout_height="60dp"
-                android:layout_below="@id/TextFirmaTecnico"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="20dp"
-                android:text="BORRAR"
-                android:textColor="@color/black" />
-
-            <Button
-                android:id="@+id/save_button_tecnico"
-                android:layout_width="180dp"
-                android:layout_height="60dp"
-                android:layout_below="@id/TextFirmaTecnico"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="20dp"
-                android:textColor="@color/black"
-                android:text="GUARDAR"/>
 
 
             <TextView
                 android:id="@+id/textEstadoequipo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/save_button_tecnico"
+                android:layout_below="@+id/imageNota"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 android:text="ARTIMO" />
@@ -1338,23 +820,26 @@
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textC"
                 android:text="OBSERVACIONES" />
+
             <EditText
                 android:id="@+id/EditObservaciones"
-                android:layout_width="60dp"
-                android:layout_height="23dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
                 android:layout_below="@+id/textC"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_toEndOf="@+id/TextPDuplicado"
                 android:background="@drawable/style_etbg"
-                android:gravity="center" />
+                android:gravity="center"
+                android:textSize="10sp" />
 
             <ImageView
                 android:id="@+id/imageViewSeparatorCalidadLiquido"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textD"
+                android:layout_below="@+id/EditObservaciones"
                 android:layout_marginTop="10dp"
                 android:background="@color/black"
                 android:contentDescription="TODO"
@@ -1412,6 +897,17 @@
                 android:layout_below="@+id/textG"
                 android:text="Ultimo Lavado de Tanque de Combustible" />
 
+            <ImageButton
+                android:id="@+id/fechaUltimoLavado"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/textG"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/textH"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_calendar_today"
+                android:text="Camara" />
 
             <EditText
                 android:id="@+id/EditUltimoLavado"
@@ -1421,8 +917,9 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_toEndOf="@+id/TextPDuplicado"
+                android:layout_toEndOf="@+id/fechaUltimoLavado"
                 android:background="@drawable/style_etbg"
+                android:textSize="10sp"
                 android:gravity="center" />
 
             <TextView
@@ -1430,6 +927,18 @@
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textH"
                 android:text="Ultimo Tanqueo" />
+
+            <ImageButton
+                android:id="@+id/fechaUltimoTanqueo"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/textH"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/textI"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_calendar_today"
+                android:text="Camara" />
 
             <EditText
                 android:id="@+id/EditUltimoTanqueo"
@@ -1439,8 +948,9 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:layout_toEndOf="@+id/TextPDuplicado"
+                android:layout_toEndOf="@+id/fechaUltimoTanqueo"
                 android:background="@drawable/style_etbg"
+                android:textSize="10sp"
                 android:gravity="center" />
 
 
@@ -1472,21 +982,34 @@
                 android:contentDescription="TODO"
                 android:src="@android:drawable/divider_horizontal_bright" />
 
-            <TextView
-                android:id="@+id/textEpp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/imageViewSeparatorEpp"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="20dp"
-                android:text="EPP´S" />
+                    <TextView
+            android:id="@+id/editSeguridadTrabajo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageViewSeparatorEpp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="SEGURIDAD EN EL TRABAJO"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textEpp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/editSeguridadTrabajo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="EPP´S"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
 
 
-            <TextView
-                android:id="@+id/textK"
-                style="@style/ComienzaTexto"
-                android:layout_below="@+id/textEpp"
-                android:text="CASCO" />
+        <TextView
+            android:id="@+id/textK"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textEpp"
+            android:text="CASCO" />
 
             <Spinner
                 android:id="@+id/spinnnerK"
@@ -1494,11 +1017,11 @@
                 android:layout_below="@+id/textEpp"
                 android:layout_toEndOf="@+id/textK" />
 
-            <TextView
-                android:id="@+id/textL"
-                style="@style/ComienzaTexto"
-                android:layout_below="@+id/textK"
-                android:text="GUANTES" />
+        <TextView
+            android:id="@+id/textL"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textK"
+            android:text="GUANTES" />
 
             <Spinner
                 android:id="@+id/spinnnerL"
@@ -1506,11 +1029,11 @@
                 android:layout_below="@+id/textK"
                 android:layout_toEndOf="@+id/textL" />
 
-            <TextView
-                android:id="@+id/textM"
-                style="@style/ComienzaTexto"
-                android:layout_below="@+id/textL"
-                android:text="OVEROL" />
+        <TextView
+            android:id="@+id/textM"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textL"
+            android:text="OVEROL" />
 
             <Spinner
                 android:id="@+id/spinnnerM"
@@ -1518,26 +1041,26 @@
                 android:layout_below="@+id/textL"
                 android:layout_toEndOf="@+id/textM" />
 
-            <TextView
-                android:id="@+id/TextNDuplicado"
-                style="@style/ComienzaTexto"
-                android:layout_below="@+id/textM"
-                android:text="GAFAS" />
+        <TextView
+            android:id="@+id/TextNDuplicado"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textM"
+            android:text="GAFAS" />
             <Spinner
                 android:id="@+id/spinnnerNDuplicado"
                 style="@style/ComienzaSpinner"
                 android:layout_below="@+id/textM"
                 android:layout_toEndOf="@+id/TextNDuplicado" />
 
-            <TextView
-                android:id="@+id/TextODuplicado"
-                style="@style/ComienzaTexto"
-                android:layout_below="@+id/TextNDuplicado"
-                android:text="OTROS" />
+        <TextView
+            android:id="@+id/TextODuplicado"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/TextNDuplicado"
+            android:text="OTROS" />
 
             <EditText
                 android:id="@+id/EditOtros"
-                android:layout_width="60dp"
+                android:layout_width="match_parent"
                 android:layout_height="23dp"
                 android:layout_below="@+id/TextNDuplicado"
                 android:layout_marginStart="20dp"
@@ -1545,16 +1068,82 @@
                 android:layout_marginEnd="20dp"
                 android:layout_toEndOf="@+id/TextPDuplicado"
                 android:background="@drawable/style_etbg"
-                android:gravity="center" />
-            <ImageView
-                android:id="@+id/imageViewSeparatorLogistica"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/TextODuplicado"
-                android:layout_marginTop="10dp"
-                android:background="@color/black"
-                android:contentDescription="TODO"
-                android:src="@android:drawable/divider_horizontal_bright" />
+                android:gravity="center"
+                android:textSize="8sp" />
+
+        <TextView
+            android:id="@+id/EditDocumentos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/EditOtros"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="DOCUMENTOS"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textAtsTrealizar"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/EditDocumentos"
+                android:text="Diligenciamiento de ATS del trabajos a realizar" />
+
+        <Spinner
+            android:id="@+id/spinnnerAtsTrealizar"
+            style="@style/ComienzaSpinner"
+            android:layout_below="@+id/EditDocumentos"
+            android:layout_toEndOf="@+id/textAtsTrealizar" />
+
+        <TextView
+            android:id="@+id/textAtsTalturas"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textAtsTrealizar"
+            android:text="Diligenciamiento de ATS del trabajos a realizar" />
+
+        <Spinner
+            android:id="@+id/spinnnerAtsTalturas"
+            style="@style/ComienzaSpinner"
+            android:layout_below="@+id/textAtsTrealizar"
+            android:layout_toEndOf="@+id/textAtsTalturas" />
+
+        <TextView
+            android:id="@+id/textAtsTespaciosConfinados"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textAtsTalturas"
+            android:text="Diligenciamiento de ATS del trabajos a realizar" />
+
+        <Spinner
+            android:id="@+id/spinnnerAtsTConfinados"
+            style="@style/ComienzaSpinner"
+            android:layout_below="@+id/textAtsTalturas"
+            android:layout_toEndOf="@+id/textAtsTespaciosConfinados" />
+
+        <TextView
+            android:id="@+id/textAtscaliente"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textAtsTespaciosConfinados"
+            android:text="Diligenciamiento de ATS del trabajos a realizar" />
+
+        <Spinner
+            android:id="@+id/spinnnerAtscaliente"
+            style="@style/ComienzaSpinner"
+            android:layout_below="@+id/textAtsTespaciosConfinados"
+            android:layout_toEndOf="@+id/textAtscaliente" />
+
+
+        <ImageView
+            android:id="@+id/imageViewSeparatorLogistica"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textAtscaliente"
+            android:layout_marginTop="10dp"
+            android:background="@color/black"
+            android:layout_marginEnd="20dp"
+            android:layout_marginStart="20dp"
+            android:padding="1dp"
+            android:contentDescription="TODO"
+            android:src="@android:drawable/divider_horizontal_bright" />
+
 
             <TextView
                 android:id="@+id/textLogistica"
@@ -1700,16 +1289,484 @@
                 android:layout_below="@+id/text2A"
                 android:text="Otro" />
 
-            <Spinner
-                android:id="@+id/spinnner2B"
-                style="@style/ComienzaSpinner"
+
+
+            <EditText
+                android:id="@+id/EditOtrosServicios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/text2A"
-                android:layout_toEndOf="@+id/text2B" />
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:padding="5dp"
+                android:layout_toEndOf="@+id/text2B"
+                android:background="@drawable/style_etbg"
+                android:gravity="center"
+                android:textSize="8sp" />
+
+            <ImageView
+                android:id="@+id/imageViewSeparatorFecha"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/EditOtrosServicios"
+                android:layout_marginTop="20dp"
+                android:padding="1dp"
+                android:background="@color/black"
+                android:contentDescription="TODO"
+                android:src="@android:drawable/divider_horizontal_bright" />
+
+
+            <TextView
+                android:id="@+id/TextHoraSalidaT"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@+id/imageViewSeparatorFecha"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="HORA SALIDA" />
+
+            <ImageButton
+                android:id="@+id/fecha1Button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/imageViewSeparatorFecha"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/EditHoraSalidaT"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_calendar_today"
+                android:text="Camara" />
+
+            <EditText
+                android:id="@+id/EditFecha1"
+                style="@style/StartGenerador"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/imageViewSeparatorFecha"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/fecha1Button" />
+
+            <TextView
+                android:id="@+id/EditHoraSalidaT"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/TextHoraSalidaT"
+                android:layout_marginStart="20dp"
+                android:text="TÉCNICOS/EQUITEL" />
+
+            <ImageButton
+                android:id="@+id/reloj1Button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/fecha1Button"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/EditHoraSalidaT"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_reloj_schedule"
+                android:text="Camara" />
+
+            <EditText
+                android:id="@+id/EditReloj1"
+                style="@style/StartGenerador"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/EditFecha1"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/fecha1Button" />
+
+            <TextView
+                android:id="@+id/TextHoraSalidaC"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@+id/EditHoraSalidaT"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="HORA SALIDA" />
+
+            <ImageButton
+                android:id="@+id/fecha2Button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/reloj1Button"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/EditHoraSalidaT"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_calendar_today"
+                android:text="Camara" />
+
+            <EditText
+                android:id="@+id/EditFecha2"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/reloj1Button"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                style="@style/StartGenerador"
+                android:layout_toEndOf="@+id/fecha1Button" />
+
+            <TextView
+                android:id="@+id/EditHoraSalidaC"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/TextHoraSalidaC"
+                android:layout_marginStart="20dp"
+                android:text="CLIENTE" />
+
+            <ImageButton
+                android:id="@+id/reloj2Button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/fecha2Button"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/EditHoraSalidaT"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_reloj_schedule"
+                android:text="Camara" />
+
+            <EditText
+                android:id="@+id/EditReloj2"
+                style="@style/StartGenerador"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/fecha2Button"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/fecha1Button" />
+
+
+            <TextView
+                android:id="@+id/TextHorallegadaC"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@+id/EditHoraSalidaC"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="HORA LLEGADA" />
+
+            <ImageButton
+                android:id="@+id/fecha3Button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/reloj2Button"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/EditHoraSalidaT"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_calendar_today"
+                android:text="Camara" />
+
+            <EditText
+                android:id="@+id/EditFecha3"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/reloj2Button"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                style="@style/StartGenerador"
+                android:layout_toEndOf="@+id/fecha1Button" />
+
+            <TextView
+                android:id="@+id/EditHorallegadaC"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@+id/TextHorallegadaC"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:text="CLIENTE" />
+
+            <ImageButton
+                android:id="@+id/reloj3Button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/fecha3Button"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/EditHoraSalidaT"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_reloj_schedule"
+                android:text="Camara" />
+
+            <EditText
+                android:id="@+id/EditReloj3"
+                style="@style/StartGenerador"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/fecha3Button"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/fecha1Button" />
+
+
+            <TextView
+                android:id="@+id/TextHoraAtencionC"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@+id/EditHorallegadaC"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:text="HORA ATENCION" />
+            <ImageButton
+                android:id="@+id/fecha4Button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/reloj3Button"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="20dp"
+                android:layout_toEndOf="@+id/EditHoraSalidaT"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_calendar_today"
+                android:text="Camara" />
+
+            <EditText
+                android:id="@+id/EditFecha4"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/reloj3Button"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                style="@style/StartGenerador"
+                android:layout_toEndOf="@+id/fecha1Button" />
+
+            <TextView
+                android:id="@+id/EditHoraAtencionC"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/TextHoraAtencionC"
+                android:layout_marginStart="20dp"
+                android:text="CLIENTE" />
+
+            <ImageButton
+                android:id="@+id/reloj4Button"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/fecha4Button"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/EditHoraSalidaT"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_reloj_schedule"
+                android:text="Camara" />
+
+            <EditText
+                android:id="@+id/EditReloj4"
+                style="@style/StartGenerador"
+                android:layout_width="80dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/fecha4Button"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_toEndOf="@+id/fecha1Button" />
+
+
+
+            <TextView
+                android:id="@+id/TextCalificacionCliente"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@+id/EditHoraAtencionC"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:text="CALIFICACION CLIENTE"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/TextServicioCumplimiento"
+                android:layout_width="160dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/TextCalificacionCliente"
+                android:layout_marginStart="20dp"
+                android:gravity="center"
+                android:text="SERVICIO/CUMPLIMIENTO"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/TextServCumplimiento1"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/TextCalificacionCliente"
+                android:layout_marginStart="30dp"
+                android:layout_toEndOf="@+id/TextServicioCumplimiento"
+                android:text="1-10"
+                android:textSize="10sp"
+                android:gravity="center"
+                style="@style/StartGenerador"/>
+
+            <EditText
+                android:id="@+id/EditServCumplimiento1"
+                style="@style/StartGenerador"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/TextCalificacionCliente"
+                android:layout_toEndOf="@+id/TextServCumplimiento1"
+                android:gravity="center"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/TextOrdenAseo"
+                android:layout_width="160dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/EditServCumplimiento1"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="ORDEN Y ASEO SITIO"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/TextOrdenAseo1"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/EditServCumplimiento1"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_toEndOf="@+id/TextOrdenAseo"
+                android:text="1-10"
+                android:textSize="10sp"
+                android:gravity="center"
+                style="@style/StartGenerador"/>
+
+            <EditText
+                android:id="@+id/EditOrdenAseo1"
+                style="@style/StartGenerador"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/EditServCumplimiento1"
+                android:layout_marginTop="30dp"
+                android:layout_toEndOf="@+id/TextOrdenAseo1"
+                android:gravity="center"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/TextUsoElementosProteccion"
+                android:layout_width="160dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/EditOrdenAseo1"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="30dp"
+                android:gravity="center"
+                android:text="USO ELEMENTOS PROTECCION"
+                android:textSize="10sp" />
+
+            <TextView
+                android:id="@+id/TextUsoElementosProteccion1"
+                style="@style/StartGenerador"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/EditOrdenAseo1"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:layout_toEndOf="@+id/TextUsoElementosProteccion"
+                android:gravity="center"
+                android:text="1-10"
+                android:textSize="10sp" />
+
+            <EditText
+                android:id="@+id/EditUsoElementosProteccion"
+                style="@style/StartGenerador"
+                android:layout_width="40dp"
+                android:layout_height="20dp"
+                android:layout_below="@+id/EditOrdenAseo1"
+                android:layout_marginTop="30dp"
+                android:layout_toEndOf="@+id/TextUsoElementosProteccion1"
+                android:gravity="center"
+                android:textSize="10sp" />
+
+
+
+            <com.github.gcacace.signaturepad.views.SignaturePad
+                android:id="@+id/signature_pad"
+                android:layout_width="fill_parent"
+                android:layout_height="200dp"
+                android:layout_below="@+id/TextUsoElementosProteccion1"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/style_etbg" />
+
+            <TextView
+                android:id="@+id/TextFirmaCliente"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/signature_pad"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:text="FIRMA CLIENTE"
+                android:textSize="16sp"
+                android:textStyle="italic"/>
+
+            <Button
+                android:id="@+id/clear_button"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
+                android:layout_below="@id/TextFirmaCliente"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="20dp"
+                android:text="BORRAR"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/save_button"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
+                android:layout_below="@id/TextFirmaCliente"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:text="GUARDAR"
+                android:textColor="@color/black" />
+
+            <com.github.gcacace.signaturepad.views.SignaturePad
+                android:id="@+id/signature_pad_tecnico"
+                android:layout_width="fill_parent"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/style_etbg"
+                android:layout_height="200dp"
+                android:layout_below="@+id/save_button" />
+
+            <TextView
+                android:id="@+id/TextFirmaTecnico"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/signature_pad_tecnico"
+                android:layout_marginBottom="20dp"
+                android:gravity="center"
+                android:text="FIRMA TECNICO"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="italic" />
+
+            <Button
+                android:id="@+id/clear_button_tecnico"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
+                android:layout_below="@id/TextFirmaTecnico"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="20dp"
+                android:text="BORRAR"
+                android:textColor="@color/black" />
+
+            <Button
+                android:id="@+id/save_button_tecnico"
+                android:layout_width="180dp"
+                android:layout_height="60dp"
+                android:layout_below="@id/TextFirmaTecnico"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20dp"
+                android:textColor="@color/black"
+                android:text="GUARDAR"/>
             <Button
                 android:id="@+id/buttonEnviar3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/spinnner2B"
+                android:layout_below="@+id/save_button_tecnico"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30sp"
                 android:layout_marginBottom="20sp"

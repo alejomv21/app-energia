@@ -13,7 +13,10 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/style_black_border">
 
         <TextView
             android:id="@+id/textEstadoequipo"
@@ -106,22 +109,23 @@
 
         <EditText
             android:id="@+id/EditObservaciones"
-            android:layout_width="60dp"
-            android:layout_height="23dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_below="@+id/textC"
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
-            android:textSize="8sp"
             android:layout_marginEnd="20dp"
             android:layout_toEndOf="@+id/TextPDuplicado"
             android:background="@drawable/style_etbg"
-            android:gravity="center" />
+            android:gravity="center"
+            android:padding="5dp"
+            android:textSize="10sp" />
 
         <ImageView
             android:id="@+id/imageViewSeparatorCalidadLiquido"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/textD"
+            android:layout_below="@+id/EditObservaciones"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:layout_marginStart="20dp"
@@ -172,17 +176,29 @@
             android:layout_below="@+id/textF"
             android:text="Toma Muestra Refrigerante" />
 
-            <Spinner
-                android:id="@+id/spinnnerG"
-                style="@style/ComienzaSpinner"
-                android:layout_below="@+id/textF"
-                android:layout_toEndOf="@+id/textG" />
+        <Spinner
+            android:id="@+id/spinnnerG"
+            style="@style/ComienzaSpinner"
+            android:layout_below="@+id/textF"
+            android:layout_toEndOf="@+id/textG" />
 
         <TextView
             android:id="@+id/textH"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textG"
             android:text="Ultimo Lavado de Tanque de Combustible" />
+
+        <ImageButton
+            android:id="@+id/fechaUltimoLavado"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@+id/textG"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/textH"
+            android:shadowColor="@color/black"
+            android:src="@drawable/ic_calendar_today"
+            android:text="Camara" />
 
 
         <EditText
@@ -193,16 +209,28 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:textSize="8sp"
-            android:layout_toEndOf="@+id/TextPDuplicado"
+            android:layout_toEndOf="@+id/fechaUltimoLavado"
             android:background="@drawable/style_etbg"
-            android:gravity="center" />
+            android:gravity="center"
+            android:textSize="8sp" />
 
         <TextView
             android:id="@+id/textI"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textH"
-            android:text="Ultimo Tanqueo" />
+            android:text="Ultimo Tanqueo (gls)" />
+
+        <ImageButton
+            android:id="@+id/fechaUltimoTanqueo"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_below="@+id/textH"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/textI"
+            android:shadowColor="@color/black"
+            android:src="@drawable/ic_calendar_today"
+            android:text="Camara" />
 
         <EditText
             android:id="@+id/EditUltimoTanqueo"
@@ -213,7 +241,7 @@
             android:textSize="8sp"
             android:layout_marginTop="20dp"
             android:layout_marginEnd="20dp"
-            android:layout_toEndOf="@+id/TextPDuplicado"
+            android:layout_toEndOf="@+id/fechaUltimoTanqueo"
             android:background="@drawable/style_etbg"
             android:gravity="center" />
 
@@ -242,19 +270,30 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textJ"
+            android:layout_marginStart="20dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
-            android:layout_marginStart="20dp"
-            android:padding="1dp"
             android:background="@color/black"
             android:contentDescription="TODO"
+            android:padding="1dp"
             android:src="@android:drawable/divider_horizontal_bright" />
+
+        <TextView
+            android:id="@+id/editSeguridadTrabajo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/imageViewSeparatorEpp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="SEGURIDAD EN EL TRABAJO"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textEpp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imageViewSeparatorEpp"
+            android:layout_below="@+id/editSeguridadTrabajo"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:text="EPP´S"
@@ -317,7 +356,7 @@
 
         <EditText
             android:id="@+id/EditOtros"
-            android:layout_width="60dp"
+            android:layout_width="match_parent"
             android:layout_height="23dp"
             android:layout_below="@+id/TextNDuplicado"
             android:layout_marginStart="20dp"
@@ -327,11 +366,73 @@
             android:background="@drawable/style_etbg"
             android:gravity="center"
             android:textSize="8sp" />
+
+
+        <TextView
+            android:id="@+id/EditDocumentos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/EditOtros"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="DOCUMENTOS"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textAtsTrealizar"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/EditDocumentos"
+            android:text="Diligenciamiento de ATS del trabajos a realizar" />
+
+        <Spinner
+            android:id="@+id/spinnnerAtsTrealizar"
+            style="@style/ComienzaSpinner"
+            android:layout_below="@+id/EditDocumentos"
+            android:layout_toEndOf="@+id/textAtsTrealizar" />
+
+        <TextView
+            android:id="@+id/textAtsTalturas"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textAtsTrealizar"
+            android:text="Diligenciamiento de ATS de trabajos en Alturas" />
+
+        <Spinner
+            android:id="@+id/spinnnerAtsTalturas"
+            style="@style/ComienzaSpinner"
+            android:layout_below="@+id/textAtsTrealizar"
+            android:layout_toEndOf="@+id/textAtsTalturas" />
+
+        <TextView
+            android:id="@+id/textAtsTespaciosConfinados"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textAtsTalturas"
+            android:text="Diligenciamiento de ATS de trabajos en espacios confinados" />
+
+        <Spinner
+            android:id="@+id/spinnnerAtsTConfinados"
+            style="@style/ComienzaSpinner"
+            android:layout_below="@+id/textAtsTalturas"
+            android:layout_toEndOf="@+id/textAtsTespaciosConfinados" />
+
+        <TextView
+            android:id="@+id/textAtscaliente"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textAtsTespaciosConfinados"
+            android:text="Diligenciamiento de ATS de trabajos en caliente" />
+
+        <Spinner
+            android:id="@+id/spinnnerAtscaliente"
+            style="@style/ComienzaSpinner"
+            android:layout_below="@+id/textAtsTespaciosConfinados"
+            android:layout_toEndOf="@+id/textAtscaliente" />
+
+
         <ImageView
             android:id="@+id/imageViewSeparatorLogistica"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/TextODuplicado"
+            android:layout_below="@+id/textAtscaliente"
             android:layout_marginTop="10dp"
             android:background="@color/black"
             android:layout_marginEnd="20dp"
@@ -497,17 +598,25 @@
             android:layout_below="@+id/text2A"
             android:text="Otro" />
 
-            <Spinner
-                android:id="@+id/spinnner2B"
-                style="@style/ComienzaSpinner"
-                android:layout_below="@+id/text2A"
-                android:layout_toEndOf="@+id/text2B" />
+        <EditText
+            android:id="@+id/EditOtrosServicios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/text2A"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_toEndOf="@+id/text2B"
+            android:padding="10dp"
+            android:background="@drawable/style_etbg"
+            android:gravity="center"
+            android:textSize="8sp" />
 
         <ImageView
             android:id="@+id/Camera2"
             android:layout_width="120dp"
             android:layout_height="120dp"
-            android:layout_below="@+id/spinnner2B"
+            android:layout_below="@+id/EditOtrosServicios"
             android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
             tools:src="@android:drawable/ic_menu_camera" />
@@ -516,7 +625,7 @@
             android:id="@+id/ButtonCamera2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/spinnner2B"
+            android:layout_below="@+id/EditOtrosServicios"
             android:layout_marginStart="30dp"
             android:layout_marginTop="60dp"
             android:layout_marginBottom="20dp"

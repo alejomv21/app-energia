@@ -1,5 +1,7 @@
 package com.equitel.pruebaequitel.Sheet7
 
+import android.app.DatePickerDialog
+import android.app.Dialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -11,11 +13,10 @@ import android.os.Environment
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ArrayAdapter
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
+import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.equitel.pruebaequitel.R
@@ -24,6 +25,7 @@ import com.equitel.pruebaequitel.SearchActivity
 import com.equitel.pruebaequitel.databinding.ActivitySheet7Binding
 import com.equitel.pruebaequitel.reciclerSheet.ActivitySheet5
 import java.io.File
+import java.util.*
 
 class Sheet7Activity : AppCompatActivity() {
     lateinit var binding : ActivitySheet7Binding
@@ -54,7 +56,11 @@ class Sheet7Activity : AppCompatActivity() {
 
         val tipoServicio : Array<String> = resources.getStringArray(R.array.OpcionesHoja2)
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, tipoServicio)
-        spinnerAdapter(adapter, adapter1, timepoadapter)
+
+        val siNoNa : Array<String> = resources.getStringArray(R.array.siNoNa)
+        val siNoNaAadapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, siNoNa)
+
+        spinnerAdapter(adapter, adapter1, timepoadapter, siNoNaAadapter)
 
         heroImage = binding.Camera2
         binding.ButtonCamera2.setOnClickListener{
@@ -68,8 +74,10 @@ class Sheet7Activity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        Calendario();
+
     }
-    private fun spinnerAdapter(adapter : ArrayAdapter<String>, adapter1: ArrayAdapter<String>, timepoAdapter: ArrayAdapter<String> ){
+    private fun spinnerAdapter(adapter : ArrayAdapter<String>, adapter1: ArrayAdapter<String>, timepoAdapter: ArrayAdapter<String>, siNoNaAadapter: ArrayAdapter<String>){
         binding.spinnnerA.setAdapter(adapter)
         binding.spinnnerB.setAdapter(adapter)
         binding.spinnnerE.setAdapter(adapter1)
@@ -79,13 +87,16 @@ class Sheet7Activity : AppCompatActivity() {
         binding.spinnnerL.setAdapter(adapter1)
         binding.spinnnerM.setAdapter(adapter1)
         binding.spinnnerNDuplicado.setAdapter(adapter1)
-        binding.spinnnerN.setAdapter(adapter1)
+        binding.spinnnerN.setAdapter(siNoNaAadapter)
         binding.spinnnerO.setAdapter(adapter1)
-        binding.spinnnerODuplicado.setAdapter(adapter1)
+        binding.spinnnerODuplicado.setAdapter(siNoNaAadapter)
         binding.spinnnerP.setAdapter(timepoAdapter)
         binding.spinnnerQ.setAdapter(timepoAdapter)
         binding.spinnnerR.setAdapter(adapter)
-        binding.spinnner2B.setAdapter(adapter)
+        binding.spinnnerAtsTrealizar.setAdapter(adapter1)
+        binding.spinnnerAtsTalturas.setAdapter(adapter1)
+        binding.spinnnerAtsTConfinados.setAdapter(adapter1)
+        binding.spinnnerAtscaliente.setAdapter(adapter1)
     }
 
 
@@ -116,7 +127,11 @@ class Sheet7Activity : AppCompatActivity() {
             almamacenamiento.tiempoEsperaSalida =  binding.spinnnerQ.selectedItem.toString()
             almamacenamiento.serviciosCotizar =  binding.spinnnerR.selectedItem.toString()
             almamacenamiento.tipoServicioRealizado =  binding.EditTipoServicio.text.toString()
-            almamacenamiento.otrosServicios =  binding.spinnner2B.selectedItem.toString()
+            almamacenamiento.otrosServicios =  binding.EditOtrosServicios.text.toString()
+            almamacenamiento.atsTrabajosrealizados = binding.spinnnerAtsTrealizar.selectedItem.toString()
+            almamacenamiento.atsTrabajosAlturas = binding.spinnnerAtsTalturas.selectedItem.toString()
+            almamacenamiento.atsTrabajosConfinados = binding.spinnnerAtsTConfinados.selectedItem.toString()
+            almamacenamiento.atsTrabajosCalientes = binding.spinnnerAtscaliente.selectedItem.toString()
 
             Log.d("MANZANAs", almamacenamiento.estadoControl.toString())
 
@@ -157,5 +172,53 @@ class Sheet7Activity : AppCompatActivity() {
             startActivity(intent)
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    class DatePickerFragment (val listener: (year:Int, month:Int, day:Int)-> Unit): DialogFragment(), DatePickerDialog.OnDateSetListener {
+
+        override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+            val c = Calendar.getInstance()
+            var year = c.get(Calendar.YEAR)
+            var month = c.get(Calendar.MONTH)
+            var day = c.get(Calendar.DAY_OF_MONTH)
+
+            return DatePickerDialog(requireActivity(), this, year, month, day)
+
+        }
+
+        override fun onDateSet(view: DatePicker?, year: Int, month: Int, day: Int) {
+            listener(year, month+1, day)
+        }
+    }
+
+    private fun Calendario() {
+        binding.fechaUltimoLavado.setOnClickListener {
+            val EditButon = binding.EditUltimoLavado
+            val DialogFecha = DatePickerFragment { year, month, day ->
+                mostrarResultado(
+                    year,
+                    month,
+                    day,
+                    EditButon
+                )
+            }
+            DialogFecha.show(supportFragmentManager, "DataPicker")
+        }
+        binding.fechaUltimoTanqueo.setOnClickListener {
+            val EditButon = binding.EditUltimoTanqueo
+            val DialogFecha = DatePickerFragment { year, month, day ->
+                mostrarResultado(
+                    year,
+                    month,
+                    day,
+                    EditButon
+                )
+            }
+            DialogFecha.show(supportFragmentManager, "DataPicker")
+        }
+    }
+
+    private fun mostrarResultado(year: Int, month: Int, day: Int, edit: EditText) {
+        edit.setText("$year/$month/$day")
     }
 }
