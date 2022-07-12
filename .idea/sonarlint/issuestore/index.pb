@@ -6,10 +6,6 @@ A
 :
 
 .gitignore,a\5\a5cc2925ca8258af241be7e5b0381edf30266302
-o
-?app/src/main/java/com/equitel/pruebaequitel/SearchRepository.kt,0\2\0222d38f16e7343f3256f24f04da97f787fcb2a7
-k
-;app/src/main/java/com/equitel/pruebaequitel/SerialPlanta.kt,7\3\739006ddc4e438c1deb96cf3e28654660e8b06ec
 }
 Mapp/src/androidTest/java/com/equitel/pruebaequitel/ExampleInstrumentedTest.kt,5\e\5e6fb6f7a3f6dd8f931df301913980fa85a62d06
 n
@@ -28,8 +24,6 @@ X
 gradlew.bat,2\a\2a45a911a8f1836b0b6c5b758962572012d8f8c3
 n
 >app/src/main/java/com/equitel/pruebaequitel/SearchViewModel.kt,3\b\3b0edd45d9432d1d66639ad392e9b6b7ab07ab47
-u
-Eapp/src/main/java/com/equitel/pruebaequitel/SearchViewModelFactory.kt,d\d\dda7d9c33577e35f92f3ecd7d0c02e8aa8ec0816
 ƒ
 Sapp/src/main/java/com/equitel/pruebaequitel/reciclerSheet/Sheet5ViewModelFactory.kt,5\f\5fc6518e05f670073ff22fa4db62bfb14137cc0d
 |
@@ -60,12 +54,6 @@ v
 Fapp/src/main/java/com/equitel/pruebaequitel/Sheet8/Sheet8Repository.kt,8\3\830cac91fa7ffd71cdf45240725f51ee240700c9
 u
 Eapp/src/main/java/com/equitel/pruebaequitel/Sheet8/Sheet8ViewModel.kt,d\8\d8331c798ed2286c9c7a51d0231047d33c702b80
-|
-Lapp/src/main/java/com/equitel/pruebaequitel/Sheet8/Sheet8ViewModelFactory.kt,7\b\7b7d0b9f033f155a3d5e97fc4415eddfacfd929a
-{
-Kapp/src/main/java/com/equitel/pruebaequitel/Signatures/SignatureActivity.kt,2\b\2ba03c42f2f495ecd32b05f2c2c26c05fdad6bd4
-}
-Mapp/src/main/java/com/equitel/pruebaequitel/Signatures/SignarureRepository.kt,9\8\98c71d7bc4796b9fe4cdc8ca07f4113aa514d324
 }
 Mapp/src/main/java/com/equitel/pruebaequitel/Signatures/SignaturesViewModel.kt,c\7\c756efa3b445e516872aabc71b880d3522853c3c
 |
@@ -96,3 +84,25 @@ i
 9app/src/main/java/com/equitel/pruebaequitel/TimePicket.kt,a\8\a8a0c9c3a891a46116acc51fe36b24a9331075cf
 p
 @app/src/main/java/com/equitel/pruebaequitel/main/MainActivity.kt,f\4\f4a1b91dd475e1ecb76e5f05a746ca201bea99b5
+r
+Bapp/src/main/java/com/equitel/pruebaequitel/database/EqDataBase.kt,e\a\ea50b730cca8f56924dd81930e1c97ea6fce1da9
+t
+Dapp/src/main/java/com/equitel/pruebaequitel/Sheet4/Sheet4Activity.kt,d\7\d72bb41edf046d155f36f444724438501d3ba6b1
+t
+Dapp/src/main/java/com/equitel/pruebaequitel/Sheet6/Sheet6Activity.kt,3\e\3e3c12f7bd3a43f5fc59d3476ac6265bcc290818
+m
+=app/src/main/java/com/equitel/pruebaequitel/Almacenamiento.kt,0\1\01dfb47d1e129a6327d0911f62325e33aa28091d
+t
+Dapp/src/main/java/com/equitel/pruebaequitel/Sheet7/Sheet7Activity.kt,5\f\5f4c4105dbc118dbcfa7234cfdc5980a9519fefe
+u
+Eapp/src/main/java/com/equitel/pruebaequitel/SearchViewModelFactory.kt,d\d\dda7d9c33577e35f92f3ecd7d0c02e8aa8ec0816
+|
+Lapp/src/main/java/com/equitel/pruebaequitel/Sheet2/Sheet2ViewModelFactory.kt,9\d\9db77a12c2a98cf065357e4da30be83ff3258e76
+|
+Lapp/src/main/java/com/equitel/pruebaequitel/Sheet8/Sheet8ViewModelFactory.kt,7\b\7b7d0b9f033f155a3d5e97fc4415eddfacfd929a
+k
+;app/src/main/java/com/equitel/pruebaequitel/SerialPlanta.kt,7\3\739006ddc4e438c1deb96cf3e28654660e8b06ec
+}
+Mapp/src/main/java/com/equitel/pruebaequitel/Signatures/SignarureRepository.kt,9\8\98c71d7bc4796b9fe4cdc8ca07f4113aa514d324
+o
+?app/src/main/java/com/equitel/pruebaequitel/SearchRepository.kt,0\2\0222d38f16e7343f3256f24f04da97f787fcb2a7

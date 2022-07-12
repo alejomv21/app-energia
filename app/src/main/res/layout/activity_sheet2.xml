@@ -712,6 +712,19 @@
                 android:src="@drawable/ic_baseline_camera"
                 android:text="Camara" />
 
+            <ImageButton
+                android:id="@+id/ButtonCamera2Upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/EditTrabajoRealizado"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="20dp"
+                android:layout_toEndOf="@+id/ButtonCamera2"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_baseline_camera"
+                android:text="Camara" />
+
             <Button
                 android:id="@+id/buttonEnviar"
                 android:layout_width="wrap_content"

@@ -2,6 +2,7 @@ package com.equitel.pruebaequitel.Sheet8
 
 import android.app.DatePickerDialog
 import android.app.Dialog
+import android.content.Intent
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -12,6 +13,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.equitel.pruebaequitel.Almacenamiento
 import com.equitel.pruebaequitel.R
 import com.equitel.pruebaequitel.Sheet7.Sheet7Activity
+import com.equitel.pruebaequitel.Signatures.SignatureActivity
 import com.equitel.pruebaequitel.TimePicket
 import com.equitel.pruebaequitel.databinding.ActivitySheet8Binding
 import com.github.gcacace.signaturepad.views.SignaturePad
@@ -94,6 +96,8 @@ class Sheet8Activity : AppCompatActivity() {
 
         Calendario()
         Reloj()
+
+        Pdf()
 
 
     }
@@ -664,6 +668,14 @@ class Sheet8Activity : AppCompatActivity() {
 
     private fun mostrarHora(hora: Int, minuto: Int, reloj : EditText) {
         reloj.setText("$hora : $minuto")
+    }
+
+
+    private fun Pdf(){
+        binding.buttonEnviar3.setOnClickListener {
+            val intent = Intent(this, SignatureActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 

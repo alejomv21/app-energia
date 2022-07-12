@@ -319,9 +319,10 @@
                 android:layout_height="20dp"
                 android:layout_below="@+id/TextCalificacionCliente"
                 android:layout_toEndOf="@+id/TextServCumplimiento1"
-                android:gravity="center"
                 android:digits="123456789,"
+                android:gravity="center"
                 android:inputType="numberDecimal"
+                android:maxLength="1"
                 android:textSize="10sp" />
 
             <TextView
@@ -357,6 +358,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_toEndOf="@+id/TextOrdenAseo1"
                 android:gravity="center"
+                android:maxLength="1"
                 android:textSize="10sp" />
 
             <TextView
@@ -392,6 +394,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_toEndOf="@+id/TextUsoElementosProteccion1"
                 android:gravity="center"
+                android:maxLength="1"
                 android:textSize="10sp" />
 
             <ImageView

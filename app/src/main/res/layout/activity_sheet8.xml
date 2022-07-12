@@ -259,6 +259,7 @@
                 android:id="@+id/text2AHoja3"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/GeneradorHoja3"
+                android:layout_marginTop="16dp"
                 android:text="A. Alta Temperatura Motor" />
 
             <Spinner
@@ -825,7 +826,6 @@
                 android:id="@+id/EditObservaciones"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
                 android:layout_below="@+id/textC"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
@@ -833,6 +833,7 @@
                 android:layout_toEndOf="@+id/TextPDuplicado"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:padding="5dp"
                 android:textSize="10sp" />
 
             <ImageView
@@ -1061,11 +1062,12 @@
             <EditText
                 android:id="@+id/EditOtros"
                 android:layout_width="match_parent"
-                android:layout_height="23dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/TextNDuplicado"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
+                android:padding="5dp"
                 android:layout_toEndOf="@+id/TextPDuplicado"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
@@ -1610,6 +1612,7 @@
                 android:layout_below="@+id/TextCalificacionCliente"
                 android:layout_toEndOf="@+id/TextServCumplimiento1"
                 android:gravity="center"
+                android:maxLength="1"
                 android:textSize="10sp" />
 
             <TextView
@@ -1645,6 +1648,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_toEndOf="@+id/TextOrdenAseo1"
                 android:gravity="center"
+                android:maxLength="1"
                 android:textSize="10sp" />
 
             <TextView
@@ -1680,6 +1684,7 @@
                 android:layout_marginTop="30dp"
                 android:layout_toEndOf="@+id/TextUsoElementosProteccion1"
                 android:gravity="center"
+                android:maxLength="1"
                 android:textSize="10sp" />
 
 
@@ -1762,6 +1767,7 @@
                 android:layout_marginEnd="20dp"
                 android:textColor="@color/black"
                 android:text="GUARDAR"/>
+
             <Button
                 android:id="@+id/buttonEnviar3"
                 android:layout_width="wrap_content"

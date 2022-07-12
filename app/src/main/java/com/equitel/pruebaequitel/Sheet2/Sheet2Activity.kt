@@ -1,5 +1,7 @@
 package com.equitel.pruebaequitel.Sheet2
 
+import android.app.Activity
+import android.app.ProgressDialog
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -17,20 +19,25 @@ import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.FileProvider
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.equitel.pruebaequitel.login.LoginActivity
+import com.equitel.pruebaequitel.FirebaseStorageManager
 import com.equitel.pruebaequitel.R
-import com.equitel.pruebaequitel.SearchActivity
 import com.equitel.pruebaequitel.Sheet3.Sheet3Activity
 import com.equitel.pruebaequitel.databinding.ActivitySheet2Binding
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
 import java.io.File
+import java.text.SimpleDateFormat
+import java.util.*
 
 class Sheet2Activity : AppCompatActivity() {
     //firebase
 
+    private val btnSelectImage: AppCompatButton by lazy {
+        findViewById(R.id.ButtonCamera2)
+    }
     //camera
     lateinit var binding : ActivitySheet2Binding
     lateinit var viewModel: Sheet2ViewModel
@@ -493,10 +500,33 @@ class Sheet2Activity : AppCompatActivity() {
             FileProvider.getUriForFile(this,
                 "$packageName.provider",
                 file)
+            //
+
         }else{
             Uri.fromFile(file)
         }
+
         getContent.launch(uri)
+        //
+        val progressDialog = ProgressDialog(this)
+        progressDialog.setMessage("uploading File ...")
+        progressDialog.setCancelable(false)
+        progressDialog.show()
+
+        val formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault())
+        val now = Date()
+        val fileName = formatter.format(now)
+        val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName")
+
+        storageReference.putFile(uri).
+        addOnSuccessListener {
+            binding.Camera2.setImageURI(null)
+            if(progressDialog.isShowing) progressDialog.dismiss()
+
+        }.addOnFailureListener{
+            if(progressDialog.isShowing) progressDialog.dismiss()
+        }
+
     }
     private fun createImageFile(): File {
         val filename = "superhero_image"
@@ -505,4 +535,11 @@ class Sheet2Activity : AppCompatActivity() {
         picturePath = file.absolutePath
         return file
     }
+
+
+
+
+
+
+
 }
