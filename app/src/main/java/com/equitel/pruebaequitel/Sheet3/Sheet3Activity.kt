@@ -1,5 +1,6 @@
 package com.equitel.pruebaequitel.Sheet3
 
+import android.app.Activity
 import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -8,9 +9,11 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
+import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.ArrayAdapter
+import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
@@ -21,9 +24,23 @@ import com.equitel.pruebaequitel.R
 import com.equitel.pruebaequitel.Sheet2.Sheet2Activity
 import com.equitel.pruebaequitel.Sheet4.Sheet4Activity
 import com.equitel.pruebaequitel.databinding.ActivitySheet3Binding
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import java.io.File
+import java.io.IOException
+import java.util.*
 
 class Sheet3Activity : AppCompatActivity() {
+    //firebase
+    private val PICK_IMAGE_REQUEST = 71
+    private var downloadUri : Uri? = null
+    private var filePath: Uri? = null
+    private var firebaseStore: FirebaseStorage? = null
+    private var storageReference: StorageReference? = null
+    lateinit var btn_choose_image: ImageButton
+    lateinit var btn_upload_image: ImageButton
+
+
     lateinit var binding : ActivitySheet3Binding
     lateinit var viewModel: Sheet3ViewModel
     private lateinit var heroImage : ImageView
@@ -69,15 +86,28 @@ class Sheet3Activity : AppCompatActivity() {
 
         spinnerAdapter(adapter, siNoadapter, buenoMaloadapter, onOfMaloadapter, manOfOutadapter, buenoMaloNAadapter, siNoNaAadapter)
         
+
+
+
+        heroImage = binding.Camera3
+        btn_choose_image = binding.ButtonCameraSearch
+        firebaseStore = FirebaseStorage.getInstance()
+        storageReference = FirebaseStorage.getInstance().reference
+        btn_upload_image = binding.ButtonCamera3Upload
+        binding.ButtonCamera3.setOnClickListener{
+            openCamera()
+        }
+
+        btn_choose_image.setOnClickListener { launchGallery() }
+        btn_upload_image.setOnClickListener { uploadImage() }
+
+
+        //enviar
         binding.buttonEnviar.setOnClickListener {
             Toast.makeText(this, "ELEMENTOS GUARDADOS ", Toast.LENGTH_SHORT).show()
             guardarAlmacenamiento()
             val intent = Intent(this, Sheet4Activity::class.java)
             startActivity(intent)
-        }
-        heroImage = binding.Camera3
-        binding.ButtonCamera3.setOnClickListener{
-            openCamera()
         }
 
     }
@@ -167,6 +197,7 @@ class Sheet3Activity : AppCompatActivity() {
             almacenamiento.conCargas = binding.spinnner4B.selectedItem.toString()
             almacenamiento.conCargasMedida = binding.EditConCargasMedida.text.toString()
             almacenamiento.recomendaciones = binding.EditRecomendaciones.text.toString()
+            almacenamiento.imagen3 = downloadUri.toString()
             viewModel.guardaralmacenamiento(almacenamiento)
         })
     }
@@ -289,19 +320,23 @@ class Sheet3Activity : AppCompatActivity() {
         }
         return posicion
     }
-
     private fun openCamera() {
         //val camera = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         //startActivityForResult(camera, 1000)
         val file = createImageFile()
-        val uri = if(Build.VERSION.SDK_INT  >= Build.VERSION_CODES.N){
+        filePath = if(Build.VERSION.SDK_INT  >= Build.VERSION_CODES.N){
             FileProvider.getUriForFile(this,
                 "$packageName.provider",
                 file)
+            //
+
         }else{
             Uri.fromFile(file)
         }
-        getContent.launch(uri)
+
+        getContent.launch(filePath)
+        //
+
     }
     private fun createImageFile(): File {
         val filename = "superhero_image"
@@ -311,9 +346,57 @@ class Sheet3Activity : AppCompatActivity() {
         return file
     }
 
-    private fun firebase(){
-
+    private fun launchGallery() {
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST)
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
+            if(data == null || data.data == null){
+                return
+            }
+
+            filePath = data.data
+            try {
+                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filePath)
+                heroImage.setImageBitmap(bitmap)
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    private fun uploadImage(){
+        if(filePath != null){
+            val ref = storageReference?.child("myImages/" + UUID.randomUUID().toString())
+            val uploadTask = ref?.putFile(filePath!!)
+            val urlTask = uploadTask?.continueWithTask { task ->
+                if (!task.isSuccessful) {
+                    task.exception?.let {
+                        throw it
+                    }
+                }
+                ref.downloadUrl
+            }?.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    downloadUri = task.result
+                    println(downloadUri)
+                } else {
+                    // Handle failures
+                    // ...
+                }
+            }
+            Toast.makeText(this, "Imagen Guardada", Toast.LENGTH_SHORT).show()
+        }else{
+            Toast.makeText(this, "Please Upload an Image", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+
 
 }
 

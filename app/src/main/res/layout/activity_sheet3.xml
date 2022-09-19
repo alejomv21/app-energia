@@ -607,6 +607,8 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:digits="123456789"
+                android:inputType="number"
                 android:textSize="8sp" />
 
             <TextView
@@ -651,6 +653,8 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:digits="123456789"
+                android:inputType="number"
                 android:textSize="8sp" />
 
 
@@ -770,6 +774,32 @@
                 android:layout_toEndOf="@+id/Camera3"
                 android:shadowColor="@color/black"
                 android:src="@drawable/ic_baseline_camera"
+                android:text="Camara" />
+
+            <ImageButton
+                android:id="@+id/ButtonCameraSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/EditRecomendaciones"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="20dp"
+                android:layout_toEndOf="@+id/ButtonCamera3"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_baseline_image_search"
+                android:text="Camara" />
+
+            <ImageButton
+                android:id="@+id/ButtonCamera3Upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/EditRecomendaciones"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="20dp"
+                android:layout_toEndOf="@+id/ButtonCameraSearch"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_baseline_cloud_upload"
                 android:text="Camara" />
 
             <Button

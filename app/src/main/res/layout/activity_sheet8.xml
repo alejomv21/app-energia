@@ -592,6 +592,8 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:digits="123456789"
+                android:inputType="number"
                 android:textSize="8sp" />
 
             <TextView
@@ -636,6 +638,8 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:digits="123456789"
+                android:inputType="number"
                 android:textSize="8sp" />
 
 
@@ -1247,12 +1251,24 @@
                 style="@style/ComienzaSpinner"
                 android:layout_below="@+id/textSolicitudes"
                 android:layout_toEndOf="@+id/textQ" />
+            <TextView
+                android:id="@+id/TextTipoServicioRealizado"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/textR"
+                android:text="Tipo de Servicio Realizado" />
+
+            <Spinner
+                android:id="@+id/spinnnerTipoServicioRealizado"
+                style="@style/ComienzaSpinner"
+                android:textSize="8sp"
+                android:layout_below="@+id/textR"
+                android:layout_toEndOf="@+id/textQ" />
 
             <ImageView
                 android:id="@+id/imageViewSeparator"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textR"
+                android:layout_below="@+id/TextTipoServicioRealizado"
                 android:layout_marginTop="20dp"
                 android:background="@color/black"
                 android:contentDescription="TODO"
@@ -1354,9 +1370,9 @@
                 android:id="@+id/EditHoraSalidaT"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:layout_marginTop="5dp"
                 android:layout_below="@+id/TextHoraSalidaT"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
                 android:text="TÉCNICOS/EQUITEL" />
 
             <ImageButton
@@ -1385,7 +1401,7 @@
                 android:id="@+id/TextHoraSalidaC"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:layout_below="@+id/EditHoraSalidaT"
+                android:layout_below="@+id/EditHoraAtencionC"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:text="HORA SALIDA" />
@@ -1394,7 +1410,7 @@
                 android:id="@+id/fecha2Button"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_below="@+id/reloj1Button"
+                android:layout_below="@+id/EditHoraAtencionC"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_toEndOf="@+id/EditHoraSalidaT"
@@ -1406,7 +1422,7 @@
                 android:id="@+id/EditFecha2"
                 android:layout_width="80dp"
                 android:layout_height="20dp"
-                android:layout_below="@+id/reloj1Button"
+                android:layout_below="@+id/EditHoraAtencionC"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 style="@style/StartGenerador"
@@ -1416,9 +1432,9 @@
                 android:id="@+id/EditHoraSalidaC"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:layout_marginTop="5dp"
                 android:layout_below="@+id/TextHoraSalidaC"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
                 android:text="CLIENTE" />
 
             <ImageButton
@@ -1448,7 +1464,7 @@
                 android:id="@+id/TextHorallegadaC"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:layout_below="@+id/EditHoraSalidaC"
+                android:layout_below="@+id/EditHoraSalidaT"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:text="HORA LLEGADA" />
@@ -1457,7 +1473,7 @@
                 android:id="@+id/fecha3Button"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_below="@+id/reloj2Button"
+                android:layout_below="@+id/EditHoraSalidaT"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_toEndOf="@+id/EditHoraSalidaT"
@@ -1469,7 +1485,7 @@
                 android:id="@+id/EditFecha3"
                 android:layout_width="80dp"
                 android:layout_height="20dp"
-                android:layout_below="@+id/reloj2Button"
+                android:layout_below="@+id/EditHoraSalidaT"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 style="@style/StartGenerador"
@@ -1541,9 +1557,9 @@
                 android:id="@+id/EditHoraAtencionC"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:layout_marginTop="5dp"
                 android:layout_below="@+id/TextHoraAtencionC"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
                 android:text="CLIENTE" />
 
             <ImageButton
@@ -1569,12 +1585,11 @@
                 android:layout_toEndOf="@+id/fecha1Button" />
 
 
-
             <TextView
                 android:id="@+id/TextCalificacionCliente"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:layout_below="@+id/EditHoraAtencionC"
+                android:layout_below="@+id/EditHoraSalidaC"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
@@ -1777,6 +1792,16 @@
                 android:layout_marginTop="30sp"
                 android:layout_marginBottom="20sp"
                 android:text="ENVIAR" />
+
+            <Button
+                android:id="@+id/buttonPDF"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/buttonEnviar3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="30sp"
+                android:layout_marginBottom="20sp"
+                android:text="PDF" />
 
 
         </RelativeLayout>

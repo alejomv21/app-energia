@@ -10,14 +10,12 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
+import android.provider.MediaStore
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.widget.AppCompatButton
 import androidx.core.content.FileProvider
@@ -28,12 +26,21 @@ import com.equitel.pruebaequitel.R
 import com.equitel.pruebaequitel.Sheet3.Sheet3Activity
 import com.equitel.pruebaequitel.databinding.ActivitySheet2Binding
 import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import java.io.File
+import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
 
 class Sheet2Activity : AppCompatActivity() {
     //firebase
+    private val PICK_IMAGE_REQUEST = 71
+    private var downloadUri : Uri? = null
+    private var filePath: Uri? = null
+    private var firebaseStore: FirebaseStorage? = null
+    private var storageReference: StorageReference? = null
+    lateinit var btn_choose_image: ImageButton
+    lateinit var btn_upload_image: ImageButton
 
     private val btnSelectImage: AppCompatButton by lazy {
         findViewById(R.id.ButtonCamera2)
@@ -67,18 +74,7 @@ class Sheet2Activity : AppCompatActivity() {
             startActivity(intent)
         }*/
 
-        binding.buttonEnviar.setOnClickListener {
-            println(binding.spinnnerA.selectedItem.toString())
-            Log.d("limas", binding.spinnnerA.selectedItem.toString())
-            val validar = validarCampos()
-            //recordatorio cambiar para validar
-            if (validar != true) {
-                Log.d("lleno total", binding.spinnnerA.selectedItem.toString())
-            }
-            extraerDatos()
-            val intent = Intent(this, Sheet3Activity::class.java)
-            startActivity(intent)
-        }
+
 
         val siNo: Array<String> = resources.getStringArray(R.array.SiNo)
         val adapter1 = ArrayAdapter(this, android.R.layout.simple_list_item_1, siNo)
@@ -106,9 +102,12 @@ class Sheet2Activity : AppCompatActivity() {
         val correas : Array<String> = resources.getStringArray(R.array.correas)
         val adaptercorreas= ArrayAdapter(this, android.R.layout.simple_list_item_1, correas)
 
+        val buenoMaloNA : Array<String> = resources.getStringArray(R.array.buenoMaloNA)
+        val buenoMaloNAadapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, buenoMaloNA)
+
         val tipoServicio : Array<String> = resources.getStringArray(R.array.OpcionesHoja2)
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, tipoServicio)
-        spinnerAdapter(adapter, adapter1,adaptervhs, adapterPrecalentador, adapterVoltaje, adapterTanque, adapterDisyuntoresParte, adaptercorreas)
+        spinnerAdapter(adapter, adapter1,adaptervhs, adapterPrecalentador, adapterVoltaje, adapterTanque, adapterDisyuntoresParte, adaptercorreas, buenoMaloNAadapter)
 
         binding.spinnner3E.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -133,9 +132,32 @@ class Sheet2Activity : AppCompatActivity() {
             }
         }
 
+
         heroImage = binding.Camera2
+        btn_choose_image = binding.ButtonCameraSearch
+        firebaseStore = FirebaseStorage.getInstance()
+        storageReference = FirebaseStorage.getInstance().reference
+        btn_upload_image = binding.ButtonCamera2Upload
+
         binding.ButtonCamera2.setOnClickListener{
             openCamera()
+        }
+        btn_choose_image.setOnClickListener { launchGallery() }
+        btn_upload_image.setOnClickListener { uploadImage() }
+
+
+        //Enviar
+        binding.buttonEnviar.setOnClickListener {
+            println(binding.spinnnerA.selectedItem.toString())
+            Log.d("limas", binding.spinnnerA.selectedItem.toString())
+            val validar = validarCampos()
+            //recordatorio cambiar para validar
+            if (validar != true) {
+                Log.d("lleno total", binding.spinnnerA.selectedItem.toString())
+            }
+            extraerDatos()
+            val intent = Intent(this, Sheet3Activity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -153,7 +175,7 @@ class Sheet2Activity : AppCompatActivity() {
     }
 
     private fun spinnerAdapter(adapter : ArrayAdapter<String>, adapter1: ArrayAdapter<String>, adaptervhs: ArrayAdapter<String>, adapterPrecalentador: ArrayAdapter<String>,
-                               adapterVoltaje: ArrayAdapter<String>, adapterTanque: ArrayAdapter<String>,  adapterDisyuntoresParte: ArrayAdapter<String>,  adaptercorreas: ArrayAdapter<String>){
+                               adapterVoltaje: ArrayAdapter<String>, adapterTanque: ArrayAdapter<String>,  adapterDisyuntoresParte: ArrayAdapter<String>,  adaptercorreas: ArrayAdapter<String>, buenoMaloNAadapter: ArrayAdapter<String>){
         binding.spinnnerA.setAdapter(adapter)
         binding.spinnnerB.setAdapter(adapter)
         binding.spinnnerC.setAdapter(adapter)
@@ -161,7 +183,7 @@ class Sheet2Activity : AppCompatActivity() {
         binding.spinnnerE.setAdapter(adapter)
         binding.spinnnerF.setAdapter(adaptercorreas)
         binding.spinnnerG.setAdapter(adapter)
-        binding.spinnnerH.setAdapter(adapter)
+        binding.spinnnerH.setAdapter(buenoMaloNAadapter)
         binding.spinnnerI.setAdapter(adapter)
         binding.spinnnerJ.setAdapter(adapter1)
         binding.spinnnerK.setAdapter(adapter)
@@ -242,6 +264,7 @@ class Sheet2Activity : AppCompatActivity() {
             almamacenamiento.estadoPrecalentadorATS =  binding.spinnner3I.selectedItem.toString()
             almamacenamiento.estadoManguerasATS =  binding.spinnner3J.selectedItem.toString()
             almamacenamiento.trabajoRealizado = binding.EditTrabajoRealizado.text.toString()
+            almamacenamiento.imagen2 = downloadUri.toString()
             Log.d("MANZANAs", almamacenamiento.estadoControl.toString())
 
             viewModel.GuardarAlmacenamiento12(almamacenamiento)
@@ -417,6 +440,7 @@ class Sheet2Activity : AppCompatActivity() {
             "B"-> posicion = 1
             "R"-> posicion = 2
             "M"-> posicion = 3
+            "NA"-> posicion = 4
         }
         return posicion
     }
@@ -492,11 +516,11 @@ class Sheet2Activity : AppCompatActivity() {
 
 
 
-    private fun openCamera() {
+    public fun openCamera() {
         //val camera = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         //startActivityForResult(camera, 1000)
         val file = createImageFile()
-        val uri = if(Build.VERSION.SDK_INT  >= Build.VERSION_CODES.N){
+        filePath = if(Build.VERSION.SDK_INT  >= Build.VERSION_CODES.N){
             FileProvider.getUriForFile(this,
                 "$packageName.provider",
                 file)
@@ -506,34 +530,65 @@ class Sheet2Activity : AppCompatActivity() {
             Uri.fromFile(file)
         }
 
-        getContent.launch(uri)
+        getContent.launch(filePath)
         //
-        val progressDialog = ProgressDialog(this)
-        progressDialog.setMessage("uploading File ...")
-        progressDialog.setCancelable(false)
-        progressDialog.show()
-
-        val formatter = SimpleDateFormat("yyyy_MM_dd_HH_mm_ss", Locale.getDefault())
-        val now = Date()
-        val fileName = formatter.format(now)
-        val storageReference = FirebaseStorage.getInstance().getReference("images/$fileName")
-
-        storageReference.putFile(uri).
-        addOnSuccessListener {
-            binding.Camera2.setImageURI(null)
-            if(progressDialog.isShowing) progressDialog.dismiss()
-
-        }.addOnFailureListener{
-            if(progressDialog.isShowing) progressDialog.dismiss()
-        }
 
     }
-    private fun createImageFile(): File {
+    public fun createImageFile(): File {
         val filename = "superhero_image"
         val fileDIrectory = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
         val file = File.createTempFile(filename, ".jpg", fileDIrectory)
         picturePath = file.absolutePath
         return file
+    }
+
+    private fun launchGallery() {
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
+            if(data == null || data.data == null){
+                return
+            }
+
+            filePath = data.data
+            try {
+                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filePath)
+                heroImage.setImageBitmap(bitmap)
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    public fun uploadImage(){
+        if(filePath != null){
+            val ref = storageReference?.child("myImages/" + UUID.randomUUID().toString())
+            val uploadTask = ref?.putFile(filePath!!)
+            val urlTask = uploadTask?.continueWithTask { task ->
+                if (!task.isSuccessful) {
+                    task.exception?.let {
+                        throw it
+                    }
+                }
+                ref.downloadUrl
+            }?.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    downloadUri = task.result
+                    println(downloadUri)
+                } else {
+                    // Handle failures
+                    // ...
+                }
+            }
+        }else{
+            Toast.makeText(this, "Please Upload an Image", Toast.LENGTH_SHORT).show()
+        }
     }
 
 

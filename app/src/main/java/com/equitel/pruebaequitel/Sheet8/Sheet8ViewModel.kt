@@ -32,4 +32,10 @@ class Sheet8ViewModel (application: Application) : AndroidViewModel(application)
         }
     }
 
+    fun consultarID(id : Int?){
+        viewModelScope.launch {
+            _Almacenamiento.value =  repository.consultarID(id)
+        }
+    }
+
 }

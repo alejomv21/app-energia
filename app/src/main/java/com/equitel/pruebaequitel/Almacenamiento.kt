@@ -1,5 +1,6 @@
 package com.equitel.pruebaequitel
 
+import android.net.Uri
 import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -41,4 +42,6 @@ data class Almacenamiento (@PrimaryKey (autoGenerate = true) var id : Int? = nul
                            var muestraAceite : String? = null, var muestraCombustible : String? = null, var muestraRefrigerante : String? = null, var ultimoLavadoTanque : String? = null, var ultimoTanqueo : String? = null, var capacidadTanqueo : String? = null,
                            var casco : String? = null, var guantes : String? = null, var overol : String? = null, var gafas : String? = null, var otros : String? = null, var transporteATimepo : String? = null, var insumosCompletos : String? = null,
                            var pendienteRecogerInsumos : String? = null, var tiempoEsperaIngreso : String? = null, var tiempoEsperaSalida : String? = null, var serviciosCotizar : String? = null, var otrosCotizar : String? = null, var tipoServicioRealizado : String? = null,
-                           var otrosServicios : String? = null, var atsTrabajosrealizados : String? = null, var atsTrabajosAlturas: String? = null, var atsTrabajosConfinados : String? = null, var atsTrabajosCalientes: String? = null, @ColumnInfo(typeAffinity = ColumnInfo.BLOB) var data: ByteArray? = null) : Parcelable
+                           var otrosServicios : String? = null, var atsTrabajosrealizados : String? = null, var atsTrabajosAlturas: String? = null, var atsTrabajosConfinados : String? = null, var atsTrabajosCalientes: String? = null, var imagen1 : String? = null, var imagen2 : String? = null, var imagen3 : String? = null,
+                           var imagen4 : String? = null, var imagen5 : String? = null, @ColumnInfo(typeAffinity = ColumnInfo.BLOB) var dataTecnico: ByteArray? = null, @ColumnInfo(typeAffinity = ColumnInfo.BLOB) var data: ByteArray? = null) : Parcelable
+

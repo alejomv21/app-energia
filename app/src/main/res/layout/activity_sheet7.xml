@@ -547,14 +547,28 @@
             <Spinner
                 android:id="@+id/spinnnerR"
                 style="@style/ComienzaSpinner"
+                android:textSize="8sp"
                 android:layout_below="@+id/textSolicitudes"
                 android:layout_toEndOf="@+id/textQ" />
+
+        <TextView
+            android:id="@+id/TextTipoServicioRealizado"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textR"
+            android:text="Tipo de Servicio Realizado" />
+
+        <Spinner
+            android:id="@+id/spinnnerTipoServicioRealizado"
+            style="@style/ComienzaSpinner"
+            android:textSize="8sp"
+            android:layout_below="@+id/textR"
+            android:layout_toEndOf="@+id/textQ" />
 
             <ImageView
                 android:id="@+id/imageViewSeparator"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textR"
+                android:layout_below="@+id/TextTipoServicioRealizado"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
@@ -623,7 +637,7 @@
             tools:src="@android:drawable/ic_menu_camera" />
 
         <ImageButton
-            android:id="@+id/ButtonCamera2"
+            android:id="@+id/ButtonCamera7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/EditOtrosServicios"
@@ -633,6 +647,32 @@
             android:layout_toEndOf="@+id/Camera2"
             android:shadowColor="@color/black"
             android:src="@drawable/ic_baseline_camera"
+            android:text="Camara" />
+
+        <ImageButton
+            android:id="@+id/ButtonCameraSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/EditOtrosServicios"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="20dp"
+            android:layout_toEndOf="@+id/ButtonCamera7"
+            android:shadowColor="@color/black"
+            android:src="@drawable/ic_baseline_image_search"
+            android:text="Camara" />
+
+        <ImageButton
+            android:id="@+id/ButtonCamera7Upload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/EditOtrosServicios"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="20dp"
+            android:layout_toEndOf="@+id/ButtonCameraSearch"
+            android:shadowColor="@color/black"
+            android:src="@drawable/ic_baseline_cloud_upload"
             android:text="Camara" />
 
         <Button

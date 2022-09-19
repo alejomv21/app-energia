@@ -59,8 +59,11 @@ class Sheet6Activity : AppCompatActivity() {
         val aDisyuntoresP : Array<String> = resources.getStringArray(R.array.Disyuntres)
         val adapterDisyuntoresParte= ArrayAdapter(this, android.R.layout.simple_list_item_1, aDisyuntoresP)
 
+        val buenoMaloNA : Array<String> = resources.getStringArray(R.array.buenoMaloNA)
+        val buenoMaloNAadapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, buenoMaloNA)
 
-        spinnerAdapter(adapter, adapter1,adaptervhs, adapterPrecalentador, adapterVoltaje, adapterTanque, adapterDisyuntoresParte, adaptercorreas)
+
+        spinnerAdapter(adapter, adapter1,adaptervhs, adapterPrecalentador, adapterVoltaje, adapterTanque, adapterDisyuntoresParte, adaptercorreas, buenoMaloNAadapter)
         //spinerHoja3(buenoMaloadapter, onOfMaloadapter, manOfOutadapter, adapter, adapter1)
 
         val almacenamiento = intent?.extras?.getParcelable<Almacenamiento>(EQ_KEY)!!
@@ -79,7 +82,7 @@ class Sheet6Activity : AppCompatActivity() {
     }
 
     private fun spinnerAdapter(adapter : ArrayAdapter<String>, adapter1: ArrayAdapter<String>, adaptervhs: ArrayAdapter<String>, adapterPrecalentador: ArrayAdapter<String>,
-                               adapterVoltaje: ArrayAdapter<String>, adapterTanque: ArrayAdapter<String>,  adapterDisyuntoresParte: ArrayAdapter<String>, adaptercorreas: ArrayAdapter<String>){
+                               adapterVoltaje: ArrayAdapter<String>, adapterTanque: ArrayAdapter<String>,  adapterDisyuntoresParte: ArrayAdapter<String>, adaptercorreas: ArrayAdapter<String>, buenoMaloNAadapter:ArrayAdapter<String>){
         binding.spinnnerA.setAdapter(adapter)
         binding.spinnnerB.setAdapter(adapter)
         binding.spinnnerC.setAdapter(adapter)
@@ -87,7 +90,7 @@ class Sheet6Activity : AppCompatActivity() {
         binding.spinnnerE.setAdapter(adapter)
         binding.spinnnerF.setAdapter(adaptercorreas)
         binding.spinnnerG.setAdapter(adapter)
-        binding.spinnnerH.setAdapter(adapter)
+        binding.spinnnerH.setAdapter(buenoMaloNAadapter)
         binding.spinnnerI.setAdapter(adapter)
         binding.spinnnerJ.setAdapter(adapter1)
         binding.spinnnerK.setAdapter(adapter)
@@ -380,6 +383,7 @@ class Sheet6Activity : AppCompatActivity() {
             "B"-> posicion = 1
             "R"-> posicion = 2
             "M"-> posicion = 3
+            "NA"-> posicion = 4
         }
         return posicion
     }

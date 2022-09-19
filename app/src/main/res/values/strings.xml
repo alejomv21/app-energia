@@ -130,7 +130,7 @@
         <item> </item>
         <item>Sí</item>
         <item>No</item>
-        <item>Na</item>
+        <item>NA</item>
     </string-array>
 
     <string-array name="buenoMaloNA">
@@ -139,5 +139,89 @@
         <item>R</item>
         <item>M</item>
         <item>NA</item>
+    </string-array>
+    
+    <string-array name="servicio_a_cotizar">
+        <item>NO</item>
+        <item>ARTIMO</item>
+        <item>ACOMPAÑAMIENTO- PRUEBAS CON CARGA</item>
+        <item>CAF</item>
+        <item>CAFR</item>
+        <item>CAFA</item>
+        <item>CAFRA</item>
+        <item>CAMBIO DE PRECALENTADOR</item>
+        <item>CAMBIO DE BATERIAS</item>
+        <item>CAMBIO DE MANGUERAS</item>
+        <item>CAMBIO DE REPUESTOS</item>
+        <item>CAMBIO DE CARGADOR DE BATERIAS</item>
+        <item>LAVADO DE MOTOR</item>
+        <item>LAVADO DE GENERADOR</item>
+        <item>LAVADO DE TANQUE DE COMBUSTIBLE</item>
+        <item>LAVADO EXTERNO PANEL DE RADIADOR</item>
+        <item>MANTENIMIENTO A GENERADOR</item>
+        <item>MEGUEO</item>
+        <item>SONDEO DE RADIADOR</item>
+        <item>ALQUILER DE PLANTA</item>
+        <item>ALQUILER DE TANQUE DE COMBUSTIBLE</item>
+        <item>ALQUILER DE ACOMETIDA</item>
+        <item>CAMBIO DE REFRIGERANTE</item>
+        <item>INSTALACION DE ARTIMO</item>
+        <item>CAMBIO DE CONTROL DE ATS</item>
+        <item>SINCRONISMO</item>
+        <item>SINCRONISMO</item>
+        <item>SINCRONISMO</item>
+        <item>MANTENIMIENTO A ATS</item>
+        <item>VALORACIÓN MECÁNICA</item>
+        <item>SUMINISTRO DE COMBUSTIBLE</item>
+        <item>NA</item>
+        <item>NO</item>
+        <item>NO</item>
+    </string-array>
+    
+    <string-array name="tipo_servicio_realizado">
+        <item>VISITA EN CONJUNTO</item>
+        <item>ACOMPAÑAMIENTO</item>
+        <item>CAF</item>
+        <item>CAFR</item>
+        <item>CAFA</item>
+        <item>CAFRA</item>
+        <item>CAMBIO DE PRECALENTADOR</item>
+        <item>CAMBIO DE BATERIAS</item>
+        <item>CAMBIO DE REPUESTOS</item>
+        <item>CAMBIO DE CARGADOR DE BATERIAS</item>
+        <item>LAVADO DE MOTOR</item>
+        <item>LAVADO DE GENERADOR</item>
+        <item>LAVADO DE TANQUE DE COMBUSTIBLE</item>
+        <item>LAVADO EXTERNO PANEL DE RADIADOR</item>
+        <item>MANTENIMIENTO A GENERADOR</item>
+        <item>MEGUEO</item>
+        <item>SONDEO DE RADIADOR</item>
+        <item>ALQUILER DE PLANTA</item>
+        <item>ALQUILER DE TANQUE DE COMBUSTIBLE</item>
+        <item>ALQUILER DE ACOMETIDA</item>
+        <item>CAMBIO DE REFRIGERANTE</item>
+        <item>INSTALACION DE ARTIMO</item>
+        <item>CAMBIO DE CONTROL DE ATS</item>
+        <item>CAMBIO DE CONTROL DE PLANTA</item>
+        <item>SINCRONISMO</item>
+        <item>COMUNICACIONES</item>
+        <item>MANTENIMIENTO A ATS</item>
+        <item>VALORACIÓN MECÁNICA</item>
+        <item>SUMINISTRO DE COMBUSTIBLE</item>
+        <item>ANALIZADOR DE REDES</item>
+        <item>REVISIÓN TRANSFERENCIA</item>
+        <item>PRUEBAS CON CARGA</item>
+        <item>Otra…</item>
+    </string-array>
+
+    <string-array name="almacenamientos">
+        <item>nivelAceite</item>
+        <item>estadoRadiador</item>
+        <item>nivelAguaRadiador</item>
+        <item>aspasVentilador</item>
+        <item>bornerBateria</item>
+        <item>nivelAguaBaterias</item>
+        <item>voltajeBateria</item>
+        <item>nivelAguaBaterias</item>
     </string-array>
 </resources>

@@ -1,5 +1,6 @@
 package com.equitel.pruebaequitel.Sheet4
 
+import android.app.Activity
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.content.Intent
@@ -10,6 +11,7 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
+import android.provider.MediaStore
 import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
@@ -19,10 +21,22 @@ import androidx.lifecycle.ViewModelProvider
 import com.equitel.pruebaequitel.Sheet7.Sheet7Activity
 import com.equitel.pruebaequitel.TimePicket
 import com.equitel.pruebaequitel.databinding.ActivitySheet4Binding
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import java.io.File
+import java.io.IOException
 import java.util.*
 
 class Sheet4Activity : AppCompatActivity() {
+    //firebase
+    private val PICK_IMAGE_REQUEST = 71
+    private var downloadUri : Uri? = null
+    private var filePath: Uri? = null
+    private var firebaseStore: FirebaseStorage? = null
+    private var storageReference: StorageReference? = null
+    lateinit var btn_choose_image: ImageButton
+    lateinit var btn_upload_image: ImageButton
+
     lateinit var binding : ActivitySheet4Binding
     lateinit var viewModel: Sheet4ViewModel
     private lateinit var heroImage : ImageView
@@ -44,9 +58,16 @@ class Sheet4Activity : AppCompatActivity() {
             Sheet4ViewModelFactory(application)).get(Sheet4ViewModel::class.java)
 
         heroImage = binding.Camera4
+        btn_choose_image = binding.ButtonCameraSearch
+        firebaseStore = FirebaseStorage.getInstance()
+        storageReference = FirebaseStorage.getInstance().reference
+        btn_upload_image = binding.ButtonCamera4Upload
         binding.ButtonCamera4.setOnClickListener{
             openCamera()
         }
+
+        btn_choose_image.setOnClickListener { launchGallery() }
+        btn_upload_image.setOnClickListener { uploadImage() }
 
         binding.ButtonEnviar.setOnClickListener {
             Toast.makeText(this, "ELEMENTOS GUARDADOS ", Toast.LENGTH_SHORT).show()
@@ -76,6 +97,7 @@ class Sheet4Activity : AppCompatActivity() {
             almacenamiento.calificacionClienteServicio = binding.EditServCumplimiento1.text.toString()
             almacenamiento.calificacionClienteOrden = binding.EditOrdenAseo1.text.toString()
             almacenamiento.calificacionClienteElementos = binding.EditUsoElementosProteccion.text.toString()
+            almacenamiento.imagen4 = downloadUri.toString()
 
             viewModel.guardaralmacenamiento(almacenamiento)
         })
@@ -84,14 +106,19 @@ class Sheet4Activity : AppCompatActivity() {
         //val camera = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
         //startActivityForResult(camera, 1000)
         val file = createImageFile()
-        val uri = if(Build.VERSION.SDK_INT  >= Build.VERSION_CODES.N){
+        filePath = if(Build.VERSION.SDK_INT  >= Build.VERSION_CODES.N){
             FileProvider.getUriForFile(this,
                 "$packageName.provider",
                 file)
+            //
+
         }else{
             Uri.fromFile(file)
         }
-        getContent.launch(uri)
+
+        getContent.launch(filePath)
+        //
+
     }
     private fun createImageFile(): File {
         val filename = "superhero_image"
@@ -99,6 +126,56 @@ class Sheet4Activity : AppCompatActivity() {
         val file = File.createTempFile(filename, ".jpg", fileDIrectory)
         picturePath = file.absolutePath
         return file
+    }
+
+    private fun launchGallery() {
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
+            if(data == null || data.data == null){
+                return
+            }
+
+            filePath = data.data
+            try {
+                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filePath)
+                heroImage.setImageBitmap(bitmap)
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
+        }
+    }
+
+    private fun uploadImage(){
+        if(filePath != null){
+            val ref = storageReference?.child("myImages/" + UUID.randomUUID().toString())
+            val uploadTask = ref?.putFile(filePath!!)
+            Toast.makeText(this, "Imagen Guardada", Toast.LENGTH_SHORT).show()
+            val urlTask = uploadTask?.continueWithTask { task ->
+                if (!task.isSuccessful) {
+                    task.exception?.let {
+                        throw it
+                    }
+                }
+                ref.downloadUrl
+            }?.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    downloadUri = task.result
+                    println(downloadUri)
+                } else {
+                    // Handle failures
+                    // ...
+                }
+            }
+        }else{
+            Toast.makeText(this, "Please Upload an Image", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun Calendario(){

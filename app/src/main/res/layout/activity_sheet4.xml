@@ -62,9 +62,9 @@
                 android:id="@+id/EditHoraSalidaT"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:layout_marginTop="5dp"
                 android:layout_below="@+id/TextHoraSalidaT"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
                 android:text="TÉCNICOS/EQUITEL" />
 
             <ImageButton
@@ -93,7 +93,7 @@
                 android:id="@+id/TextHoraSalidaC"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:layout_below="@+id/EditHoraSalidaT"
+                android:layout_below="@+id/EditHoraAtencionC"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:text="HORA SALIDA" />
@@ -102,7 +102,7 @@
                 android:id="@+id/fecha2Button"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_below="@+id/reloj1Button"
+                android:layout_below="@+id/EditHoraAtencionC"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_toEndOf="@+id/EditHoraSalidaT"
@@ -115,7 +115,7 @@
                 style="@style/StartGenerador"
                 android:layout_width="80dp"
                 android:layout_height="20dp"
-                android:layout_below="@+id/reloj1Button"
+                android:layout_below="@+id/EditHoraAtencionC"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_toEndOf="@+id/fecha1Button" />
@@ -124,9 +124,9 @@
                 android:id="@+id/EditHoraSalidaC"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:layout_marginTop="5dp"
                 android:layout_below="@+id/TextHoraSalidaC"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
                 android:text="CLIENTE" />
 
             <ImageButton
@@ -156,7 +156,7 @@
                 android:id="@+id/TextHorallegadaC"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:layout_below="@+id/EditHoraSalidaC"
+                android:layout_below="@+id/EditHoraSalidaT"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 android:text="HORA LLEGADA" />
@@ -165,7 +165,7 @@
                 android:id="@+id/fecha3Button"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
-                android:layout_below="@+id/reloj2Button"
+                android:layout_below="@+id/EditHoraSalidaT"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="20dp"
                 android:layout_toEndOf="@+id/EditHoraSalidaT"
@@ -177,7 +177,7 @@
                 android:id="@+id/EditFecha3"
                 android:layout_width="80dp"
                 android:layout_height="20dp"
-                android:layout_below="@+id/reloj2Button"
+                android:layout_below="@+id/EditHoraSalidaT"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
                 style="@style/StartGenerador"
@@ -249,9 +249,9 @@
                 android:id="@+id/EditHoraAtencionC"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:layout_marginTop="5dp"
                 android:layout_below="@+id/TextHoraAtencionC"
                 android:layout_marginStart="20dp"
+                android:layout_marginTop="5dp"
                 android:text="CLIENTE" />
 
             <ImageButton
@@ -277,12 +277,11 @@
                 android:layout_toEndOf="@+id/fecha1Button" />
 
 
-
             <TextView
                 android:id="@+id/TextCalificacionCliente"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
-                android:layout_below="@+id/EditHoraAtencionC"
+                android:layout_below="@+id/EditHoraSalidaC"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
@@ -410,13 +409,39 @@
                 android:id="@+id/ButtonCamera4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/EditUsoElementosProteccion"
+                android:layout_below="@+id/TextUsoElementosProteccion"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="60dp"
                 android:layout_marginBottom="20dp"
                 android:layout_toEndOf="@+id/Camera4"
                 android:shadowColor="@color/black"
                 android:src="@drawable/ic_baseline_camera"
+                android:text="Camara" />
+
+            <ImageButton
+                android:id="@+id/ButtonCameraSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TextUsoElementosProteccion"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="20dp"
+                android:layout_toEndOf="@+id/ButtonCamera4"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_baseline_image_search"
+                android:text="Camara" />
+
+            <ImageButton
+                android:id="@+id/ButtonCamera4Upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TextUsoElementosProteccion"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="20dp"
+                android:layout_toEndOf="@+id/ButtonCameraSearch"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_baseline_cloud_upload"
                 android:text="Camara" />
 
             <Button

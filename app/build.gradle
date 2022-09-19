@@ -56,11 +56,21 @@ dependencies {
     //Room
     implementation 'androidx.room:room-runtime:2.4.2'
     implementation 'androidx.room:room-ktx:2.4.2'
-    implementation 'com.google.firebase:firebase-storage:19.1.1'
+    //firebase
+    implementation platform('com.google.firebase:firebase-bom:30.2.0')
+    implementation 'com.google.firebase:firebase-analytics-ktx'
     implementation 'com.google.firebase:firebase-storage-ktx:20.0.1'
+    implementation 'com.google.firebase:firebase-firestore-ktx:24.2.1'
+
     implementation 'com.google.android.gms:play-services-cast-framework:21.0.1'
     kapt 'androidx.room:room-compiler:2.4.2'
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    //pdf
+    implementation 'io.github.muddz:quickshot:1.4.0'
+
+    //demasiado grande
+    implementation 'com.gu.android:toolargetool:0.3.0'
 }

@@ -20,4 +20,10 @@ class Sheet8Repository (private val database : EqDataBase){
         }
     }
 
+    suspend fun consultarID(id: Int?): Almacenamiento{
+        return withContext(Dispatchers.IO){
+            database.eqDao.getAlmacenamientoID(id)
+        }
+    }
+
 }

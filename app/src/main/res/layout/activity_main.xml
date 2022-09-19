@@ -256,7 +256,8 @@
                 android:id="@+id/EditEmail"
                 style="@style/StartEditText"
                 android:layout_below="@id/EditCargo"
-                android:layout_toEndOf="@+id/TextEmail" />
+                android:layout_toEndOf="@+id/TextEmail"
+                android:inputType="textEmailAddress" />
 
             <TextView
                 android:id="@+id/TextCell"
@@ -556,6 +557,32 @@
                 android:layout_toEndOf="@+id/Camera1"
                 android:shadowColor="@color/black"
                 android:src="@drawable/ic_baseline_camera"
+                android:text="Camara" />
+
+            <ImageButton
+                android:id="@+id/ButtonCameraSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TextMotivoVisita"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="20dp"
+                android:layout_toEndOf="@+id/ButtonCamera1"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_baseline_image_search"
+                android:text="Camara" />
+
+            <ImageButton
+                android:id="@+id/ButtonCamera1Upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TextMotivoVisita"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="60dp"
+                android:layout_marginBottom="20dp"
+                android:layout_toEndOf="@+id/ButtonCameraSearch"
+                android:shadowColor="@color/black"
+                android:src="@drawable/ic_baseline_cloud_upload"
                 android:text="Camara" />
 
             <Button
