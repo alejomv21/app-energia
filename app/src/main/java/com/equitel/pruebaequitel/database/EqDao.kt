@@ -27,6 +27,9 @@ interface EqDao {
     @Query("SELECT * FROM AlmacenamientoFinal")
     fun getAlmacenamientoListas(): LiveData<MutableList<Almacenamiento>>
 
+    @Query("SELECT * FROM AlmacenamientoFinal ORDER  BY id DESC LIMIT 1")
+    fun getAlmacenamientoPictures(): LiveData<Almacenamiento>
+
     @Query("SELECT * FROM ALMACENAMIENTOFINAL WHERE ALMACENAMIENTOFINAL.id == :id1")
     fun getAlmacenamientoID(id1 : Int?) : Almacenamiento
 

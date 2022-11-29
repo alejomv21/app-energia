@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
             android:layout_centerHorizontal="true"
-            android:text="Por favor seleccione solo una opción"
+            android:text="@string/por_favor_seleccione_solo_una_opci_n"
             android:textSize="20dp" />
 
         <CheckBox
@@ -29,7 +29,7 @@
             android:layout_marginTop="30dp"
             android:layout_marginStart="30dp"
             android:layout_below="@+id/textViewIndicaciones"
-            android:text="INSPECCION" />
+            android:text="@string/inspeccion" />
 
         <CheckBox
             android:id="@+id/checkBoxMantenimiento"
@@ -37,7 +37,7 @@
             android:layout_height="23dp"
             android:layout_below="@+id/checkBoxInspeccion"
             android:layout_marginStart="30dp"
-            android:text="MANTENIMIENTO" />
+            android:text="@string/mantenimiento" />
 
         <CheckBox
             android:id="@+id/checkBoxArtimo"
@@ -45,7 +45,7 @@
             android:layout_height="23dp"
             android:layout_marginStart="30dp"
             android:layout_below="@+id/checkBoxMantenimiento"
-            android:text="ARTIMO" />
+            android:text="@string/artimo" />
 
         <CheckBox
             android:id="@+id/checkBoxServicio"
@@ -53,7 +53,7 @@
             android:layout_height="23dp"
             android:layout_marginStart="30dp"
             android:layout_below="@+id/checkBoxArtimo"
-            android:text="SERVICIO" />
+            android:text="@string/servicio" />
 
         <CheckBox
             android:id="@+id/checkBoxMontaje"
@@ -61,7 +61,7 @@
             android:layout_height="23dp"
             android:layout_marginStart="30dp"
             android:layout_below="@+id/checkBoxServicio"
-            android:text="MONTAJE" />
+            android:text="@string/montaje" />
 
         <CheckBox
             android:id="@+id/checkBoxEntrega"
@@ -69,7 +69,7 @@
             android:layout_height="23dp"
             android:layout_below="@+id/checkBoxMontaje"
             android:layout_marginStart="30dp"
-            android:text="ENTREGA" />
+            android:text="@string/entrega" />
 
         <CheckBox
             android:id="@+id/checkBoxEmergencia"
@@ -78,17 +78,26 @@
             android:layout_below="@+id/checkBoxEntrega"
             android:layout_marginStart="30dp"
             android:layout_marginTop="-1dp"
-            android:text="EMERGENCIA" />
+            android:text="@string/emergencia" />
+
+        <CheckBox
+            android:id="@+id/checkBoxPruebas"
+            android:layout_width="160dp"
+            android:layout_height="23dp"
+            android:layout_below="@+id/checkBoxEmergencia"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="-1dp"
+            android:text="@string/pruebas" />
 
         <Button
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/checkBoxEntrega"
+            android:layout_below="@+id/checkBoxPruebas"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/white"
-            android:text="Validar"
+            android:text="@string/validar"
             android:textColor="@color/black" />
 
         <TextView
@@ -100,7 +109,7 @@
             android:inputType="textCapCharacters"
             android:layout_marginTop="30dp"
             android:visibility="gone"
-            android:text="ID Equipo:" />
+            android:text="@string/id_equipo" />
 
         <EditText
             android:id="@+id/EditTextIdEquipo"
@@ -124,7 +133,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
             android:visibility="gone"
-            android:text="Orden Trabajo:" />
+            android:text="@string/orden_trabajo" />
 
 
 
@@ -150,7 +159,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
             android:visibility="gone"
-            android:text="Tipo de Emergencia:" />
+            android:text="@string/tipo_de_emergencia" />
 
         <EditText
             android:id="@+id/EditTextTipoEmergencia"
@@ -174,7 +183,7 @@
             android:layout_marginTop="30dp"
             android:visibility="gone"
             android:inputType="textCapCharacters"
-            android:text="Causas de la Falla:" />
+            android:text="@string/causas_de_la_falla" />
 
         <EditText
             android:id="@+id/EditTextCausaFalla"
@@ -199,7 +208,7 @@
             android:layout_marginTop="30dp"
             android:visibility="gone"
             android:inputType="textCapCharacters"
-            android:text="Motivo de Reprogramacion:" />
+            android:text="@string/motivo_de_reprogramacion" />
 
         <EditText
             android:id="@+id/EditTextMotivoReprogramar"
@@ -226,7 +235,7 @@
             android:shadowColor="@color/black"
             android:visibility="gone"
             android:src="@drawable/ic_baseline_access_time"
-            android:text="Camara" />
+            android:text="@string/camara" />
 
 
         <EditText
@@ -236,7 +245,7 @@
             android:layout_below="@+id/buttonSend"
             android:layout_marginStart="20dp"
             android:layout_marginTop="30dp"
-            android:text="Orden Trabajo:"
+            android:text="@string/orden_trabajo"
             android:visibility="invisible" />
 
         <Button
@@ -247,7 +256,7 @@
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="40dp"
             android:backgroundTint="@color/white"
-            android:text="Enviar"
+            android:text="@string/enviar"
             android:textColor="@color/black" />
 
     </RelativeLayout>

@@ -29,6 +29,7 @@ import com.github.gcacace.signaturepad.views.SignaturePad
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.gu.toolargetool.TooLargeTool
+import kotlinx.android.synthetic.main.activity_sheet8.*
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.FileOutputStream
@@ -79,6 +80,9 @@ class Sheet8Activity : AppCompatActivity() {
         //TooLargeTool.startLogging(this);
 
         viewModel = ViewModelProvider(this, Sheet8ViewModelFactory(application)).get(Sheet8ViewModel::class.java)
+
+        firebaseStore = FirebaseStorage.getInstance()
+        storageReference = FirebaseStorage.getInstance().reference
 
         almacenamiento = intent?.extras?.getParcelable<Almacenamiento>(EQ_KEYS)!!
 
@@ -136,7 +140,13 @@ class Sheet8Activity : AppCompatActivity() {
 
         binding.buttonEnviar3.setOnClickListener {
             Toast.makeText(this, "INFORME FINAL ALMACENADO", Toast.LENGTH_SHORT).show()
-            guardarAlmacenamiento(almacenamiento)
+            //guardarAlmacenamiento(almacenamiento)
+            val file: File = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "GFG.pdf")
+            viewModel.consultarID(almacenamiento.id)
+            viewModel.almacenamiento.observe(this, androidx.lifecycle.Observer{
+                    almacenamientos->
+                viewModel.getdownloadPdfFile(file, almacenamientos)
+            })
         }
 
         Calendario()
@@ -158,33 +168,51 @@ class Sheet8Activity : AppCompatActivity() {
             // we are calling request permission method.
             requestPermission()
         }
-
-        // on below line we are adding on click listener for our generate button.
-        generatePDFBtn.setOnClickListener {
-            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
-                // on below line we are calling generate
-                // PDF method to generate our PDF file
-                extraerAlmacenamientoPDF()
-            }
+        binding.buttonPDF.setOnClickListener {
+            /*val file: File = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "GFG.xlsx")
+            viewModel.consultarID(almacenamiento.id)
+            viewModel.almacenamiento.observe(this, androidx.lifecycle.Observer{
+                almacenamientos->
+                viewModel.getdownloadPdfFile(file, almacenamientos)
+            })*/
+            uploadImage();
         }
 
 
     }
 
-    private fun extraerAlmacenamientoPDF(){
-        viewModel.consultarID(almacenamiento.id)
-        viewModel.almacenamiento.observe(this, androidx.lifecycle.Observer {
-                almamacenamientoPDF->
 
-                generatePDF(almamacenamientoPDF)
-        })
+
+    private fun uploadImage(){
+        val fileP: File = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "GFG.pdf")
+        val uri = Uri.fromFile(fileP);
+        if(uri != null){
+            val ref = storageReference?.child("myExel/" + UUID.randomUUID().toString())
+            val uploadTask = ref?.putFile(uri!!)
+            val urlTask = uploadTask?.continueWithTask { task ->
+                if (!task.isSuccessful) {
+                    task.exception?.let {
+                        throw it
+                    }
+                }
+                ref.downloadUrl
+            }?.addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    downloadUri = task.result
+                    println(downloadUri)
+                } else {
+                    // Handle failures
+                    // ...
+                }
+            }
+        }else{
+            Toast.makeText(this, "Please Upload an Image", Toast.LENGTH_SHORT).show()
+        }
     }
 
 
+
     private fun insertar(almacenamiento: Almacenamiento){
-        val a1H3 = almacenamiento.caidaVOltaje.toString()
-        val caidaVoltaje = condicion(a1H3)
-        binding.spinnnerAHoja3.setSelection(caidaVoltaje)
 
         binding.EditCaidaVoltajeHoja3.setText(almacenamiento.caidaVoltajeMedida.toString())
 
@@ -234,9 +262,9 @@ class Sheet8Activity : AppCompatActivity() {
         val altaTemperaturaMotor = condicionSiNo(a2H3)
         binding.spinnner2AHoja3.setSelection(altaTemperaturaMotor)
 
-        val b2H3 = almacenamiento.sobreRevoluciones.toString()
-        val sobreRevoluciones = condicionSiNo(b2H3)
-        binding.spinnner2BHoja3.setSelection(sobreRevoluciones)
+        val b2H3 = almacenamiento.estadoTajetasControl.toString()
+        val estadoTajetasControl = condicionBM(b2H3)
+        binding.spinnner2BHoja3.setSelection(estadoTajetasControl)
 
         val c2H3 = almacenamiento.bajaPresionAceite.toString()
         val bajaPresionAceite = condicionSiNo(c2H3)
@@ -387,6 +415,54 @@ class Sheet8Activity : AppCompatActivity() {
         val gafas = condicionSiNo(nD1)
         binding.spinnnerNDuplicado.setSelection(gafas)
 
+        //Nuevos campos seguridad en el trabajo
+
+        val trTapete = almacenamiento.trabajoRiesgoTapete.toString()
+        val trabajoRiesgoTapete = condicionSiNo(trTapete)
+        binding.spinnnerTrabajoRiesgoTapete.setSelection(trabajoRiesgoTapete)
+
+        val trCareta = almacenamiento.trabajoRiesgoCareta.toString()
+        val trabajoRiesgoCareta = condicionSiNo(trCareta)
+        binding.spinnnerTrabajoRiesgoCARETA.setSelection(trabajoRiesgoCareta)
+
+        val trOverol = almacenamiento.trabajoRiesgoOverol.toString()
+        val trabajoRiesgoOverol = condicionSiNo(trOverol)
+        binding.spinnnerTrabajoRiesgoOverol.setSelection(trabajoRiesgoOverol)
+
+        val trHerramienta = almacenamiento.trabajoRiesgoHerramienta.toString()
+        val trabajoRiesgoHerramienta = condicionSiNo(trHerramienta)
+        binding.spinnnerTrabajoRiesgoHerramienta.setSelection(trabajoRiesgoHerramienta)
+
+        val teCareta = almacenamiento.trabajoEspaciosConfinadosCareta.toString()
+        val trabajoEspaciosConfinadosCareta = condicionSiNo(teCareta)
+        binding.spinnnerTrabajoEspaciosConfinadosCareta.setSelection(trabajoEspaciosConfinadosCareta)
+
+        val teLinea = almacenamiento.trabajoEspaciosConfinadosLinea.toString()
+        val trabajoEspaciosConfinadosLinea = condicionSiNo(teLinea)
+        binding.spinnnerTrabajoEspaciosConfinadosLinea.setSelection(trabajoEspaciosConfinadosLinea)
+
+        val teAndamio = almacenamiento.trabajoEspaciosConfinadosAndamio.toString()
+        val trabajoEspaciosConfinadosAndamio = condicionSiNo(teAndamio)
+        binding.spinnnerTrabajoEspaciosConfinadosAndamio.setSelection(trabajoEspaciosConfinadosAndamio)
+
+        val taEslinga = almacenamiento.trabajoAlturasEslinga.toString()
+        val trabajoAlturasEslinga = condicionSiNo(taEslinga)
+        binding.spinnnerTrabajoAlturasEslinga.setSelection(trabajoAlturasEslinga)
+
+        val taLinea = almacenamiento.trabajoAlturasLinea.toString()
+        val trabajoAlturasLinea = condicionSiNo(taLinea)
+        binding.spinnnerTrabajoAlturasLinea.setSelection(trabajoAlturasLinea)
+
+        val taAndamio = almacenamiento.trabajoAlturasAndamio.toString()
+        val trabajoAlturasAndamio = condicionSiNo(taAndamio)
+        binding.spinnnerTrabajoAlturasAndamio.setSelection(trabajoAlturasAndamio)
+
+        val taArnes = almacenamiento.trabajoAlturasArnes.toString()
+        val trabajoAlturasArnes = condicionSiNo(taArnes)
+        binding.spinnnertextTrabajoAlturasArnes.setSelection(trabajoAlturasArnes)
+
+        //
+
         binding.EditOtros.setText(almacenamiento.otros)
 
         val pD1 = almacenamiento.transporteATimepo.toString()
@@ -498,7 +574,6 @@ class Sheet8Activity : AppCompatActivity() {
     }
 
     private fun spinerHoja3(adapter : ArrayAdapter<String>, buenoMaloadapter: ArrayAdapter<String>, onOfMaloadapter: ArrayAdapter<String>, manOfOutadapter: ArrayAdapter<String>, adapter1: ArrayAdapter<String>, timepoAdapter: ArrayAdapter<String>, siNoNaAadapter: ArrayAdapter<String>, servicio_a_cotizarAdapter: ArrayAdapter<String>, tipo_servicio_realizadoAdapter: ArrayAdapter<String>){
-        binding.spinnnerAHoja3.setAdapter(adapter)
         binding.spinnnerBHoja3.setAdapter(adapter)
         binding.spinnnerCHoja3.setAdapter(adapter)
         binding.spinnnerDHoja3.setAdapter(adapter)
@@ -507,7 +582,7 @@ class Sheet8Activity : AppCompatActivity() {
         binding.spinnnerHHoja3.setAdapter(adapter)
         binding.spinnnerIHoja3.setAdapter(adapter1)
         binding.spinnner2AHoja3.setAdapter(siNoNaAadapter)
-        binding.spinnner2BHoja3.setAdapter(siNoNaAadapter)
+        binding.spinnner2BHoja3.setAdapter(buenoMaloadapter)
         binding.spinnner2CHoja3.setAdapter(siNoNaAadapter)
         binding.spinnner2DHoja3.setAdapter(siNoNaAadapter)
         binding.spinnner3DHoja3.setAdapter(onOfMaloadapter)
@@ -529,6 +604,20 @@ class Sheet8Activity : AppCompatActivity() {
         binding.spinnnerM.setAdapter(adapter1)
         binding.spinnnerODuplicado.setAdapter(siNoNaAadapter)
         binding.spinnnerNDuplicado.setAdapter(adapter1)
+
+        binding.spinnnerTrabajoRiesgoTapete.setAdapter(adapter1)
+        binding.spinnnerTrabajoRiesgoCARETA.setAdapter(adapter1)
+        binding.spinnnerTrabajoRiesgoOverol.setAdapter(adapter1)
+        binding.spinnnerTrabajoRiesgoHerramienta.setAdapter(adapter1)
+        binding.spinnnerTrabajoEspaciosConfinadosCareta.setAdapter(adapter1)
+        binding.spinnnerTrabajoEspaciosConfinadosLinea.setAdapter(adapter1)
+        binding.spinnnerTrabajoEspaciosConfinadosAndamio.setAdapter(adapter1)
+        binding.spinnnerTrabajoAlturasEslinga.setAdapter(adapter1)
+        binding.spinnnerTrabajoAlturasLinea.setAdapter(adapter1)
+        binding.spinnnerTrabajoAlturasAndamio.setAdapter(adapter1)
+        binding.spinnnertextTrabajoAlturasArnes.setAdapter(adapter1)
+
+
         binding.spinnnerN.setAdapter(siNoNaAadapter)
         binding.spinnnerO.setAdapter(adapter1)
         binding.spinnnerP.setAdapter(timepoAdapter)
@@ -543,7 +632,6 @@ class Sheet8Activity : AppCompatActivity() {
 
 
     private fun guardarAlmacenamiento(almacenamiento: Almacenamiento){
-        almacenamiento.caidaVOltaje = binding.spinnnerAHoja3.selectedItem.toString()
         almacenamiento.caidaVoltajeMedida = binding.EditCaidaVoltajeHoja3.text.toString()
         almacenamiento.presionAceite = binding.spinnnerBHoja3.selectedItem.toString()
         almacenamiento.presionAceiteMedida = binding.EditPresionAceiteHoja3.text.toString()
@@ -559,7 +647,7 @@ class Sheet8Activity : AppCompatActivity() {
         almacenamiento.indicadoresRestriccionMedida = binding.EditIndicadoRestrccionAireHoja3.text.toString()
         almacenamiento.oscilacionVelocidad = binding.spinnnerIHoja3.selectedItem.toString()
         almacenamiento.altaTemperaturaMotor = binding.spinnner2AHoja3.selectedItem.toString()
-        almacenamiento.sobreRevoluciones = binding.spinnner2BHoja3.selectedItem.toString()
+        almacenamiento.estadoTajetasControl = binding.spinnner2BHoja3.selectedItem.toString()
         almacenamiento.bajaPresionAceite = binding.spinnner2CHoja3.selectedItem.toString()
         almacenamiento.bajoNivelRefrigerante = binding.spinnner2DHoja3.selectedItem.toString()
         almacenamiento.voltaje1 = binding.EditfasesA1Hoja3.isChecked()
@@ -621,6 +709,20 @@ class Sheet8Activity : AppCompatActivity() {
         almacenamiento.overol =  binding.spinnnerM.selectedItem.toString()
         almacenamiento.gafas =  binding.spinnnerNDuplicado.selectedItem.toString()
         almacenamiento.otros =  binding.EditOtros.text.toString()
+
+        almacenamiento.trabajoRiesgoTapete =  binding.spinnnerTrabajoRiesgoTapete.selectedItem.toString()
+        almacenamiento.trabajoRiesgoCareta =  binding.spinnnerTrabajoRiesgoCARETA.selectedItem.toString()
+        almacenamiento.trabajoRiesgoOverol =  binding.spinnnerTrabajoRiesgoOverol.selectedItem.toString()
+        almacenamiento.trabajoRiesgoHerramienta =  binding.spinnnerTrabajoRiesgoHerramienta.selectedItem.toString()
+        almacenamiento.trabajoEspaciosConfinadosCareta =  binding.spinnnerTrabajoEspaciosConfinadosCareta.selectedItem.toString()
+        almacenamiento.trabajoEspaciosConfinadosLinea =  binding.spinnnerTrabajoEspaciosConfinadosLinea.selectedItem.toString()
+        almacenamiento.trabajoEspaciosConfinadosAndamio =  binding.spinnnerTrabajoEspaciosConfinadosAndamio.selectedItem.toString()
+        almacenamiento.trabajoAlturasEslinga =  binding.spinnnerTrabajoAlturasEslinga.selectedItem.toString()
+        almacenamiento.trabajoAlturasLinea =  binding.spinnnerTrabajoAlturasLinea.selectedItem.toString()
+        almacenamiento.trabajoAlturasAndamio =  binding.spinnnerTrabajoAlturasAndamio.selectedItem.toString()
+        almacenamiento.trabajoAlturasArnes =  binding.spinnnertextTrabajoAlturasArnes.selectedItem.toString()
+
+
         almacenamiento.transporteATimepo =  binding.spinnnerODuplicado.selectedItem.toString()
         almacenamiento.insumosCompletos =  binding.spinnnerN.selectedItem.toString()
         almacenamiento.pendienteRecogerInsumos =  binding.spinnnerO.selectedItem.toString()
@@ -756,359 +858,6 @@ class Sheet8Activity : AppCompatActivity() {
         reloj.setText("$hora : $minuto")
     }
 
-    //PDF GENERATE
-
-
-    // on below line we are creating a generate PDF method
-    // which is use to generate our PDF file.
-    @RequiresApi(Build.VERSION_CODES.KITKAT)
-    fun generatePDF(almacenamientoPDF: Almacenamiento) {
-        // creating an object variable
-        // for our PDF document.
-        var pdfDocument: PdfDocument = PdfDocument()
-
-        // two variables for paint "paint" is used
-        // for drawing shapes and we will use "title"
-        // for adding text in our PDF file.
-        var paint: Paint = Paint()
-        var title: Paint = Paint()
-
-        // we are adding page info to our PDF file
-        // in which we will be passing our pageWidth,
-        // pageHeight and number of pages and after that
-        // we are calling it to create our PDF.
-        var myPageInfo: PdfDocument.PageInfo? =
-            PdfDocument.PageInfo.Builder(pageWidth, pageHeight, 1).create()
-
-        // below line is used for setting
-        // start page for our PDF file.
-        var myPage: PdfDocument.Page = pdfDocument.startPage(myPageInfo)
-
-        // creating a variable for canvas
-        // from our page of PDF.
-        var canvas: Canvas = myPage.canvas
-
-        // below line is used to draw our image on our PDF file.
-        // the first parameter of our drawbitmap method is
-        // our bitmap
-        // second parameter is position from left
-        // third parameter is position from top and last
-        // one is our variable for paint.
-        //canvas.drawBitmap(scaledbmp, 56F, 40F, paint)
-        canvas.drawBitmap(scaledbmp, 0F, 0F, paint)
-
-        // below line is used for adding typeface for
-        // our text which we will be adding in our PDF file.
-        title.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL))
-
-        // below line is used for setting text size
-        // which we will be displaying in our PDF file.
-        title.textSize = 15F
-
-        // below line is sued for setting color
-        // of our text inside our PDF file.
-        title.setColor(ContextCompat.getColor(this, R.color.purple_200))
-
-        // below line is used to draw text in our PDF file.
-        // the first parameter is our text, second parameter
-        // is position from start, third parameter is position from top
-        // and then we are passing our variable of paint which is title.
-        canvas.drawText(almacenamientoPDF.cliente.toString(), 100F, 230F, title)
-        canvas.drawText(almacenamientoPDF.servicioSolicitadoPor.toString(), 170F, 260F, title)
-        canvas.drawText(almacenamientoPDF.direccion.toString(), 650F, 230F, title)
-        canvas.drawText(almacenamientoPDF.cargo.toString(), 100F, 300F, title)
-        canvas.drawText(almacenamientoPDF.email.toString(), 720F, 300F, title)
-        canvas.drawText(almacenamientoPDF.marcaMotor.toString(), 130F, 335F, title)
-        canvas.drawText(almacenamientoPDF.marcaGenerador.toString(), 520F, 335F, title)
-        canvas.drawText(almacenamientoPDF.marcaPlanta.toString(), 720F, 335F, title)
-        canvas.drawText(almacenamientoPDF.modMotor.toString(), 130F, 370F, title)
-        canvas.drawText(almacenamientoPDF.modGenerador.toString(), 520F, 370F, title)
-        canvas.drawText(almacenamientoPDF.modPlanta.toString(), 720F, 370F, title)
-        canvas.drawText(almacenamientoPDF.serialMotor.toString(), 130F, 405F, title)
-        canvas.drawText(almacenamientoPDF.serialGenerador.toString(), 520F, 405F, title)
-        canvas.drawText(almacenamientoPDF.serialPlanta.toString(), 720F, 405F, title)
-        canvas.drawText(almacenamientoPDF.clp.toString(), 90F, 440F, title)
-        canvas.drawText(almacenamientoPDF.tipoBateria.toString(), 230F, 440F, title)
-        canvas.drawText(almacenamientoPDF.kw.toString(), 520F, 440F, title)
-        canvas.drawText(almacenamientoPDF.spec.toString(), 720F, 440F, title)
-        canvas.drawText(almacenamientoPDF.nArranques.toString(), 120F, 475F, title)
-        canvas.drawText(almacenamientoPDF.horasMotor.toString(), 320F, 475F, title)
-        canvas.drawText(almacenamientoPDF.horasControl.toString(), 520F, 475F, title)
-        canvas.drawText(almacenamientoPDF.tipoControl.toString(), 720F, 475F, title)
-        canvas.drawText(almacenamientoPDF.tecnicos.toString(), 450F, 510F, title)
-        canvas.drawText(almacenamientoPDF.promotionID.toString(), 720F, 510F, title)
-
-
-        when(almacenamientoPDF.nivelAceite.toString()){
-            "B"-> canvas.drawText("X", 287F, 630F, title)
-            "R"-> canvas.drawText("X", 315F, 630F, title)
-            "M"-> canvas.drawText("X", 343F, 630F, title)
-        }
-
-        when(almacenamientoPDF.estadoRadiador.toString()){
-            "B"-> canvas.drawText("X", 287F, 645F, title)
-            "R"-> canvas.drawText("X", 315F, 645F, title)
-            "M"-> canvas.drawText("X", 343F, 645F, title)
-        }
-
-        when(almacenamientoPDF.nivelAguaRadiador.toString()){
-            "B"-> canvas.drawText("X", 287F, 660F, title)
-            "R"-> canvas.drawText("X", 315F, 660F, title)
-            "M"-> canvas.drawText("X", 343F, 660F, title)
-        }
-
-        when(almacenamientoPDF.aspasVentilador.toString()){
-            "B"-> canvas.drawText("X", 287F, 675F, title)
-            "R"-> canvas.drawText("X", 315F, 675F, title)
-            "M"-> canvas.drawText("X", 343F, 675F, title)
-        }
-
-        when(almacenamientoPDF.bornerBateria.toString()){
-            "B"-> canvas.drawText("X", 287F, 690F, title)
-            "R"-> canvas.drawText("X", 315F, 690F, title)
-            "M"-> canvas.drawText("X", 343F, 690F, title)
-        }
-
-        when(almacenamientoPDF.nivelAguaBaterias.toString()){
-            "B"-> canvas.drawText("X", 287F, 705F, title)
-            "R"-> canvas.drawText("X", 315F, 705F, title)
-            "M"-> canvas.drawText("X", 343F, 705F, title)
-        }
-        //primer salto
-        when(almacenamientoPDF.voltajeBateria.toString()){
-            "B"-> canvas.drawText("X", 287F, 740F, title)
-            "R"-> canvas.drawText("X", 315F, 740F, title)
-            "M"-> canvas.drawText("X", 343F, 740F, title)
-        }
-        when(almacenamientoPDF.voltajeBateria.toString()){
-            "B"-> canvas.drawText("X", 287F, 755F, title)
-            "R"-> canvas.drawText("X", 315F, 755F, title)
-            "M"-> canvas.drawText("X", 343F, 755F, title)
-        }
-        when(almacenamientoPDF.cargadorFuncional.toString()){
-            "B"-> canvas.drawText("X", 287F, 770F, title)
-            "R"-> canvas.drawText("X", 315F, 770F, title)
-            "M"-> canvas.drawText("X", 343F, 770F, title)
-        }
-        when(almacenamientoPDF.correasTensionadas.toString()){
-            "B"-> canvas.drawText("X", 287F, 785F, title)
-            "R"-> canvas.drawText("X", 315F, 785F, title)
-            "M"-> canvas.drawText("X", 343F, 785F, title)
-        }
-        when(almacenamientoPDF.estadoFiltroAire.toString()){
-            "B"-> canvas.drawText("X", 287F, 800F, title)
-            "R"-> canvas.drawText("X", 315F, 800F, title)
-            "M"-> canvas.drawText("X", 343F, 800F, title)
-        }
-        when(almacenamientoPDF.estadoMangueras.toString()){
-            "B"-> canvas.drawText("X", 287F, 815F, title)
-            "R"-> canvas.drawText("X", 315F, 815F, title)
-            "M"-> canvas.drawText("X", 343F, 815F, title)
-        }
-
-        //segundo salto
-
-        when(almacenamientoPDF.caidaVOltaje.toString()){
-            "B"-> canvas.drawText("X", 287F, 1030F, title)
-            "R"-> canvas.drawText("X", 315F, 1030F, title)
-            "M"-> canvas.drawText("X", 343F, 1030F, title)
-        }
-
-        when(almacenamientoPDF.presionAceite.toString()){
-            "B"-> canvas.drawText("X", 287F, 1045F, title)
-            "R"-> canvas.drawText("X", 315F, 1045F, title)
-            "M"-> canvas.drawText("X", 343F, 1045F, title)
-        }
-
-        when(almacenamientoPDF.temperaturaAgua.toString()){
-            "B"-> canvas.drawText("X", 287F, 1060F, title)
-            "R"-> canvas.drawText("X", 315F, 1060F, title)
-            "M"-> canvas.drawText("X", 343F, 1060F, title)
-        }
-        when(almacenamientoPDF.voltajeAlternador.toString()){
-            "B"-> canvas.drawText("X", 287F, 1075F, title)
-            "R"-> canvas.drawText("X", 315F, 1075F, title)
-            "M"-> canvas.drawText("X", 343F, 1075F, title)
-        }
-        when(almacenamientoPDF.temperaturaAceite.toString()){
-            "B"-> canvas.drawText("X", 287F, 1107F, title)
-            "R"-> canvas.drawText("X", 315F, 1107F, title)
-            "M"-> canvas.drawText("X", 343F, 1107F, title)
-        }
-
-        when(almacenamientoPDF.temperaturaGases.toString()){
-            "B"-> canvas.drawText("X", 287F, 1121F, title)
-            "R"-> canvas.drawText("X", 315F, 1121F, title)
-            "M"-> canvas.drawText("X", 343F, 1121F, title)
-        }
-        when(almacenamientoPDF.indicadorRestriccion.toString()){
-            "B"-> canvas.drawText("X", 287F, 1135F, title)
-            "R"-> canvas.drawText("X", 315F, 1135F, title)
-            "M"-> canvas.drawText("X", 343F, 1135F, title)
-        }
-        when(almacenamientoPDF.altaTemperaturaMotor.toString()){
-            "B"-> canvas.drawText("X", 287F, 1195F, title)
-            "R"-> canvas.drawText("X", 315F, 1195F, title)
-            "M"-> canvas.drawText("X", 343F, 1195F, title)
-        }
-
-        //cambio de lado
-
-        when(almacenamientoPDF.estadoRacores.toString()){
-            "B"-> canvas.drawText("X", 704F, 630F, title)
-            "R"-> canvas.drawText("X", 732F, 630F, title)
-            "M"-> canvas.drawText("X", 762F, 630F, title)
-        }
-
-        when(almacenamientoPDF.fugas.toString()){
-            "B"-> canvas.drawText("X", 704F, 645F, title)
-            "R"-> canvas.drawText("X", 732F, 645F, title)
-            "M"-> canvas.drawText("X", 762F, 645F, title)
-        }
-
-        when(almacenamientoPDF.estadoCombustible.toString()){
-            "B"-> canvas.drawText("X", 704F, 660F, title)
-            "R"-> canvas.drawText("X", 732F, 660F, title)
-            "M"-> canvas.drawText("X", 762F, 660F, title)
-        }
-
-        when(almacenamientoPDF.estadoTanque.toString()){
-            "B"-> canvas.drawText("X", 704F, 675F, title)
-            "R"-> canvas.drawText("X", 732F, 675F, title)
-            "M"-> canvas.drawText("X", 762F, 675F, title)
-        }
-
-        when(almacenamientoPDF.formaTanque.toString()){
-            "B"-> canvas.drawText("X", 704F, 690F, title)
-            "R"-> canvas.drawText("X", 732F, 690F, title)
-            "M"-> canvas.drawText("X", 762F, 690F, title)
-        }
-
-        when(almacenamientoPDF.estadoGenerador.toString()){
-            "B"-> canvas.drawText("X", 704F, 720F, title)
-            "R"-> canvas.drawText("X", 732F, 720F, title)
-            "M"-> canvas.drawText("X", 762F, 720F, title)
-        }
-        //primer salto
-        when(almacenamientoPDF.voltajeBateria.toString()){
-            "B"-> canvas.drawText("X", 704F, 743F, title)
-            "R"-> canvas.drawText("X", 732F, 743F, title)
-            "M"-> canvas.drawText("X", 762F, 743F, title)
-        }
-        when(almacenamientoPDF.voltajeBateria.toString()){
-            "B"-> canvas.drawText("X", 704F, 758F, title)
-            "R"-> canvas.drawText("X", 732F, 758F, title)
-            "M"-> canvas.drawText("X", 762F, 758F, title)
-        }
-        when(almacenamientoPDF.cargadorFuncional.toString()){
-            "B"-> canvas.drawText("X", 704F, 773F, title)
-            "R"-> canvas.drawText("X", 732F, 773F, title)
-            "M"-> canvas.drawText("X", 762F, 773F, title)
-        }
-        when(almacenamientoPDF.correasTensionadas.toString()){
-            "B"-> canvas.drawText("X", 704F, 788F, title)
-            "R"-> canvas.drawText("X", 732F, 788F, title)
-            "M"-> canvas.drawText("X", 762F, 788F, title)
-        }
-        when(almacenamientoPDF.estadoFiltroAire.toString()){
-            "B"-> canvas.drawText("X", 704F, 803F, title)
-            "R"-> canvas.drawText("X", 732F, 803F, title)
-            "M"-> canvas.drawText("X", 762F, 803F, title)
-        }
-        when(almacenamientoPDF.estadoMangueras.toString()){
-            "B"-> canvas.drawText("X", 704F, 818F, title)
-            "R"-> canvas.drawText("X", 732F, 818F, title)
-            "M"-> canvas.drawText("X", 762F, 818F, title)
-        }
-
-        val firmaBMP = almacenamientoPDF.data?.let { BitmapFactory.decodeByteArray(almacenamientoPDF.data, 0, it.size) }
-        val firmaEscala = firmaBMP?.let { Bitmap.createScaledBitmap(it, 100, 100, false) }
-
-        if (firmaEscala != null) {
-            canvas.drawBitmap(firmaEscala, 750F, 1670F, paint)
-        }
-
-        val firmaBMPTecnico = almacenamientoPDF.dataTecnico?.let { BitmapFactory.decodeByteArray(almacenamientoPDF.dataTecnico, 0, it.size) }
-        val firmaEscalaTecnico = firmaBMPTecnico?.let { Bitmap.createScaledBitmap(it, 100, 50, false) }
-
-        if (firmaEscalaTecnico != null) {
-            canvas.drawBitmap(firmaEscalaTecnico, 320F, 1670F, paint)
-        }
-
-
-
-
-
-
-        /*var content = arrayOf(almacenamientoPDF)
-
-        for(i in content.indices){
-            println(content.get(i))
-            var nivelAceite = content.get(i).toString()
-            //var pintarData = arrayOf(almacenamientoPDF)
-            //println(pintarData)
-        }*/
-
-
-
-        title.setTypeface(Typeface.defaultFromStyle(Typeface.NORMAL))
-        title.setColor(ContextCompat.getColor(this, R.color.purple_200))
-        title.textSize = 15F
-
-        // below line is used for setting
-        // our text to center of PDF.
-
-
-        //title.textAlign = Paint.Align.CENTER
-        //canvas.drawText("This is sample document which we have created.", 396F, 560F, title)
-
-        // after adding all attributes to our
-        // PDF file we will be finishing our page.
-        pdfDocument.finishPage(myPage)
-
-        // below line is used to set the name of
-        // our PDF file and its path.
-
-
-        val file: File = File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), "GFG.pdf")
-        if(file.exists()){
-            println("Existe")
-        }else{
-            println("No existe")
-        }
-
-        try {
-            // after creating a file name we will
-            // write our PDF file to that location.
-            pdfDocument.writeTo(FileOutputStream(file))
-
-            /*filePath = if(Build.VERSION.SDK_INT  >= Build.VERSION_CODES.N){
-                FileProvider.getUriForFile(this,
-                    "$packageName.provider",
-                    file)
-                //
-
-            }else{
-                Uri.fromFile(file)
-            }*/
-
-            //uploadImage(filePath)
-
-            // on below line we are displaying a toast message as PDF file generated..
-            Toast.makeText(applicationContext, "PDF file generated..", Toast.LENGTH_SHORT).show()
-        } catch (e: Exception) {
-            // below line is used
-            // to handle error
-            e.printStackTrace()
-
-            // on below line we are displaying a toast message as fail to generate PDF
-            Toast.makeText(applicationContext, "Fail to generate PDF file..", Toast.LENGTH_SHORT)
-                .show()
-        }
-        // after storing our pdf to that
-        // location we are closing our PDF file.
-        pdfDocument.close()
-    }
 
     fun checkPermissions(): Boolean {
         // on below line we are creating a variable for both of our permissions.
@@ -1183,30 +932,6 @@ class Sheet8Activity : AppCompatActivity() {
         }
     }
 
-    private fun uploadImage(filePath: Uri?){
-        if(filePath != null){
-            val ref = storageReference?.child("myPDF/" + UUID.randomUUID().toString())
-            val uploadTask = ref?.putFile(filePath!!)
-            val urlTask = uploadTask?.continueWithTask { task ->
-                if (!task.isSuccessful) {
-                    task.exception?.let {
-                        throw it
-                    }
-                }
-                ref.downloadUrl
-            }?.addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    downloadUri = task.result
-                    println(downloadUri)
-                } else {
-                    // Handle failures
-                    // ...
-                }
-            }
-        }else{
-            Toast.makeText(this, "Please Upload an Image", Toast.LENGTH_SHORT).show()
-        }
-    }
 
 
 }

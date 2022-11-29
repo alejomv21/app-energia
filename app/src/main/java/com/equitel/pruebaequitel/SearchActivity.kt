@@ -63,6 +63,9 @@ class SearchActivity : AppCompatActivity() {
         binding.checkBoxEmergencia.setOnClickListener {
             binding.textViewCheckSeleccion.setText("EMERGENCIA")
         }
+        binding.checkBoxPruebas.setOnClickListener {
+            binding.textViewCheckSeleccion.setText("PRUEBA")
+        }
     }
 
     private fun check(){
@@ -90,7 +93,7 @@ class SearchActivity : AppCompatActivity() {
             binding.textViewMotivoReprogramar.visibility = View.GONE
             binding.EditTextMotivoReprogramar.visibility = View.GONE
             binding.ButtonReprogramar.visibility = View.GONE
-        }else if(binding.checkBoxInspeccion.isChecked){
+        }else if(binding.checkBoxInspeccion.isChecked || binding.checkBoxPruebas.isChecked){
             binding.textViewOrdenTrabajo.visibility = View.GONE
             binding.editTextOrdenTrabajo.visibility = View.GONE
             binding.textViewIdEquipo.visibility = View.GONE

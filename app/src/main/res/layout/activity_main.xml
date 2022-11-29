@@ -33,7 +33,7 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="10sp"
                 android:gravity="left"
-                android:text="FECHA:"
+                android:text="@string/fecha"
                 android:textColor="@color/black"
                 android:textSize="13sp" />
 
@@ -59,7 +59,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="left"
-                android:text="CIUDAD:"
+                android:text="@string/ciudad"
                 android:textColor="@color/black"
                 android:textSize="13sp" />
 
@@ -141,7 +141,7 @@
                 android:layout_below="@id/checkBoxGasol"
                 android:layout_marginStart="60dp"
                 android:layout_toEndOf="@id/checkBoxAbierto"
-                android:text="GAS"
+                android:text="@string/gas"
                 android:textSize="10sp" />
 
             <CheckBox
@@ -211,7 +211,7 @@
                 android:id="@+id/TextSede"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditDir"
-                android:text="SEDE:" />
+                android:text="@string/sede" />
 
             <AutoCompleteTextView
                 android:id="@+id/EditSede"
@@ -349,7 +349,7 @@
                 android:id="@+id/TextSerialMotor"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditModPlanta"
-                android:text="S/N MOTOR" />
+                android:text="@string/s_n_motor" />
 
             <AutoCompleteTextView
                 android:id="@+id/EditSerialMotor"
@@ -362,7 +362,7 @@
                 android:id="@+id/TextSerialGenerador"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditSerialMotor"
-                android:text="S/N GENERADOR" />
+                android:text="@string/s_n_generador" />
 
             <AutoCompleteTextView
                 android:id="@+id/EditSerialGenerador"
@@ -375,7 +375,7 @@
                 android:id="@+id/TextSerialPlanta"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditSerialGenerador"
-                android:text="S/N PLANTA" />
+                android:text="@string/s_n_planta" />
 
             <AutoCompleteTextView
                 android:id="@+id/EditSerialPlanta"
@@ -411,7 +411,7 @@
                 android:id="@+id/TextCantidad"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditTipoBateria"
-                android:text="CANTIDAD" />
+                android:text="@string/cantidad" />
 
             <EditText
                 android:id="@+id/EditCantidad"
@@ -424,7 +424,7 @@
                 android:id="@+id/TextKW"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditCantidad"
-                android:text="KW" />
+                android:text="@string/kw" />
 
             <EditText
                 android:id="@+id/EditKW"
@@ -436,7 +436,7 @@
                 android:id="@+id/TextSpec"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditKW"
-                android:text="SPEC:" />
+                android:text="@string/spec" />
 
             <EditText
                 android:id="@+id/EditSpec"
@@ -448,7 +448,7 @@
                 android:id="@+id/TextNArranques"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditSpec"
-                android:text="N°ARRANQUES:" />
+                android:text="@string/n_arranques" />
 
             <EditText
                 android:id="@+id/EditNArranques"
@@ -462,7 +462,7 @@
                 android:id="@+id/TextHorasMotor"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditNArranques"
-                android:text="HORAS MOTOR:" />
+                android:text="@string/horas_motor" />
 
             <EditText
                 android:id="@+id/EditHorasMotor"
@@ -474,7 +474,7 @@
                 android:id="@+id/TextTipoControl"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditHorasMotor"
-                android:text="TIPO CONTROL:" />
+                android:text="@string/tipo_control" />
 
             <EditText
                 android:id="@+id/EditTipoControl"
@@ -486,7 +486,7 @@
                 android:id="@+id/TextHorasControl"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditTipoControl"
-                android:text="HORAS CONTROL:" />
+                android:text="@string/horas_control" />
 
             <EditText
                 android:id="@+id/EditHorasControl"
@@ -499,7 +499,7 @@
                 android:id="@+id/TextTecnicosCargo"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditHorasControl"
-                android:text="TECNICOS A CARGO" />
+                android:text="@string/tecnicos_a_cargo" />
 
             <AutoCompleteTextView
                 android:id="@+id/EditTecnicosCargo1"
@@ -517,7 +517,7 @@
                 android:id="@+id/TextPromotionID"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditTecnicosCargo2"
-                android:text="PROMOTION ID:" />
+                android:text="@string/promotion_id" />
 
             <AutoCompleteTextView
                 android:id="@+id/EditPromotionID"
@@ -529,7 +529,7 @@
                 android:id="@+id/TextMotivoVisita"
                 style="@style/StartTextView"
                 android:layout_below="@+id/TextPromotionID"
-                android:text="MOTIVO VISITA:" />
+                android:text="@string/motivo_visita" />
 
             <AutoCompleteTextView
                 android:id="@+id/EditMotivoVisita"
@@ -557,7 +557,7 @@
                 android:layout_toEndOf="@+id/Camera1"
                 android:shadowColor="@color/black"
                 android:src="@drawable/ic_baseline_camera"
-                android:text="Camara" />
+                android:text="@string/camara" />
 
             <ImageButton
                 android:id="@+id/ButtonCameraSearch"
@@ -570,7 +570,7 @@
                 android:layout_toEndOf="@+id/ButtonCamera1"
                 android:shadowColor="@color/black"
                 android:src="@drawable/ic_baseline_image_search"
-                android:text="Camara" />
+                android:text="@string/camara" />
 
             <ImageButton
                 android:id="@+id/ButtonCamera1Upload"
@@ -583,7 +583,7 @@
                 android:layout_toEndOf="@+id/ButtonCameraSearch"
                 android:shadowColor="@color/black"
                 android:src="@drawable/ic_baseline_cloud_upload"
-                android:text="Camara" />
+                android:text="@string/camara" />
 
             <Button
                 android:id="@+id/ButtonGuadado"
@@ -593,7 +593,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
-                android:text="enviar" />
+                android:text="@string/enviar" />
 
             <EditText
                 android:id="@+id/TextTipoUbicacion"

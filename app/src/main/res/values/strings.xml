@@ -8,7 +8,7 @@
     <string name="acpm">ACPM</string>
     <string name="gasol">GASOL</string>
     <string name="bat">BAT</string>
-    <string name="visita_tecnica_n_sen_07_n_version_08_n_soperte_t_cnico_n_n">Visita tecnica\n SEN-07 \n VERSION 08\n SOPERTE TÉCNICO\n n°</string>
+    <string name="visita_tecnica_n_sen_07_n_version_08_n_soperte_t_cnico_n_n">Visita Técnica\n SEN-07 \n VERSIÓN 08\n SOPORTE TÉCNICO\n n°</string>
     <string name="cliente">CLIENTE:</string>
     <string name="dir">DIRECCIÓN:</string>
     <string name="servicio_solicitado_por">SERVICIO SOLICITADO POR:</string>
@@ -22,7 +22,218 @@
     <string name="mod_gen">MOD. GEN:</string>
     <string name="mod_planta">MOD. PLANTA:</string>
     <string name="clp">CLP:</string>
-    <string name="tipo_bateria">TIPO BATERIA:</string>
+    <string name="tipo_bateria">TIPO BATERÍA:</string>
+    <string name="ciudad">CIUDAD:</string>
+    <string name="fecha">FECHA:</string>
+    <string name="gas">GAS</string>
+    <string name="sede">SEDE:</string>
+    <string name="s_n_motor">S/N MOTOR</string>
+    <string name="s_n_generador">S/N GENERADOR</string>
+    <string name="s_n_planta">S/N PLANTA</string>
+    <string name="cantidad">CANTIDAD</string>
+    <string name="kw">KW</string>
+    <string name="spec">SPEC:</string>
+    <string name="n_arranques">N°ARRANQUES:</string>
+    <string name="horas_motor">HORAS MOTOR:</string>
+    <string name="tipo_control">TIPO CONTROL:</string>
+    <string name="horas_control">HORAS CONTROL:</string>
+    <string name="tecnicos_a_cargo">TÉCNICOS A CARGO</string>
+    <string name="promotion_id">PROMOTION ID:</string>
+    <string name="motivo_visita">MOTIVO VISITA:</string>
+    <string name="camara">CÁMARA</string>
+    <string name="enviar">enviar</string>
+
+    //hoja Search
+
+    <string name="por_favor_seleccione_solo_una_opci_n">Por favor seleccione solo una opción</string>
+    <string name="inspeccion">INSPECCIÓN</string>
+    <string name="mantenimiento">MANTENIMIENTO</string>
+    <string name="artimo">ARTIMO</string>
+    <string name="servicio">SERVICIO</string>
+    <string name="montaje">MONTAJE</string>
+    <string name="entrega">ENTREGA</string>
+    <string name="emergencia">EMERGENCIA</string>
+    <string name="pruebas">PRUEBAS</string>
+    <string name="validar">Validar</string>
+    <string name="id_equipo">ID Equipo:</string>
+    <string name="orden_trabajo">Orden Trabajo:</string>
+    <string name="tipo_de_emergencia">Tipo de Emergencia:</string>
+    <string name="causas_de_la_falla">Causas de la Falla:</string>
+    <string name="motivo_de_reprogramacion">Motivo de Reprogramación:</string>
+    //Hoja 2
+    <string name="ii_estado_inicial">II. ESTADO INICIAL</string>
+    <string name="todo">TODO</string>
+    <string name="estado">ESTADO</string>
+    <string name="medida">MEDIDA</string>
+    <string name="a_nivel_aceite">A. Nivel Aceite:</string>
+    <string name="b_estado_radiador">B. Estado Radiador</string>
+    <string name="c_nivel_agua_radiador">C. Nivel Agua Radiador</string>
+    <string name="d_aspas_ventilador">D. Aspas Ventilador</string>
+    <string name="e_bomes_bater_as">E. Bomes Baterías</string>
+    <string name="f_nivel_agua_bater_as">F. Nivel Agua Baterías</string>
+    <string name="g_densidad_electrolitos">G. Densidad Electrolitos</string>
+    <string name="h_voltaje_bater_as_12_24_vdc"><![CDATA[H. Voltaje Baterías > 12 ó 24 Vdc]]></string>
+    <string name="i_cargador_funciona_12_24_14_4_28_8_vdc"><![CDATA[I. Cargador Funciona > 12 ó 24 >14.4 ó 28.8 Vdc]]></string>
+    <string name="j_correas_tensionadas">J. Correas Tensionadas</string>
+    <string name="k_estado_del_filtro_del_aire">K. Estado del Filtro del Aire</string>
+    <string name="l_estado_de_mangueras">L. Estado de Mangueras</string>
+    <string name="m_estado_tapa_radiador">M. Estado Tapa Radiador</string>
+    <string name="n_presion_tapa_de_radiador_psi">N. Presión Tapa de Radiador (PSI)</string>
+    <string name="psi">PSI</string>
+    <string name="o_dimensiones_tapa_radiador_mm">O. Dimensiones Tapa Radiador (mm)</string>
+    <string name="mm">mm</string>
+    <string name="p_estado_de_racores">P. Estado de Racores</string>
+    <string name="q_fugas">Q. Fugas</string>
+    <string name="r_estado_combustibles_galones">R. Estado Combustibles (Galones)</string>
+    <string name="galones">Galones</string>
+    <string name="s_disposicion_del_tanque">S. Disposición del Tanque</string>
+    <string name="t_forma_tanque">T. Forma Tanque</string>
+    <string name="e_posee_precalentador">E. Posee Precalentador</string>
+    <string name="g_tipo_de_precalentamiento">G. Tipo de precalentamiento</string>
+    <string name="h_voltaje_de_operacion">H. Voltaje de Operación</string>
+    <string name="i_estado_de_precalentador">I. Estado de Precalentador</string>
+    <string name="g_estado_de_mangueras_de_precalentador">G. Estado de Mangueras de Precalentador</string>
+    <string name="_2_generador">2. GENERADOR</string>
+    <string name="a_estado_generador">A. Estado Generador</string>
+    <string name="b_aspas_ventilador">B. Aspas Ventilador</string>
+    <string name="c_conexi_n_de_potencia">C. Conexión de Potencia</string>
+    <string name="d_conexi_n_cableado_control">D. Conexión Cableado Control</string>
+    <string name="e_objetos_extra_os_en_el_interior">E. Objetos Extraños en el Interior</string>
+    <string name="f_puente_rectificador_giratoio">F. Puente Rectificador Giratorio</string>
+    <string name="g_estado_de_control">G. Estado de Control</string>
+    <string name="h_estado_cuarto_cabina">H. Estado Cuarto/Cabina</string>
+    <string name="_3_transferencia_automatica">3. transferencia automática</string>
+    <string name="a_marca_de_control_de_transferencia">A. Marca de control de transferencia</string>
+    <string name="b_modelo_de_control_de_transferencia">B. Modelo de control de transferencia</string>
+    <string name="c_tipo_de_mecanismo">C. tipo de mecanismo</string>
+    <string name="c_tipo_de_sistema_de_respaldo">C. tipo de sistema de respaldo</string>
+    <string name="d_funcionamiento_de_ats">D. Funcionamiento de ATS</string>
+    <string name="iii_trabajo_realizado">III. Trabajo Realizado</string>
+    //hoja 3
+    <string name="iv_condiciones_finales_de_entrega">IV. CONDICIONES FINALES DE ENTREGA</string>
+    <string name="a_ca_da_de_voltaje">A. Caída de voltaje</string>
+    <string name="b_presi_n_aceite_psi">B. Presión Aceite (Psi)</string>
+    <string name="c_temperatura_agua_c">C. Temperatura Agua (°C)</string>
+    <string name="d_voltaje_alternador_vdc">D. Voltaje Alternador (VDC)</string>
+    <string name="c">°C</string>
+    <string name="vdc">VDC</string>
+    <string name="f_temperatura_aceite_c">F. Temperatura Aceite (°C)</string>
+    <string name="g_temperatura_gases_escape_c">G. Temperatura Gases Escape (°C)</string>
+    <string name="h_indicador_restricci_n_aire_21_h2o">H. Indicador Restricción Aire 21 H2O</string>
+    <string name="i_oscilaci_n_de_velocidad">I. Oscilación de Velocidad</string>
+    <string name="_2_respuesta_del_control_frente_a_fallas_de_sensores">2. Respuesta del control frente a fallas de sensores.</string>
+    <string name="a_alta_temperatura_motor">A. Alta Temperatura Motor</string>
+    <string name="b_estado_de_tarjetas_de_control">B. Estado de tarjetas de control</string>
+    <string name="c_baja_presi_n_aceite_motor">C. Baja Presión Aceite Motor</string>
+    <string name="d_bajo_nivel_refrigerante_radiador">D. Bajo Nivel Refrigerante Radiador</string>
+    <string name="_3_generador">3. Generador</string>
+    <string name="a_voltaje_vac_rms">A. Voltaje (VAC RMS)</string>
+    <string name="_1_2">1.2</string>
+    <string name="_1_3">1.3</string>
+    <string name="b_corriente_en_amperios">B. Corriente en Amperios</string>
+    <string name="l1">L1</string>
+    <string name="l2">L2</string>
+    <string name="l3">L3</string>
+    <string name="n">N</string>
+    <string name="d_posicion_interruptor_planta">D. Posición Interruptor Planta</string>
+    <string name="e_posici_n_swith_cargador">E. Posición Switch Cargador</string>
+    <string name="f_posici_n_switch_control">F. Posición Switch Control</string>
+    <string name="g_frecuencia_de_59_5_a_60_4hz">G. Frecuencia de 59.5 a 60.4HZ</string>
+    <string name="h_factor_potencia_de_0_o_a_1">H. Factor Potencia de 0.o a 1</string>
+    <string name="i_kilovatios_hora">I. kilovatios / Hora</string>
+    <string name="_4_pruebas">4. Pruebas</string>
+    <string name="a_en_vac_o">A. En Vacío</string>
+    <string name="b_con_cargas">B. Con Cargas</string>
+    <string name="kw_kva">kW/kVA</string>
+    <string name="v_recomendaciones">V. Recomendaciones</string>
+    // hoja 4
+    <string name="hora_salida">HORA SALIDA</string>
+    <string name="t_cnicos_equitel">TÉCNICOS/EQUITEL</string>
+    <string name="hora_llegada">HORA LLEGADA</string>
+    <string name="hora_atencion">HORA ATENCIÓN</string>
+    <string name="calificacion_cliente">CALIFICACIÓN  CLIENTE</string>
+    <string name="servicio_cumplimiento">SERVICIO/CUMPLIMIENTO</string>
+    <string name="orden_y_aseo_sitio">ORDEN Y ASEO SITIO</string>
+    <string name="uso_elementos_proteccion">USO ELEMENTOS PROTECCIÓN</string>
+    //
+
+    <string name="h_voltaje_bater_as_12_24"><![CDATA[H. Voltaje Baterías > 12 ó 24]]></string>
+    <string name="siguiente">SIGUIENTE</string>
+    //
+    <string name="estado_de_conexion">ESTADO DE CONEXIÓN</string>
+    <string name="sensores">SENSORES</string>
+    <string name="alarmas">ALARMAS</string>
+    <string name="observaciones">OBSERVACIONES</string>
+    <string name="calidad_de_liquido">CALIDAD DE LIQUIDO</string>
+    <string name="toma_de_muestra_aceite">Toma de Muestra Aceite</string>
+    <string name="toma_de_muestra_conbustible">Toma de Muestra Combustible</string>
+    <string name="toma_muestra_refrigerante">Toma Muestra Refrigerante</string>
+    <string name="ultimo_lavado_de_tanque_de_combustible">Ultimo Lavado de Tanque de Combustible</string>
+    <string name="ultimo_tanqueo_gls">Ultimo Tanqueo (gls)</string>
+
+    <string name="casco">CASCO</string>
+    <string name="guantes">GUANTES</string>
+    <string name="botas">BOTAS</string>
+    <string name="gafas">GAFAS</string>
+    <string name="otros">OTROS</string>
+    <string name="epp_s_trabajo_riesgo_el_ctrico">EPP´S TRABAJO RIESGO ELÉCTRICO</string>
+    <string name="tapete_diel_ctrico">TAPETE DIELÉCTRICO</string>
+    <string name="overol_diel_ctrico">OVEROL DIELÉCTRICO</string>
+    <string name="herramienta_diel_ctrico">HERRAMIENTA DIELÉCTRICO</string>
+    <string name="epp_s_trabajo_en_espacios_confinados">EPP´S TRABAJO EN ESPACIOS CONFINADOS</string>
+    <string name="careta">CARETA</string>
+    <string name="l_nea_de_vida">LÍNEA DE VIDA</string>
+    <string name="andamio_certificado">ANDAMIO CERTIFICADO</string>
+    <string name="epp_s_trabajo_en_alturas">EPP´S TRABAJO EN ALTURAS</string>
+    <string name="eslinga">ESLINGA</string>
+    <string name="arn_s">ARNÉS</string>
+    <string name="documentos">DOCUMENTOS</string>
+    <string name="diligenciamiento_de_ats_del_trabajos_a_realizar">Diligenciamiento de ATS de trabajos a realizar</string>
+    <string name="diligenciamiento_de_ats_de_trabajos_en_alturas">Diligenciamiento de ATS de trabajos en Alturas</string>
+    <string name="diligenciamiento_de_ats_de_trabajos_en_espacios_confinados">Diligenciamiento de ATS de trabajos en espacios confinados</string>
+    <string name="diligenciamiento_de_ats_de_trabajos_en_caliente">Diligenciamiento de ATS de trabajos en caliente</string>
+    <string name="logistica">LOGÍSTICA</string>
+    <string name="transporte_a_tiempo">Transporte a Tiempo</string>
+    <string name="insumos_completos">Insumos Completos</string>
+    <string name="pendiente_regoger_insumos">Pendiente Recoger Insumos</string>
+    <string name="tiempo_de_espera_al_ingreso">Tiempo de Espera al Ingreso</string>
+    <string name="timepo_de_espera_a_la_salida">Tiempo de Espera a la Salida</string>
+    <string name="solicitudes">SOLICITUDES</string>
+    <string name="servicio_a_cotizar">Servicio a Cotizar</string>
+    <string name="tipo_de_servicio_realizado">Tipo de Servicio Realizado</string>
+
+    <string name="a_caida_voltaje_bater_a">A. Caída Voltaje Batería</string>
+
+
+
+    <string name="e_posici_n_switvh_cargador">E. Posición Switch Cargador</string>
+
+
+    <string name="ultimo_tanqueo">Ultimo Tanqueo</string>
+    <string name="capacidad_tanqueo">Capacidad Tanqueo</string>
+    <string name="seguridad_en_el_trabajo">SEGURIDAD EN EL TRABAJO</string>
+    <string name="epp_s_convencionales">EPP´S CONVENCIONALES</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <string name="firma_cliente">FIRMA CLIENTE</string>
+    <string name="borrar">BORRAR</string>
+    <string name="guardar">GUARDAR</string>
+    <string name="firma_tecnico">FIRMA TECNICO</string>
+    <string name="pdf">PDF</string>
+    <string name="fotos">FOTOS</string>
+    //
 
     <string-array name="tipoServicio">
         <item>EMERGENCIA</item>
@@ -115,8 +326,11 @@
     </string-array>
     <string-array name="Disyuntres">
         <item> </item>
-        <item>INT.CAJA MOLDEADA</item>
-        <item>INT. EXTRAIBLE</item>
+        <item>CONTACTOR</item>
+        <item>INTERRUPTOR</item>
+        <item>INTERRUPTOR MOTORIZADO</item>
+        <item>DOBLE TIRO</item>
+        <item>MANUAL</item>
     </string-array>
 
     <string-array name="correas">
@@ -140,7 +354,7 @@
         <item>M</item>
         <item>NA</item>
     </string-array>
-    
+
     <string-array name="servicio_a_cotizar">
         <item>NO</item>
         <item>ARTIMO</item>
@@ -177,7 +391,7 @@
         <item>NO</item>
         <item>NO</item>
     </string-array>
-    
+
     <string-array name="tipo_servicio_realizado">
         <item>VISITA EN CONJUNTO</item>
         <item>ACOMPAÑAMIENTO</item>
@@ -224,4 +438,13 @@
         <item>voltajeBateria</item>
         <item>nivelAguaBaterias</item>
     </string-array>
+
+    <string-array name="SistemaRespaldo">
+        <item> </item>
+        <item>ATS PLANTA-RED</item>
+        <item>ATS PLANTA-PLANTA</item>
+        <item>ATS RED-PLANTA-PLANTA DOBLE TIRO</item>
+        <item>SISTEMA DE SINCRONISMO</item>
+    </string-array>
+
 </resources>

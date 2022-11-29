@@ -126,7 +126,7 @@ class Sheet3Activity : AppCompatActivity() {
 
     private fun spinnerAdapter(adapter : ArrayAdapter<String>, siNoadapter: ArrayAdapter<String>, buenoMaloadapter: ArrayAdapter<String>,onOfMaloadapter: ArrayAdapter<String>,
                                manOfOutadapter: ArrayAdapter<String>, buenoMaloNAadapter: ArrayAdapter<String>, siNoNaAadapter: ArrayAdapter<String>){
-        binding.spinnnerA.setAdapter(adapter)
+        //binding.spinnnerA.setAdapter(adapter)
         binding.spinnnerB.setAdapter(adapter)
         binding.spinnnerC.setAdapter(adapter)
         binding.spinnnerD.setAdapter(adapter)
@@ -135,7 +135,7 @@ class Sheet3Activity : AppCompatActivity() {
         binding.spinnnerH.setAdapter(adapter)
         binding.spinnnerI.setAdapter(siNoadapter)
         binding.spinnner2A.setAdapter(siNoNaAadapter)
-        binding.spinnner2B.setAdapter(siNoNaAadapter)
+        binding.spinnner2B.setAdapter(buenoMaloadapter)
         binding.spinnner2C.setAdapter(siNoNaAadapter)
         binding.spinnner2D.setAdapter(siNoNaAadapter)
         binding.spinnner3D.setAdapter(onOfMaloadapter)
@@ -152,7 +152,7 @@ class Sheet3Activity : AppCompatActivity() {
         viewModel.extraerAlmacenamiento()
         viewModel.almacenamiento.observe(this, Observer {
             almacenamiento->
-            almacenamiento.caidaVOltaje = binding.spinnnerA.selectedItem.toString()
+            //almacenamiento.caidaVOltaje = binding.spinnnerA.selectedItem.toString()
             almacenamiento.caidaVoltajeMedida = binding.EditCaidaVoltaje.text.toString()
             almacenamiento.presionAceite = binding.spinnnerB.selectedItem.toString()
             almacenamiento.presionAceiteMedida = binding.EditPresionAceite.text.toString()
@@ -168,7 +168,7 @@ class Sheet3Activity : AppCompatActivity() {
             almacenamiento.indicadoresRestriccionMedida = binding.EditIndicadoRestrccionAire.text.toString()
             almacenamiento.oscilacionVelocidad = binding.spinnnerI.selectedItem.toString()
             almacenamiento.altaTemperaturaMotor = binding.spinnner2A.selectedItem.toString()
-            almacenamiento.sobreRevoluciones = binding.spinnner2B.selectedItem.toString()
+            almacenamiento.estadoTajetasControl = binding.spinnner2B.selectedItem.toString()
             almacenamiento.bajaPresionAceite = binding.spinnner2C.selectedItem.toString()
             almacenamiento.bajoNivelRefrigerante = binding.spinnner2D.selectedItem.toString()
             almacenamiento.voltaje1 = binding.EditfasesA1.isChecked()
@@ -207,9 +207,9 @@ class Sheet3Activity : AppCompatActivity() {
         viewModel.extraerAlmacenamiento()
         viewModel.almacenamiento.observe(this, Observer {
                 almamacenamiento->
-            val a = almamacenamiento.caidaVOltaje.toString()
+            /*val a = almamacenamiento.caidaVOltaje.toString()
             val caidaVOltaje = spinerCondicion(a)
-            binding.spinnnerA.setSelection(caidaVOltaje)
+            binding.spinnnerA.setSelection(caidaVOltaje)*/
             val b = almamacenamiento.presionAceite.toString()
             val presionAceite = spinerCondicion(b)
             binding.spinnnerB.setSelection(presionAceite)
@@ -234,9 +234,9 @@ class Sheet3Activity : AppCompatActivity() {
             val a2 = almamacenamiento.altaTemperaturaMotor.toString()
             val altaTemperaturaMotor = spinerCondicion(a2)
             binding.spinnner2A.setSelection(altaTemperaturaMotor)
-            val b2 = almamacenamiento.sobreRevoluciones.toString()
-            val sobreRevoluciones = spinerCondicion(b2)
-            binding.spinnner2B.setSelection(sobreRevoluciones)
+            val b2 = almamacenamiento.estadoTajetasControl.toString()
+            val estadoTajetasControl = spinerCondicion(b2)
+            binding.spinnner2B.setSelection(estadoTajetasControl)
             val c2 = almamacenamiento.bajaPresionAceite.toString()
             val bajaPresionAceite = spinerCondicion(c2)
             binding.spinnner2C.setSelection(bajaPresionAceite)
@@ -270,7 +270,7 @@ class Sheet3Activity : AppCompatActivity() {
 
 
     private fun validarCamposCompletos(): Boolean{
-        val a = binding.spinnnerA.selectedItem.toString()
+        //val a = binding.spinnnerA.selectedItem.toString()
         val b = binding.spinnnerB.selectedItem.toString()
         val c = binding.spinnnerC.selectedItem.toString()
         val d = binding.spinnnerD.selectedItem.toString()
@@ -290,7 +290,7 @@ class Sheet3Activity : AppCompatActivity() {
         val a4 =  binding.spinnner4A.selectedItem.toString()
         val b4 =  binding.spinnner4B.selectedItem.toString()
 
-        if(a == "" || b == "" || c == "" || d == "" || f == "" || g == "" || h == ""|| i == ""
+        if(b == "" || c == "" || d == "" || f == "" || g == "" || h == ""|| i == ""
             || a2 == "" || b2 == "" || c2 == "" || d2 == "" || d3 == ""|| e3 == ""|| f3 == ""|| g3 == ""
             || h3 == ""|| a4 == ""|| b4 == ""){
             Toast.makeText(this, "faltan campos por llenar", Toast.LENGTH_SHORT).show()

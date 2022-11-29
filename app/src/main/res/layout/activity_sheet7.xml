@@ -26,7 +26,7 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_marginTop="20dp"
-            android:text="ARTIMO" />
+            android:text="@string/artimo" />
 
     <ImageView
         android:id="@+id/imageViewSeparatorEstado"
@@ -38,7 +38,7 @@
         android:layout_marginStart="20dp"
         android:padding="1dp"
         android:background="@color/black"
-        android:contentDescription="TODO"
+        android:contentDescription="@string/todo"
         android:src="@android:drawable/divider_horizontal_bright" />
 
     <TextView
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/imageViewSeparatorEstado"
         android:layout_alignParentEnd="true"
-        android:text="MEDIDA" />
+        android:text="@string/medida" />
 
     <ImageView
         android:id="@+id/imageViewSeparatorMedida"
@@ -55,14 +55,14 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/TextMedida"
         android:background="@color/black"
-        android:contentDescription="TODO"
+        android:contentDescription="@string/todo"
         android:src="@android:drawable/divider_horizontal_bright" />
 
         <TextView
             android:id="@+id/textA"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/imageViewSeparatorMedida"
-            android:text="ESTADO DE CONEXION " />
+            android:text="@string/estado_de_conexion" />
 
     <Spinner
         android:id="@+id/spinnnerA"
@@ -74,7 +74,7 @@
             android:id="@+id/textB"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textA"
-            android:text="SENSORES" />
+            android:text="@string/sensores" />
 
             <Spinner
                 android:id="@+id/spinnnerB"
@@ -86,7 +86,7 @@
             android:id="@+id/textC"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textB"
-            android:text="ALARMAS" />
+            android:text="@string/alarmas" />
 
         <EditText
             android:id="@+id/EditAlarma"
@@ -105,7 +105,7 @@
             android:id="@+id/textD"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textC"
-            android:text="OBSERVACIONES" />
+            android:text="@string/observaciones" />
 
         <EditText
             android:id="@+id/EditObservaciones"
@@ -131,7 +131,7 @@
             android:layout_marginStart="20dp"
             android:padding="1dp"
             android:background="@color/black"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/todo"
             android:src="@android:drawable/divider_horizontal_bright" />
 
         <TextView
@@ -141,7 +141,7 @@
             android:layout_below="@+id/imageViewSeparatorCalidadLiquido"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:text="CALIDAD DE LIQUIDO"
+            android:text="@string/calidad_de_liquido"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
@@ -150,7 +150,7 @@
             android:id="@+id/textE"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textCalidadLiquido"
-            android:text="Toma de Muestra Aceite" />
+            android:text="@string/toma_de_muestra_aceite" />
 
             <Spinner
                 android:id="@+id/spinnnerE"
@@ -162,7 +162,7 @@
             android:id="@+id/textF"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textE"
-            android:text="Toma de Muestra Conbustible" />
+            android:text="@string/toma_de_muestra_conbustible" />
 
             <Spinner
                 android:id="@+id/spinnnerF"
@@ -174,7 +174,7 @@
             android:id="@+id/textG"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textF"
-            android:text="Toma Muestra Refrigerante" />
+            android:text="@string/toma_muestra_refrigerante" />
 
         <Spinner
             android:id="@+id/spinnnerG"
@@ -186,7 +186,7 @@
             android:id="@+id/textH"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textG"
-            android:text="Ultimo Lavado de Tanque de Combustible" />
+            android:text="@string/ultimo_lavado_de_tanque_de_combustible" />
 
         <ImageButton
             android:id="@+id/fechaUltimoLavado"
@@ -198,7 +198,7 @@
             android:layout_toEndOf="@+id/textH"
             android:shadowColor="@color/black"
             android:src="@drawable/ic_calendar_today"
-            android:text="Camara" />
+            android:text="@string/camara" />
 
 
         <EditText
@@ -218,7 +218,7 @@
             android:id="@+id/textI"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textH"
-            android:text="Ultimo Tanqueo (gls)" />
+            android:text="@string/ultimo_tanqueo_gls" />
 
         <ImageButton
             android:id="@+id/fechaUltimoTanqueo"
@@ -230,7 +230,7 @@
             android:layout_toEndOf="@+id/textI"
             android:shadowColor="@color/black"
             android:src="@drawable/ic_calendar_today"
-            android:text="Camara" />
+            android:text="@string/camara" />
 
         <EditText
             android:id="@+id/EditUltimoTanqueo"
@@ -250,7 +250,7 @@
             android:id="@+id/textJ"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textI"
-            android:text="Capacidad Tanqueo" />
+            android:text="@string/capacidad_tanqueo" />
 
         <EditText
             android:id="@+id/EditCapacidadTanque"
@@ -274,7 +274,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="20dp"
             android:background="@color/black"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/todo"
             android:padding="1dp"
             android:src="@android:drawable/divider_horizontal_bright" />
 
@@ -285,7 +285,7 @@
             android:layout_below="@+id/imageViewSeparatorEpp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:text="SEGURIDAD EN EL TRABAJO"
+            android:text="@string/seguridad_en_el_trabajo"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
@@ -296,7 +296,7 @@
             android:layout_below="@+id/editSeguridadTrabajo"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:text="EPP´S"
+            android:text="@string/epp_s_convencionales"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
@@ -305,7 +305,7 @@
             android:id="@+id/textK"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textEpp"
-            android:text="CASCO" />
+            android:text="@string/casco" />
 
             <Spinner
                 android:id="@+id/spinnnerK"
@@ -317,7 +317,7 @@
             android:id="@+id/textL"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textK"
-            android:text="GUANTES" />
+            android:text="@string/guantes" />
 
             <Spinner
                 android:id="@+id/spinnnerL"
@@ -329,7 +329,7 @@
             android:id="@+id/textM"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textL"
-            android:text="OVEROL" />
+            android:text="@string/botas" />
 
             <Spinner
                 android:id="@+id/spinnnerM"
@@ -341,7 +341,7 @@
             android:id="@+id/TextNDuplicado"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textM"
-            android:text="GAFAS" />
+            android:text="@string/gafas" />
             <Spinner
                 android:id="@+id/spinnnerNDuplicado"
                 style="@style/ComienzaSpinner"
@@ -352,7 +352,7 @@
             android:id="@+id/TextODuplicado"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/TextNDuplicado"
-            android:text="OTROS" />
+            android:text="@string/otros" />
 
         <EditText
             android:id="@+id/EditOtros"
@@ -368,15 +368,186 @@
             android:gravity="center"
             android:textSize="8sp" />
 
+        <TextView
+            android:id="@+id/textEppTrabajoRiesgo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TextODuplicado"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/epp_s_trabajo_riesgo_el_ctrico"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/textTrabajoRiesgoTapete"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textEppTrabajoRiesgo"
+            android:text="@string/tapete_diel_ctrico" />
+
+        <Spinner
+            android:id="@+id/spinnnerTrabajoRiesgoTapete"
+            style="@style/ComienzaSpinner"
+            android:layout_below="@+id/textEppTrabajoRiesgo"
+            android:layout_toEndOf="@+id/textTrabajoRiesgoTapete" />
+
+        <TextView
+            android:id="@+id/textTrabajoRiesgoCARETA"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textTrabajoRiesgoTapete"
+            android:text="@string/careta" />
+
+        <Spinner
+            android:id="@+id/spinnnerTrabajoRiesgoCARETA"
+            style="@style/ComienzaSpinner"
+            android:layout_below="@+id/textTrabajoRiesgoTapete"
+            android:layout_toEndOf="@+id/textTrabajoRiesgoCARETA" />
+
+        <TextView
+            android:id="@+id/textTrabajoRiesgoOverol"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textTrabajoRiesgoCARETA"
+            android:text="@string/overol_diel_ctrico" />
+
+        <Spinner
+            android:id="@+id/spinnnerTrabajoRiesgoOverol"
+            style="@style/ComienzaSpinner"
+            android:layout_below="@+id/textTrabajoRiesgoCARETA"
+            android:layout_toEndOf="@+id/textTrabajoRiesgoOverol" />
+
+        <TextView
+            android:id="@+id/textTrabajoRiesgoHerramienta"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textTrabajoRiesgoOverol"
+            android:text="@string/herramienta_diel_ctrico" />
+
+        <Spinner
+            android:id="@+id/spinnnerTrabajoRiesgoHerramienta"
+            style="@style/ComienzaSpinner"
+            android:layout_below="@+id/textTrabajoRiesgoOverol"
+            android:layout_toEndOf="@+id/textTrabajoRiesgoHerramienta" />
+
+
+        <TextView
+            android:id="@+id/textEppTrabajoEspaciosConfinados"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textTrabajoRiesgoHerramienta"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/epp_s_trabajo_en_espacios_confinados"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/textTrabajoEspaciosConfinadosCareta"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textEppTrabajoEspaciosConfinados"
+            android:text="@string/careta" />
+
+        <Spinner
+            android:id="@+id/spinnnerTrabajoEspaciosConfinadosCareta"
+            style="@style/ComienzaSpinner"
+            android:layout_below="@+id/textEppTrabajoEspaciosConfinados"
+            android:layout_toEndOf="@+id/textTrabajoEspaciosConfinadosCareta" />
+
+        <TextView
+            android:id="@+id/textTrabajoEspaciosConfinadosLinea"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textTrabajoEspaciosConfinadosCareta"
+            android:text="@string/l_nea_de_vida" />
+
+        <Spinner
+            android:id="@+id/spinnnerTrabajoEspaciosConfinadosLinea"
+            style="@style/ComienzaSpinner"
+            android:layout_below="@+id/textTrabajoEspaciosConfinadosCareta"
+            android:layout_toEndOf="@+id/textTrabajoEspaciosConfinadosLinea" />
+
+        <TextView
+            android:id="@+id/textTrabajoEspaciosConfinadosAndamio"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textTrabajoEspaciosConfinadosLinea"
+            android:text="@string/andamio_certificado" />
+
+        <Spinner
+            android:id="@+id/spinnnerTrabajoEspaciosConfinadosAndamio"
+            style="@style/ComienzaSpinner"
+            android:layout_below="@+id/textTrabajoEspaciosConfinadosLinea"
+            android:layout_toEndOf="@+id/textTrabajoEspaciosConfinadosAndamio" />
+
+
+        <TextView
+            android:id="@+id/textEppTrabajoTrabajoAlturas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textTrabajoEspaciosConfinadosAndamio"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/epp_s_trabajo_en_alturas"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/textTrabajoAlturasEslinga"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textEppTrabajoTrabajoAlturas"
+            android:text="@string/eslinga" />
+
+        <Spinner
+            android:id="@+id/spinnnerTrabajoAlturasEslinga"
+            style="@style/ComienzaSpinner"
+            android:layout_below="@+id/textEppTrabajoTrabajoAlturas"
+            android:layout_toEndOf="@+id/textTrabajoAlturasEslinga" />
+
+        <TextView
+            android:id="@+id/textTrabajoAlturasLinea"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textTrabajoAlturasEslinga"
+            android:text="@string/l_nea_de_vida" />
+
+        <Spinner
+            android:id="@+id/spinnnerTrabajoAlturasLinea"
+            style="@style/ComienzaSpinner"
+            android:layout_below="@+id/textTrabajoAlturasEslinga"
+            android:layout_toEndOf="@+id/textTrabajoAlturasLinea" />
+
+        <TextView
+            android:id="@+id/textTrabajoAlturasAndamio"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textTrabajoAlturasLinea"
+            android:text="@string/andamio_certificado" />
+
+        <Spinner
+            android:id="@+id/spinnnerTrabajoAlturasAndamio"
+            style="@style/ComienzaSpinner"
+            android:layout_below="@+id/textTrabajoAlturasLinea"
+            android:layout_toEndOf="@+id/textTrabajoAlturasAndamio" />
+
+        <TextView
+            android:id="@+id/textTrabajoAlturasArnes"
+            style="@style/ComienzaTexto"
+            android:layout_below="@+id/textTrabajoAlturasAndamio"
+            android:text="@string/arn_s" />
+
+        <Spinner
+            android:id="@+id/spinnnertextTrabajoAlturasArnes"
+            style="@style/ComienzaSpinner"
+            android:layout_below="@+id/textTrabajoAlturasAndamio"
+            android:layout_toEndOf="@+id/textTrabajoAlturasArnes" />
+
+
 
         <TextView
             android:id="@+id/EditDocumentos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/EditOtros"
+            android:layout_below="@+id/textTrabajoAlturasArnes"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
-            android:text="DOCUMENTOS"
+            android:text="@string/documentos"
             android:textColor="@color/black"
             android:textStyle="bold" />
 
@@ -384,7 +555,7 @@
             android:id="@+id/textAtsTrealizar"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/EditDocumentos"
-            android:text="Diligenciamiento de ATS del trabajos a realizar" />
+            android:text="@string/diligenciamiento_de_ats_del_trabajos_a_realizar" />
 
         <Spinner
             android:id="@+id/spinnnerAtsTrealizar"
@@ -396,7 +567,7 @@
             android:id="@+id/textAtsTalturas"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textAtsTrealizar"
-            android:text="Diligenciamiento de ATS de trabajos en Alturas" />
+            android:text="@string/diligenciamiento_de_ats_de_trabajos_en_alturas" />
 
         <Spinner
             android:id="@+id/spinnnerAtsTalturas"
@@ -408,7 +579,7 @@
             android:id="@+id/textAtsTespaciosConfinados"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textAtsTalturas"
-            android:text="Diligenciamiento de ATS de trabajos en espacios confinados" />
+            android:text="@string/diligenciamiento_de_ats_de_trabajos_en_espacios_confinados" />
 
         <Spinner
             android:id="@+id/spinnnerAtsTConfinados"
@@ -420,7 +591,7 @@
             android:id="@+id/textAtscaliente"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textAtsTespaciosConfinados"
-            android:text="Diligenciamiento de ATS de trabajos en caliente" />
+            android:text="@string/diligenciamiento_de_ats_de_trabajos_en_caliente" />
 
         <Spinner
             android:id="@+id/spinnnerAtscaliente"
@@ -439,7 +610,7 @@
             android:layout_marginEnd="20dp"
             android:layout_marginStart="20dp"
             android:padding="1dp"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/todo"
             android:src="@android:drawable/divider_horizontal_bright" />
 
         <TextView
@@ -451,13 +622,13 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_marginTop="20dp"
-            android:text="LOGISTICA" />
+            android:text="@string/logistica" />
 
         <TextView
             android:id="@+id/TextPDuplicado"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textLogistica"
-            android:text="Transporte a Tiempo" />
+            android:text="@string/transporte_a_tiempo" />
 
         <Spinner
             android:id="@+id/spinnnerODuplicado"
@@ -469,7 +640,7 @@
             android:id="@+id/textN"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/TextPDuplicado"
-            android:text="Insumos Completos" />
+            android:text="@string/insumos_completos" />
 
             <Spinner
                 android:id="@+id/spinnnerN"
@@ -481,7 +652,7 @@
             android:id="@+id/textO"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textN"
-            android:text="Pendiente Regoger Insumos" />
+            android:text="@string/pendiente_regoger_insumos" />
 
             <Spinner
                 android:id="@+id/spinnnerO"
@@ -493,7 +664,7 @@
             android:id="@+id/textP"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textO"
-            android:text="Tiempo de Espera al Ingreso" />
+            android:text="@string/tiempo_de_espera_al_ingreso" />
 
             <Spinner
                 android:id="@+id/spinnnerP"
@@ -505,7 +676,7 @@
             android:id="@+id/textQ"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textP"
-            android:text="Timepo de Espera a la Salida" />
+            android:text="@string/timepo_de_espera_a_la_salida" />
 
             <Spinner
                 android:id="@+id/spinnnerQ"
@@ -524,7 +695,7 @@
             android:layout_marginStart="20dp"
             android:padding="1dp"
             android:background="@color/black"
-            android:contentDescription="TODO"
+            android:contentDescription="@string/todo"
             android:src="@android:drawable/divider_horizontal_bright" />
 
         <TextView
@@ -536,13 +707,13 @@
             android:textStyle="bold"
             android:textColor="@color/black"
             android:layout_marginTop="20dp"
-            android:text="SOLICITUDES" />
+            android:text="@string/solicitudes" />
 
         <TextView
             android:id="@+id/textR"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textSolicitudes"
-            android:text="Servicio a Cotizar" />
+            android:text="@string/servicio_a_cotizar" />
 
             <Spinner
                 android:id="@+id/spinnnerR"
@@ -555,7 +726,7 @@
             android:id="@+id/TextTipoServicioRealizado"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/textR"
-            android:text="Tipo de Servicio Realizado" />
+            android:text="@string/tipo_de_servicio_realizado" />
 
         <Spinner
             android:id="@+id/spinnnerTipoServicioRealizado"
@@ -574,7 +745,7 @@
                 android:layout_marginStart="20dp"
                 android:padding="1dp"
                 android:background="@color/black"
-                android:contentDescription="TODO"
+                android:contentDescription="@string/todo"
                 android:src="@android:drawable/divider_horizontal_bright" />
 
             <TextView
@@ -586,13 +757,13 @@
                 android:textStyle="bold"
                 android:textColor="@color/black"
                 android:layout_marginTop="30sp"
-                android:text="SERVICIO" />
+                android:text="@string/servicio" />
 
         <TextView
             android:id="@+id/text2A"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/Generador"
-            android:text="Tipo de Servicio Realizado" />
+            android:text="@string/tipo_de_servicio_realizado" />
 
         <EditText
             android:id="@+id/EditTipoServicio"
@@ -611,7 +782,7 @@
             android:id="@+id/text2B"
             style="@style/ComienzaTexto"
             android:layout_below="@+id/text2A"
-            android:text="Otro" />
+            android:text="@string/otro" />
 
         <EditText
             android:id="@+id/EditOtrosServicios"
@@ -647,7 +818,7 @@
             android:layout_toEndOf="@+id/Camera2"
             android:shadowColor="@color/black"
             android:src="@drawable/ic_baseline_camera"
-            android:text="Camara" />
+            android:text="@string/camara" />
 
         <ImageButton
             android:id="@+id/ButtonCameraSearch"
@@ -660,7 +831,7 @@
             android:layout_toEndOf="@+id/ButtonCamera7"
             android:shadowColor="@color/black"
             android:src="@drawable/ic_baseline_image_search"
-            android:text="Camara" />
+            android:text="@string/camara" />
 
         <ImageButton
             android:id="@+id/ButtonCamera7Upload"
@@ -673,7 +844,7 @@
             android:layout_toEndOf="@+id/ButtonCameraSearch"
             android:shadowColor="@color/black"
             android:src="@drawable/ic_baseline_cloud_upload"
-            android:text="Camara" />
+            android:text="@string/camara" />
 
         <Button
             android:id="@+id/buttonEnviar"
@@ -683,7 +854,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30sp"
             android:layout_marginBottom="20sp"
-            android:text="ENVIAR" />
+            android:text="@string/enviar" />
     </RelativeLayout>
     </ScrollView>
 </layout>

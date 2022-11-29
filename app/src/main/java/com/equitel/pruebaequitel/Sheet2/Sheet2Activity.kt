@@ -105,9 +105,12 @@ class Sheet2Activity : AppCompatActivity() {
         val buenoMaloNA : Array<String> = resources.getStringArray(R.array.buenoMaloNA)
         val buenoMaloNAadapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, buenoMaloNA)
 
+        val SistemaRespaldo : Array<String> = resources.getStringArray(R.array.SistemaRespaldo)
+        val SistemaRespaldoArray = ArrayAdapter(this, android.R.layout.simple_list_item_1, SistemaRespaldo)
+
         val tipoServicio : Array<String> = resources.getStringArray(R.array.OpcionesHoja2)
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, tipoServicio)
-        spinnerAdapter(adapter, adapter1,adaptervhs, adapterPrecalentador, adapterVoltaje, adapterTanque, adapterDisyuntoresParte, adaptercorreas, buenoMaloNAadapter)
+        spinnerAdapter(adapter, adapter1,adaptervhs, adapterPrecalentador, adapterVoltaje, adapterTanque, adapterDisyuntoresParte, adaptercorreas, buenoMaloNAadapter, SistemaRespaldoArray)
 
         binding.spinnner3E.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -175,14 +178,15 @@ class Sheet2Activity : AppCompatActivity() {
     }
 
     private fun spinnerAdapter(adapter : ArrayAdapter<String>, adapter1: ArrayAdapter<String>, adaptervhs: ArrayAdapter<String>, adapterPrecalentador: ArrayAdapter<String>,
-                               adapterVoltaje: ArrayAdapter<String>, adapterTanque: ArrayAdapter<String>,  adapterDisyuntoresParte: ArrayAdapter<String>,  adaptercorreas: ArrayAdapter<String>, buenoMaloNAadapter: ArrayAdapter<String>){
+                               adapterVoltaje: ArrayAdapter<String>, adapterTanque: ArrayAdapter<String>,  adapterDisyuntoresParte: ArrayAdapter<String>,  adaptercorreas: ArrayAdapter<String>, buenoMaloNAadapter: ArrayAdapter<String>,
+                               SistemaRespaldoArray : ArrayAdapter<String>){
         binding.spinnnerA.setAdapter(adapter)
         binding.spinnnerB.setAdapter(adapter)
         binding.spinnnerC.setAdapter(adapter)
         binding.spinnnerD.setAdapter(adapter)
         binding.spinnnerE.setAdapter(adapter)
         binding.spinnnerF.setAdapter(adaptercorreas)
-        binding.spinnnerG.setAdapter(adapter)
+        binding.spinnnerG.setAdapter(buenoMaloNAadapter)
         binding.spinnnerH.setAdapter(buenoMaloNAadapter)
         binding.spinnnerI.setAdapter(adapter)
         binding.spinnnerJ.setAdapter(adapter1)
@@ -203,6 +207,7 @@ class Sheet2Activity : AppCompatActivity() {
         binding.spinnner2G.setAdapter(adapter)
         binding.spinnner2H.setAdapter(adapter)
         binding.spinnner3C.setAdapter(adapterDisyuntoresParte)
+        binding.spinnnerTipoSistemaRespaldo.setAdapter(SistemaRespaldoArray)
         binding.spinnner3D.setAdapter(adapter)
         binding.spinnner3E.setAdapter(adapter1)
         binding.spinnner3G.setAdapter(adapterPrecalentador)
@@ -254,12 +259,13 @@ class Sheet2Activity : AppCompatActivity() {
             almamacenamiento.puenteRectificadorGiratorio =  binding.spinnner2F.selectedItem.toString()
             almamacenamiento.estadoControl =  binding.spinnner2G.selectedItem.toString()
             almamacenamiento.estadoCuartoCabina =  binding.spinnner2H.selectedItem.toString()
-            almamacenamiento.marcaATS = binding.Edit3A.text.toString()
-            almamacenamiento.modelosATS = binding.Edit3B.text.toString()
-            almamacenamiento.tipoDisyuntores =  binding.spinnner3C.selectedItem.toString()
+            almamacenamiento.marcaControlTrasferencia = binding.Edit3A.text.toString()
+            almamacenamiento.modelosControlTrasferencia = binding.Edit3B.text.toString()
+            almamacenamiento.tipoMecanismo =  binding.spinnner3C.selectedItem.toString()
+            almamacenamiento.tipoSistemaRespaldo =  binding.spinnnerTipoSistemaRespaldo.selectedItem.toString()
             almamacenamiento.funcionamientoATS =  binding.spinnner3D.selectedItem.toString()
             almamacenamiento.poseePrecalentador =  binding.spinnner3E.selectedItem.toString()
-            almamacenamiento.modeloPrecalentador =  binding.spinnner3G.selectedItem.toString()
+            almamacenamiento.tipoPrecalentamiento =  binding.spinnner3G.selectedItem.toString()
             almamacenamiento.voltajeOperacion =  binding.spinnner3H.selectedItem.toString()
             almamacenamiento.estadoPrecalentadorATS =  binding.spinnner3I.selectedItem.toString()
             almamacenamiento.estadoManguerasATS =  binding.spinnner3J.selectedItem.toString()
@@ -398,12 +404,16 @@ class Sheet2Activity : AppCompatActivity() {
             val estadoCuartoCabina = condicion(h2)
             binding.spinnner2H.setSelection(estadoCuartoCabina)
 
-            binding.Edit3A.setText(almamacenamiento.marcaATS.toString())
-            binding.Edit3B.setText(almamacenamiento.modelosATS.toString())
+            binding.Edit3A.setText(almamacenamiento.marcaControlTrasferencia.toString())
+            binding.Edit3B.setText(almamacenamiento.modelosControlTrasferencia.toString())
 
-            val c3 = almamacenamiento.tipoDisyuntores.toString()
-            val tipoDisyuntores = condicionDisyuntor(c3)
-            binding.spinnner3C.setSelection(tipoDisyuntores)
+            val c3 = almamacenamiento.tipoMecanismo.toString()
+            val tipoMecanismo = condicionDisyuntor(c3)
+            binding.spinnner3C.setSelection(tipoMecanismo)
+
+            val sistemaRes = almamacenamiento.tipoSistemaRespaldo.toString()
+            val tipoSistemaRespaldo = condicionSistemaRespaldo(sistemaRes)
+            binding.spinnnerTipoSistemaRespaldo.setSelection(tipoSistemaRespaldo)
 
             val d3 = almamacenamiento.funcionamientoATS.toString()
             val funcionamientoATS = condicion(d3)
@@ -413,9 +423,9 @@ class Sheet2Activity : AppCompatActivity() {
             val poseePrecalentador = condicionSiNo(e3)
             binding.spinnner3E.setSelection(poseePrecalentador)
 
-            val g3 = almamacenamiento.modeloPrecalentador.toString()
-            val modeloPrecalentador = condicionResistencia(g3)
-            binding.spinnner3G.setSelection(modeloPrecalentador)
+            val g3 = almamacenamiento.tipoPrecalentamiento.toString()
+            val tipoPrecalentamiento = condicionResistencia(g3)
+            binding.spinnner3G.setSelection(tipoPrecalentamiento)
 
             val h3 = almamacenamiento.voltajeOperacion.toString()
             val voltajeOperacion = condicionVoltaje(h3)
@@ -476,8 +486,22 @@ class Sheet2Activity : AppCompatActivity() {
     private fun condicionDisyuntor(valor : String): Int{
         var posicion : Int = 0
         when(valor){
-            "INT.CAJA MOLDEADA"-> posicion = 1
-            "INT. EXTRAIBLE"-> posicion = 2
+            "CONTACTOR"-> posicion = 1
+            "INTERRUPTOR"-> posicion = 2
+            "INTERRUPTOR MOTORIZADO"-> posicion = 3
+            "DOBLE TIRO"-> posicion = 4
+            "MANUAL"-> posicion = 5
+        }
+        return posicion
+    }
+
+    private fun condicionSistemaRespaldo(valor : String): Int{
+        var posicion : Int = 0
+        when(valor){
+            "ATS PLANTA- RED"-> posicion = 1
+            "ATS PLANTA-PLANTA"-> posicion = 2
+            "ATS RED-PLANTA-PLANTA DOBLE TIRO"-> posicion = 3
+            "SISTEMA DE SINCRONISMO"-> posicion = 4
         }
         return posicion
     }

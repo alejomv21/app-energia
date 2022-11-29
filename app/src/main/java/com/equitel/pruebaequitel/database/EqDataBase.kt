@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.equitel.pruebaequitel.Almacenamiento
 import com.equitel.pruebaequitel.SerialPlanta
 
-@Database(entities = [Almacenamiento::class], version = 37)
+@Database(entities = [Almacenamiento::class], version = 39)
 abstract class EqDataBase : RoomDatabase(){
     abstract val eqDao : EqDao
 }

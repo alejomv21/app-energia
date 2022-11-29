@@ -21,6 +21,7 @@ import androidx.core.content.FileProvider
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.equitel.pruebaequitel.Picture.PictureActivity
 import com.equitel.pruebaequitel.R
 import com.equitel.pruebaequitel.SearchActivity
 
@@ -97,7 +98,7 @@ class Sheet7Activity : AppCompatActivity() {
         binding.buttonEnviar.setOnClickListener {
             Toast.makeText(this, "ELEMENTOS GUARDADOS ", Toast.LENGTH_SHORT).show()
             guardar()
-            val intent = Intent(this, ActivitySheet5::class.java)
+            val intent = Intent(this, PictureActivity::class.java)
             startActivity(intent)
         }
 
@@ -114,6 +115,20 @@ class Sheet7Activity : AppCompatActivity() {
         binding.spinnnerL.setAdapter(adapter1)
         binding.spinnnerM.setAdapter(adapter1)
         binding.spinnnerNDuplicado.setAdapter(adapter1)
+
+        binding.spinnnerTrabajoRiesgoTapete.setAdapter(adapter1)
+        binding.spinnnerTrabajoRiesgoCARETA.setAdapter(adapter1)
+        binding.spinnnerTrabajoRiesgoOverol.setAdapter(adapter1)
+        binding.spinnnerTrabajoRiesgoHerramienta.setAdapter(adapter1)
+        binding.spinnnerTrabajoEspaciosConfinadosCareta.setAdapter(adapter1)
+        binding.spinnnerTrabajoEspaciosConfinadosLinea.setAdapter(adapter1)
+        binding.spinnnerTrabajoEspaciosConfinadosAndamio.setAdapter(adapter1)
+        binding.spinnnerTrabajoAlturasEslinga.setAdapter(adapter1)
+        binding.spinnnerTrabajoAlturasLinea.setAdapter(adapter1)
+        binding.spinnnerTrabajoAlturasAndamio.setAdapter(adapter1)
+        binding.spinnnertextTrabajoAlturasArnes.setAdapter(adapter1)
+
+
         binding.spinnnerN.setAdapter(siNoNaAadapter)
         binding.spinnnerO.setAdapter(adapter1)
         binding.spinnnerODuplicado.setAdapter(siNoNaAadapter)
@@ -148,6 +163,19 @@ class Sheet7Activity : AppCompatActivity() {
             almamacenamiento.overol =  binding.spinnnerM.selectedItem.toString()
             almamacenamiento.gafas =  binding.spinnnerNDuplicado.selectedItem.toString()
             almamacenamiento.otros =  binding.EditOtros.text.toString()
+
+            almamacenamiento.trabajoRiesgoTapete =  binding.spinnnerTrabajoRiesgoTapete.selectedItem.toString()
+            almamacenamiento.trabajoRiesgoCareta =  binding.spinnnerTrabajoRiesgoCARETA.selectedItem.toString()
+            almamacenamiento.trabajoRiesgoOverol =  binding.spinnnerTrabajoRiesgoOverol.selectedItem.toString()
+            almamacenamiento.trabajoRiesgoHerramienta =  binding.spinnnerTrabajoRiesgoHerramienta.selectedItem.toString()
+            almamacenamiento.trabajoEspaciosConfinadosCareta =  binding.spinnnerTrabajoEspaciosConfinadosCareta.selectedItem.toString()
+            almamacenamiento.trabajoEspaciosConfinadosLinea =  binding.spinnnerTrabajoEspaciosConfinadosLinea.selectedItem.toString()
+            almamacenamiento.trabajoEspaciosConfinadosAndamio =  binding.spinnnerTrabajoEspaciosConfinadosAndamio.selectedItem.toString()
+            almamacenamiento.trabajoAlturasEslinga =  binding.spinnnerTrabajoAlturasEslinga.selectedItem.toString()
+            almamacenamiento.trabajoAlturasLinea =  binding.spinnnerTrabajoAlturasLinea.selectedItem.toString()
+            almamacenamiento.trabajoAlturasAndamio =  binding.spinnnerTrabajoAlturasAndamio.selectedItem.toString()
+            almamacenamiento.trabajoAlturasArnes =  binding.spinnnertextTrabajoAlturasArnes.selectedItem.toString()
+
             almamacenamiento.transporteATimepo =  binding.spinnnerODuplicado.selectedItem.toString()
             almamacenamiento.insumosCompletos =  binding.spinnnerN.selectedItem.toString()
             almamacenamiento.pendienteRecogerInsumos =  binding.spinnnerO.selectedItem.toString()

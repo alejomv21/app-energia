@@ -1,9 +1,13 @@
 package com.equitel.pruebaequitel.Sheet8
 
 import com.equitel.pruebaequitel.Almacenamiento
+import com.equitel.pruebaequitel.api.CloudFunctions
+import com.equitel.pruebaequitel.api.service
 import com.equitel.pruebaequitel.database.EqDataBase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import okhttp3.ResponseBody
+import javax.security.auth.callback.Callback
 
 class Sheet8Repository (private val database : EqDataBase){
 
@@ -25,5 +29,11 @@ class Sheet8Repository (private val database : EqDataBase){
             database.eqDao.getAlmacenamientoID(id)
         }
     }
+
+    /*suspend fun enviarDataPdf(almacenamiento: Almacenamiento){
+        return withContext(Dispatchers.IO){
+            val response = CloudFunctions.retrofitService.postEnvioPdf(almacenamiento)
+        }
+    }*/
 
 }

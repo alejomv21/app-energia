@@ -62,8 +62,11 @@ class Sheet6Activity : AppCompatActivity() {
         val buenoMaloNA : Array<String> = resources.getStringArray(R.array.buenoMaloNA)
         val buenoMaloNAadapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, buenoMaloNA)
 
+        val sistemaRespaldo : Array<String> = resources.getStringArray(R.array.SistemaRespaldo)
+        val sistemaRespaldoArray = ArrayAdapter(this, android.R.layout.simple_list_item_1, sistemaRespaldo)
 
-        spinnerAdapter(adapter, adapter1,adaptervhs, adapterPrecalentador, adapterVoltaje, adapterTanque, adapterDisyuntoresParte, adaptercorreas, buenoMaloNAadapter)
+
+        spinnerAdapter(adapter, adapter1,adaptervhs, adapterPrecalentador, adapterVoltaje, adapterTanque, adapterDisyuntoresParte, adaptercorreas, buenoMaloNAadapter, sistemaRespaldoArray)
         //spinerHoja3(buenoMaloadapter, onOfMaloadapter, manOfOutadapter, adapter, adapter1)
 
         val almacenamiento = intent?.extras?.getParcelable<Almacenamiento>(EQ_KEY)!!
@@ -82,14 +85,15 @@ class Sheet6Activity : AppCompatActivity() {
     }
 
     private fun spinnerAdapter(adapter : ArrayAdapter<String>, adapter1: ArrayAdapter<String>, adaptervhs: ArrayAdapter<String>, adapterPrecalentador: ArrayAdapter<String>,
-                               adapterVoltaje: ArrayAdapter<String>, adapterTanque: ArrayAdapter<String>,  adapterDisyuntoresParte: ArrayAdapter<String>, adaptercorreas: ArrayAdapter<String>, buenoMaloNAadapter:ArrayAdapter<String>){
+                               adapterVoltaje: ArrayAdapter<String>, adapterTanque: ArrayAdapter<String>,  adapterDisyuntoresParte: ArrayAdapter<String>, adaptercorreas: ArrayAdapter<String>, buenoMaloNAadapter:ArrayAdapter<String>,
+                               sistemaRespaldoArray : ArrayAdapter<String>){
         binding.spinnnerA.setAdapter(adapter)
         binding.spinnnerB.setAdapter(adapter)
         binding.spinnnerC.setAdapter(adapter)
         binding.spinnnerD.setAdapter(adapter)
         binding.spinnnerE.setAdapter(adapter)
         binding.spinnnerF.setAdapter(adaptercorreas)
-        binding.spinnnerG.setAdapter(adapter)
+        binding.spinnnerG.setAdapter(buenoMaloNAadapter)
         binding.spinnnerH.setAdapter(buenoMaloNAadapter)
         binding.spinnnerI.setAdapter(adapter)
         binding.spinnnerJ.setAdapter(adapter1)
@@ -110,6 +114,7 @@ class Sheet6Activity : AppCompatActivity() {
         binding.spinnner2G.setAdapter(adapter)
         binding.spinnner2H.setAdapter(adapter)
         binding.spinnner3C.setAdapter(adapterDisyuntoresParte)
+        binding.spinnnerTipoSistemaRespaldo.setAdapter(sistemaRespaldoArray)
         binding.spinnner3D.setAdapter(adapter)
         binding.spinnner3E.setAdapter(adapter1)
         binding.spinnner3G.setAdapter(adapterPrecalentador)
@@ -250,12 +255,16 @@ class Sheet6Activity : AppCompatActivity() {
         val estadoCuartoCabina = condicion(h2)
         binding.spinnner2H.setSelection(estadoCuartoCabina)
 
-        binding.Edit3A.setText(almacenamiento.marcaATS.toString())
-        binding.Edit3B.setText(almacenamiento.modelosATS.toString())
+        binding.Edit3A.setText(almacenamiento.marcaControlTrasferencia.toString())
+        binding.Edit3B.setText(almacenamiento.modelosControlTrasferencia.toString())
 
-        val c3 = almacenamiento.tipoDisyuntores.toString()
-        val tipoDisyuntores = condicionDisyuntor(c3)
-        binding.spinnner3C.setSelection(tipoDisyuntores)
+        val c3 = almacenamiento.tipoMecanismo.toString()
+        val tipoMecanismo = condicionDisyuntor(c3)
+        binding.spinnner3C.setSelection(tipoMecanismo)
+
+        val sistemaRes = almacenamiento.tipoSistemaRespaldo.toString()
+        val tipoSistemaRespaldo = condicionSistemaRespaldo(sistemaRes)
+        binding.spinnnerTipoSistemaRespaldo.setSelection(tipoSistemaRespaldo)
 
         val d3 = almacenamiento.funcionamientoATS.toString()
         val funcionamientoATS = condicion(d3)
@@ -265,9 +274,9 @@ class Sheet6Activity : AppCompatActivity() {
         val poseePrecalentador = condicionSiNo(e3)
         binding.spinnner3E.setSelection(poseePrecalentador)
 
-        val g3 = almacenamiento.modeloPrecalentador.toString()
-        val modeloPrecalentador = condicionResistencia(g3)
-        binding.spinnner3G.setSelection(modeloPrecalentador)
+        val g3 = almacenamiento.tipoPrecalentamiento.toString()
+        val tipoPrecalentamiento = condicionResistencia(g3)
+        binding.spinnner3G.setSelection(tipoPrecalentamiento)
 
         val h3 = almacenamiento.voltajeOperacion.toString()
         val voltajeOperacion = condicionVoltaje(h3)
@@ -355,12 +364,13 @@ class Sheet6Activity : AppCompatActivity() {
         almacenamiento.puenteRectificadorGiratorio =  binding.spinnner2F.selectedItem.toString()
         almacenamiento.estadoControl =  binding.spinnner2G.selectedItem.toString()
         almacenamiento.estadoCuartoCabina =  binding.spinnner2H.selectedItem.toString()
-        almacenamiento.marcaATS = binding.Edit3A.text.toString()
-        almacenamiento.modelosATS = binding.Edit3B.text.toString()
-        almacenamiento.tipoDisyuntores =  binding.spinnner3C.selectedItem.toString()
+        almacenamiento.marcaControlTrasferencia = binding.Edit3A.text.toString()
+        almacenamiento.modelosControlTrasferencia = binding.Edit3B.text.toString()
+        almacenamiento.tipoMecanismo =  binding.spinnner3C.selectedItem.toString()
+        almacenamiento.tipoSistemaRespaldo =  binding.spinnnerTipoSistemaRespaldo.selectedItem.toString()
         almacenamiento.funcionamientoATS =  binding.spinnner3D.selectedItem.toString()
         almacenamiento.poseePrecalentador =  binding.spinnner3E.selectedItem.toString()
-        almacenamiento.modeloPrecalentador =  binding.spinnner3G.selectedItem.toString()
+        almacenamiento.tipoPrecalentamiento =  binding.spinnner3G.selectedItem.toString()
         almacenamiento.voltajeOperacion =  binding.spinnner3H.selectedItem.toString()
         almacenamiento.estadoPrecalentadorATS =  binding.spinnner3I.selectedItem.toString()
         almacenamiento.estadoManguerasATS =  binding.spinnner3J.selectedItem.toString()
@@ -437,11 +447,27 @@ class Sheet6Activity : AppCompatActivity() {
     private fun condicionDisyuntor(valor : String): Int{
         var posicion : Int = 0
         when(valor){
-            "INT.CAJA MOLDEADA"-> posicion = 1
-            "INT. EXTRAIBLE"-> posicion = 2
+            "CONTACTOR"-> posicion = 1
+            "INTERRUPTOR"-> posicion = 2
+            "INTERRUPTOR MOTORIZADO"-> posicion = 3
+            "DOBLE TIRO"-> posicion = 4
+            "MANUAL"-> posicion = 5
         }
         return posicion
     }
+
+    private fun condicionSistemaRespaldo(valor : String): Int{
+        var posicion : Int = 0
+        when(valor){
+            "ATS PLANTA-RED"-> posicion = 1
+            "ATS PLANTA-PLANTA"-> posicion = 2
+            "ATS RED-PLANTA-PLANTA DOBLE TIRO"-> posicion = 3
+            "SISTEMA DE SINCRONISMO"-> posicion = 4
+        }
+        return posicion
+    }
+
+
     private fun condicionVHS(valor : String): Int{
         var posicion : Int = 0
         when(valor){

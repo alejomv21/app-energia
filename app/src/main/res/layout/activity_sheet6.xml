@@ -32,7 +32,7 @@
                 android:layout_marginTop="0dp"
                 android:layout_marginBottom="10sp"
                 android:gravity="left"
-                android:text="FECHA:"
+                android:text="@string/fecha"
                 android:textColor="@color/black"
                 android:textSize="13sp" />
 
@@ -58,7 +58,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="left"
-                android:text="CIUDAD:"
+                android:text="@string/ciudad"
                 android:textColor="@color/black"
                 android:textSize="13sp" />
 
@@ -140,7 +140,7 @@
                 android:layout_below="@id/checkBoxGasol"
                 android:layout_marginStart="60dp"
                 android:layout_toEndOf="@id/checkBoxAbierto"
-                android:text="GAS"
+                android:text="@string/gas"
                 android:textSize="10sp" />
 
             <CheckBox
@@ -177,7 +177,7 @@
                 android:layout_marginStart="20dp"
                 android:padding="1dp"
                 android:background="@color/black"
-                android:contentDescription="TODO"
+                android:contentDescription="@string/todo"
                 android:src="@android:drawable/divider_horizontal_bright" />
 
             <TextView
@@ -210,7 +210,7 @@
                 android:id="@+id/TextSede"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditDir"
-                android:text="SEDE:" />
+                android:text="@string/sede" />
 
             <AutoCompleteTextView
                 android:id="@+id/EditSede"
@@ -346,7 +346,7 @@
                 android:id="@+id/TextSerialMotor"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditModPlanta"
-                android:text="S/N MOTOR" />
+                android:text="@string/s_n_motor" />
 
             <AutoCompleteTextView
                 android:id="@+id/EditSerialMotor"
@@ -359,7 +359,7 @@
                 android:id="@+id/TextSerialGenerador"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditSerialMotor"
-                android:text="S/N GENERADOR" />
+                android:text="@string/s_n_generador" />
 
             <AutoCompleteTextView
                 android:id="@+id/EditSerialGenerador"
@@ -372,7 +372,7 @@
                 android:id="@+id/TextSerialPlanta"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditSerialGenerador"
-                android:text="S/N PLANTA" />
+                android:text="@string/s_n_planta" />
 
             <AutoCompleteTextView
                 android:id="@+id/EditSerialPlanta"
@@ -408,7 +408,7 @@
                 android:id="@+id/TextCantidad"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditTipoBateria"
-                android:text="CANTIDAD" />
+                android:text="@string/cantidad" />
 
             <EditText
                 android:id="@+id/EditCantidad"
@@ -420,7 +420,7 @@
                 android:id="@+id/TextKW"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditCantidad"
-                android:text="KW" />
+                android:text="@string/kw" />
 
             <EditText
                 android:id="@+id/EditKW"
@@ -432,7 +432,7 @@
                 android:id="@+id/TextSpec"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditKW"
-                android:text="SPEC:" />
+                android:text="@string/spec" />
 
             <EditText
                 android:id="@+id/EditSpec"
@@ -444,7 +444,7 @@
                 android:id="@+id/TextNArranques"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditSpec"
-                android:text="N°ARRANQUES:" />
+                android:text="@string/n_arranques" />
 
             <EditText
                 android:id="@+id/EditNArranques"
@@ -457,7 +457,7 @@
                 android:id="@+id/TextHorasMotor"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditNArranques"
-                android:text="HORAS MOTOR:" />
+                android:text="@string/horas_motor" />
 
             <EditText
                 android:id="@+id/EditHorasMotor"
@@ -469,7 +469,7 @@
                 android:id="@+id/TextTipoControl"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditHorasMotor"
-                android:text="TIPO CONTROL:" />
+                android:text="@string/tipo_control" />
 
             <EditText
                 android:id="@+id/EditTipoControl"
@@ -481,7 +481,7 @@
                 android:id="@+id/TextHorasControl"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditTipoControl"
-                android:text="HORAS CONTROL:" />
+                android:text="@string/horas_control" />
 
             <EditText
                 android:id="@+id/EditHorasControl"
@@ -493,7 +493,7 @@
                 android:id="@+id/TextTecnicosCargo"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditHorasControl"
-                android:text="TECNICOS A CARGO" />
+                android:text="@string/tecnicos_a_cargo" />
 
             <AutoCompleteTextView
                 android:id="@+id/EditTecnicosCargo1"
@@ -511,7 +511,7 @@
                 android:id="@+id/TextPromotionID"
                 style="@style/StartTextView"
                 android:layout_below="@+id/EditTecnicosCargo2"
-                android:text="PROMOTION ID:" />
+                android:text="@string/promotion_id" />
 
             <AutoCompleteTextView
                 android:id="@+id/EditPromotionID"
@@ -523,7 +523,7 @@
                 android:id="@+id/TextMotivoVisita"
                 style="@style/StartTextView"
                 android:layout_below="@+id/TextPromotionID"
-                android:text="MOTIVO VISITA:" />
+                android:text="@string/motivo_visita" />
 
             <AutoCompleteTextView
                 android:id="@+id/EditMotivoVisita"
@@ -538,7 +538,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/EditMotivoVisita"
                 android:layout_marginTop="20dp"
-                android:text="II. ESTADO INICIAL" />
+                android:text="@string/ii_estado_inicial" />
 
             <ImageView
                 android:id="@+id/imageViewSeparatorEstado"
@@ -549,7 +549,7 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="20dp"
                 android:background="@color/black"
-                android:contentDescription="TODO"
+                android:contentDescription="@string/todo"
                 android:padding="1dp"
                 android:src="@android:drawable/divider_horizontal_bright" />
 
@@ -559,7 +559,7 @@
                 android:layout_below="@+id/imageViewSeparatorEstado"
                 android:layout_marginStart="20dp"
                 android:layout_toEndOf="@+id/textA"
-                android:text="ESTADO"
+                android:text="@string/estado"
                 android:textColor="@color/black" />
             <TextView
                 android:id="@+id/TextMedida"
@@ -567,7 +567,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/imageViewSeparatorEstado"
                 android:layout_alignParentEnd="true"
-                android:text="MEDIDA" />
+                android:text="@string/medida" />
 
             <ImageView
                 android:id="@+id/imageViewSeparatorMedida"
@@ -578,14 +578,14 @@
                 android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
                 android:padding="1dp"
-                android:contentDescription="TODO"
+                android:contentDescription="@string/todo"
                 android:src="@android:drawable/divider_horizontal_bright" />
 
             <TextView
                 android:id="@+id/textA"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/imageViewSeparatorMedida"
-                android:text="A. Nivel Aceite: " />
+                android:text="@string/a_nivel_aceite" />
 
             <Spinner
                 android:id="@+id/spinnnerA"
@@ -601,15 +601,16 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:textSize="8sp"
                 android:background="@drawable/style_etbg"
-                android:gravity="center" />
+                android:gravity="center"
+                android:inputType="number"
+                android:textSize="8sp" />
 
             <TextView
                 android:id="@+id/textB"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textA"
-                android:text="B. Estado Radiador" />
+                android:text="@string/b_estado_radiador" />
 
             <Spinner
                 android:id="@+id/spinnnerB"
@@ -621,7 +622,7 @@
                 android:id="@+id/textC"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textB"
-                android:text="C. Nivel Agua Radiador" />
+                android:text="@string/c_nivel_agua_radiador" />
 
             <Spinner
                 android:id="@+id/spinnnerC"
@@ -633,7 +634,7 @@
                 android:id="@+id/textD"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textC"
-                android:text="D. Aspas Ventilador" />
+                android:text="@string/d_aspas_ventilador" />
 
             <Spinner
                 android:id="@+id/spinnnerD"
@@ -645,7 +646,7 @@
                 android:id="@+id/textE"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textD"
-                android:text="E. Bomes Baterías" />
+                android:text="@string/e_bomes_bater_as" />
 
             <Spinner
                 android:id="@+id/spinnnerE"
@@ -657,7 +658,7 @@
                 android:id="@+id/textF"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textE"
-                android:text="F. Nivel Agua Baterías" />
+                android:text="@string/f_nivel_agua_bater_as" />
 
             <Spinner
                 android:id="@+id/spinnnerF"
@@ -669,7 +670,7 @@
                 android:id="@+id/textG"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textF"
-                android:text="G. Densidad Electrolito 1220 a 1260" />
+                android:text="@string/g_densidad_electrolitos" />
 
             <Spinner
                 android:id="@+id/spinnnerG"
@@ -681,7 +682,7 @@
                 android:id="@+id/textH"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textG"
-                android:text="H. Voltaje Baterías > 12 ó 24" />
+                android:text="@string/h_voltaje_bater_as_12_24" />
 
             <EditText
                 android:id="@+id/EditVoltajeBateria"
@@ -693,6 +694,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:inputType="number"
                 android:textSize="8sp" />
 
             <Spinner
@@ -705,7 +707,7 @@
                 android:id="@+id/textI"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textH"
-                android:text="I. Cargador Funciona > 12 ó 24 >14.4 ó 28.8 Vdc" />
+                android:text="@string/i_cargador_funciona_12_24_14_4_28_8_vdc" />
 
             <Spinner
                 android:id="@+id/spinnnerI"
@@ -723,13 +725,14 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
+                android:inputType="number"
                 android:textSize="8sp" />
 
             <TextView
                 android:id="@+id/textJ"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textI"
-                android:text="J. Correas Tensionadas" />
+                android:text="@string/j_correas_tensionadas" />
 
             <Spinner
                 android:id="@+id/spinnnerJ"
@@ -741,7 +744,7 @@
                 android:id="@+id/textK"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textJ"
-                android:text="K. Estado del Filtro del Aire" />
+                android:text="@string/k_estado_del_filtro_del_aire" />
 
             <Spinner
                 android:id="@+id/spinnnerK"
@@ -753,7 +756,7 @@
                 android:id="@+id/textL"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textK"
-                android:text="L. Estado de Mangueras" />
+                android:text="@string/l_estado_de_mangueras" />
 
             <Spinner
                 android:id="@+id/spinnnerL"
@@ -766,7 +769,7 @@
                 android:id="@+id/TextNDuplicado"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textL"
-                android:text="M. Estado Tapa Radiador" />
+                android:text="@string/m_estado_tapa_radiador" />
 
             <Spinner
                 android:id="@+id/spinnnerNDuplicado"
@@ -778,7 +781,7 @@
                 android:id="@+id/TextODuplicado"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/TextNDuplicado"
-                android:text="N. Presion Tapa de Radiador (PSI)" />
+                android:text="@string/n_presion_tapa_de_radiador_psi" />
 
             <EditText
                 android:id="@+id/EditODuplicado"
@@ -791,14 +794,14 @@
                 android:layout_toEndOf="@+id/TextPDuplicado"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
-                android:hint="PSI" />
+                android:hint="@string/psi" />
 
 
             <TextView
                 android:id="@+id/TextPDuplicado"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/TextODuplicado"
-                android:text="O. Dimensiones Tapa Radiador (mm)" />
+                android:text="@string/o_dimensiones_tapa_radiador_mm" />
 
             <EditText
                 android:id="@+id/EditPDuplicado"
@@ -817,7 +820,7 @@
                 android:id="@+id/textN"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/TextPDuplicado"
-                android:text="P. Estado de Racores" />
+                android:text="@string/p_estado_de_racores" />
 
             <Spinner
                 android:id="@+id/spinnnerN"
@@ -829,7 +832,7 @@
                 android:id="@+id/textO"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textN"
-                android:text="Q. Fugas" />
+                android:text="@string/q_fugas" />
 
             <Spinner
                 android:id="@+id/spinnnerO"
@@ -841,7 +844,7 @@
                 android:id="@+id/textP"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textO"
-                android:text="R. Estado Combustibles (Galones)" />
+                android:text="@string/r_estado_combustibles_galones" />
 
             <Spinner
                 android:id="@+id/spinnnerP"
@@ -859,14 +862,15 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
-                android:textSize="8sp"
-                android:hint="Galones"/>
+                android:inputType="number"
+                android:hint="@string/galones"
+                android:textSize="8sp" />
 
             <TextView
                 android:id="@+id/textQ"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textP"
-                android:text="S. Disposicion del Tanque" />
+                android:text="@string/s_disposicion_del_tanque" />
 
             <Spinner
                 android:id="@+id/spinnnerQ"
@@ -884,14 +888,15 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
-                android:textSize="8sp"
-                android:hint="Galones"/>
+                android:inputType="number"
+                android:hint="@string/galones"
+                android:textSize="8sp" />
 
             <TextView
                 android:id="@+id/textR"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/textQ"
-                android:text="T. Forma Tanque" />
+                android:text="@string/t_forma_tanque" />
 
             <Spinner
                 android:id="@+id/spinnnerR"
@@ -899,14 +904,84 @@
                 android:layout_below="@+id/textQ"
                 android:layout_toEndOf="@+id/textQ" />
 
+            <TextView
+                android:id="@+id/text3E"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/textR"
+                android:layout_marginTop="21dp"
+                android:text="@string/e_posee_precalentador" />
+
+            <Spinner
+                android:id="@+id/spinnner3E"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/textR"
+                android:layout_toEndOf="@+id/text3E" />
+
+            <TextView
+                android:id="@+id/text3G"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/text3E"
+                android:text="@string/g_tipo_de_precalentamiento"
+                android:visibility="gone" />
+
+            <Spinner
+                android:id="@+id/spinnner3G"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/text3E"
+                android:layout_toEndOf="@+id/text3G"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/text3H"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/text3G"
+                android:text="@string/h_voltaje_de_operacion"
+                android:visibility="gone" />
+
+            <Spinner
+                android:id="@+id/spinnner3H"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/text3G"
+                android:layout_toEndOf="@+id/text3H"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/text3I"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/text3H"
+                android:text="@string/i_estado_de_precalentador"
+                android:visibility="gone" />
+
+            <Spinner
+                android:id="@+id/spinnner3I"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/text3H"
+                android:layout_toEndOf="@+id/text3I"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/text3J"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/text3I"
+                android:text="@string/g_estado_de_mangueras_de_precalentador"
+                android:visibility="gone" />
+
+            <Spinner
+                android:id="@+id/spinnner3J"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/text3I"
+                android:layout_toEndOf="@+id/text3J"
+                android:visibility="gone" />
+
+
             <ImageView
                 android:id="@+id/imageViewSeparator1"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/textR"
+                android:layout_below="@+id/text3J"
                 android:layout_marginTop="20dp"
                 android:background="@color/black"
-                android:contentDescription="TODO"
+                android:contentDescription="@string/todo"
                 android:src="@android:drawable/divider_horizontal_bright" />
 
             <TextView
@@ -916,13 +991,13 @@
                 android:layout_below="@+id/imageViewSeparator1"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30sp"
-                android:text="2. GENERADOR" />
+                android:text="@string/_2_generador" />
 
             <TextView
                 android:id="@+id/text2A"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/Generador"
-                android:text="A. Estado Generador" />
+                android:text="@string/a_estado_generador" />
 
             <Spinner
                 android:id="@+id/spinnner2A"
@@ -934,7 +1009,7 @@
                 android:id="@+id/text2B"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text2A"
-                android:text="B. Aspas Ventilador" />
+                android:text="@string/b_aspas_ventilador" />
 
             <Spinner
                 android:id="@+id/spinnner2B"
@@ -946,7 +1021,7 @@
                 android:id="@+id/text2C"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text2B"
-                android:text="C. Conexión de Potencia" />
+                android:text="@string/c_conexi_n_de_potencia" />
 
             <Spinner
                 android:id="@+id/spinnner2C"
@@ -958,7 +1033,7 @@
                 android:id="@+id/text2D"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text2C"
-                android:text="D. Conexión Cableado Control" />
+                android:text="@string/d_conexi_n_cableado_control" />
 
             <Spinner
                 android:id="@+id/spinnner2D"
@@ -970,7 +1045,7 @@
                 android:id="@+id/text2E"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text2D"
-                android:text="E. Objetos Extraños en el Interior" />
+                android:text="@string/e_objetos_extra_os_en_el_interior" />
 
             <Spinner
                 android:id="@+id/spinnner2E"
@@ -982,7 +1057,7 @@
                 android:id="@+id/text2F"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text2E"
-                android:text="F. Puente Rectificador Giratoio" />
+                android:text="@string/f_puente_rectificador_giratoio" />
 
             <Spinner
                 android:id="@+id/spinnner2F"
@@ -994,7 +1069,7 @@
                 android:id="@+id/text2G"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text2F"
-                android:text="G. Estado de Control" />
+                android:text="@string/g_estado_de_control" />
 
             <Spinner
                 android:id="@+id/spinnner2G"
@@ -1006,7 +1081,7 @@
                 android:id="@+id/text2H"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text2G"
-                android:text="H. Estado Cuarto/Cabina" />
+                android:text="@string/h_estado_cuarto_cabina" />
 
             <Spinner
                 android:id="@+id/spinnner2H"
@@ -1033,13 +1108,13 @@
                 android:layout_below="@+id/imageViewSeparatorPerifericos"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30sp"
-                android:text="3. PERIFERICOS" />
+                android:text="@string/_3_transferencia_automatica" />
 
             <TextView
                 android:id="@+id/text3A"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/Perifericos"
-                android:text="A. Marca de ATS" />
+                android:text="@string/a_marca_de_control_de_transferencia" />
 
             <EditText
                 android:id="@+id/Edit3A"
@@ -1057,7 +1132,7 @@
                 android:id="@+id/text3B"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text3A"
-                android:text="B. Modelo ATS" />
+                android:text="@string/b_modelo_de_control_de_transferencia" />
 
             <EditText
                 android:id="@+id/Edit3B"
@@ -1075,7 +1150,7 @@
                 android:id="@+id/text3C"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text3B"
-                android:text="C. Tipo de Disyuntores" />
+                android:text="@string/c_tipo_de_mecanismo" />
 
             <Spinner
                 android:id="@+id/spinnner3C"
@@ -1084,92 +1159,34 @@
                 android:layout_toEndOf="@+id/text3C" />
 
             <TextView
-                android:id="@+id/text3D"
+                android:id="@+id/textTipoSistemaRespaldo"
                 style="@style/ComienzaTexto"
                 android:layout_below="@+id/text3C"
-                android:text="D. Funcionamiento de ATS" />
+                android:text="@string/c_tipo_de_sistema_de_respaldo" />
+
+            <Spinner
+                android:id="@+id/spinnnerTipoSistemaRespaldo"
+                style="@style/ComienzaSpinner"
+                android:layout_below="@+id/text3C"
+                android:layout_toEndOf="@+id/textTipoSistemaRespaldo" />
+
+            <TextView
+                android:id="@+id/text3D"
+                style="@style/ComienzaTexto"
+                android:layout_below="@+id/textTipoSistemaRespaldo"
+                android:text="@string/d_funcionamiento_de_ats" />
 
             <Spinner
                 android:id="@+id/spinnner3D"
                 style="@style/ComienzaSpinner"
-                android:layout_below="@+id/text3C"
+                android:layout_below="@+id/textTipoSistemaRespaldo"
                 android:layout_toEndOf="@+id/text3D" />
-
-            <TextView
-                android:id="@+id/text3E"
-                style="@style/ComienzaTexto"
-                android:layout_below="@+id/text3D"
-                android:layout_marginTop="21dp"
-                android:text="E. Posee Precalentador" />
-
-            <Spinner
-                android:id="@+id/spinnner3E"
-                style="@style/ComienzaSpinner"
-                android:layout_below="@+id/text3D"
-                android:layout_toEndOf="@+id/text3E" />
-
-            <TextView
-                android:id="@+id/text3G"
-                style="@style/ComienzaTexto"
-                android:layout_below="@+id/text3E"
-                android:text="G. Modelo de Precalentador"
-                android:visibility="gone" />
-
-            <Spinner
-                android:id="@+id/spinnner3G"
-                style="@style/ComienzaSpinner"
-                android:layout_below="@+id/text3E"
-                android:layout_toEndOf="@+id/text3G"
-                android:visibility="gone" />
-
-            <TextView
-                android:id="@+id/text3H"
-                style="@style/ComienzaTexto"
-                android:layout_below="@+id/text3G"
-                android:text="H. Voltaje de Operacion"
-                android:visibility="gone" />
-
-            <Spinner
-                android:id="@+id/spinnner3H"
-                style="@style/ComienzaSpinner"
-                android:layout_below="@+id/text3G"
-                android:layout_toEndOf="@+id/text3H"
-                android:visibility="gone" />
-
-            <TextView
-                android:id="@+id/text3I"
-                style="@style/ComienzaTexto"
-                android:layout_below="@+id/text3H"
-                android:text="I. Estado de Precalentador"
-                android:visibility="gone" />
-
-            <Spinner
-                android:id="@+id/spinnner3I"
-                style="@style/ComienzaSpinner"
-                android:layout_below="@+id/text3H"
-                android:layout_toEndOf="@+id/text3I"
-                android:visibility="gone" />
-
-            <TextView
-                android:id="@+id/text3J"
-                style="@style/ComienzaTexto"
-                android:layout_below="@+id/text3I"
-                android:text="G. Estado de Mangueras de Precalentador"
-                android:visibility="gone" />
-
-            <Spinner
-                android:id="@+id/spinnner3J"
-                style="@style/ComienzaSpinner"
-                android:layout_below="@+id/text3I"
-                android:layout_toEndOf="@+id/text3J"
-                android:visibility="gone" />
-
 
             <ImageView
                 android:id="@+id/imageViewSeparatorTrabajoRealizado"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/text3J"
+                android:layout_below="@+id/text3D"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:layout_marginStart="20dp"
@@ -1184,7 +1201,7 @@
                 android:layout_below="@+id/imageViewSeparatorTrabajoRealizado"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30sp"
-                android:text="III. Trabajo Realizado" />
+                android:text="@string/iii_trabajo_realizado" />
 
             <EditText
                 android:id="@+id/EditTrabajoRealizado"
@@ -1201,7 +1218,7 @@
                 android:id="@+id/ButtonEnviar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SIGUIENTE"
+                android:text="@string/siguiente"
                 android:layout_below="@+id/EditTrabajoRealizado"
                 android:layout_marginTop="20dp"
                 android:layout_centerHorizontal="true"/>

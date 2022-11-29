@@ -34,7 +34,7 @@
                 android:layout_below="@+id/imageNota"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:text="HORA SALIDA" />
+                android:text="@string/hora_salida" />
 
             <ImageButton
                 android:id="@+id/fecha1Button"
@@ -46,7 +46,7 @@
                 android:layout_toEndOf="@+id/EditHoraSalidaT"
                 android:shadowColor="@color/black"
                 android:src="@drawable/ic_calendar_today"
-                android:text="Camara" />
+                android:text="@string/camara" />
 
             <EditText
                 android:id="@+id/EditFecha1"
@@ -65,7 +65,7 @@
                 android:layout_below="@+id/TextHoraSalidaT"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
-                android:text="TÉCNICOS/EQUITEL" />
+                android:text="@string/t_cnicos_equitel" />
 
             <ImageButton
                 android:id="@+id/reloj1Button"
@@ -77,7 +77,7 @@
                 android:layout_toEndOf="@+id/EditHoraSalidaT"
                 android:shadowColor="@color/black"
                 android:src="@drawable/ic_reloj_schedule"
-                android:text="Camara" />
+                android:text="@string/camara" />
 
             <EditText
                 android:id="@+id/EditReloj1"
@@ -96,7 +96,7 @@
                 android:layout_below="@+id/EditHoraAtencionC"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:text="HORA SALIDA" />
+                android:text="@string/hora_salida" />
 
             <ImageButton
                 android:id="@+id/fecha2Button"
@@ -108,7 +108,7 @@
                 android:layout_toEndOf="@+id/EditHoraSalidaT"
                 android:shadowColor="@color/black"
                 android:src="@drawable/ic_calendar_today"
-                android:text="Camara" />
+                android:text="@string/camara" />
 
             <EditText
                 android:id="@+id/EditFecha2"
@@ -127,7 +127,7 @@
                 android:layout_below="@+id/TextHoraSalidaC"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
-                android:text="CLIENTE" />
+                android:text="@string/cliente" />
 
             <ImageButton
                 android:id="@+id/reloj2Button"
@@ -139,7 +139,7 @@
                 android:layout_toEndOf="@+id/EditHoraSalidaT"
                 android:shadowColor="@color/black"
                 android:src="@drawable/ic_reloj_schedule"
-                android:text="Camara" />
+                android:text="@string/camara" />
 
             <EditText
                 android:id="@+id/EditReloj2"
@@ -159,7 +159,7 @@
                 android:layout_below="@+id/EditHoraSalidaT"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:text="HORA LLEGADA" />
+                android:text="@string/hora_llegada" />
 
             <ImageButton
                 android:id="@+id/fecha3Button"
@@ -171,7 +171,7 @@
                 android:layout_toEndOf="@+id/EditHoraSalidaT"
                 android:shadowColor="@color/black"
                 android:src="@drawable/ic_calendar_today"
-                android:text="Camara" />
+                android:text="@string/camara" />
 
             <EditText
                 android:id="@+id/EditFecha3"
@@ -190,7 +190,7 @@
                 android:layout_below="@+id/TextHorallegadaC"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
-                android:text="CLIENTE" />
+                android:text="@string/cliente" />
 
             <ImageButton
                 android:id="@+id/reloj3Button"
@@ -202,7 +202,7 @@
                 android:layout_toEndOf="@+id/EditHoraSalidaT"
                 android:shadowColor="@color/black"
                 android:src="@drawable/ic_reloj_schedule"
-                android:text="Camara" />
+                android:text="@string/camara" />
 
             <EditText
                 android:id="@+id/EditReloj3"
@@ -222,7 +222,7 @@
                 android:layout_below="@+id/EditHorallegadaC"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="20dp"
-                android:text="HORA ATENCION" />
+                android:text="@string/hora_atencion" />
             <ImageButton
                 android:id="@+id/fecha4Button"
                 android:layout_width="20dp"
@@ -233,7 +233,7 @@
                 android:layout_toEndOf="@+id/EditHoraSalidaT"
                 android:shadowColor="@color/black"
                 android:src="@drawable/ic_calendar_today"
-                android:text="Camara" />
+                android:text="@string/camara" />
 
             <EditText
                 android:id="@+id/EditFecha4"
@@ -252,7 +252,7 @@
                 android:layout_below="@+id/TextHoraAtencionC"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="5dp"
-                android:text="CLIENTE" />
+                android:text="@string/cliente" />
 
             <ImageButton
                 android:id="@+id/reloj4Button"
@@ -264,7 +264,7 @@
                 android:layout_toEndOf="@+id/EditHoraSalidaT"
                 android:shadowColor="@color/black"
                 android:src="@drawable/ic_reloj_schedule"
-                android:text="Camara" />
+                android:text="@string/camara" />
 
             <EditText
                 android:id="@+id/EditReloj4"
@@ -285,7 +285,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30dp"
                 android:layout_marginBottom="30dp"
-                android:text="CALIFICACION CLIENTE"
+                android:text="@string/calificacion_cliente"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
@@ -296,7 +296,7 @@
                 android:layout_below="@+id/TextCalificacionCliente"
                 android:layout_marginStart="20dp"
                 android:gravity="center"
-                android:text="SERVICIO/CUMPLIMIENTO"
+                android:text="@string/servicio_cumplimiento"
                 android:textSize="10sp" />
 
             <TextView
@@ -318,7 +318,7 @@
                 android:layout_height="20dp"
                 android:layout_below="@+id/TextCalificacionCliente"
                 android:layout_toEndOf="@+id/TextServCumplimiento1"
-                android:digits="123456789,"
+                android:digits="1234567890,"
                 android:gravity="center"
                 android:inputType="numberDecimal"
                 android:maxLength="1"
@@ -332,7 +332,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="30dp"
                 android:gravity="center"
-                android:text="ORDEN Y ASEO SITIO"
+                android:text="@string/orden_y_aseo_sitio"
                 android:textSize="10sp" />
 
             <TextView
@@ -356,7 +356,9 @@
                 android:layout_below="@+id/EditServCumplimiento1"
                 android:layout_marginTop="30dp"
                 android:layout_toEndOf="@+id/TextOrdenAseo1"
+                android:digits="1234567890,"
                 android:gravity="center"
+                android:inputType="numberDecimal"
                 android:maxLength="1"
                 android:textSize="10sp" />
 
@@ -368,7 +370,7 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="30dp"
                 android:gravity="center"
-                android:text="USO ELEMENTOS PROTECCION"
+                android:text="@string/uso_elementos_proteccion"
                 android:textSize="10sp" />
 
             <TextView
@@ -392,7 +394,9 @@
                 android:layout_below="@+id/EditOrdenAseo1"
                 android:layout_marginTop="30dp"
                 android:layout_toEndOf="@+id/TextUsoElementosProteccion1"
+                android:digits="1234567890,"
                 android:gravity="center"
+                android:inputType="numberDecimal"
                 android:maxLength="1"
                 android:textSize="10sp" />
 
@@ -416,7 +420,7 @@
                 android:layout_toEndOf="@+id/Camera4"
                 android:shadowColor="@color/black"
                 android:src="@drawable/ic_baseline_camera"
-                android:text="Camara" />
+                android:text="@string/camara" />
 
             <ImageButton
                 android:id="@+id/ButtonCameraSearch"
@@ -429,7 +433,7 @@
                 android:layout_toEndOf="@+id/ButtonCamera4"
                 android:shadowColor="@color/black"
                 android:src="@drawable/ic_baseline_image_search"
-                android:text="Camara" />
+                android:text="@string/camara" />
 
             <ImageButton
                 android:id="@+id/ButtonCamera4Upload"
@@ -442,7 +446,7 @@
                 android:layout_toEndOf="@+id/ButtonCameraSearch"
                 android:shadowColor="@color/black"
                 android:src="@drawable/ic_baseline_cloud_upload"
-                android:text="Camara" />
+                android:text="@string/camara" />
 
             <Button
                 android:id="@+id/ButtonEnviar"
@@ -451,7 +455,7 @@
                 android:layout_below="@+id/Camera4"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
-                android:text="ENVIAR" />
+                android:text="@string/enviar" />
 
 
         </RelativeLayout>

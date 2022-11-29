@@ -285,9 +285,9 @@ class MainActivity : AppCompatActivity() {
 
     private fun validarTipoServicio(tipoServicio : String){
         if(tipoServicio == "MANTENIMIENTO" || tipoServicio == "ARTIMO" || tipoServicio == "SERVICIO" || tipoServicio == "MONTAJE" || tipoServicio == "ENTREGA"){
-            binding.EditSerialMotor.isFocusableInTouchMode = false
-            binding.EditSerialPlanta.isFocusableInTouchMode = false
-            binding.EditSerialGenerador.isFocusableInTouchMode = false
+            binding.EditSerialMotor.isFocusableInTouchMode = true
+            binding.EditSerialPlanta.isFocusableInTouchMode = true
+            binding.EditSerialGenerador.isFocusableInTouchMode = true
         }
     }
 
