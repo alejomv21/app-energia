@@ -400,59 +400,12 @@
                 android:maxLength="1"
                 android:textSize="10sp" />
 
-            <ImageView
-                android:id="@+id/Camera4"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_below="@+id/EditUsoElementosProteccion"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                tools:src="@android:drawable/ic_menu_camera" />
-
-            <ImageButton
-                android:id="@+id/ButtonCamera4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/TextUsoElementosProteccion"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginBottom="20dp"
-                android:layout_toEndOf="@+id/Camera4"
-                android:shadowColor="@color/black"
-                android:src="@drawable/ic_baseline_camera"
-                android:text="@string/camara" />
-
-            <ImageButton
-                android:id="@+id/ButtonCameraSearch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/TextUsoElementosProteccion"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginBottom="20dp"
-                android:layout_toEndOf="@+id/ButtonCamera4"
-                android:shadowColor="@color/black"
-                android:src="@drawable/ic_baseline_image_search"
-                android:text="@string/camara" />
-
-            <ImageButton
-                android:id="@+id/ButtonCamera4Upload"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/TextUsoElementosProteccion"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginBottom="20dp"
-                android:layout_toEndOf="@+id/ButtonCameraSearch"
-                android:shadowColor="@color/black"
-                android:src="@drawable/ic_baseline_cloud_upload"
-                android:text="@string/camara" />
 
             <Button
                 android:id="@+id/ButtonEnviar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/Camera4"
+                android:layout_below="@+id/TextUsoElementosProteccion1"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 android:text="@string/enviar" />

@@ -9,9 +9,9 @@ import retrofit2.http.Query
 
 interface EquitelApiService {
     @GET("AplicacionMovil")
-    suspend fun getTotal(@Query("OrdenTrabajo") orden : String): String
+    suspend fun getTotal(@Query("orden") ordenar : String): String
     @GET("AplicacionMovil")
-    suspend fun getPrueba(@Query("OrdenTrabajo") orden : String): String
+    suspend fun getPrueba(@Query("orden") ordenar : String): String
     @GET("Tecnicos")
     suspend fun getContraseña(@Query("Usuario") usuario : String) : String
     @GET("Movil_Serial_Motor")
@@ -34,6 +34,8 @@ interface EquitelApiService {
     suspend fun getSerialPlanta() : String
     @GET("Movil_Tecnicos")
     suspend fun getTecnico() : String
+    @GET("MovilSede")
+    suspend fun getSede() : String
 
 
 }

@@ -4,6 +4,7 @@ import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import com.equitel.pruebaequitel.Almacenamiento
+import com.equitel.pruebaequitel.AplicacionOrdenTrabajo
 import com.equitel.pruebaequitel.SerialPlanta
 import com.equitel.pruebaequitel.api.service
 import com.equitel.pruebaequitel.database.EqDao
@@ -25,11 +26,18 @@ class MainRepository (private val database : EqDataBase, idOrden : String){
     suspend fun fetchSerialPlanta(idOrden: String): SerialPlanta{
         return withContext(Dispatchers.IO) {
             val serialString: String = service.getTotal(idOrden)
-            val serial = parseREsult(serialString)
+            val serial = parseREsultSI(serialString)
             serial
             //database.eqDao.insertAll(serial)
         }
     }
+
+    /*suspend fun fetchPrueba(prueba : String){
+        return withContext(Dispatchers.IO) {
+            val serialString: String = service.getPrueba(prueba)
+            Log.d("limon", serialString)
+        }
+    */
 
     suspend fun guardarAlmacenamiento(almacenamiento: Almacenamiento){
         return withContext(Dispatchers.IO){
@@ -47,13 +55,6 @@ class MainRepository (private val database : EqDataBase, idOrden : String){
         }
     }
 
-    suspend fun fetchPrueba(prueba : String){
-        return withContext(Dispatchers.IO) {
-            val serialString: String = service.getPrueba(prueba)
-            Log.d("limon", serialString)
-        }
-    }
-
     suspend fun fetchCliente(): ArrayList<String>{
         return withContext(Dispatchers.IO) {
             val serialString: String = service.getcliente()
@@ -61,6 +62,14 @@ class MainRepository (private val database : EqDataBase, idOrden : String){
             convertir
         }
     }
+
+    /*suspend fun fetchSede(): ArrayList<String>{
+        return withContext(Dispatchers.IO) {
+            val serialString: String = service.getcliente()
+            val convertir = ConvertirResulttados(serialString, "sede")
+            convertir
+        }
+    }*/
 
     suspend fun fetchMarcaGenerador(): ArrayList<String>{
         return withContext(Dispatchers.IO) {
@@ -194,6 +203,53 @@ class MainRepository (private val database : EqDataBase, idOrden : String){
 
         return serie
     }
+
+private fun parseREsultSI(serialString: String) : SerialPlanta {
+    val serie : SerialPlanta = SerialPlanta()
+    val eqJsonObject = JSONArray(serialString)
+    if(eqJsonObject.length() != 0) {
+        val terminar = eqJsonObject[0] as JSONObject
+        val cliente = terminar.getString("cliente")
+        val direccion = terminar.getString("direccion")
+        val marcaMotor = terminar.getString("marcaMotor")
+        val marcaGenerador = terminar.getString("marcaGenerador")
+        val marcaPlanta = terminar.getString("marcaPlanta")
+        val ciudad = terminar.getString("ciudad")
+        val modeloMotor = terminar.getString("modeloMotor")
+        val modeloGenerador = terminar.getString("modeloGenerador")
+        val modeloPlanta = terminar.getString("modeloPlanta")
+        val serialMotor = terminar.getString("serialMotor")
+        val serialGenerador = terminar.getString("serialGenerador")
+        val serialPlanta = terminar.getString("serialPlanta")
+        val cpl = terminar.getString("cpl")
+
+
+        serie.tipoUbicacion = "CABINA"
+        serie.tipoEquipo = "2"
+        serie.cliente = cliente
+        serie.dir = direccion
+        serie.MarcaMotor = marcaMotor
+        serie.marcaGen = marcaGenerador
+        serie.marcaPlnata = marcaPlanta
+        serie.ciudad = ciudad
+        serie.modMotor = modeloMotor
+        serie.modGen = modeloGenerador
+        serie.modPlanta = modeloPlanta
+        serie.snMotor = serialMotor
+        serie.snGen = serialGenerador
+        serie.snPlanta = serialPlanta
+        serie.cpl = cpl
+        serie.kw = "2"
+        serie.spec = ""
+        serie.tipoControl = ""
+        serie.tecnicosCargo = ""
+        serie.promotionID = ""
+        serie.motivoVisita = ""
+
+    }
+
+    return serie
+}
 
     private fun ConvertirResulttados(serialString: String, descripcion: String) : ArrayList<String>{
         val eqJsonObject = JSONArray(serialString)

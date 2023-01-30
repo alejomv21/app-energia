@@ -32,28 +32,8 @@ import java.util.*
 
 class Sheet3Activity : AppCompatActivity() {
     //firebase
-    private val PICK_IMAGE_REQUEST = 71
-    private var downloadUri : Uri? = null
-    private var filePath: Uri? = null
-    private var firebaseStore: FirebaseStorage? = null
-    private var storageReference: StorageReference? = null
-    lateinit var btn_choose_image: ImageButton
-    lateinit var btn_upload_image: ImageButton
-
-
     lateinit var binding : ActivitySheet3Binding
     lateinit var viewModel: Sheet3ViewModel
-    private lateinit var heroImage : ImageView
-    private var heroBitmap : Bitmap? = null
-    private var picturePath = ""
-    private val getContent = registerForActivityResult(ActivityResultContracts.TakePicture()){
-            success ->
-        if(success && picturePath.isNotEmpty()){
-            heroBitmap = BitmapFactory.decodeFile(picturePath)
-            heroImage.setImageBitmap(heroBitmap)
-        }
-        //heroImage.setImageBitmap(heroBitmap!!)
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySheet3Binding.inflate(layoutInflater)
@@ -85,22 +65,6 @@ class Sheet3Activity : AppCompatActivity() {
         val manOfOutadapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, manOfOut)
 
         spinnerAdapter(adapter, siNoadapter, buenoMaloadapter, onOfMaloadapter, manOfOutadapter, buenoMaloNAadapter, siNoNaAadapter)
-        
-
-
-
-        heroImage = binding.Camera3
-        btn_choose_image = binding.ButtonCameraSearch
-        firebaseStore = FirebaseStorage.getInstance()
-        storageReference = FirebaseStorage.getInstance().reference
-        btn_upload_image = binding.ButtonCamera3Upload
-        binding.ButtonCamera3.setOnClickListener{
-            openCamera()
-        }
-
-        btn_choose_image.setOnClickListener { launchGallery() }
-        btn_upload_image.setOnClickListener { uploadImage() }
-
 
         //enviar
         binding.buttonEnviar.setOnClickListener {
@@ -197,7 +161,6 @@ class Sheet3Activity : AppCompatActivity() {
             almacenamiento.conCargas = binding.spinnner4B.selectedItem.toString()
             almacenamiento.conCargasMedida = binding.EditConCargasMedida.text.toString()
             almacenamiento.recomendaciones = binding.EditRecomendaciones.text.toString()
-            almacenamiento.imagen3 = downloadUri.toString()
             viewModel.guardaralmacenamiento(almacenamiento)
         })
     }
@@ -320,84 +283,6 @@ class Sheet3Activity : AppCompatActivity() {
         }
         return posicion
     }
-    private fun openCamera() {
-        //val camera = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        //startActivityForResult(camera, 1000)
-        val file = createImageFile()
-        filePath = if(Build.VERSION.SDK_INT  >= Build.VERSION_CODES.N){
-            FileProvider.getUriForFile(this,
-                "$packageName.provider",
-                file)
-            //
-
-        }else{
-            Uri.fromFile(file)
-        }
-
-        getContent.launch(filePath)
-        //
-
-    }
-    private fun createImageFile(): File {
-        val filename = "superhero_image"
-        val fileDIrectory = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        val file = File.createTempFile(filename, ".jpg", fileDIrectory)
-        picturePath = file.absolutePath
-        return file
-    }
-
-    private fun launchGallery() {
-        val intent = Intent()
-        intent.type = "image/*"
-        intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
-            if(data == null || data.data == null){
-                return
-            }
-
-            filePath = data.data
-            try {
-                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filePath)
-                heroImage.setImageBitmap(bitmap)
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
-        }
-    }
-
-    private fun uploadImage(){
-        if(filePath != null){
-            val ref = storageReference?.child("myImages/" + UUID.randomUUID().toString())
-            val uploadTask = ref?.putFile(filePath!!)
-            val urlTask = uploadTask?.continueWithTask { task ->
-                if (!task.isSuccessful) {
-                    task.exception?.let {
-                        throw it
-                    }
-                }
-                ref.downloadUrl
-            }?.addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    downloadUri = task.result
-                    println(downloadUri)
-                } else {
-                    // Handle failures
-                    // ...
-                }
-            }
-            Toast.makeText(this, "Imagen Guardada", Toast.LENGTH_SHORT).show()
-        }else{
-            Toast.makeText(this, "Please Upload an Image", Toast.LENGTH_SHORT).show()
-        }
-    }
-
-
-
 }
 
 

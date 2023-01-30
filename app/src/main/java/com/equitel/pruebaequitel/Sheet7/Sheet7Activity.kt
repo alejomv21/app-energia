@@ -35,28 +35,11 @@ import java.util.*
 
 class Sheet7Activity : AppCompatActivity() {
     //firebase
-    private val PICK_IMAGE_REQUEST = 71
-    private var downloadUri : Uri? = null
-    private var filePath: Uri? = null
-    private var firebaseStore: FirebaseStorage? = null
-    private var storageReference: StorageReference? = null
-    lateinit var btn_choose_image: ImageButton
-    lateinit var btn_upload_image: ImageButton
 
 
     lateinit var binding : ActivitySheet7Binding
     lateinit var viewModel: Sheet7ViewModel
     private lateinit var heroImage : ImageView
-    private var heroBitmap : Bitmap? = null
-    private var picturePath = ""
-    private val getContent = registerForActivityResult(ActivityResultContracts.TakePicture()){
-            success ->
-        if(success && picturePath.isNotEmpty()){
-            heroBitmap = BitmapFactory.decodeFile(picturePath)
-            heroImage.setImageBitmap(heroBitmap)
-        }
-        //heroImage.setImageBitmap(heroBitmap!!)
-    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySheet7Binding.inflate(layoutInflater)
@@ -83,17 +66,6 @@ class Sheet7Activity : AppCompatActivity() {
         val tipo_servicio_realizadoAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, tipo_servicio_realizado)
 
         spinnerAdapter(adapter, adapter1, timepoadapter, siNoNaAadapter, servicio_a_cotizarAdapter, tipo_servicio_realizadoAdapter)
-
-        heroImage = binding.Camera2
-        btn_choose_image = binding.ButtonCameraSearch
-        firebaseStore = FirebaseStorage.getInstance()
-        storageReference = FirebaseStorage.getInstance().reference
-        btn_upload_image = binding.ButtonCamera7Upload
-        binding.ButtonCamera7.setOnClickListener{
-            openCamera()
-        }
-        btn_choose_image.setOnClickListener { launchGallery() }
-        btn_upload_image.setOnClickListener { uploadImage() }
 
         binding.buttonEnviar.setOnClickListener {
             Toast.makeText(this, "ELEMENTOS GUARDADOS ", Toast.LENGTH_SHORT).show()
@@ -188,89 +160,12 @@ class Sheet7Activity : AppCompatActivity() {
             almamacenamiento.atsTrabajosAlturas = binding.spinnnerAtsTalturas.selectedItem.toString()
             almamacenamiento.atsTrabajosConfinados = binding.spinnnerAtsTConfinados.selectedItem.toString()
             almamacenamiento.atsTrabajosCalientes = binding.spinnnerAtscaliente.selectedItem.toString()
-            almamacenamiento.imagen5 = downloadUri.toString()
 
             Log.d("MANZANAs", almamacenamiento.estadoControl.toString())
 
             viewModel.guardaralmacenamiento(almamacenamiento)
 
         })
-    }
-
-    private fun openCamera() {
-        //val camera = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        //startActivityForResult(camera, 1000)
-        val file = createImageFile()
-        filePath = if(Build.VERSION.SDK_INT  >= Build.VERSION_CODES.N){
-            FileProvider.getUriForFile(this,
-                "$packageName.provider",
-                file)
-            //
-
-        }else{
-            Uri.fromFile(file)
-        }
-
-        getContent.launch(filePath)
-        //
-
-    }
-    private fun createImageFile(): File {
-        val filename = "superhero_image"
-        val fileDIrectory = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        val file = File.createTempFile(filename, ".jpg", fileDIrectory)
-        picturePath = file.absolutePath
-        return file
-    }
-
-    private fun launchGallery() {
-        val intent = Intent()
-        intent.type = "image/*"
-        intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
-            if(data == null || data.data == null){
-                return
-            }
-
-            filePath = data.data
-            try {
-                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filePath)
-                heroImage.setImageBitmap(bitmap)
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
-        }
-    }
-
-    private fun uploadImage(){
-        if(filePath != null){
-            val ref = storageReference?.child("myImages/" + UUID.randomUUID().toString())
-            val uploadTask = ref?.putFile(filePath!!)
-            Toast.makeText(this, "Imagen Guardada", Toast.LENGTH_SHORT).show()
-            val urlTask = uploadTask?.continueWithTask { task ->
-                if (!task.isSuccessful) {
-                    task.exception?.let {
-                        throw it
-                    }
-                }
-                ref.downloadUrl
-            }?.addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    downloadUri = task.result
-                    println(downloadUri)
-                } else {
-                    // Handle failures
-                    // ...
-                }
-            }
-        }else{
-            Toast.makeText(this, "Please Upload an Image", Toast.LENGTH_SHORT).show()
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

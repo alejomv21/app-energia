@@ -37,6 +37,7 @@ class PictureActivity : AppCompatActivity() {
     private var downloadUri2 : Uri? = null
     private var downloadUri3 : Uri? = null
     private var downloadUri4 : Uri? = null
+    private var downloadUri5 : Uri? = null
     private var filePath: Uri? = null
     private var firebaseStore: FirebaseStorage? = null
     private var storageReference: StorageReference? = null
@@ -69,9 +70,13 @@ class PictureActivity : AppCompatActivity() {
         storageReference = FirebaseStorage.getInstance().reference
 
         binding.buttonEnviar.setOnClickListener {
-            guardarDatos()
-            val intent = Intent(this, ActivitySheet5::class.java)
-            startActivity(intent)
+            if(downloadUri1 == null &&  downloadUri2 == null){
+                Toast.makeText(this, "Imágenes 1 y 2 son obligatorias", Toast.LENGTH_SHORT).show()
+            }else{
+                guardarDatos()
+                val intent = Intent(this, ActivitySheet5::class.java)
+                startActivity(intent)
+            }
         }
 
         binding.imageButtonFoto1Capturar.setOnClickListener{
@@ -88,6 +93,10 @@ class PictureActivity : AppCompatActivity() {
         }
         binding.imageButtonFoto4Capturar.setOnClickListener{
             heroImage = binding.imageViewFoto4
+            openCamera()
+        }
+        binding.imageButtonFoto5Capturar.setOnClickListener{
+            heroImage = binding.imageViewFoto5
             openCamera()
         }
 
@@ -108,6 +117,10 @@ class PictureActivity : AppCompatActivity() {
             heroImage = binding.imageViewFoto4
             launchGallery()
         }
+        binding.imageButtonFoto5Subir.setOnClickListener{
+            heroImage = binding.imageViewFoto5
+            launchGallery()
+        }
 
         binding.imageButtonFoto1Firebase.setOnClickListener{
             heroImage = binding.imageViewFoto1
@@ -124,6 +137,10 @@ class PictureActivity : AppCompatActivity() {
         binding.imageButtonFoto4Firebase.setOnClickListener{
             heroImage = binding.imageViewFoto4
             uploadImage("4")
+        }
+        binding.imageButtonFoto5Firebase.setOnClickListener{
+            heroImage = binding.imageViewFoto5
+            uploadImage("5")
         }
     }
 
@@ -195,6 +212,7 @@ class PictureActivity : AppCompatActivity() {
                         "2"-> downloadUri2 = task.result
                         "3"-> downloadUri3 = task.result
                         "4"-> downloadUri4 = task.result
+                        "5"-> downloadUri5 = task.result
                     }
                     println(downloadUri1)
                 } else {
@@ -218,6 +236,7 @@ class PictureActivity : AppCompatActivity() {
             almacenamientos.imagen2 = downloadUri2.toString()
             almacenamientos.imagen3 = downloadUri3.toString()
             almacenamientos.imagen4 = downloadUri4.toString()
+            almacenamientos.imagen5 = downloadUri5.toString()
             viewModel.guardarAlmacenamientoFotos(almacenamientos)
         })
     }

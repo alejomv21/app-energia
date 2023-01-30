@@ -414,6 +414,7 @@
                 android:id="@+id/EditCantidad"
                 style="@style/StartEditText"
                 android:layout_below="@id/EditTipoBateria"
+                android:inputType="numberDecimal"
                 android:layout_toEndOf="@+id/TextCantidad" />
 
             <TextView
@@ -451,6 +452,7 @@
                 style="@style/StartEditText"
                 android:layout_below="@id/EditSpec"
                 android:layout_toEndOf="@+id/TextNArranques"
+                android:inputType="numberDecimal"
                 android:background="@drawable/style_etbg" />
 
             <TextView
@@ -487,6 +489,7 @@
                 android:id="@+id/EditHorasControl"
                 style="@style/StartEditText"
                 android:layout_below="@id/EditTipoControl"
+                android:inputType="numberDecimal"
                 android:layout_toEndOf="@+id/TextHorasControl" />
 
             <TextView
@@ -603,7 +606,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
             <TextView
@@ -694,7 +697,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
             <Spinner
@@ -725,7 +728,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
             <TextView
@@ -814,7 +817,7 @@
                 android:layout_toEndOf="@+id/TextPDuplicado"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
-                android:hint="mm"/>
+                android:hint="mm" />
 
             <TextView
                 android:id="@+id/textN"
@@ -862,8 +865,8 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
-                android:inputType="number"
                 android:hint="@string/galones"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
             <TextView
@@ -888,7 +891,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:hint="@string/galones"
                 android:textSize="8sp" />
 

@@ -63,6 +63,10 @@ class MainViewModel(application: Application, ordenTrabajo : String) : AndroidVi
     val tecnico : LiveData<ArrayList<String>>
         get() = _tecnico
 
+    private val _sede = MutableLiveData<ArrayList<String>>()
+    val sede : LiveData<ArrayList<String>>
+        get() = _sede
+
     private val _hora = MutableLiveData<String>()
     val hora : LiveData<String>
         get() = _hora
@@ -74,16 +78,17 @@ class MainViewModel(application: Application, ordenTrabajo : String) : AndroidVi
         viewModelScope.launch {
             try {
                 _status.value = ApiResponseStatus.LOADING
+                _cliente.value = repository.fetchCliente()
                 _eqList.value =  repository.fetchSerialPlanta(ordenTrabajo)
                 _serialMotor.value = repository.fetchSerialMotor()
                 _status.value = ApiResponseStatus.DONE
-                //_cliente.value = repository.fetchCliente()
                 _MarcaGenerador.value = repository.fetchMarcaGenerador()
                 _Marcaplanta.value = repository.fetchMarcaPlanta()
                 _ModeloMotor.value = repository.fetchModeloMotor()
                 _ModeloPlanta.value = repository.fetchModeloPlanta()
                 _SerialGenerador.value = repository.fetchSerialGenerador()
                 _SerialPlanta.value = repository.fetchSerialPlantaElectrica()
+                //_sede.value = repository.fetchSede()
                 //repository.guardarAlmacenamiento(almacenamiento)
                 _hora.value =  repository.hora()
                 _tecnico.value = repository.fetchTecnicos()
@@ -107,11 +112,11 @@ class MainViewModel(application: Application, ordenTrabajo : String) : AndroidVi
         }
     }
 
-    fun prueba(prueba : String){
+    /*fun prueba(prueba : String){
         viewModelScope.launch {
             repository.fetchPrueba(prueba)
         }
-    }
+    }*/
 
 
 

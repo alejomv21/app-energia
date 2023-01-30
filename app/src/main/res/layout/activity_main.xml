@@ -178,7 +178,7 @@
                 android:layout_marginStart="20dp"
                 android:padding="1dp"
                 android:background="@color/black"
-                android:contentDescription="TODO"
+                android:contentDescription="@string/todo"
                 android:src="@android:drawable/divider_horizontal_bright" />
 
             <TextView
@@ -213,7 +213,7 @@
                 android:layout_below="@+id/EditDir"
                 android:text="@string/sede" />
 
-            <AutoCompleteTextView
+            <Spinner
                 android:id="@+id/EditSede"
                 style="@style/StartEditText"
                 android:layout_below="@id/EditDir"
@@ -417,8 +417,8 @@
                 android:id="@+id/EditCantidad"
                 style="@style/StartEditText"
                 android:layout_below="@id/EditTipoBateria"
-                android:inputType="number"
-                android:layout_toEndOf="@+id/TextCantidad" />
+                android:layout_toEndOf="@+id/TextCantidad"
+                android:inputType="numberDecimal" />
 
             <TextView
                 android:id="@+id/TextKW"
@@ -455,7 +455,7 @@
                 style="@style/StartEditText"
                 android:layout_below="@id/EditSpec"
                 android:layout_toEndOf="@+id/TextNArranques"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:background="@drawable/style_etbg" />
 
             <TextView
@@ -468,6 +468,7 @@
                 android:id="@+id/EditHorasMotor"
                 style="@style/StartEditText"
                 android:layout_below="@id/EditNArranques"
+                android:inputType="numberDecimal"
                 android:layout_toEndOf="@+id/TextHorasMotor" />
 
             <TextView
@@ -492,8 +493,8 @@
                 android:id="@+id/EditHorasControl"
                 style="@style/StartEditText"
                 android:layout_below="@id/EditTipoControl"
-                android:inputType="number"
-                android:layout_toEndOf="@+id/TextHorasControl" />
+                android:layout_toEndOf="@+id/TextHorasControl"
+                android:inputType="numberDecimal" />
 
             <TextView
                 android:id="@+id/TextTecnicosCargo"
@@ -537,59 +538,12 @@
                 android:layout_below="@id/EditPromotionID"
                 android:layout_toEndOf="@+id/TextMotivoVisita" />
 
-            <ImageView
-                android:id="@+id/Camera1"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_below="@+id/TextMotivoVisita"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                tools:src="@android:drawable/ic_menu_camera" />
-
-            <ImageButton
-                android:id="@+id/ButtonCamera1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/TextMotivoVisita"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginBottom="20dp"
-                android:layout_toEndOf="@+id/Camera1"
-                android:shadowColor="@color/black"
-                android:src="@drawable/ic_baseline_camera"
-                android:text="@string/camara" />
-
-            <ImageButton
-                android:id="@+id/ButtonCameraSearch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/TextMotivoVisita"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginBottom="20dp"
-                android:layout_toEndOf="@+id/ButtonCamera1"
-                android:shadowColor="@color/black"
-                android:src="@drawable/ic_baseline_image_search"
-                android:text="@string/camara" />
-
-            <ImageButton
-                android:id="@+id/ButtonCamera1Upload"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/TextMotivoVisita"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginBottom="20dp"
-                android:layout_toEndOf="@+id/ButtonCameraSearch"
-                android:shadowColor="@color/black"
-                android:src="@drawable/ic_baseline_cloud_upload"
-                android:text="@string/camara" />
 
             <Button
                 android:id="@+id/ButtonGuadado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/Camera1"
+                android:layout_below="@+id/TextMotivoVisita"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"

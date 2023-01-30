@@ -115,7 +115,7 @@ class Sheet6Activity : AppCompatActivity() {
         binding.spinnner2H.setAdapter(adapter)
         binding.spinnner3C.setAdapter(adapterDisyuntoresParte)
         binding.spinnnerTipoSistemaRespaldo.setAdapter(sistemaRespaldoArray)
-        binding.spinnner3D.setAdapter(adapter)
+        binding.spinnner3D.setAdapter(buenoMaloNAadapter)
         binding.spinnner3E.setAdapter(adapter1)
         binding.spinnner3G.setAdapter(adapterPrecalentador)
         binding.spinnner3H.setAdapter(adapterVoltaje)

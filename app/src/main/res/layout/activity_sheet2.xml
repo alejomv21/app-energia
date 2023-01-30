@@ -176,9 +176,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
-                android:digits="123456789"
                 android:gravity="center"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
             <Spinner
@@ -209,7 +208,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
             <TextView
@@ -278,8 +277,8 @@
                 android:layout_toEndOf="@+id/TextPDuplicado"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
-                android:inputType="number"
-                android:hint="@string/psi" />
+                android:hint="@string/psi"
+                android:inputType="numberDecimal" />
 
 
             <TextView
@@ -299,8 +298,8 @@
                 android:layout_toEndOf="@+id/TextPDuplicado"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
-                android:inputType="number"
-                android:hint="@string/mm" />
+                android:hint="@string/mm"
+                android:inputType="numberDecimal" />
 
             <TextView
                 android:id="@+id/textN"
@@ -349,7 +348,7 @@
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
                 android:hint="@string/galones"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
             <TextView
@@ -375,7 +374,7 @@
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
                 android:hint="@string/galones"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
             <TextView
@@ -708,59 +707,13 @@
                 android:layout_marginEnd="10dp"
                 android:padding="10dp" />
 
-            <ImageView
-                android:id="@+id/Camera2"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_below="@+id/EditTrabajoRealizado"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="28dp"
-                tools:src="@android:drawable/ic_menu_camera" />
 
-            <ImageButton
-                android:id="@+id/ButtonCamera2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/EditTrabajoRealizado"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginBottom="20dp"
-                android:layout_toEndOf="@+id/Camera2"
-                android:shadowColor="@color/black"
-                android:src="@drawable/ic_baseline_camera"
-                android:text="@string/camara" />
-
-            <ImageButton
-                android:id="@+id/ButtonCameraSearch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/EditTrabajoRealizado"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginBottom="20dp"
-                android:layout_toEndOf="@+id/ButtonCamera2"
-                android:shadowColor="@color/black"
-                android:src="@drawable/ic_baseline_image_search"
-                android:text="@string/camara" />
-
-            <ImageButton
-                android:id="@+id/ButtonCamera2Upload"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/EditTrabajoRealizado"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="60dp"
-                android:layout_marginBottom="20dp"
-                android:layout_toEndOf="@+id/ButtonCameraSearch"
-                android:shadowColor="@color/black"
-                android:src="@drawable/ic_baseline_cloud_upload"
-                android:text="@string/camara" />
 
             <Button
                 android:id="@+id/buttonEnviar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/Camera2"
+                android:layout_below="@+id/EditTrabajoRealizado"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="30sp"
                 android:layout_marginBottom="20sp"

@@ -16,7 +16,7 @@ interface GoogleCloudService {
 }
 
 private var retrofit = Retrofit.Builder()
-    .baseUrl("https://5e2a-181-204-166-158.ngrok.io/")
+    .baseUrl("https://us-central1-bot-front.cloudfunctions.net/movilpdf/")
     .addConverterFactory(GsonConverterFactory.create())
     .build()
 internal object CloudFunctions{

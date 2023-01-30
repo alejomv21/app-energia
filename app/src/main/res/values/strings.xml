@@ -138,7 +138,7 @@
     <string name="d_posicion_interruptor_planta">D. Posición Interruptor Planta</string>
     <string name="e_posici_n_swith_cargador">E. Posición Switch Cargador</string>
     <string name="f_posici_n_switch_control">F. Posición Switch Control</string>
-    <string name="g_frecuencia_de_59_5_a_60_4hz">G. Frecuencia de 59.5 a 60.4HZ</string>
+    <string name="g_frecuencia_de_59_5_a_60_4hz">G. Frecuencia de 59.5 a 60.4Hz</string>
     <string name="h_factor_potencia_de_0_o_a_1">H. Factor Potencia de 0.o a 1</string>
     <string name="i_kilovatios_hora">I. kilovatios / Hora</string>
     <string name="_4_pruebas">4. Pruebas</string>
@@ -242,19 +242,6 @@
         <item>INSPECCION</item>
         <item>MONTAJE</item>
         <item>ENTREGA</item>
-
-    </string-array>
-
-    <string-array name="sede">
-        <item>CALI</item>
-        <item>PEREIRA</item>
-        <item>PASTO</item>
-        <item>MEDELLÍN</item>
-        <item>BOGOTÁ</item>
-        <item>BARRANQUILLA</item>
-        <item>IBAGUÉ</item>
-        <item>VILLAVICENCIO</item>
-        <item>SAN ANDRÉS</item>
 
     </string-array>
 
@@ -445,6 +432,17 @@
         <item>ATS PLANTA-PLANTA</item>
         <item>ATS RED-PLANTA-PLANTA DOBLE TIRO</item>
         <item>SISTEMA DE SINCRONISMO</item>
+    </string-array>
+
+    <string-array name="sedesnuevas">
+        <item> </item>
+        <item>MEDELLIN</item>
+        <item>MOSQUERA</item>
+        <item>BARRANQUILLA</item>
+        <item>IBAGUE</item>
+        <item>VILLAVICENCIO</item>
+        <item>YUMBO</item>
+        <item>PEREIRA</item>
     </string-array>
 
 </resources>

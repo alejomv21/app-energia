@@ -67,7 +67,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
             <TextView
@@ -92,8 +92,8 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
-                android:inputType="number"
                 android:hint="@string/psi"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
             <TextView
@@ -118,8 +118,8 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
-                android:inputType="number"
                 android:hint="@string/c"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
             <TextView
@@ -144,8 +144,8 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
-                android:inputType="number"
                 android:hint="@string/vdc"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
 
@@ -171,8 +171,8 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
-                android:inputType="number"
                 android:hint="@string/c"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
             <TextView
@@ -197,8 +197,8 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
-                android:inputType="number"
                 android:hint="@string/c"
+                android:inputType="number"
                 android:textSize="8sp" />
 
             <TextView
@@ -217,7 +217,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
             <Spinner
@@ -594,9 +594,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
-                android:digits="123456789"
                 android:gravity="center"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
             <TextView
@@ -619,7 +618,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="20dp"
                 android:layout_marginEnd="20dp"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
 
@@ -643,7 +642,7 @@
                 android:background="@drawable/style_etbg"
                 android:digits="123456789"
                 android:gravity="center"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
 
@@ -699,7 +698,7 @@
                 android:layout_marginEnd="20dp"
                 android:background="@drawable/style_etbg"
                 android:gravity="center"
-                android:inputType="number"
+                android:inputType="numberDecimal"
                 android:textSize="8sp" />
 
             <ImageView
@@ -980,6 +979,7 @@
                 android:layout_marginEnd="20dp"
                 android:layout_toEndOf="@+id/TextPDuplicado"
                 android:background="@drawable/style_etbg"
+                android:inputType="numberDecimal"
                 android:gravity="center" />
 
             <ImageView

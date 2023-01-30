@@ -14,10 +14,7 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
-import android.widget.ArrayAdapter
-import android.widget.ImageButton
-import android.widget.ImageView
-import android.widget.Toast
+import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.FileProvider
 import androidx.lifecycle.Observer
@@ -39,13 +36,6 @@ import java.util.*
 
 class MainActivity : AppCompatActivity() {
     //firebase
-    private val PICK_IMAGE_REQUEST = 71
-    private var downloadUri : Uri? = null
-    private var filePath: Uri? = null
-    private var firebaseStore: FirebaseStorage? = null
-    private var storageReference: StorageReference? = null
-    lateinit var btn_choose_image: ImageButton
-    lateinit var btn_upload_image: ImageButton
 
     private lateinit var viewModel: MainViewModel
     lateinit var binding : ActivityMainBinding
@@ -67,8 +57,11 @@ class MainActivity : AppCompatActivity() {
 
 
         val bundle = intent.extras!!
-        val idEquipo = bundle.getString("id_equipo") ?: ""
-        val ordenTrabajo = bundle.getString("orden_trabajo") ?: ""
+        val idEquipo = bundle.getString("id_equipo") ?: "0"
+        var ordenTrabajo = bundle.getString("orden_trabajo") ?: "0"
+        if (ordenTrabajo == ""){
+            ordenTrabajo = "0"
+        }
         val checkVariable = bundle.getString("check_variable") ?: ""
 
         checkTipoUbicacion()
@@ -159,6 +152,8 @@ class MainActivity : AppCompatActivity() {
             binding.EditFecha.setText(hora)
         })
 
+        Toast.makeText(this, ordenTrabajo, Toast.LENGTH_SHORT).show()
+
 
         binding.EditSpec.setOnClickListener {
             viewModel.extraerAlmacenamiento()
@@ -168,24 +163,13 @@ class MainActivity : AppCompatActivity() {
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, tipoServicio)
         binding.EditMotivoVisita.setAdapter(adapter)
 
-        val sede : Array<String> = resources.getStringArray(R.array.sede)
+        val sede : Array<String> = resources.getStringArray(R.array.sedesnuevas)
         val adaptador = ArrayAdapter(this, android.R.layout.simple_list_item_1, sede)
         binding.EditSede.setAdapter(adaptador)
 
-        pruebas(ordenTrabajo)
+        //pruebas(ordenTrabajo)
 
         validarTipoServicio(checkVariable)
-
-        heroImage = binding.Camera1
-        btn_choose_image = binding.ButtonCameraSearch
-        firebaseStore = FirebaseStorage.getInstance()
-        storageReference = FirebaseStorage.getInstance().reference
-        btn_upload_image = binding.ButtonCamera1Upload
-        binding.ButtonCamera1.setOnClickListener{
-            openCamera()
-        }
-        btn_choose_image.setOnClickListener { launchGallery() }
-        btn_upload_image.setOnClickListener { uploadImage() }
 
         binding.ButtonGuadado.setOnClickListener{
             agragarAlmacenamiento(idEquipo, ordenTrabajo, checkVariable)
@@ -196,7 +180,7 @@ class MainActivity : AppCompatActivity() {
     private fun cambioValoresFactura(serialPlanta: SerialPlanta) {
         validarCheckUbicacacion(serialPlanta)
         binding.Editciudad.setText(serialPlanta.ciudad)
-        binding.EditSede.setText(serialPlanta.ciudad)
+        //binding.EditSede.setText(serialPlanta.ciudad)
         binding.EditOCliente.setText(serialPlanta.cliente)
         binding.EditDir.setText(serialPlanta.dir)
         binding.EditMarcaMotor.setText(serialPlanta.MarcaMotor)
@@ -235,7 +219,7 @@ class MainActivity : AppCompatActivity() {
             almacenamiento.cargo = binding.EditCargo.text.toString()
             almacenamiento.email = binding.EditEmail.text.toString()
             almacenamiento.tel = binding.EditCell.text.toString()
-            almacenamiento.sede = binding.EditSede.text.toString()
+            almacenamiento.sede = binding.EditSede.selectedItem.toString()
             almacenamiento.ciudad = binding.Editciudad.text.toString()
             almacenamiento.marcaMotor = binding.EditMarcaMotor.text.toString()
             almacenamiento.marcaGenerador = binding.EditMarcaGen.text.toString()
@@ -259,12 +243,13 @@ class MainActivity : AppCompatActivity() {
             almacenamiento.promotionID = binding.EditPromotionID.text.toString()
             almacenamiento.fecha = binding.EditFecha.text.toString()
             almacenamiento.motivoVisita = binding.EditMotivoVisita.text.toString()
-            almacenamiento.imagen1 = downloadUri.toString()
 
             viewModel.GuardarAlmacenamiento(almacenamiento)
         })
 
     }
+
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
@@ -293,7 +278,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun descargarAlmacenamiento(almacenamiento: Almacenamiento){
         binding.Editciudad.setText(almacenamiento.sede)
-        binding.EditSede.setText(almacenamiento.sede)
+        //binding.EditSede.setText(almacenamiento.sede)
         binding.Editciudad.setText(almacenamiento.ciudad)
         binding.EditFecha.setText(almacenamiento.fecha)
         binding.EditOCliente.setText(almacenamiento.cliente)
@@ -338,89 +323,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun pruebas(ordenTrabajo: String){
+    /*private fun pruebas(ordenTrabajo: String){
         viewModel.prueba(ordenTrabajo)
-    }
+    }*/
 
     private fun cambioSheet2(){
         //val intent = Intent(this, ActivitySheet5::class.java)
         val intent = Intent(this, Sheet2Activity::class.java)
         startActivity(intent)
     }
-    private fun openCamera() {
-        //val camera = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        //startActivityForResult(camera, 1000)
-        val file = createImageFile()
-        filePath = if(Build.VERSION.SDK_INT  >= Build.VERSION_CODES.N){
-            FileProvider.getUriForFile(this,
-                "$packageName.provider",
-                file)
-            //
 
-        }else{
-            Uri.fromFile(file)
-        }
-
-        getContent.launch(filePath)
-        //
-
-    }
-    private fun createImageFile(): File {
-        val filename = "superhero_image"
-        val fileDIrectory = getExternalFilesDir(Environment.DIRECTORY_PICTURES)
-        val file = File.createTempFile(filename, ".jpg", fileDIrectory)
-        picturePath = file.absolutePath
-        return file
-    }
-    private fun launchGallery() {
-        val intent = Intent()
-        intent.type = "image/*"
-        intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST)
-    }
-
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == Activity.RESULT_OK) {
-            if(data == null || data.data == null){
-                return
-            }
-
-            filePath = data.data
-            try {
-                val bitmap = MediaStore.Images.Media.getBitmap(contentResolver, filePath)
-                heroImage.setImageBitmap(bitmap)
-            } catch (e: IOException) {
-                e.printStackTrace()
-            }
-        }
-    }
-
-    private fun uploadImage(){
-        if(filePath != null){
-            val ref = storageReference?.child("myImages/" + UUID.randomUUID().toString())
-            val uploadTask = ref?.putFile(filePath!!)
-            Toast.makeText(this, "Imagen Guardada", Toast.LENGTH_SHORT).show()
-            val urlTask = uploadTask?.continueWithTask { task ->
-                if (!task.isSuccessful) {
-                    task.exception?.let {
-                        throw it
-                    }
-                }
-                ref.downloadUrl
-            }?.addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    downloadUri = task.result
-                    println(downloadUri)
-                } else {
-                    // Handle failures
-                    // ...
-                }
-            }
-        }else{
-            Toast.makeText(this, "Please Upload an Image", Toast.LENGTH_SHORT).show()
-        }
-    }
     private fun checkTipoUbicacion(){
         binding.checkBoxCabina.setOnClickListener {
             binding.TextTipoUbicacion.setText("CABINA")
